@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
+import stagesV3 from "../stages/stages.v3.json";
 import stagesV2 from "../stages/stages.v2.json";
 import stagesLegacy from "../stages/stages.mvp.json";
 import { trackScreen } from "../analytics/logger";
@@ -27,14 +28,59 @@ const TDS = {
 
 const difficultyLabel = ["", "Very Easy", "Easy", "Normal", "Hard", "Very Hard"];
 
+type TabKey = "v3" | "v2" | "legacy";
+
+const v3List = stagesV3 as StageSpec[];
+const v2List = stagesV2 as StageSpec[];
+const legacyList = stagesLegacy as StageSpec[];
+
+const packLabels: Record<string, string> = {
+  "volume-hell": "Volume Hell",
+  "web-hell": "Web Hell",
+};
+
 export function StageListScreen() {
   const navigate = useNavigate();
-  const [showLegacy, setShowLegacy] = useState(false);
-  const stageList = (showLegacy ? stagesLegacy : stagesV2) as StageSpec[];
+  const [tab, setTab] = useState<TabKey>("v3");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterPack, setFilterPack] = useState<string>("all");
+  const [filterDifficulty, setFilterDifficulty] = useState<number>(0);
 
   useEffect(() => {
-    trackScreen("stage_list", { version: showLegacy ? "legacy" : "v2" });
-  }, [showLegacy]);
+    trackScreen("stage_list", { version: tab });
+  }, [tab]);
+
+  const baseList = tab === "v3" ? v3List : tab === "v2" ? v2List : legacyList;
+
+  const filteredList = useMemo(() => {
+    let list = baseList;
+
+    if (tab === "v3" && filterPack !== "all") {
+      list = list.filter((s) => s.packTag === filterPack);
+    }
+
+    if (filterDifficulty > 0) {
+      list = list.filter((s) => s.difficulty === filterDifficulty);
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      list = list.filter(
+        (s) =>
+          s.title.toLowerCase().includes(q) ||
+          s.id.toLowerCase().includes(q) ||
+          s.objective.toLowerCase().includes(q),
+      );
+    }
+
+    return list;
+  }, [baseList, tab, filterPack, filterDifficulty, searchQuery]);
+
+  const tabs: { key: TabKey; label: string; count: number }[] = [
+    { key: "v3", label: "V3 Packs", count: v3List.length },
+    { key: "v2", label: "V2", count: v2List.length },
+    { key: "legacy", label: "Legacy", count: legacyList.length },
+  ];
 
   return (
     <div
@@ -69,42 +115,108 @@ export function StageListScreen() {
         나쁜 UX를 직접 체험하고, 왜 나쁜지 배워보세요.
       </p>
 
-      {/* v2 / Legacy 토글 */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-        <button
-          onClick={() => setShowLegacy(false)}
-          style={{
-            padding: "8px 16px",
-            fontSize: 13,
-            fontWeight: 600,
-            border: `1px solid ${!showLegacy ? TDS.blue500 : TDS.grey200}`,
-            borderRadius: TDS.radius8,
-            background: !showLegacy ? TDS.blue500 : TDS.white,
-            color: !showLegacy ? TDS.white : TDS.grey700,
-            cursor: "pointer",
-          }}
-        >
-          v2 ({(stagesV2 as StageSpec[]).length})
-        </button>
-        <button
-          onClick={() => setShowLegacy(true)}
-          style={{
-            padding: "8px 16px",
-            fontSize: 13,
-            fontWeight: 600,
-            border: `1px solid ${showLegacy ? TDS.blue500 : TDS.grey200}`,
-            borderRadius: TDS.radius8,
-            background: showLegacy ? TDS.blue500 : TDS.white,
-            color: showLegacy ? TDS.white : TDS.grey700,
-            cursor: "pointer",
-          }}
-        >
-          Legacy ({(stagesLegacy as StageSpec[]).length})
-        </button>
+      {/* Version tabs */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+        {tabs.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => {
+              setTab(t.key);
+              setFilterPack("all");
+              setFilterDifficulty(0);
+              setSearchQuery("");
+            }}
+            style={{
+              padding: "8px 16px",
+              fontSize: 13,
+              fontWeight: 600,
+              border: `1px solid ${tab === t.key ? TDS.blue500 : TDS.grey200}`,
+              borderRadius: TDS.radius8,
+              background: tab === t.key ? TDS.blue500 : TDS.white,
+              color: tab === t.key ? TDS.white : TDS.grey700,
+              cursor: "pointer",
+            }}
+          >
+            {t.label} ({t.count})
+          </button>
+        ))}
       </div>
 
+      {/* Search */}
+      <input
+        type="text"
+        placeholder="스테이지 검색..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "10px 12px",
+          fontSize: 14,
+          border: `1px solid ${TDS.grey200}`,
+          borderRadius: TDS.radius8,
+          marginBottom: 10,
+          boxSizing: "border-box",
+          outline: "none",
+          fontFamily: TDS.fontFamily,
+        }}
+      />
+
+      {/* Filters (v3 only) */}
+      {tab === "v3" && (
+        <div style={{ display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
+          {/* Pack filter */}
+          <select
+            value={filterPack}
+            onChange={(e) => setFilterPack(e.target.value)}
+            style={{
+              padding: "6px 10px",
+              fontSize: 12,
+              border: `1px solid ${TDS.grey200}`,
+              borderRadius: TDS.radius8,
+              background: TDS.white,
+              color: TDS.grey700,
+              cursor: "pointer",
+            }}
+          >
+            <option value="all">All Packs</option>
+            {Object.entries(packLabels).map(([k, v]) => (
+              <option key={k} value={k}>
+                {v}
+              </option>
+            ))}
+          </select>
+
+          {/* Difficulty filter */}
+          <select
+            value={filterDifficulty}
+            onChange={(e) => setFilterDifficulty(Number(e.target.value))}
+            style={{
+              padding: "6px 10px",
+              fontSize: 12,
+              border: `1px solid ${TDS.grey200}`,
+              borderRadius: TDS.radius8,
+              background: TDS.white,
+              color: TDS.grey700,
+              cursor: "pointer",
+            }}
+          >
+            <option value={0}>All Difficulty</option>
+            {[1, 2, 3, 4, 5].map((d) => (
+              <option key={d} value={d}>
+                {difficultyLabel[d]}
+              </option>
+            ))}
+          </select>
+
+          <span style={{ fontSize: 12, color: TDS.grey500, alignSelf: "center" }}>
+            {filteredList.length}개
+          </span>
+        </div>
+      )}
+
+      {/* Stage list */}
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        {stageList.map((stage, index) => (
+        {filteredList.map((stage, index) => (
           <button
             key={stage.id}
             onClick={() => navigate(`/stage/${encodeURIComponent(stage.id)}`)}
@@ -152,6 +264,22 @@ export function StageListScreen() {
               >
                 {stage.objective}
               </div>
+              {tab === "v3" && stage.packTag && (
+                <span
+                  style={{
+                    display: "inline-block",
+                    marginTop: 4,
+                    padding: "2px 6px",
+                    fontSize: 10,
+                    fontWeight: 600,
+                    color: TDS.blue500,
+                    background: TDS.grey100,
+                    borderRadius: 4,
+                  }}
+                >
+                  {packLabels[stage.packTag] ?? stage.packTag}
+                </span>
+              )}
             </div>
             <span
               style={{

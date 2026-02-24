@@ -55,7 +55,11 @@ export function ResultScreen() {
     if (spec && stageId) {
       trackScreen("result_screen", { stage_id: stageId, cleared });
       if (result) {
-        trackStageEnd(stageId, spec.type, spec.difficulty, result.cleared, result.elapsedMs);
+        const extra: Record<string, string | number | boolean> = {};
+        if (spec.packTag) extra.pack_tag = spec.packTag;
+        if (spec.patternTag) extra.pattern_tag = spec.patternTag;
+        if (spec.sourceTag) extra.source_tag = spec.sourceTag;
+        trackStageEnd(stageId, spec.type, spec.difficulty, result.cleared, result.elapsedMs, extra);
       }
     }
   }, [spec, stageId, cleared, result]);

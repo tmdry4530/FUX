@@ -1,17 +1,19 @@
 import type { StageSpec } from "./stage-spec";
+import stagesV3 from "./stages.v3.json";
 import stagesV2 from "./stages.v2.json";
 import stagesLegacy from "./stages.mvp.json";
 
-export type StageVersion = "v2" | "legacy";
+export type StageVersion = "v3" | "v2" | "legacy";
 
 export interface StageResult {
   stage: StageSpec;
   version: StageVersion;
 }
 
+const v3 = stagesV3 as StageSpec[];
 const v2 = stagesV2 as StageSpec[];
 const legacy = stagesLegacy as StageSpec[];
-const allStages: StageSpec[] = [...v2, ...legacy];
+const allStages: StageSpec[] = [...v3, ...v2, ...legacy];
 
 /**
  * Lookup a stage by raw ID.
@@ -26,6 +28,9 @@ export function findStageById(rawId: string | undefined): StageResult | null {
   } catch {
     id = rawId.trim();
   }
+
+  const v3Match = v3.find((s) => s.id === id);
+  if (v3Match) return { stage: v3Match, version: "v3" };
 
   const v2Match = v2.find((s) => s.id === id);
   if (v2Match) return { stage: v2Match, version: "v2" };

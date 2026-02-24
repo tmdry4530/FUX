@@ -62,9 +62,13 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
   // Analytics: stage start
   React.useEffect(() => {
     if (phase === "PLAYING") {
-      trackStageStart(spec.id, spec.type, spec.difficulty);
+      const extra: Record<string, string | number | boolean> = {};
+      if (spec.packTag) extra.pack_tag = spec.packTag;
+      if (spec.patternTag) extra.pattern_tag = spec.patternTag;
+      if (spec.sourceTag) extra.source_tag = spec.sourceTag;
+      trackStageStart(spec.id, spec.type, spec.difficulty, extra);
     }
-  }, [phase, spec.id, spec.type, spec.difficulty]);
+  }, [phase, spec.id, spec.type, spec.difficulty, spec.packTag, spec.patternTag, spec.sourceTag]);
 
   // Navigate to result screen via useEffect to avoid calling navigate during render
   const shouldNavigate = !!result;
