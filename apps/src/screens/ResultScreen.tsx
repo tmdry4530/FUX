@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
 import type { StageResult } from "../engine/types";
-import stages from "../stages/stages.mvp.json";
+import { findStageById } from "../stages/findStage";
 import memeCopies from "../stages/meme-copies.merged.json";
 import { AdGate } from "../ads/AdGate";
 import { useShare } from "../share/useShare";
@@ -34,7 +34,7 @@ export function ResultScreen() {
   const { stageId } = useParams<{ stageId: string }>();
   const navigate = useNavigate();
   const location = useLocation();
-  const spec = (stages as StageSpec[]).find((s) => s.id === stageId);
+  const spec = findStageById(stageId)?.stage as StageSpec | undefined;
   const result = location.state as StageResult | null;
   const { shareStage } = useShare();
 

@@ -107,7 +107,7 @@ export function StageListScreen() {
         {stageList.map((stage, index) => (
           <button
             key={stage.id}
-            onClick={() => navigate(`/stage/${stage.id}`)}
+            onClick={() => navigate(`/stage/${encodeURIComponent(stage.id)}`)}
             style={{
               display: "flex",
               alignItems: "center",
