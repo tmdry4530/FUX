@@ -65,7 +65,7 @@ export function useAd(adGroupId: string): UseAdReturn {
   }, [adGroupId]);
 
   const showAd = useCallback((): Promise<boolean> => {
-    if (!loadFullScreenAd.isSupported()) {
+    if (!showFullScreenAd.isSupported()) {
       return Promise.resolve(false);
     }
 

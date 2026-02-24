@@ -1,7 +1,16 @@
+import { useMemo } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
 import type { StageResult } from "../engine/types";
 import stages from "../stages/stages.mvp.json";
+import memeCopies from "../stages/meme-copies.merged.json";
+
+function getRandomMemeCopy(stageId: string): string | undefined {
+  const copies = memeCopies.filter((c) => c.stageId === stageId);
+  if (copies.length === 0) return undefined;
+  const pick = copies[Math.floor(Math.random() * copies.length)];
+  return pick?.resultScreenCopy;
+}
 
 export function ResultScreen() {
   const { stageId } = useParams<{ stageId: string }>();
@@ -9,6 +18,13 @@ export function ResultScreen() {
   const location = useLocation();
   const spec = (stages as StageSpec[]).find((s) => s.id === stageId);
   const result = location.state as StageResult | null;
+
+  // 1순위: spec.memeCaption, 2순위: merged JSON에서 랜덤 fallback
+  const memeText = useMemo(() => {
+    if (spec?.memeCaption) return spec.memeCaption;
+    if (stageId) return getRandomMemeCopy(stageId);
+    return undefined;
+  }, [spec, stageId]);
 
   if (!spec) {
     return (
@@ -57,7 +73,7 @@ export function ResultScreen() {
           maxWidth: 320,
         }}
       >
-        {spec.memeCaption}
+        {memeText ?? spec.memeCaption}
       </p>
 
       {/* Stats */}
