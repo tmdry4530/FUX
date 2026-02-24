@@ -228,3 +228,97 @@ added:     apps/src/analytics/logger.ts                 (Analytics 어댑터)
 modified:  docs/FINAL_RC_REPORT.md                      (Risk Closure 섹션)
 modified:  docs/DEVICE_TEST_SCRIPT.md                   (딥링크/분석 검증 추가)
 ```
+
+---
+
+## 9. V2 20레벨 리빌드 (2026-02-24)
+
+### 9.1 변경 개요
+
+MVP 3타입/10레벨 체계를 유지하면서, 신규 7개 StageType + 20레벨을 v2 메인으로 교체.
+
+### 9.2 신규 StageType (7개)
+
+| StageType | 설명 | 다크패턴 분류 |
+|-----------|------|-------------|
+| `roach_motel_flow` | 구독 해지 시 5단계 방해 플로우 + CANCEL 타이핑 | Roach Motel |
+| `consent_toggle_labour` | 개인정보 토글 수동 해제 노동 (전체거부 버튼 없음) | Privacy Zuckering |
+| `hidden_reject_link` | 거절 링크를 투명도/위치로 숨김 | Misdirection |
+| `disguised_cta_grid` | 콘텐츠와 위장 CTA 구분 (SIMULATION 배지 표시) | Disguised Ad |
+| `picker_no_search` | 200개+ 항목 검색 없이 스크롤만으로 찾기 | Obstruction |
+| `state_feedback_broken` | 폼 제출 후 피드백 없음 (중복 제출 유도) | Broken Feedback |
+| `label_ambiguity` | "OK"가 삭제, 저장 아이콘이 삭제 등 혼란 | Ambiguity |
+
+### 9.3 StageSpec v2 확장 필드
+
+```typescript
+sourceTag?: string;    // 다크패턴 출처 (예: "adobe", "amazon")
+patternTag?: string;   // 패턴 분류 (예: "roach-motel", "misdirection")
+safety?: string;       // 안전장치 설명
+mechanicNotes?: string; // 메카닉 구현 노트
+```
+
+### 9.4 렌더러 구현 (7개)
+
+| 파일 | 핵심 메카닉 |
+|------|-----------|
+| `RoachMotelFlowStage.tsx` | 5단계 해지 플로우, 각 단계에서 유지 유혹, 마지막에 CANCEL 타이핑 |
+| `ConsentToggleLabourStage.tsx` | N개 토글 수동 해제, 필수 항목 잠금, "모두 허용" 트랩 |
+| `HiddenRejectLinkStage.tsx` | 거절 링크 투명도/위치 변형, 화려한 CTA로 시선 유도 |
+| `DisguisedCtaGridStage.tsx` | 콘텐츠/위장CTA 그리드, 3회 실수 시 실패, SIMULATION 배지 |
+| `PickerNoSearchStage.tsx` | 200개 아이템 스크롤 리스트, 검색 없음, 3회 오선택 시 실패 |
+| `StateFeedbackBrokenStage.tsx` | 폼 제출 후 시각적 피드백 없음, View Status로 확인해야 성공 |
+| `LabelAmbiguityStage.tsx` | 모호한 버튼 레이블/아이콘 다이얼로그 연속 판단 |
+
+### 9.5 20레벨 분배
+
+| 타입 | 레벨 수 | 난이도 범위 |
+|------|---------|-----------|
+| roach_motel_flow | 3 | 2-4 |
+| consent_toggle_labour | 3 | 2-4 |
+| hidden_reject_link | 3 | 2-5 |
+| disguised_cta_grid | 3 | 2-5 |
+| picker_no_search | 3 | 2-4 |
+| state_feedback_broken | 3 | 3-4 |
+| label_ambiguity | 2 | 3-4 |
+
+### 9.6 UI 변경
+
+- `StageListScreen.tsx`: v2(20레벨) 기본 표시, Legacy(10레벨) 토글로 전환 가능
+- 난이도 라벨: Very Easy ~ Very Hard (5단계)
+- 난이도 4 이상은 빨간색으로 강조
+
+### 9.7 빌드 결과
+
+```
+$ npm run build
+> tsc -b && vite build
+✓ 56 modules transformed.
+dist/index.html                   0.43 kB │ gzip:  0.29 kB
+dist/assets/index-Cpn5LoOz.css    0.69 kB │ gzip:  0.41 kB
+dist/assets/index-BsEr_Gke.js   238.80 kB │ gzip: 77.42 kB
+✓ built in 920ms
+```
+
+- tsc: 0 errors
+- vite build: 성공
+- 번들 사이즈: 239KB (gzip 77KB) - MVP 대비 +52KB (7개 렌더러 추가)
+
+### 9.8 V2 리빌드 파일 변경
+
+```
+modified:  apps/src/stages/stage-spec.ts                (7개 신규 StageType + v2 메타데이터 필드)
+added:     apps/src/stages/stages.v2.json               (20레벨 데이터셋)
+modified:  apps/src/renderers/register.tsx               (7개 v2 렌더러 등록)
+added:     apps/src/renderers/RoachMotelFlowStage.tsx
+added:     apps/src/renderers/ConsentToggleLabourStage.tsx
+added:     apps/src/renderers/HiddenRejectLinkStage.tsx
+added:     apps/src/renderers/DisguisedCtaGridStage.tsx
+added:     apps/src/renderers/PickerNoSearchStage.tsx
+added:     apps/src/renderers/StateFeedbackBrokenStage.tsx
+added:     apps/src/renderers/LabelAmbiguityStage.tsx
+modified:  apps/src/screens/StageListScreen.tsx          (v2/Legacy 토글)
+modified:  apps/src/analytics/logger.ts                  (sourceTag/patternTag 지원)
+modified:  docs/SUBMISSION_SUMMARY.md                    (시뮬레이션 안전장치 원칙 추가)
+modified:  docs/FINAL_RC_REPORT.md                       (V2 리빌드 섹션 추가)
+```

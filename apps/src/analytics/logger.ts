@@ -67,8 +67,18 @@ export function trackImpression(logName: string, params: AnalyticsParams = {}) {
 
 // --- Convenience wrappers ---
 
-export function trackStageStart(stageId: string, stageType: string, difficulty: number) {
-  trackClick("stage_start", { stage_id: stageId, stage_type: stageType, difficulty });
+export function trackStageStart(
+  stageId: string,
+  stageType: string,
+  difficulty: number,
+  extra?: AnalyticsParams,
+) {
+  trackClick("stage_start", {
+    stage_id: stageId,
+    stage_type: stageType,
+    difficulty,
+    ...extra,
+  });
 }
 
 export function trackStageEnd(
@@ -77,6 +87,7 @@ export function trackStageEnd(
   difficulty: number,
   success: boolean,
   durationMs: number,
+  extra?: AnalyticsParams,
 ) {
   trackClick("stage_end", {
     stage_id: stageId,
@@ -84,6 +95,7 @@ export function trackStageEnd(
     difficulty,
     success,
     duration_ms: durationMs,
+    ...extra,
   });
 }
 

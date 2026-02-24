@@ -1,6 +1,18 @@
-export type StageType = "tiny_button" | "moving_target" | "modal_stack";
+export type StageType =
+  // v1 (legacy)
+  | "tiny_button"
+  | "moving_target"
+  | "modal_stack"
+  // v2
+  | "roach_motel_flow"
+  | "consent_toggle_labour"
+  | "hidden_reject_link"
+  | "disguised_cta_grid"
+  | "picker_no_search"
+  | "state_feedback_broken"
+  | "label_ambiguity";
 
-export interface StageSpec<TParams = Record<string, any>> {
+export interface StageSpec<TParams = Record<string, unknown>> {
   id: string;
   type: StageType;
 
@@ -18,6 +30,12 @@ export interface StageSpec<TParams = Record<string, any>> {
   allowHint: boolean;
   allowSkip: boolean;
   hintText?: string;
+
+  // v2 metadata (optional)
+  sourceTag?: string;
+  patternTag?: string;
+  safety?: string;
+  mechanicNotes?: string;
 
   // Stage-type-specific parameters
   params: TParams;
