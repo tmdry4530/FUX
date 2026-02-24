@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
 import type { StageResult } from "../engine/types";
 import stages from "../stages/stages.mvp.json";
 import memeCopies from "../stages/meme-copies.merged.json";
+import { AdGate } from "../ads/AdGate";
 
 function getRandomMemeCopy(stageId: string): string | undefined {
   const copies = memeCopies.filter((c) => c.stageId === stageId);
@@ -18,6 +19,9 @@ export function ResultScreen() {
   const location = useLocation();
   const spec = (stages as StageSpec[]).find((s) => s.id === stageId);
   const result = location.state as StageResult | null;
+
+  const [adTrigger, setAdTrigger] = useState(false);
+  const [pendingNavigation, setPendingNavigation] = useState<string | null>(null);
 
   // 1순위: spec.memeCaption, 2순위: merged JSON에서 랜덤 fallback
   const memeText = useMemo(() => {
@@ -126,7 +130,10 @@ export function ResultScreen() {
       {/* Actions */}
       <div style={{ display: "flex", gap: 12 }}>
         <button
-          onClick={() => navigate(`/stage/${spec.id}`, { replace: true })}
+          onClick={() => {
+            setPendingNavigation(`/stage/${spec.id}`);
+            setAdTrigger(true);
+          }}
           style={{
             padding: "12px 24px",
             fontSize: 14,
@@ -141,7 +148,10 @@ export function ResultScreen() {
           다시 도전
         </button>
         <button
-          onClick={() => navigate("/", { replace: true })}
+          onClick={() => {
+            setPendingNavigation("/");
+            setAdTrigger(true);
+          }}
           style={{
             padding: "12px 24px",
             fontSize: 14,
@@ -156,6 +166,22 @@ export function ResultScreen() {
           목록으로
         </button>
       </div>
+
+      {/* AdGate: 결과 화면 전환 시에만 광고 표시 */}
+      <AdGate
+        trigger={adTrigger}
+        rewarded={false}
+        onComplete={() => {
+          if (pendingNavigation) {
+            navigate(pendingNavigation, { replace: true });
+          }
+        }}
+        onSkip={() => {
+          if (pendingNavigation) {
+            navigate(pendingNavigation, { replace: true });
+          }
+        }}
+      />
     </div>
   );
 }
