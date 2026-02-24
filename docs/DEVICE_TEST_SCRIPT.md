@@ -69,6 +69,39 @@
 | 5.4 | 공유 링크 클릭 시 **해당 스테이지로 진입** | [ ] |
 | 5.5 | OG 이미지가 공유 카드에 표시됨 (배포 환경) | [ ] |
 
+### 6. 딥링크 검증 (3분)
+
+| # | 체크 항목 | 결과 |
+|---|----------|------|
+| 6.1 | 공유 링크(`intoss://fuck-ux/stage/{stageId}`)로 Toss 앱 진입 시 해당 스테이지로 이동 | [ ] |
+| 6.2 | `?stageId=xxx` query param으로 접근 시 `/stage/xxx`로 리다이렉트 | [ ] |
+| 6.3 | 존재하지 않는 stageId로 진입 시 "스테이지를 찾을 수 없습니다" 표시 + "목록으로" 버튼 동작 | [ ] |
+| 6.4 | 잘못된 경로(`/invalid/path`)로 접근 시 Home 화면으로 안전 이동 | [ ] |
+| 6.5 | 로컬 콘솔에서 `[FUX:Deeplink] query param redirect` 로그 확인 (query param 사용 시) | [ ] |
+
+> **검증 방법**: Toss 앱에서 공유 링크를 생성한 후, 다른 기기/계정에서 해당 링크를 클릭하여 진입 확인.
+> 로컬 테스트: `http://localhost:4173/?stageId=tiny_button_01` 접속하여 리다이렉트 확인.
+
+### 7. 분석 이벤트 검증 (3분)
+
+> 로컬 환경에서는 브라우저 콘솔(`[FUX:Analytics:...]`)로, 실기기에서는 Toss 분석 대시보드로 확인합니다.
+
+| # | 체크 항목 | 이벤트 | 결과 |
+|---|----------|--------|------|
+| 7.1 | 스테이지 목록 화면 진입 시 screen 이벤트 | `stage_list` | [ ] |
+| 7.2 | 스테이지 플레이 화면 진입 시 screen 이벤트 | `stage_play` | [ ] |
+| 7.3 | "시작하기" 클릭 시 click 이벤트 | `stage_start` | [ ] |
+| 7.4 | 결과 화면 진입 시 screen + click 이벤트 | `result_screen` + `stage_end` | [ ] |
+| 7.5 | 공유 버튼 클릭 시 click 이벤트 | `share_click` | [ ] |
+| 7.6 | 광고 로드 시 impression 이벤트 (Toss 환경) | `ad_event(ad_loaded)` | [ ] |
+| 7.7 | 광고 노출 시 impression 이벤트 (Toss 환경) | `ad_event(impression)` | [ ] |
+
+> **로컬 검증 방법**:
+> 1. `npm run build && npm run preview`
+> 2. 브라우저 DevTools Console 열기
+> 3. 스테이지 목록 → 스테이지 플레이 → 결과 화면 순서로 이동
+> 4. `[FUX:Analytics:...]` 로그가 올바른 payload와 함께 출력되는지 확인
+
 ---
 
 ## 엣지 케이스

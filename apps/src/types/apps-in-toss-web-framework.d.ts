@@ -53,4 +53,12 @@ declare module "@apps-in-toss/web-framework" {
     url: string,
     ogImageUrl?: string
   ): Promise<string>;
+
+  // --- Analytics ---
+
+  export const Analytics: {
+    click(params: { log_name: string } & Record<string, unknown>): void;
+    screen(params: { log_name: string } & Record<string, unknown>): void;
+    impression(params: { log_name: string } & Record<string, unknown>): void;
+  };
 }

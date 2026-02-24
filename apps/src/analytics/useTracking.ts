@@ -1,12 +1,10 @@
 import { useCallback } from "react";
 import type { AnalyticsEvent } from "./events";
-
-const isDev = import.meta.env.DEV;
+import { trackClick } from "./logger";
 
 /**
  * 이벤트 트래킹 훅
- * - 개발 환경: console 로깅
- * - 프로덕션: 추후 실제 분석 서비스 연동 확장 포인트
+ * - logger.ts 어댑터를 통해 Toss Analytics API 또는 console.log로 전송
  */
 export function useTracking() {
   const trackEvent = useCallback((event: Omit<AnalyticsEvent, "timestamp">) => {
@@ -15,12 +13,8 @@ export function useTracking() {
       timestamp: new Date().toISOString(),
     } as AnalyticsEvent;
 
-    if (isDev) {
-      console.log("[FuckUX:Track]", fullEvent.type, fullEvent);
-    }
-
-    // TODO: 프로덕션 분석 서비스 연동
-    // e.g. sendToAnalytics(fullEvent);
+    // logger.ts 어댑터로 전송 (Toss 환경: Analytics API, 로컬: console.log)
+    trackClick(fullEvent.type, fullEvent as unknown as Record<string, string | number | boolean>);
   }, []);
 
   return { trackEvent };

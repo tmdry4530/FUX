@@ -4,6 +4,7 @@ import type { StageSpec } from "../stages/stage-spec";
 import stages from "../stages/stages.mvp.json";
 import { useStageRunner } from "../engine/useStageRunner";
 import { StageRenderer } from "../engine/StageRenderer";
+import { trackStageStart, trackScreen } from "../analytics/logger";
 
 export function StagePlayScreen() {
   const { stageId } = useParams<{ stageId: string }>();
@@ -26,6 +27,18 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
   const navigate = useNavigate();
   const { phase, remainingMs, start, succeed, miss, result } =
     useStageRunner(spec);
+
+  // Analytics: screen view
+  React.useEffect(() => {
+    trackScreen("stage_play", { stage_id: spec.id, stage_type: spec.type });
+  }, [spec.id, spec.type]);
+
+  // Analytics: stage start
+  React.useEffect(() => {
+    if (phase === "PLAYING") {
+      trackStageStart(spec.id, spec.type, spec.difficulty);
+    }
+  }, [phase, spec.id, spec.type, spec.difficulty]);
 
   // Navigate to result screen via useEffect to avoid calling navigate during render
   const shouldNavigate = !!result;

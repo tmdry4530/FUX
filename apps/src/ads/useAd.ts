@@ -3,6 +3,7 @@ import {
   loadFullScreenAd,
   showFullScreenAd,
 } from "@apps-in-toss/web-framework";
+import { trackAdEvent } from "../analytics/logger";
 
 interface UseAdReturn {
   isLoaded: boolean;
@@ -52,12 +53,14 @@ export function useAd(adGroupId: string): UseAdReturn {
       options: { adGroupId },
       onEvent: (event) => {
         if (unmountedRef.current) return;
+        trackAdEvent("ad_loaded", adGroupId, false);
         if (event.type === "loaded") {
           setIsLoaded(true);
         }
       },
       onError: (err) => {
         if (unmountedRef.current) return;
+        trackAdEvent("ad_load_error", adGroupId, false);
         setError(String(err));
         setIsLoaded(false);
       },
@@ -92,10 +95,13 @@ export function useAd(adGroupId: string): UseAdReturn {
             return;
           }
 
+          trackAdEvent(event.type, adGroupId, rewarded);
+
           switch (event.type) {
             case "userEarnedReward":
               rewarded = true;
               setLastReward(true);
+              trackAdEvent("ad_reward", adGroupId, true, true);
               break;
             case "dismissed":
               setIsShowing(false);
