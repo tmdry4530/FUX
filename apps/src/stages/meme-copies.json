@@ -1,0 +1,52 @@
+[
+  {
+    "stageId": "mvp_001_tiny_x",
+    "shareCardCopy": "X가 먼지인가요?",
+    "resultScreenCopy": "10px 버튼 누르려다 액정 뚫을 뻔"
+  },
+  {
+    "stageId": "mvp_002_moving_continue",
+    "shareCardCopy": "쫓고 쫓기는 추격전",
+    "resultScreenCopy": "계속 버튼이랑 나 잡아봐라 하는 중"
+  },
+  {
+    "stageId": "mvp_003_modal_stack_3",
+    "shareCardCopy": "마트료시카 팝업",
+    "resultScreenCopy": "닫았는데 또 나와? 언제까지 나오는 거야"
+  },
+  {
+    "stageId": "mvp_004_tiny_checkbox",
+    "shareCardCopy": "터치펜 필수",
+    "resultScreenCopy": "내 손가락이 두꺼운 게 아니라 버튼이 작음"
+  },
+  {
+    "stageId": "mvp_005_moving_x_jitter",
+    "shareCardCopy": "버튼에 지진 났어요",
+    "resultScreenCopy": "수전증 테스트인 줄 알았네. 그만 좀 떨어!"
+  },
+  {
+    "stageId": "mvp_006_modal_wrong_close_adds_one",
+    "shareCardCopy": "증식하는 팝업",
+    "resultScreenCopy": "닫기 실수 한 번에 팝업이 복사되는 매직"
+  },
+  {
+    "stageId": "mvp_007_tiny_radio_in_list",
+    "shareCardCopy": "숨은 동그라미 찾기",
+    "resultScreenCopy": "이 작은 버튼을 정확히 맞혀야 통과라니"
+  },
+  {
+    "stageId": "mvp_008_moving_appears_late",
+    "shareCardCopy": "밀당의 고수 버튼",
+    "resultScreenCopy": "기다리다 지쳐서 뒤로가기 누를 뻔했네"
+  },
+  {
+    "stageId": "mvp_009_modal_requires_scroll",
+    "shareCardCopy": "숨바꼭질 닫기 버튼",
+    "resultScreenCopy": "스크롤 끝까지 내려야 닫아주는 깐깐함 무엇"
+  },
+  {
+    "stageId": "mvp_010_moving_with_reaction_delay",
+    "shareCardCopy": "렉 걸린 줄 알았네",
+    "resultScreenCopy": "터치 안 된 줄 알고 분노의 광클했잖아"
+  }
+]

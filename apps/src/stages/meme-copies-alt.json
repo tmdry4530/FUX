@@ -1,0 +1,52 @@
+[
+  {
+    "stageId": "mvp_001_tiny_x",
+    "shareCardCopy": "시력 2.0만 클릭 가능",
+    "resultScreenCopy": "이거 누르려다 돋보기 어플 켰잖아"
+  },
+  {
+    "stageId": "mvp_002_moving_continue",
+    "shareCardCopy": "버튼이 도망가는데요?",
+    "resultScreenCopy": "내 손가락이랑 술래잡기하는 줄;;"
+  },
+  {
+    "stageId": "mvp_003_modal_stack_3",
+    "shareCardCopy": "까도 까도 또 나오네",
+    "resultScreenCopy": "양파도 아니고 팝업이 왜 계속 나와"
+  },
+  {
+    "stageId": "mvp_004_tiny_checkbox",
+    "shareCardCopy": "내 손가락 다이어트 시급",
+    "resultScreenCopy": "현미경 가져와야 체크 가능한 부분?"
+  },
+  {
+    "stageId": "mvp_005_moving_x_jitter",
+    "shareCardCopy": "버튼이 탭댄스 추는 중",
+    "resultScreenCopy": "버튼아 추우면 말을 해 덜덜 떨지 말고"
+  },
+  {
+    "stageId": "mvp_006_modal_wrong_close_adds_one",
+    "shareCardCopy": "아메바급 세포 분열 중",
+    "resultScreenCopy": "히드라도 아니고 자꾸 머리가 자라나요"
+  },
+  {
+    "stageId": "mvp_007_tiny_radio_in_list",
+    "shareCardCopy": "바늘구멍 통과하기",
+    "resultScreenCopy": "스나이퍼 빙의해서 숨참고 클릭함"
+  },
+  {
+    "stageId": "mvp_008_moving_appears_late",
+    "shareCardCopy": "한국인이 싫어하는 속도",
+    "resultScreenCopy": "기다리다 숨 넘어갈 뻔한 K-성격"
+  },
+  {
+    "stageId": "mvp_009_modal_requires_scroll",
+    "shareCardCopy": "강제 독서 타임 시작",
+    "resultScreenCopy": "다 안 내리면 절대 안 놔주는 집착광공"
+  },
+  {
+    "stageId": "mvp_010_moving_with_reaction_delay",
+    "shareCardCopy": "내 터치 무시당함?",
+    "resultScreenCopy": "버튼이 내 클릭을 안읽씹하고 있어요"
+  }
+]
