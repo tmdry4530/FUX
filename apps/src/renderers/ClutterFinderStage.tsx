@@ -14,11 +14,18 @@ interface ClutterFinderStageProps {
   onFail: () => void;
 }
 
+const TARGET_LABELS = ["저장하기", "신청하기", "다음", "확인", "제출", "완료", "동의하기", "시작하기"];
+
+function pickRandomTarget(): string {
+  return TARGET_LABELS[Math.floor(Math.random() * TARGET_LABELS.length)] ?? "저장하기";
+}
+
 export default function ClutterFinderStage({
   params,
   onComplete,
   onFail,
 }: ClutterFinderStageProps) {
+  const [randomTarget] = useState(() => pickRandomTarget());
   const [wrongClicks, setWrongClicks] = useState(0);
 
   const handleWrongClick = useCallback(() => {
@@ -50,7 +57,7 @@ export default function ClutterFinderStage({
 
       let label = "";
       if (isTarget) {
-        label = params.targetLabel;
+        label = randomTarget;
       } else {
         const decoyLabels = [
           "추천 상품 보기",
@@ -84,7 +91,7 @@ export default function ClutterFinderStage({
     }
 
     return elements;
-  }, [params.clutterItems, params.targetLabel, params.mode]);
+  }, [params.clutterItems, randomTarget, params.mode]);
 
   const containerHeight = `${params.scrollHeight * 100}vh`;
 

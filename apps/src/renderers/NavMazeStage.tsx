@@ -22,11 +22,18 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
+const TARGET_ACTIONS = ["메시지 보내기", "파일 업로드", "일정 만들기", "팀 추가", "설정 변경", "알림 확인", "보고서 생성"];
+
+function pickRandomAction(): string {
+  return TARGET_ACTIONS[Math.floor(Math.random() * TARGET_ACTIONS.length)] ?? "메시지 보내기";
+}
+
 export default function NavMazeStage({
   params,
   onComplete,
   onFail,
 }: NavMazeStageProps) {
+  const [randomAction] = useState(() => pickRandomAction());
   const [currentPath, setCurrentPath] = useState<number[]>([]);
   const [wrongPathCount, setWrongPathCount] = useState(0);
   const [filterValues, setFilterValues] = useState<Record<string, string>>({});
@@ -52,7 +59,7 @@ export default function NavMazeStage({
       if (depth === 0) {
         return [
           {
-            label: params.targetAction,
+            label: randomAction,
             isTarget: true,
           },
         ];
@@ -89,7 +96,7 @@ export default function NavMazeStage({
     };
 
     return buildTree(params.menuDepth, true);
-  }, [params.menuDepth, params.misleadingMenus, params.targetAction]);
+  }, [params.menuDepth, params.misleadingMenus, randomAction]);
 
   const getCurrentMenu = useCallback((): MenuItem[] => {
     let current = menuTree;
@@ -395,7 +402,7 @@ export default function NavMazeStage({
             fontWeight: "500",
           }}
         >
-          목표: {params.targetAction}
+          목표: {randomAction}
         </div>
         <div style={{ fontSize: "14px", color: "#8B95A1", marginTop: "8px" }}>
           왼쪽 메뉴에서 올바른 경로를 찾아 이동하세요.

@@ -11,6 +11,11 @@ export interface VolumeControlParams {
   hideOnOutMs?: number;
 }
 
+/** Generate a random target volume between 15 and 85 (changes each mount) */
+function randomTarget(): number {
+  return Math.floor(Math.random() * 71) + 15; // 15-85
+}
+
 export default function VolumeControlStage({
   params,
   onComplete,
@@ -20,6 +25,7 @@ export default function VolumeControlStage({
   onComplete: () => void;
   onFail: () => void;
 }) {
+  const [target] = useState(() => randomTarget());
   const [volume, setVolume] = useState(50);
   const [isHovering, setIsHovering] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -40,17 +46,16 @@ export default function VolumeControlStage({
 
   const targetPuzzle = [1, 3, 2, 4]; // solution for puzzle_lock
 
-  // Check win condition
+  // Check win condition (use randomized target)
   useEffect(() => {
-    const diff = Math.abs(volume - params.targetVolume);
+    const diff = Math.abs(volume - target);
     if (diff <= params.tolerance) {
       onComplete();
     }
-  }, [volume, params.targetVolume, params.tolerance, onComplete]);
+  }, [volume, target, params.tolerance, onComplete]);
 
   // Track overshoots
   const checkOvershoot = useCallback((newVolume: number) => {
-    const target = params.targetVolume;
     const tolerance = params.tolerance;
     const overshot = Math.abs(newVolume - target) > tolerance &&
                      ((volume < target && newVolume > target + tolerance) ||
@@ -63,7 +68,7 @@ export default function VolumeControlStage({
         onFail();
       }
     }
-  }, [volume, params.targetVolume, params.tolerance, overshootCount, onFail]);
+  }, [volume, target, params.tolerance, overshootCount, onFail]);
 
   // Mode-specific handlers
   const handleHoverSlider = useCallback((clientX: number) => {
@@ -622,7 +627,7 @@ export default function VolumeControlStage({
           목표 볼륨
         </div>
         <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#191F28', marginBottom: '8px' }}>
-          {params.targetVolume}
+          {target}
         </div>
         <div style={{ fontSize: '14px', color: '#8B95A1' }}>
           (±{params.tolerance} 허용)

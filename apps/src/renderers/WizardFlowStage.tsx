@@ -16,11 +16,18 @@ interface WizardFlowStageProps {
   onFail: () => void;
 }
 
+function randomStepCount(base: number): number {
+  const min = Math.max(4, base - 2);
+  const max = base + 3;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 export default function WizardFlowStage({
   params,
   onComplete,
   onFail,
 }: WizardFlowStageProps) {
+  const [totalSteps] = useState(() => randomStepCount(params.stepCount));
   const [currentStep, setCurrentStep] = useState(1);
   const [resetCount, setResetCount] = useState(0);
   const [decoyClickCount, setDecoyClickCount] = useState(0);
@@ -64,7 +71,7 @@ export default function WizardFlowStage({
       return;
     }
 
-    if (currentStep >= params.stepCount) {
+    if (currentStep >= totalSteps) {
       onComplete();
     } else {
       setCurrentStep((prev) => prev + 1);
@@ -75,7 +82,7 @@ export default function WizardFlowStage({
   }, [
     hasScrolled,
     currentStep,
-    params.stepCount,
+    totalSteps,
     params.requiredFields,
     params.mode,
     agreedToTerms,
@@ -133,7 +140,7 @@ export default function WizardFlowStage({
       >
         <div
           style={{
-            width: `${(currentStep / params.stepCount) * 100}%`,
+            width: `${(currentStep / totalSteps) * 100}%`,
             height: "100%",
             backgroundColor: "#3182F6",
             transition: "width 0.3s",
@@ -159,7 +166,7 @@ export default function WizardFlowStage({
         >
           {params.mode === "government_portal"
             ? "민원 신청서 작성"
-            : `Step ${currentStep} of ${params.stepCount}`}
+            : `Step ${currentStep} of ${totalSteps}`}
         </div>
         <div style={{ fontSize: "14px", color: "#8B95A1" }}>
           {params.mode === "government_portal"
