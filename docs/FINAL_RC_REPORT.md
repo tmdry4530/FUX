@@ -112,7 +112,26 @@ $ npm run preview
 
 ---
 
-## 6. 파일 변경 목록
+## 6. Device Validation (정적 코드 분석)
+
+> DEVICE_TEST_SCRIPT.md 기준 6개 핵심 항목을 코드 리뷰로 검증 (2026-02-24)
+
+| # | 항목 | 결과 | 근거 |
+|---|------|------|------|
+| 1 | 첫 진입 interstitial 없음 | PASS | `App.tsx` - 광고 import 없음. `StageListScreen.tsx` - 광고 코드 없음. `AdGate.tsx:51` - `isFirstEntry` 가드로 첫 진입 차단 |
+| 2 | Stage 중 광고 없음 | PASS | `StagePlayScreen.tsx` - AdGate 미사용. 3개 렌더러 모두 광고 코드 없음 |
+| 3 | 전환 지점에서만 interstitial | PASS | `AdGate.tsx` - trigger prop 기반, isFirstEntry 가드, 에러 시 onSkip fallback |
+| 4 | Rewarded opt-in + 완료 시 보상 | PASS | `useAd.ts:96-98` - `userEarnedReward`에서만 `rewarded=true`. `AdGate.tsx:9` - rewarded prop으로 opt-in 구분 |
+| 5 | 언제든 back/quit 가능 | PASS | `App.tsx` - 네비게이션 가드 없음. `StagePlayScreen.tsx:63-74` - "← 목록" 버튼 상시 표시. 10개 스테이지 모두 `allowSkip: true` |
+| 6 | 공유 링크가 해당 레벨로 진입 | PASS | `useShare.ts:4` - `intoss://fuck-ux/stage/{stageId}` 딥링크. `App.tsx:10` - `/stage/:stageId` 라우트 매핑 확인 |
+
+**결론**: 6/6 항목 PASS. 코드 패치 불필요.
+
+**참고**: AdGate 컴포넌트는 구현 완료되었으나 현재 어떤 화면에도 마운트되지 않은 상태. 실서비스 배포 시 ResultScreen → 다음 스테이지 전환 지점에 `<AdGate trigger={...} />` 배치 필요.
+
+---
+
+## 7. 파일 변경 목록
 
 ```
 modified:  .gitignore
