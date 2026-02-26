@@ -62,6 +62,7 @@ export default function MovingTargetStage({
 
   const [spawned, setSpawned] = useState(false);
   const [graceActive, setGraceActive] = useState(false);
+  const [graceRemaining, setGraceRemaining] = useState(0);
   const [pos, setPos] = useState<Position>({ x: 0, y: 0 });
   const [targetColor, setTargetColor] = useState(CORRECT_COLOR);
   const [decoys, setDecoys] = useState<Decoy[]>([]);
@@ -76,6 +77,7 @@ export default function MovingTargetStage({
   const dynamicDecoyCountRef = useRef(decoyCount);
   const nextDecoyIdRef = useRef(decoyCount);
   const currentSpeedRef = useRef(speed);
+  const initialSpeedRef = useRef(speed);
 
   // Spawn target after delay, with grace period
   useEffect(() => {
@@ -106,9 +108,11 @@ export default function MovingTargetStage({
       setDecoys(initDecoys);
 
       // Grace period - tapping now = fail
+      const graceDuration = params.reactionDelayMs > 0 ? params.reactionDelayMs : 800;
       setGraceActive(true);
+      setGraceRemaining(Math.ceil(graceDuration / 1000));
       setSpawned(true);
-      setTimeout(() => setGraceActive(false), params.reactionDelayMs > 0 ? params.reactionDelayMs : 800);
+      setTimeout(() => setGraceActive(false), graceDuration);
     }, params.spawnAfterMs ?? 0);
 
     return () => clearTimeout(timer);
@@ -123,6 +127,15 @@ export default function MovingTargetStage({
     }, 2500);
     return () => clearInterval(interval);
   }, [colorCycle, spawned]);
+
+  // Countdown for grace period
+  useEffect(() => {
+    if (!graceActive) return;
+    const interval = setInterval(() => {
+      setGraceRemaining((prev) => Math.max(0, prev - 1));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [graceActive]);
 
   // Animation loop for target and decoys
   useEffect(() => {
@@ -234,39 +247,43 @@ export default function MovingTargetStage({
       const hasMechanics = params.wrongCloseAddsLayer || params.shuffleOnMiss;
 
       if (params.wrongCloseAddsLayer) {
-        // Increase speed by 10% and scale all velocities
-        const scale = 1.1;
-        currentSpeedRef.current *= scale;
-        velRef.current.dx *= scale;
-        velRef.current.dy *= scale;
+        // Increase speed by 10% (cap at initialSpeed * 2.5)
+        const maxAllowedSpeed = initialSpeedRef.current * 2.5;
+        const newSpeed = Math.min(maxAllowedSpeed, currentSpeedRef.current * 1.1);
+        const actualScale = newSpeed / currentSpeedRef.current;
+        currentSpeedRef.current = newSpeed;
+        velRef.current.dx *= actualScale;
+        velRef.current.dy *= actualScale;
         for (let i = 0; i < dynamicDecoyCountRef.current; i++) {
           if (decoyRefsVel.current[i]) {
-            decoyRefsVel.current[i]!.dx *= scale;
-            decoyRefsVel.current[i]!.dy *= scale;
+            decoyRefsVel.current[i]!.dx *= actualScale;
+            decoyRefsVel.current[i]!.dy *= actualScale;
           }
         }
-        // Add a new decoy circle
-        const newIdx = dynamicDecoyCountRef.current;
-        dynamicDecoyCountRef.current++;
-        const spd = currentSpeedRef.current;
-        const dx = Math.random() * (CONTAINER_W - targetSize);
-        const dy = Math.random() * (CONTAINER_H - targetSize);
-        decoyRefsPos.current[newIdx] = { x: dx, y: dy };
-        decoyRefsVel.current[newIdx] = {
-          dx: (Math.random() > 0.5 ? 1 : -1) * spd * (0.7 + Math.random() * 0.6),
-          dy: (Math.random() > 0.5 ? 1 : -1) * spd * (0.7 + Math.random() * 0.6),
-        };
-        const newId = nextDecoyIdRef.current++;
-        setDecoys((prev) => [
-          ...prev,
-          {
-            id: newId,
-            pos: { x: dx, y: dy },
-            vel: decoyRefsVel.current[newIdx]!,
-            color: DECOY_COLORS[newIdx % DECOY_COLORS.length]!,
-            size: targetSize * (0.85 + Math.random() * 0.2),
-          },
-        ]);
+        // Add a new decoy circle (cap at decoyCount + 6)
+        if (dynamicDecoyCountRef.current < decoyCount + 6) {
+          const newIdx = dynamicDecoyCountRef.current;
+          dynamicDecoyCountRef.current++;
+          const spd = currentSpeedRef.current;
+          const dx = Math.random() * (CONTAINER_W - targetSize);
+          const dy = Math.random() * (CONTAINER_H - targetSize);
+          decoyRefsPos.current[newIdx] = { x: dx, y: dy };
+          decoyRefsVel.current[newIdx] = {
+            dx: (Math.random() > 0.5 ? 1 : -1) * spd * (0.7 + Math.random() * 0.6),
+            dy: (Math.random() > 0.5 ? 1 : -1) * spd * (0.7 + Math.random() * 0.6),
+          };
+          const newId = nextDecoyIdRef.current++;
+          setDecoys((prev) => [
+            ...prev,
+            {
+              id: newId,
+              pos: { x: dx, y: dy },
+              vel: decoyRefsVel.current[newIdx]!,
+              color: DECOY_COLORS[newIdx % DECOY_COLORS.length]!,
+              size: targetSize * (0.85 + Math.random() * 0.2),
+            },
+          ]);
+        }
       }
 
       if (params.shuffleOnMiss) {
@@ -371,7 +388,7 @@ export default function MovingTargetStage({
     >
       {spawned && (
         <div style={headerStyle}>
-          파란색 원을 탭하세요
+          {colorCycle ? '색상이 파란색일 때 탭하세요' : '파란색 원을 탭하세요'}
         </div>
       )}
 
@@ -404,7 +421,7 @@ export default function MovingTargetStage({
                 borderRadius: 8,
                 padding: "8px 20px",
               }}>
-                기다리세요...
+                {graceRemaining > 0 ? `${graceRemaining}초` : '기다리세요...'}
               </div>
             </div>
           )}

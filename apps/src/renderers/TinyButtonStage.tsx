@@ -30,6 +30,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 const DECOY_BG_COLORS = [
   "#1b64da", "#3182F6", "#2563EB", "#1d4ed8", "#4f46e5",
   "#7c3aed", "#0891b2", "#0284c7", "#0369a1", "#1e40af",
+  "#16a34a", "#ea580c", "#9333ea", "#0d9488",
 ];
 
 const MODULE_DEFAULT_DECOYS = [
@@ -109,6 +110,7 @@ export default function TinyButtonStage({
           setButtons((prev) => {
             const rawDecoys = params.decoyLabels ?? MODULE_DEFAULT_DECOYS;
             const currentDecoyCount = prev.filter((b) => !b.isTarget).length;
+            if (currentDecoyCount >= params.decoyCount + 8) return shuffleArray(prev);
             const newDecoys: ButtonItem[] = [0, 1].map((offset) => ({
               id: `decoy-${currentDecoyCount + offset}`,
               label: rawDecoys[(currentDecoyCount + offset) % rawDecoys.length]!,
@@ -163,7 +165,7 @@ export default function TinyButtonStage({
     <div style={layoutStyle}>
       {buttons.map((item) => {
         const isTarget = item.isTarget;
-        const visualSize = isTarget ? params.visualSizePx : 44;
+        const visualSize = isTarget ? Math.max(16, params.visualSizePx) : 44;
         const hitSize = isTarget ? params.hitSizePx : 44;
 
         const buttonStyle: React.CSSProperties = {

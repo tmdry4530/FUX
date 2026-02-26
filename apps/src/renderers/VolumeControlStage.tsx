@@ -44,6 +44,8 @@ export default function VolumeControlStage({
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const targetPuzzle = [1, 3, 2, 4]; // solution for puzzle_lock
 
@@ -73,19 +75,19 @@ export default function VolumeControlStage({
       if (params.shuffleOnMiss) {
         switch (params.mode) {
           case 'hyper_sensitive':
-            setDynamicSensitivity((prev) => prev * 1.2);
+            setDynamicSensitivity((prev) => Math.min(5.0, prev * 1.2));
             break;
           case 'hidden_icon':
             setIconOffset({ x: (Math.random() - 0.5) * 100, y: (Math.random() - 0.5) * 50 });
             break;
           case 'random_jump':
-            setDynamicJitter((prev) => prev * 1.2);
+            setDynamicJitter((prev) => Math.min(100, prev * 1.2));
             break;
           case 'tiny_hitbox':
-            setHitboxScale((prev) => prev * 0.9);
+            setHitboxScale((prev) => Math.max(0.3, prev * 0.9));
             break;
           default:
-            setDynamicJitter((prev) => prev * 1.2);
+            setDynamicJitter((prev) => Math.min(100, prev * 1.2));
         }
       }
     }
@@ -218,19 +220,6 @@ export default function VolumeControlStage({
       case 'hover_slider':
         return (
           <div style={{ position: 'relative', width: '100%', padding: '20px' }}>
-            {'ontouchstart' in window && (
-              <div style={{
-                padding: '8px 12px',
-                marginBottom: '12px',
-                fontSize: '12px',
-                color: '#E53935',
-                backgroundColor: '#FFF3E0',
-                borderRadius: '6px',
-                textAlign: 'center'
-              }}>
-                이 스테이지는 마우스 호버가 필요합니다. 터치 디바이스에서는 체험이 제한됩니다.
-              </div>
-            )}
             <div
               ref={trackRef}
               onMouseEnter={() => setIsHovering(true)}
@@ -240,6 +229,18 @@ export default function VolumeControlStage({
               onMouseMove={(e) => {
                 if (hideTimer.current) clearTimeout(hideTimer.current);
                 handleHoverSlider(e.clientX);
+              }}
+              onTouchStart={() => {
+                if (hideTimer.current) clearTimeout(hideTimer.current);
+                setIsHovering(true);
+              }}
+              onTouchEnd={() => {
+                hideTimer.current = setTimeout(() => setIsHovering(false), params.hideOnOutMs ?? 100);
+              }}
+              onTouchMove={(e) => {
+                if (hideTimer.current) clearTimeout(hideTimer.current);
+                const touch = e.touches[0];
+                if (touch) handleHoverSlider(touch.clientX);
               }}
               style={{
                 height: '40px',
@@ -487,7 +488,7 @@ export default function VolumeControlStage({
                 top: '15px',
                 left: '50%',
                 transformOrigin: 'center 60px',
-                transform: `translateX(-50%) rotate(${(volume / 100) * 360 * 5}deg)`,
+                transform: `translateX(-50%) rotate(${(volume / 100) * 360 * 2}deg)`,
                 borderRadius: '3px'
               }} />
               <div style={{
@@ -532,8 +533,31 @@ export default function VolumeControlStage({
                     </button>
                   ))}
                 </div>
-                <div style={{ marginTop: '10px', fontSize: '12px', color: '#8B95A1' }}>
-                  힌트: 1 → 3 → 2 → 4
+                <div style={{ marginTop: '10px' }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (hintTimer.current) clearTimeout(hintTimer.current);
+                      setShowHint(true);
+                      hintTimer.current = setTimeout(() => setShowHint(false), 3000);
+                    }}
+                    style={{
+                      padding: '6px 12px',
+                      fontSize: '12px',
+                      background: '#F2F4F6',
+                      border: '1px solid #E5E8EB',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      color: '#4E5968'
+                    }}
+                  >
+                    힌트 보기
+                  </button>
+                  {showHint && (
+                    <div style={{ marginTop: '8px', fontSize: '12px', color: '#8B95A1' }}>
+                      힌트: 1 → 3 → 2 → 4
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -637,7 +661,7 @@ export default function VolumeControlStage({
               탭하여 소리지르기!
             </button>
             <div style={{ marginTop: '10px', fontSize: '12px', color: '#8B95A1' }}>
-              빠르게 탭하면 볼륨이 올라갑니다
+              1초 내 탭 횟수 = 음량 (최대 100)
             </div>
           </div>
         );
