@@ -104,7 +104,7 @@ export default function ClutterFinderStage({
   }, []);
 
   useEffect(() => {
-    const delay = fakeNotifTimer === 0 ? 2500 + Math.random() * 2000 : 5000 + Math.random() * 2000;
+    const delay = 5000 + Math.random() * 2000;
     const timer = setTimeout(() => {
       setShowFakeNotif(true);
     }, delay);

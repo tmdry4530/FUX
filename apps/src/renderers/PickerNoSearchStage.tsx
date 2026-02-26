@@ -9,32 +9,61 @@ export interface PickerNoSearchParams {
   shuffleOnMiss?: boolean;
 }
 
-const SIMILAR_ITEMS_POOL = [
-  // 광역시/특별시/도
-  "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시",
-  "대전광역시", "울산광역시", "세종특별자치시",
-  // 경기도 시
-  "수원시", "성남시", "고양시", "용인시", "안산시", "안양시", "남양주시",
-  "화성시", "평택시", "의정부시", "광명시", "구리시", "하남시", "이천시",
-  "안성시", "오산시", "군포시", "의왕시", "여주시", "과천시", "양주시",
-  "파주시", "김포시", "광주시", "동두천시", "포천시", "양평군",
-  // 경상도 시
-  "창원시", "김해시", "포항시", "경주시", "구미시", "안동시", "진주시",
-  "통영시", "사천시", "밀양시", "거제시", "양산시", "의령군",
-  // 충청도 시
-  "청주시", "천안시", "공주시", "보령시", "아산시", "서산시", "논산시",
-  "계룡시", "당진시", "충주시", "제천시", "음성군",
-  // 전라도 시
-  "전주시", "익산시", "군산시", "정읍시", "남원시", "김제시",
-  "목포시", "여수시", "순천시", "나주시", "광양시",
-  // 강원도 시
-  "원주시", "춘천시", "강릉시", "동해시", "태백시", "속초시", "삼척시",
-  // 제주
-  "제주시", "서귀포시",
-];
+const SIMILAR_ITEMS_POOL: Record<string, string[]> = {
+  지역: [
+    "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시",
+    "대전광역시", "울산광역시", "세종특별자치시",
+    "수원시", "성남시", "고양시", "용인시", "안산시", "안양시", "남양주시",
+    "화성시", "평택시", "의정부시", "광명시", "구리시", "하남시", "이천시",
+    "창원시", "김해시", "포항시", "경주시", "구미시", "안동시", "진주시",
+    "청주시", "천안시", "공주시", "아산시", "서산시", "충주시", "제천시",
+    "전주시", "익산시", "군산시", "목포시", "여수시", "순천시", "광양시",
+    "원주시", "춘천시", "강릉시", "동해시", "속초시", "제주시", "서귀포시",
+  ],
+  은행: [
+    "국민은행", "신한은행", "하나은행", "우리은행", "기업은행",
+    "농협은행", "카카오뱅크", "토스뱅크", "케이뱅크", "씨티은행",
+    "SC제일은행", "광주은행", "전북은행", "경남은행", "대구은행",
+  ],
+  카드: [
+    "신한카드", "삼성카드", "현대카드", "KB국민카드", "롯데카드",
+    "하나카드", "우리카드", "BC카드", "농협카드", "씨티카드",
+    "카카오페이카드", "토스카드", "케이뱅크카드", "IBK기업카드",
+  ],
+  통신사: [
+    "SK텔레콤", "KT", "LG유플러스", "SK브로드밴드", "KT스카이라이프",
+    "헬로모바일", "KT엠모바일", "SK세븐모바일", "U+알뜰모바일", "이야기모바일",
+    "스노우맨", "뷰티모바일", "프리텔레콤", "아이즈모바일",
+  ],
+  보험사: [
+    "삼성생명", "한화생명", "교보생명", "NH농협생명", "신한라이프",
+    "삼성화재", "현대해상", "DB손해보험", "KB손해보험", "메리츠화재",
+    "흥국화재", "롯데손해보험", "MG손해보험", "하나생명",
+  ],
+  default: [
+    "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시",
+    "대전광역시", "울산광역시", "세종특별자치시",
+    "수원시", "성남시", "고양시", "용인시", "안산시", "안양시", "남양주시",
+    "화성시", "평택시", "의정부시",
+  ],
+};
 
-function generateSimilarItems(targetLabel: string, existing: string[]): string[] {
-  return SIMILAR_ITEMS_POOL
+function generateSimilarItems(targetLabel: string, existing: string[], category?: string): string[] {
+  const categoryKey = category && category in SIMILAR_ITEMS_POOL ? category : "default";
+  const pool = SIMILAR_ITEMS_POOL[categoryKey] ?? SIMILAR_ITEMS_POOL["default"]!;
+
+  // Check if any category keyword matches
+  let resolvedPool = pool;
+  if (categoryKey === "default") {
+    for (const [key, items] of Object.entries(SIMILAR_ITEMS_POOL)) {
+      if (key !== "default" && category && category.includes(key)) {
+        resolvedPool = items;
+        break;
+      }
+    }
+  }
+
+  return resolvedPool
     .filter((item) => item !== targetLabel && !existing.includes(item))
     .slice(0, 2);
 }
@@ -78,7 +107,7 @@ export default function PickerNoSearchStage({
         if (params.wrongCloseAddsLayer) {
           setDisplayItems((prev) => {
             if (prev.length >= params.items.length + 8) return prev;
-            const similar = generateSimilarItems(targetLabel, prev);
+            const similar = generateSimilarItems(targetLabel, prev, params.category);
             const canAdd = params.items.length + 8 - prev.length;
             const newItems = [...prev, ...similar.slice(0, canAdd)];
             const copy = [...newItems];
