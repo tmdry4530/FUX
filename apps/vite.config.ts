@@ -10,24 +10,11 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
-        // 로컬 dev/preview: mock으로 대체, 프로덕션 빌드: external 유지
-        ...(!isBuild
-          ? {
-              "@apps-in-toss/web-framework": path.resolve(
-                __dirname,
-                "src/mocks/apps-in-toss-web-framework.ts",
-              ),
-            }
-          : {}),
-      },
-    },
-    build: {
-      rollupOptions: {
-        external: [
-          "@apps-in-toss/web-framework",
-          "@apps-in-toss/web-framework/config",
-          "@toss/tds-mobile",
-        ],
+        // 토스 WebView 외부에서는 항상 mock 사용 (dev + build 모두)
+        "@apps-in-toss/web-framework": path.resolve(
+          __dirname,
+          "src/mocks/apps-in-toss-web-framework.ts",
+        ),
       },
     },
     server: {
