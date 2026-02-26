@@ -114,7 +114,7 @@ function renderButtons(
   );
 }
 
-function CountdownOverlay({ onExpire }: { onExpire: () => void }) {
+function CountdownContent({ onExpire }: { onExpire: () => void }) {
   const [count, setCount] = useState(10);
 
   useEffect(() => {
@@ -127,16 +127,14 @@ function CountdownOverlay({ onExpire }: { onExpire: () => void }) {
   }, [count, onExpire]);
 
   return (
-    <div style={countdownOverlayStyle}>
-      <div style={countdownBoxStyle}>
-        <p style={{ margin: 0, fontSize: 14, color: "#4E5968", textAlign: "center" }}>
-          {count}초 후 자동으로 구독이 유지됩니다
-        </p>
-        <div style={{ fontSize: 32, fontWeight: 700, color: "#3182F6", textAlign: "center" }}>
-          {count}
-        </div>
+    <>
+      <p style={{ margin: 0, fontSize: 14, color: "#4E5968", textAlign: "center" }}>
+        {count}초 후 자동으로 구독이 유지됩니다
+      </p>
+      <div style={{ fontSize: 32, fontWeight: 700, color: "#3182F6", textAlign: "center" }}>
+        {count}
       </div>
-    </div>
+    </>
   );
 }
 
@@ -485,7 +483,7 @@ export default function RoachMotelFlowStage({
       {showCountdown && (
         <div style={countdownOverlayStyle}>
           <div style={countdownBoxStyle}>
-            <CountdownOverlay onExpire={handleCountdownExpire} />
+            <CountdownContent onExpire={handleCountdownExpire} />
             <button
               type="button"
               style={{ ...tinyLinkStyle, marginTop: 8, display: "block" }}
