@@ -522,6 +522,71 @@ const PICKER_POOLS: { category: string; items: string[] }[] = [
     category: '생년도',
     items: Array.from({ length: 100 }, (_, i) => `${1925 + i}년`),
   },
+  {
+    category: '음식',
+    items: [
+      '김치찌개', '된장찌개', '비빔밥', '불고기', '갈비탕', '삼겹살', '떡볶이', '잡채',
+      '냉면', '칼국수', '수제비', '순두부찌개', '감자탕', '삼계탕', '해물파전', '김밥',
+      '라면', '우동', '짜장면', '짬뽕', '탕수육', '마파두부', '볶음밥', '카레라이스',
+      '돈까스', '오므라이스', '초밥', '사시미', '라멘', '규동', '타코야키', '교자',
+      '팟타이', '쌀국수', '톰얌쿵', '그린커리', '나시고랭', '반미', '피자', '파스타',
+      '햄버거', '스테이크', '리조또', '그라탱', '타코', '부리또', '퀘사디아', '팔라펠',
+      '케밥', '훈제연어', '피쉬앤칩스', '미트파이', '크로크무슈', '갈레트', '뇨끼', '뫼슬리',
+    ],
+  },
+  {
+    category: '동물',
+    items: [
+      '강아지', '고양이', '토끼', '햄스터', '기니피그', '앵무새', '거북이', '금붕어',
+      '이구아나', '카멜레온', '페럿', '친칠라', '고슴도치', '미어캣', '너구리', '수달',
+      '알파카', '라마', '양', '염소', '돼지', '소', '말', '당나귀',
+      '사슴', '기린', '코끼리', '하마', '코뿔소', '얼룩말', '사자', '호랑이',
+      '표범', '치타', '늑대', '여우', '곰', '판다', '코알라', '캥거루',
+      '펭귄', '플라밍고', '독수리', '올빼미', '부엉이', '학', '공작', '까마귀',
+      '돌고래', '고래', '상어', '해파리', '문어', '오징어', '가재', '랍스터',
+    ],
+  },
+  {
+    category: '대학교',
+    items: [
+      '서울대학교', '연세대학교', '고려대학교', '성균관대학교', '한양대학교',
+      '중앙대학교', '경희대학교', '서강대학교', '이화여자대학교', '홍익대학교',
+      '건국대학교', '동국대학교', '숙명여자대학교', '국민대학교', '세종대학교',
+      '단국대학교', '광운대학교', '명지대학교', '상명대학교', '가톨릭대학교',
+      '아주대학교', '인하대학교', '숭실대학교', '한국외국어대학교', '서울시립대학교',
+      '부산대학교', '경북대학교', '전남대학교', '충남대학교', '충북대학교',
+      '강원대학교', '제주대학교', '한국과학기술원', '포항공과대학교', '울산과학기술원',
+      '광주과학기술원', '한국예술종합학교', '서울과학기술대학교', '한국체육대학교',
+      '한국항공대학교', '한국해양대학교', '서울교육대학교', '한국교원대학교',
+    ],
+  },
+  {
+    category: '은행',
+    items: [
+      'KB국민은행', '신한은행', '하나은행', '우리은행', 'NH농협은행', 'IBK기업은행',
+      'SC제일은행', '한국씨티은행', 'DGB대구은행', 'BNK부산은행', 'BNK경남은행',
+      '광주은행', '전북은행', '제주은행', 'SBI저축은행', 'OK저축은행',
+      '웰컴저축은행', '페퍼저축은행', '한국투자저축은행', 'OSB저축은행',
+      '카카오뱅크', '케이뱅크', '토스뱅크', '한국수출입은행', '한국산업은행',
+      '수협은행', '새마을금고', '신협', '우체국', '한국증권금융',
+      'KB증권', 'NH투자증권', '삼성증권', '미래에셋증권', '키움증권',
+      '한국투자증권', '신한투자증권', '하나증권', '대신증권', 'DB금융투자',
+      '유안타증권', '이베스트투자증권', '교보증권', 'SK증권', '현대차증권',
+    ],
+  },
+  {
+    category: '프로그래밍 언어',
+    items: [
+      'JavaScript', 'TypeScript', 'Python', 'Java', 'C', 'C++', 'C#', 'Go',
+      'Rust', 'Swift', 'Kotlin', 'Ruby', 'PHP', 'Perl', 'Scala', 'Haskell',
+      'Clojure', 'Elixir', 'Erlang', 'F#', 'OCaml', 'Lua', 'R', 'MATLAB',
+      'Julia', 'Dart', 'Objective-C', 'Assembly', 'COBOL', 'Fortran',
+      'Pascal', 'Delphi', 'Visual Basic', 'Groovy', 'Tcl', 'Scheme',
+      'Prolog', 'Lisp', 'Ada', 'VHDL', 'Verilog', 'SQL', 'Shell',
+      'PowerShell', 'Bash', 'Zig', 'Nim', 'Crystal', 'V', 'Solidity',
+      'Move', 'Cairo', 'WebAssembly', 'CoffeeScript', 'ReScript', 'Elm',
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -529,18 +594,11 @@ const PICKER_POOLS: { category: string; items: string[] }[] = [
 // ---------------------------------------------------------------------------
 
 const TARGET_LABELS = [
-  '진짜 다운로드',
-  '실제 로그인',
-  '건너뛰기',
-  '닫기',
-  '구독 취소',
-  '계정 삭제',
-  '무료 체험 시작',
-  '다음 단계',
-  '제출하기',
-  '계속하기',
-  '무시하기',
-  '나중에 하기',
+  '진짜 다운로드', '실제 로그인', '건너뛰기', '닫기', '구독 취소',
+  '계정 삭제', '무료 체험 시작', '다음 단계', '제출하기', '계속하기',
+  '무시하기', '나중에 하기', '설정 변경', '동의', '확인',
+  '삭제', '저장', '거부하기', '해지 신청', '탈퇴하기',
+  '비밀번호 변경', '결제하기', '취소하기', '로그아웃',
 ];
 
 // ---------------------------------------------------------------------------
@@ -565,18 +623,12 @@ const CTA_TEXTS = [
 // ---------------------------------------------------------------------------
 
 const NAV_TARGET_ACTIONS = [
-  '계정 삭제',
-  '알림 끄기',
-  '데이터 내보내기',
-  '구독 취소',
-  '비밀번호 변경',
-  '2단계 인증 설정',
-  '개인정보 설정',
-  '결제 수단 관리',
-  '주소록 편집',
-  '언어 설정 변경',
-  '앱 연결 관리',
-  '마케팅 수신 거부',
+  '계정 삭제', '알림 끄기', '데이터 내보내기', '구독 취소',
+  '비밀번호 변경', '2단계 인증 설정', '개인정보 설정', '결제 수단 관리',
+  '주소록 편집', '언어 설정 변경', '앱 연결 관리', '마케팅 수신 거부',
+  '로그인 기록 확인', '세션 관리', '백업 설정', '자동결제 해지',
+  '프로필 비공개 설정', '위치 추적 끄기', '광고 개인화 거부', '쿠키 설정 변경',
+  '데이터 삭제 요청', '이메일 수신 거부', '계정 비활성화', '환불 요청',
 ];
 
 // ---------------------------------------------------------------------------
@@ -1492,32 +1544,143 @@ function deduplicateParams(stages: StageSpec[]): number {
       continue;
     }
 
-    // 원본 수치 저장 후 오프셋 증가시키며 고유 시그니처 생성
-    const numericKeys = Object.keys(stage.params).filter(
-      k => k !== '_seed' && typeof stage.params[k] === 'number'
-    );
+    // Type-specific meaningful param variation
+    let resolved = false;
 
-    if (numericKeys.length === 0) {
-      // 숫자형 파라미터가 없는 경우 (예: state_feedback_broken) _seed 추가
-      let seed = hashStr(stage.id) % 10000;
-      stage.params._seed = seed;
-      sig = `${stage.type}:${JSON.stringify(stage.params)}`;
-      while (usedSigs.has(sig)) {
-        seed++;
+    // picker_no_search: cycle through different PICKER_POOLS
+    if (stage.type === 'picker_no_search' && Array.isArray(stage.params.items)) {
+      const currentCategory = stage.params.category as string;
+      for (let poolIdx = 0; poolIdx < PICKER_POOLS.length; poolIdx++) {
+        const pool = PICKER_POOLS[poolIdx]!;
+        if (pool.category === currentCategory) continue;
+        const targetIndex = hashStr(stage.id + poolIdx) % pool.items.length;
+        const candidate = { ...stage.params, items: pool.items, targetIndex, category: pool.category };
+        const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+        if (!usedSigs.has(candidateSig)) {
+          stage.params = candidate;
+          sig = candidateSig;
+          resolved = true;
+          break;
+        }
+      }
+      // Also try different targetIndex within same pool
+      if (!resolved) {
+        for (let offset = 1; offset < 50; offset++) {
+          const items = stage.params.items as string[];
+          const newIdx = (stage.params.targetIndex as number + offset) % items.length;
+          const candidate = { ...stage.params, targetIndex: newIdx };
+          const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+          if (!usedSigs.has(candidateSig)) {
+            stage.params = candidate;
+            sig = candidateSig;
+            resolved = true;
+            break;
+          }
+        }
+      }
+    }
+
+    // clutter_find_cta / chaotic_layout_scavenger: cycle targetLabel
+    if (!resolved && (stage.type === 'clutter_find_cta' || stage.type === 'chaotic_layout_scavenger')) {
+      const currentLabel = stage.params.targetLabel as string;
+      for (let i = 0; i < TARGET_LABELS.length; i++) {
+        if (TARGET_LABELS[i] === currentLabel) continue;
+        const candidate = { ...stage.params, targetLabel: TARGET_LABELS[i] };
+        const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+        if (!usedSigs.has(candidateSig)) {
+          stage.params = candidate;
+          sig = candidateSig;
+          resolved = true;
+          break;
+        }
+      }
+      // Also vary clutterItems + scrollHeight
+      if (!resolved) {
+        for (let offset = 1; offset < 30; offset++) {
+          for (let li = 0; li < TARGET_LABELS.length; li++) {
+            const candidate = {
+              ...stage.params,
+              targetLabel: TARGET_LABELS[li],
+              clutterItems: (stage.params.clutterItems as number) + offset * 3,
+              scrollHeight: (stage.params.scrollHeight as number) + offset * 200,
+            };
+            const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+            if (!usedSigs.has(candidateSig)) {
+              stage.params = candidate;
+              sig = candidateSig;
+              resolved = true;
+              break;
+            }
+          }
+          if (resolved) break;
+        }
+      }
+    }
+
+    // nav_ambiguity_map / enterprise_filter_overload: cycle targetAction
+    if (!resolved && (stage.type === 'nav_ambiguity_map' || stage.type === 'enterprise_filter_overload')) {
+      const currentAction = stage.params.targetAction as string;
+      for (let i = 0; i < NAV_TARGET_ACTIONS.length; i++) {
+        if (NAV_TARGET_ACTIONS[i] === currentAction) continue;
+        const candidate = { ...stage.params, targetAction: NAV_TARGET_ACTIONS[i] };
+        const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+        if (!usedSigs.has(candidateSig)) {
+          stage.params = candidate;
+          sig = candidateSig;
+          resolved = true;
+          break;
+        }
+      }
+      // Also vary menuDepth + misleadingMenus
+      if (!resolved) {
+        for (let offset = 1; offset < 20; offset++) {
+          for (let ai = 0; ai < NAV_TARGET_ACTIONS.length; ai++) {
+            const candidate = {
+              ...stage.params,
+              targetAction: NAV_TARGET_ACTIONS[ai],
+              menuDepth: Math.min(9, (stage.params.menuDepth as number) + (offset % 4)),
+              misleadingMenus: Math.min(8, (stage.params.misleadingMenus as number) + ((offset + 1) % 3)),
+            };
+            const candidateSig = `${stage.type}:${JSON.stringify(candidate)}`;
+            if (!usedSigs.has(candidateSig)) {
+              stage.params = candidate;
+              sig = candidateSig;
+              resolved = true;
+              break;
+            }
+          }
+          if (resolved) break;
+        }
+      }
+    }
+
+    // Generic fallback for other types: increment numeric keys
+    if (!resolved) {
+      const numericKeys = Object.keys(stage.params).filter(
+        k => k !== '_seed' && typeof stage.params[k] === 'number'
+      );
+
+      if (numericKeys.length === 0) {
+        let seed = hashStr(stage.id) % 10000;
         stage.params._seed = seed;
         sig = `${stage.type}:${JSON.stringify(stage.params)}`;
-      }
-    } else {
-      const origValues = new Map(numericKeys.map(k => [k, stage.params[k] as number]));
-      let attempt = 0;
-      while (usedSigs.has(sig) && attempt < 100) {
-        attempt++;
-        for (const [key, origVal] of origValues) {
-          stage.params[key] = Number.isInteger(origVal)
-            ? origVal + attempt
-            : Math.round((origVal + attempt * 0.07) * 100) / 100;
+        while (usedSigs.has(sig)) {
+          seed++;
+          stage.params._seed = seed;
+          sig = `${stage.type}:${JSON.stringify(stage.params)}`;
         }
-        sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+      } else {
+        const origValues = new Map(numericKeys.map(k => [k, stage.params[k] as number]));
+        let attempt = 0;
+        while (usedSigs.has(sig) && attempt < 100) {
+          attempt++;
+          for (const [key, origVal] of origValues) {
+            stage.params[key] = Number.isInteger(origVal)
+              ? origVal + attempt
+              : Math.round((origVal + attempt * 0.07) * 100) / 100;
+          }
+          sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+        }
       }
     }
 
