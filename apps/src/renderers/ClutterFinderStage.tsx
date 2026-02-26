@@ -104,15 +104,17 @@ export default function ClutterFinderStage({
   }, []);
 
   useEffect(() => {
+    const delay = fakeNotifTimer === 0 ? 2500 + Math.random() * 2000 : 5000 + Math.random() * 2000;
     const timer = setTimeout(() => {
       setShowFakeNotif(true);
-    }, 2500 + Math.random() * 2000);
+    }, delay);
     return () => clearTimeout(timer);
   }, [fakeNotifTimer]);
 
   const handleWrongClick = useCallback(() => {
     if (params.wrongCloseAddsLayer) {
       setClutterElements((prev) => {
+        if (prev.length >= params.clutterItems + 10) return prev;
         const decoyPool = buildDecoyLabels(params.targetLabel);
         const newDecoys: ClutterElement[] = Array.from({ length: 2 }, (_, i) => {
           const element: ClutterElement = {

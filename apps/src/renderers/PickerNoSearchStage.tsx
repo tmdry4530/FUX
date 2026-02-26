@@ -10,11 +10,27 @@ export interface PickerNoSearchParams {
 }
 
 const SIMILAR_ITEMS_POOL = [
+  // 광역시/특별시/도
   "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시",
-  "대전광역시", "울산광역시", "세종특별자치시", "수원시", "성남시",
-  "고양시", "용인시", "창원시", "청주시", "전주시", "천안시",
-  "안산시", "안양시", "남양주시", "화성시", "평택시", "의정부시",
-  "김해시", "포항시", "원주시", "제주시", "광명시", "구리시",
+  "대전광역시", "울산광역시", "세종특별자치시",
+  // 경기도 시
+  "수원시", "성남시", "고양시", "용인시", "안산시", "안양시", "남양주시",
+  "화성시", "평택시", "의정부시", "광명시", "구리시", "하남시", "이천시",
+  "안성시", "오산시", "군포시", "의왕시", "여주시", "과천시", "양주시",
+  "파주시", "김포시", "광주시", "동두천시", "포천시", "양평군",
+  // 경상도 시
+  "창원시", "김해시", "포항시", "경주시", "구미시", "안동시", "진주시",
+  "통영시", "사천시", "밀양시", "거제시", "양산시", "의령군",
+  // 충청도 시
+  "청주시", "천안시", "공주시", "보령시", "아산시", "서산시", "논산시",
+  "계룡시", "당진시", "충주시", "제천시", "음성군",
+  // 전라도 시
+  "전주시", "익산시", "군산시", "정읍시", "남원시", "김제시",
+  "목포시", "여수시", "순천시", "나주시", "광양시",
+  // 강원도 시
+  "원주시", "춘천시", "강릉시", "동해시", "태백시", "속초시", "삼척시",
+  // 제주
+  "제주시", "서귀포시",
 ];
 
 function generateSimilarItems(targetLabel: string, existing: string[]): string[] {
@@ -61,8 +77,10 @@ export default function PickerNoSearchStage({
         onFail();
         if (params.wrongCloseAddsLayer) {
           setDisplayItems((prev) => {
+            if (prev.length >= params.items.length + 8) return prev;
             const similar = generateSimilarItems(targetLabel, prev);
-            const newItems = [...prev, ...similar];
+            const canAdd = params.items.length + 8 - prev.length;
+            const newItems = [...prev, ...similar.slice(0, canAdd)];
             const copy = [...newItems];
             for (let i = copy.length - 1; i > 0; i--) {
               const j = Math.floor(Math.random() * (i + 1));

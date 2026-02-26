@@ -150,7 +150,7 @@ export default function NavMazeStage({
       // 모든 잘못된 경로에서 onFail (깊이 무관)
       if (item.isDeadEnd) {
         if (params.wrongCloseAddsLayer) {
-          setMisleadingMenusCount((prev) => prev + 1);
+          setMisleadingMenusCount((prev) => Math.min(prev + 1, params.misleadingMenus + 4));
         }
         if (params.shuffleOnMiss) {
           setReshuffleKey((prev) => prev + 1);
@@ -325,7 +325,7 @@ export default function NavMazeStage({
               onClick={handleApply}
               disabled={!hasScrolledToApply}
               style={{
-                padding: params.hiddenApplyButton ? "4px 8px" : "10px 16px",
+                padding: params.hiddenApplyButton ? "6px 12px" : "10px 16px",
                 fontSize: params.hiddenApplyButton ? "9px" : "12px",
                 fontWeight: "400",
                 color: hasScrolledToApply ? "#4E5968" : "#8B95A1",
