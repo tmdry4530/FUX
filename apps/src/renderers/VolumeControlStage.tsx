@@ -9,11 +9,8 @@ export interface VolumeControlParams {
   jitterPx?: number;
   showDelayMs?: number;
   hideOnOutMs?: number;
-}
-
-/** Generate a random target volume between 15 and 85 (changes each mount) */
-function randomTarget(): number {
-  return Math.floor(Math.random() * 71) + 15; // 15-85
+  wrongCloseAddsLayer?: boolean;
+  shuffleOnMiss?: boolean;
 }
 
 export default function VolumeControlStage({
@@ -25,12 +22,10 @@ export default function VolumeControlStage({
   onComplete: () => void;
   onFail: () => void;
 }) {
-  const [target] = useState(() => randomTarget());
   const [volume, setVolume] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
-  const [overshootCount, setOvershootCount] = useState(0);
   const [puzzleSequence, setPuzzleSequence] = useState<number[]>([]);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [angle, setAngle] = useState(0);
@@ -38,6 +33,11 @@ export default function VolumeControlStage({
   const [launchPower, setLaunchPower] = useState(0);
   const [tapCount, setTapCount] = useState(0);
   const [knobPosition, setKnobPosition] = useState({ x: 50, y: 0 });
+  const [dynamicTolerance, setDynamicTolerance] = useState(params.tolerance);
+  const [dynamicSensitivity, setDynamicSensitivity] = useState(params.sensitivity ?? 2.5);
+  const [dynamicJitter, setDynamicJitter] = useState(params.jitterPx ?? 40);
+  const [iconOffset, setIconOffset] = useState({ x: 0, y: 0 });
+  const [hitboxScale, setHitboxScale] = useState(1.0);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const dialRef = useRef<HTMLDivElement>(null);
@@ -50,27 +50,46 @@ export default function VolumeControlStage({
   // Check win condition (only after first user interaction)
   useEffect(() => {
     if (!hasInteracted) return;
-    const diff = Math.abs(volume - target);
-    if (diff <= params.tolerance) {
+    const diff = Math.abs(volume - params.targetVolume);
+    if (diff <= dynamicTolerance) {
       onComplete();
     }
-  }, [volume, target, params.tolerance, onComplete, hasInteracted]);
+  }, [volume, params.targetVolume, dynamicTolerance, onComplete, hasInteracted]);
 
   // Track overshoots
   const checkOvershoot = useCallback((newVolume: number) => {
-    const tolerance = params.tolerance;
-    const overshot = Math.abs(newVolume - target) > tolerance &&
-                     ((volume < target && newVolume > target + tolerance) ||
-                      (volume > target && newVolume < target - tolerance));
+    const tol = dynamicTolerance;
+    const overshot = Math.abs(newVolume - params.targetVolume) > tol &&
+                     ((volume < params.targetVolume && newVolume > params.targetVolume + tol) ||
+                      (volume > params.targetVolume && newVolume < params.targetVolume - tol));
 
     if (overshot) {
-      const newCount = overshootCount + 1;
-      setOvershootCount(newCount);
-      if (newCount >= 3) {
+      if (params.wrongCloseAddsLayer) {
+        setDynamicTolerance((prev) => Math.max(1, prev - 1));
+      } else {
         onFail();
       }
+
+      if (params.shuffleOnMiss) {
+        switch (params.mode) {
+          case 'hyper_sensitive':
+            setDynamicSensitivity((prev) => prev * 1.2);
+            break;
+          case 'hidden_icon':
+            setIconOffset({ x: (Math.random() - 0.5) * 100, y: (Math.random() - 0.5) * 50 });
+            break;
+          case 'random_jump':
+            setDynamicJitter((prev) => prev * 1.2);
+            break;
+          case 'tiny_hitbox':
+            setHitboxScale((prev) => prev * 0.9);
+            break;
+          default:
+            setDynamicJitter((prev) => prev * 1.2);
+        }
+      }
     }
-  }, [volume, target, params.tolerance, overshootCount, onFail]);
+  }, [volume, params.targetVolume, dynamicTolerance, params.wrongCloseAddsLayer, params.shuffleOnMiss, params.mode, onFail]);
 
   // Mode-specific handlers
   const handleHoverSlider = useCallback((clientX: number) => {
@@ -88,13 +107,13 @@ export default function VolumeControlStage({
     setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = ((clientX - rect.left) / rect.width) * 100;
-    const sensitivity = params.sensitivity ?? 2.5;
+    const sensitivity = dynamicSensitivity;
     const centered = percent - 50;
     const amplified = 50 + (centered * sensitivity);
     const newVolume = Math.round(Math.max(0, Math.min(100, amplified)));
     checkOvershoot(newVolume);
     setVolume(newVolume);
-  }, [params.sensitivity, checkOvershoot]);
+  }, [dynamicSensitivity, checkOvershoot]);
 
   const handleTinyHitbox = useCallback((clientX: number) => {
     if (!trackRef.current) return;
@@ -127,13 +146,13 @@ export default function VolumeControlStage({
 
     // Random jump knob position
     if (Math.random() > 0.7) {
-      const jitter = params.jitterPx ?? 40;
+      const jitter = dynamicJitter;
       setKnobPosition({
         x: Math.random() * jitter - jitter / 2,
         y: Math.random() * jitter - jitter / 2
       });
     }
-  }, [params.jitterPx, checkOvershoot]);
+  }, [dynamicJitter, checkOvershoot]);
 
   const handleCircularGesture = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!dialRef.current || !isDragging) return;
@@ -164,14 +183,10 @@ export default function VolumeControlStage({
         setIsUnlocked(true);
       } else {
         setPuzzleSequence([]);
-        const newCount = overshootCount + 1;
-        setOvershootCount(newCount);
-        if (newCount >= 3) {
-          onFail();
-        }
+        onFail();
       }
     }
-  }, [puzzleSequence, overshootCount, onFail]);
+  }, [puzzleSequence, onFail]);
 
   const handlePhysicsLaunch = useCallback(() => {
     setHasInteracted(true);
@@ -304,7 +319,7 @@ export default function VolumeControlStage({
               onMouseMove={(e) => handleTinyHitbox(e.clientX)}
               style={{
                 width: '300px',
-                height: `${params.trackWidthPx ?? 3}px`,
+                height: `${(params.trackWidthPx ?? 3) * hitboxScale}px`,
                 background: '#8B95A1',
                 position: 'relative',
                 cursor: 'pointer'
@@ -340,7 +355,9 @@ export default function VolumeControlStage({
               style={{
                 fontSize: '48px',
                 cursor: 'pointer',
-                position: 'relative'
+                position: 'relative',
+                transform: `translate(${iconOffset.x}px, ${iconOffset.y}px)`,
+                transition: 'transform 0.3s',
               }}
             >
               🔊
@@ -649,10 +666,10 @@ export default function VolumeControlStage({
           목표 볼륨
         </div>
         <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#191F28', marginBottom: '8px' }}>
-          {target}
+          {params.targetVolume}
         </div>
         <div style={{ fontSize: '14px', color: '#8B95A1' }}>
-          (±{params.tolerance} 허용)
+          (±{dynamicTolerance} 허용)
         </div>
       </div>
 
@@ -682,19 +699,6 @@ export default function VolumeControlStage({
         </div>
       </div>
 
-      {overshootCount > 0 && (
-        <div style={{
-          marginTop: '10px',
-          padding: '12px',
-          background: '#FFF3E0',
-          borderRadius: '8px',
-          fontSize: '14px',
-          color: '#E53935',
-          textAlign: 'center'
-        }}>
-          오버슈트 {overshootCount}/3
-        </div>
-      )}
     </div>
   );
 }

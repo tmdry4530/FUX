@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useRef, useEffect } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 
 export interface NavMazeParams {
   mode: "nav_maze" | "filter_overload";
@@ -7,6 +7,8 @@ export interface NavMazeParams {
   misleadingMenus: number;
   filterCount?: number;
   hiddenApplyButton?: boolean;
+  wrongCloseAddsLayer?: boolean;
+  shuffleOnMiss?: boolean;
 }
 
 interface NavMazeStageProps {
@@ -19,13 +21,34 @@ interface MenuItem {
   label: string;
   isTarget: boolean;
   isDeadEnd?: boolean;
+  loopBackDepth?: number; // 루프 트랩: currentPath를 이 길이로 되돌림
   children?: MenuItem[];
 }
 
-const TARGET_ACTIONS = ["메시지 보내기", "파일 업로드", "일정 만들기", "팀 추가", "설정 변경", "알림 확인", "보고서 생성"];
+// targetAction 키워드 기반 의미적으로 유사한 레이블 생성
+function getSimilarLabels(targetAction: string, count: number): string[] {
+  const pools: Record<string, string[]> = {
+    개인정보: ["보안 설정", "계정 관리", "개인정보 보호", "프로필 설정", "접근 권한", "데이터 관리"],
+    설정: ["환경 설정", "기본 설정", "앱 설정", "시스템 설정", "고급 설정", "일반"],
+    계정: ["프로필", "사용자 정보", "내 정보", "계정 관리", "인증 설정", "보안"],
+    결제: ["구독 관리", "요금제", "청구 정보", "결제 수단", "영수증", "플랜"],
+    알림: ["푸시 알림", "메시지 설정", "공지 관리", "수신 설정", "알림 센터", "이메일 설정"],
+    취소: ["구독 취소", "탈퇴 신청", "서비스 종료", "계정 삭제", "해지 신청", "해약"],
+  };
 
-function pickRandomAction(): string {
-  return TARGET_ACTIONS[Math.floor(Math.random() * TARGET_ACTIONS.length)] ?? "메시지 보내기";
+  let matched: string[] = [];
+  for (const [key, labels] of Object.entries(pools)) {
+    if (targetAction.includes(key)) {
+      matched = labels;
+      break;
+    }
+  }
+
+  if (matched.length === 0) {
+    matched = ["설정", "관리", "내 계정", "서비스", "정보", "도움말", "지원", "기타", "더보기", "옵션"];
+  }
+
+  return Array.from({ length: count }, (_, i) => matched[i % matched.length] ?? "메뉴");
 }
 
 export default function NavMazeStage({
@@ -33,14 +56,14 @@ export default function NavMazeStage({
   onComplete,
   onFail,
 }: NavMazeStageProps) {
-  const [randomAction] = useState(() => pickRandomAction());
   const [currentPath, setCurrentPath] = useState<number[]>([]);
-  const [wrongPathCount, setWrongPathCount] = useState(0);
   const [filterValues, setFilterValues] = useState<Record<string, string>>({});
   const [hasScrolledToApply, setHasScrolledToApply] = useState(
     !params.hiddenApplyButton
   );
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [misleadingMenusCount, setMisleadingMenusCount] = useState(params.misleadingMenus);
+  const [reshuffleKey, setReshuffleKey] = useState(0);
 
   const handleScroll = useCallback(() => {
     if (!params.hiddenApplyButton) return;
@@ -59,35 +82,32 @@ export default function NavMazeStage({
       if (depth === 0) {
         return [
           {
-            label: randomAction,
+            label: params.targetAction,
             isTarget: true,
           },
         ];
       }
 
       const items: MenuItem[] = [];
-      const correctIndex = Math.floor(Math.random() * (params.misleadingMenus + 1));
+      const correctIndex = Math.floor(Math.random() * (misleadingMenusCount + 1));
+      const misleadingLabels = getSimilarLabels(params.targetAction, misleadingMenusCount + 1);
 
-      for (let i = 0; i <= params.misleadingMenus; i++) {
+      for (let i = 0; i <= misleadingMenusCount; i++) {
         const isCorrect = isCorrectPath && i === correctIndex;
-        const misleadingLabels = [
-          "팀",
-          "그룹",
-          "채널",
-          "채팅",
-          "메시지",
-          "대화",
-          "워크스페이스",
-          "프로젝트",
-          "설정",
-          "관리",
-        ];
         const label = misleadingLabels[i % misleadingLabels.length] ?? "메뉴";
+
+        // 루프 트랩: 잘못된 경로 일부에서 이전 깊이로 되돌림 (depth > 1 에서 35% 확률)
+        const isLoopTrap = !isCorrect && depth > 1 && Math.random() < 0.35;
+        const loopBackDepth = isLoopTrap
+          ? Math.max(0, depth - Math.floor(Math.random() * 2) - 2)
+          : undefined;
 
         items.push({
           label,
           isTarget: false,
-          isDeadEnd: !isCorrect && depth === 1,
+          // 루프 트랩이 아닌 모든 잘못된 경로 = isDeadEnd (깊이 무관하게 onFail 트리거)
+          isDeadEnd: !isCorrect && !isLoopTrap,
+          loopBackDepth,
           children: buildTree(depth - 1, isCorrect),
         });
       }
@@ -96,7 +116,8 @@ export default function NavMazeStage({
     };
 
     return buildTree(params.menuDepth, true);
-  }, [params.menuDepth, params.misleadingMenus, randomAction]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.menuDepth, misleadingMenusCount, params.targetAction, reshuffleKey]);
 
   const getCurrentMenu = useCallback((): MenuItem[] => {
     let current = menuTree;
@@ -120,20 +141,28 @@ export default function NavMazeStage({
         return;
       }
 
+      // 루프 트랩: currentPath를 이전 깊이로 되돌림 (실패 없이 방향 상실)
+      if (item.loopBackDepth !== undefined) {
+        setCurrentPath((prev) => prev.slice(0, item.loopBackDepth));
+        return;
+      }
+
+      // 모든 잘못된 경로에서 onFail (깊이 무관)
       if (item.isDeadEnd) {
-        const newCount = wrongPathCount + 1;
-        setWrongPathCount(newCount);
-        if (newCount >= 3) {
-          onFail();
-        } else {
-          setCurrentPath([]);
+        if (params.wrongCloseAddsLayer) {
+          setMisleadingMenusCount((prev) => prev + 1);
         }
+        if (params.shuffleOnMiss) {
+          setReshuffleKey((prev) => prev + 1);
+        }
+        onFail();
+        setCurrentPath([]);
         return;
       }
 
       setCurrentPath([...currentPath, index]);
     },
-    [getCurrentMenu, currentPath, wrongPathCount, onComplete, onFail]
+    [getCurrentMenu, currentPath, params.wrongCloseAddsLayer, params.shuffleOnMiss, onComplete, onFail]
   );
 
   const handleBack = useCallback(() => {
@@ -141,7 +170,16 @@ export default function NavMazeStage({
   }, [currentPath]);
 
   const handleFilterChange = useCallback((key: string, value: string) => {
-    setFilterValues((prev) => ({ ...prev, [key]: value }));
+    // 함정: filter_0, filter_3, filter_6 변경 시 인접 필터 리셋
+    setFilterValues((prev) => {
+      const updated: Record<string, string> = { ...prev, [key]: value };
+      const resetTriggers = ["filter_0", "filter_3", "filter_6"];
+      if (resetTriggers.includes(key) && value !== "전체") {
+        const keyNum = parseInt(key.replace("filter_", ""), 10);
+        updated[`filter_${keyNum + 1}`] = "전체";
+      }
+      return updated;
+    });
   }, []);
 
   const handleApply = useCallback(() => {
@@ -149,11 +187,11 @@ export default function NavMazeStage({
     onComplete();
   }, [hasScrolledToApply, onComplete]);
 
-  useEffect(() => {
-    if (wrongPathCount >= 3) {
-      onFail();
-    }
-  }, [wrongPathCount, onFail]);
+  // 초기화 버튼: 적용처럼 보이지만 모든 필터 리셋 후 onFail
+  const handleReset = useCallback(() => {
+    setFilterValues({});
+    onFail();
+  }, [onFail]);
 
   if (params.mode === "filter_overload") {
     const filterCount = params.filterCount || 12;
@@ -257,18 +295,42 @@ export default function NavMazeStage({
             <div style={{ height: "400px", marginTop: "20px" }} />
           )}
 
-          <div style={{ marginTop: "20px", textAlign: "center" }}>
+          {/* 초기화(함정) + 적용(진짜) 버튼 - 초기화가 더 크고 파란색 */}
+          <div
+            style={{
+              marginTop: "20px",
+              display: "flex",
+              gap: "8px",
+              justifyContent: "center",
+            }}
+          >
             <button
               type="button"
-              onClick={handleApply}
-              disabled={!hasScrolledToApply}
+              onClick={handleReset}
               style={{
                 padding: params.hiddenApplyButton ? "6px 12px" : "12px 24px",
                 fontSize: params.hiddenApplyButton ? "10px" : "14px",
                 fontWeight: "500",
                 color: "#FFFFFF",
-                backgroundColor: hasScrolledToApply ? "#3182F6" : "#E5E8EB",
+                backgroundColor: "#3182F6",
                 border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
+              초기화
+            </button>
+            <button
+              type="button"
+              onClick={handleApply}
+              disabled={!hasScrolledToApply}
+              style={{
+                padding: params.hiddenApplyButton ? "4px 8px" : "10px 16px",
+                fontSize: params.hiddenApplyButton ? "9px" : "12px",
+                fontWeight: "400",
+                color: hasScrolledToApply ? "#4E5968" : "#8B95A1",
+                backgroundColor: hasScrolledToApply ? "#E5E8EB" : "#F9FAFB",
+                border: "1px solid #E5E8EB",
                 borderRadius: "4px",
                 cursor: hasScrolledToApply ? "pointer" : "not-allowed",
               }}
@@ -331,7 +393,7 @@ export default function NavMazeStage({
             borderBottom: "1px solid #E5E8EB",
           }}
         >
-          Navigation
+          메뉴
         </div>
 
         <div style={{ flex: 1, overflowY: "auto", padding: "8px" }}>
@@ -404,13 +466,10 @@ export default function NavMazeStage({
             fontWeight: "500",
           }}
         >
-          목표: {randomAction}
+          목표: {params.targetAction}
         </div>
         <div style={{ fontSize: "14px", color: "#8B95A1", marginTop: "8px" }}>
           왼쪽 메뉴에서 올바른 경로를 찾아 이동하세요.
-        </div>
-        <div style={{ fontSize: "14px", color: "#E53935", marginTop: "8px" }}>
-          잘못된 경로 {wrongPathCount} / 3
         </div>
       </div>
     </div>

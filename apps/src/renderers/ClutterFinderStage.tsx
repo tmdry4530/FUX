@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 export interface ClutterFinderParams {
   mode: "clutter_page" | "chaotic_layout";
@@ -6,6 +6,40 @@ export interface ClutterFinderParams {
   clutterItems: number;
   scrollHeight: number;
   hasSimBadge: boolean;
+  wrongCloseAddsLayer?: boolean;
+  shuffleOnMiss?: boolean;
+}
+
+interface ClutterElement {
+  type: string;
+  label: string;
+  isTarget: boolean;
+  color: string;
+  top?: string;
+  left?: string;
+  rotation?: string;
+}
+
+function buildClutterElements(params: ClutterFinderParams): ClutterElement[] {
+  const decoyPool = buildDecoyLabels(params.targetLabel);
+  const elements: ClutterElement[] = [];
+  const targetIndex = Math.floor(Math.random() * (params.clutterItems + 1));
+
+  for (let i = 0; i <= params.clutterItems; i++) {
+    const isTarget = i === targetIndex;
+    const elementTypes = ["button", "card", "banner", "alert"];
+    const type = elementTypes[Math.floor(Math.random() * elementTypes.length)] ?? "button";
+    const label = isTarget ? params.targetLabel : decoyPool[i % decoyPool.length] ?? "더 보기";
+    const color = getRandomColor();
+    const element: ClutterElement = { type, label, isTarget, color };
+    if (params.mode === "chaotic_layout") {
+      element.top = `${Math.random() * 80 + 10}%`;
+      element.left = `${Math.random() * 80 + 5}%`;
+      element.rotation = `rotate(${Math.random() * 10 - 5}deg)`;
+    }
+    elements.push(element);
+  }
+  return elements;
 }
 
 interface ClutterFinderStageProps {
@@ -14,10 +48,43 @@ interface ClutterFinderStageProps {
   onFail: () => void;
 }
 
-const TARGET_LABELS = ["저장하기", "신청하기", "다음", "확인", "제출", "완료", "동의하기", "시작하기"];
+const BUTTON_COLORS = [
+  "#3182F6", "#E53935", "#8B95A1", "#43A047", "#FB8C00",
+  "#8E24AA", "#00ACC1", "#6D4C41", "#546E7A", "#F4511E",
+  "#039BE5", "#7CB342", "#C0CA33", "#FFB300", "#E91E63",
+];
 
-function pickRandomTarget(): string {
-  return TARGET_LABELS[Math.floor(Math.random() * TARGET_LABELS.length)] ?? "저장하기";
+function getRandomColor(exclude?: string): string {
+  const filtered = exclude ? BUTTON_COLORS.filter((c) => c !== exclude) : BUTTON_COLORS;
+  return filtered[Math.floor(Math.random() * filtered.length)]!;
+}
+
+function buildDecoyLabels(targetLabel: string): string[] {
+  const similarMap: Record<string, string[]> = {
+    "설정 변경": ["설정 확인", "설정 초기화", "설정 보기", "환경 설정", "설정 저장"],
+    "동의": ["동의 거부", "미동의", "부분 동의", "조건부 동의", "동의 취소"],
+    "확인": ["확인 취소", "재확인", "확인 안 함", "나중에 확인", "확인 필요"],
+    "삭제": ["삭제 취소", "임시 삭제", "삭제 보류", "삭제 예약", "삭제 확인"],
+    "저장": ["저장 안 함", "임시 저장", "저장 취소", "자동 저장", "저장 보류"],
+  };
+
+  const specific = similarMap[targetLabel];
+  if (specific) return specific;
+
+  return [
+    `${targetLabel} 취소`,
+    `${targetLabel} 확인`,
+    `${targetLabel} 안 함`,
+    "추천 상품 보기",
+    "이벤트 확인",
+    "광고 닫기",
+    "더 알아보기",
+    "지금 신청",
+    "자세히 보기",
+    "무료 체험",
+    "쿠폰 받기",
+    "친구 초대",
+  ];
 }
 
 export default function ClutterFinderStage({
@@ -25,73 +92,85 @@ export default function ClutterFinderStage({
   onComplete,
   onFail,
 }: ClutterFinderStageProps) {
-  const [randomTarget] = useState(() => pickRandomTarget());
-  const [wrongClicks, setWrongClicks] = useState(0);
+  const [blinkVisible, setBlinkVisible] = useState(true);
+  const [showFakeNotif, setShowFakeNotif] = useState(false);
+  const [fakeNotifTimer, setFakeNotifTimer] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlinkVisible((v) => !v);
+    }, 600);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFakeNotif(true);
+    }, 2500 + Math.random() * 2000);
+    return () => clearTimeout(timer);
+  }, [fakeNotifTimer]);
 
   const handleWrongClick = useCallback(() => {
-    const newCount = wrongClicks + 1;
-    setWrongClicks(newCount);
-    if (newCount >= 3) {
-      onFail();
+    if (params.wrongCloseAddsLayer) {
+      setClutterElements((prev) => {
+        const decoyPool = buildDecoyLabels(params.targetLabel);
+        const newDecoys: ClutterElement[] = Array.from({ length: 2 }, (_, i) => {
+          const element: ClutterElement = {
+            type: "button",
+            label: decoyPool[(prev.length + i) % decoyPool.length] ?? "더 보기",
+            isTarget: false,
+            color: getRandomColor(),
+          };
+          if (params.mode === "chaotic_layout") {
+            element.top = `${Math.random() * 80 + 10}%`;
+            element.left = `${Math.random() * 80 + 5}%`;
+            element.rotation = `rotate(${Math.random() * 10 - 5}deg)`;
+          }
+          return element;
+        });
+        return [...prev, ...newDecoys];
+      });
     }
-  }, [wrongClicks, onFail]);
+    if (params.shuffleOnMiss) {
+      setClutterElements((prev) => {
+        if (params.mode === "chaotic_layout") {
+          return prev.map((el) => ({
+            ...el,
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 5}%`,
+            rotation: `rotate(${Math.random() * 10 - 5}deg)`,
+          }));
+        }
+        const copy = [...prev];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j]!, copy[i]!];
+        }
+        return copy;
+      });
+    }
+    onFail();
+  }, [onFail, params]);
 
   const handleCorrectClick = useCallback(() => {
     onComplete();
   }, [onComplete]);
 
-  const clutterElements = useMemo(() => {
-    const elements: Array<{
-      type: string;
-      label: string;
-      isTarget: boolean;
-      top?: string;
-      left?: string;
-    }> = [];
-    const targetIndex = Math.floor(Math.random() * (params.clutterItems + 1));
+  const handleFakeNotifClick = useCallback(() => {
+    setShowFakeNotif(false);
+    onFail();
+    setFakeNotifTimer((n) => n + 1);
+  }, [onFail]);
 
-    for (let i = 0; i <= params.clutterItems; i++) {
-      const isTarget = i === targetIndex;
-      const elementTypes = ["button", "card", "banner", "alert"];
-      const type = elementTypes[Math.floor(Math.random() * elementTypes.length)] ?? "button";
+  const handleFakeNotifClose = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowFakeNotif(false);
+    setFakeNotifTimer((n) => n + 1);
+  }, []);
 
-      let label = "";
-      if (isTarget) {
-        label = randomTarget;
-      } else {
-        const decoyLabels = [
-          "추천 상품 보기",
-          "이벤트 확인",
-          "광고 닫기",
-          "더 알아보기",
-          "지금 신청",
-          "자세히 보기",
-          "무료 체험",
-          "쿠폰 받기",
-          "친구 초대",
-          "설정 변경",
-        ];
-        label = decoyLabels[i % decoyLabels.length] ?? "더 보기";
-      }
-
-      const element: {
-        type: string;
-        label: string;
-        isTarget: boolean;
-        top?: string;
-        left?: string;
-      } = { type, label, isTarget };
-
-      if (params.mode === "chaotic_layout") {
-        element.top = `${Math.random() * 80 + 10}%`;
-        element.left = `${Math.random() * 80 + 5}%`;
-      }
-
-      elements.push(element);
-    }
-
-    return elements;
-  }, [params.clutterItems, randomTarget, params.mode]);
+  const [clutterElements, setClutterElements] = useState<ClutterElement[]>(() =>
+    buildClutterElements(params),
+  );
 
   const containerHeight = `${params.scrollHeight}px`;
 
@@ -110,7 +189,49 @@ export default function ClutterFinderStage({
         zIndex: 1001,
       }}
     >
-      목표: "{randomTarget}" 버튼 찾기 | 오클릭 {wrongClicks}/3
+      목표: "{params.targetLabel}" 버튼 찾기
+    </div>
+  );
+
+  const fakeNotifPopup = showFakeNotif && (
+    <div
+      onClick={handleFakeNotifClick}
+      style={{
+        position: "fixed",
+        bottom: "80px",
+        right: "16px",
+        width: "260px",
+        padding: "14px 16px",
+        backgroundColor: "#FFFFFF",
+        borderRadius: "12px",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
+        zIndex: 2000,
+        cursor: "pointer",
+        border: "1px solid #E5E7EB",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div>
+          <div style={{ fontSize: "13px", fontWeight: "700", color: "#191F28", marginBottom: "4px" }}>
+            새 알림 도착
+          </div>
+          <div style={{ fontSize: "12px", color: "#4E5968" }}>
+            지금 확인하고 혜택을 받아보세요!
+          </div>
+        </div>
+        <span
+          onClick={handleFakeNotifClose}
+          style={{
+            fontSize: "18px",
+            color: "#8B95A1",
+            lineHeight: 1,
+            padding: "0 4px",
+            cursor: "pointer",
+          }}
+        >
+          ×
+        </span>
+      </div>
     </div>
   );
 
@@ -141,26 +262,15 @@ export default function ClutterFinderStage({
               zIndex: 1000,
             }}
           >
-            SIMULATION
+            시뮬레이션
           </div>
         )}
 
         <div style={{ width: "100%", height: containerHeight, position: "relative" }}>
           {clutterElements.map((element, idx) => {
-            const bgColor =
-              element.type === "banner"
-                ? "#3182F6"
-                : element.type === "alert"
-                  ? "#E53935"
-                  : element.type === "card"
-                    ? "#FFFFFF"
-                    : "#8B95A1";
-
-            const textColor =
-              element.type === "card" ? "#191F28" : "#FFFFFF";
-
             const fontSize = `${Math.random() * 8 + 12}px`;
-            const rotation = `rotate(${Math.random() * 10 - 5}deg)`;
+            const rotation = element.rotation ?? "rotate(0deg)";
+            const textColor = "#FFFFFF";
 
             return (
               <div
@@ -171,7 +281,7 @@ export default function ClutterFinderStage({
                   top: element.top,
                   left: element.left,
                   padding: "12px 16px",
-                  backgroundColor: bgColor,
+                  backgroundColor: element.color,
                   color: textColor,
                   fontSize,
                   fontWeight: "500",
@@ -188,6 +298,7 @@ export default function ClutterFinderStage({
             );
           })}
         </div>
+        {fakeNotifPopup}
       </div>
     );
   }
@@ -218,7 +329,7 @@ export default function ClutterFinderStage({
             zIndex: 1000,
           }}
         >
-          SIMULATION
+          시뮬레이션
         </div>
       )}
 
@@ -236,17 +347,20 @@ export default function ClutterFinderStage({
             return (
               <div
                 key={idx}
-                onClick={handleWrongClick}
+                onClick={element.isTarget ? handleCorrectClick : handleWrongClick}
                 style={{
                   gridColumn: "1 / -1",
                   padding: "20px",
-                  backgroundColor: "#3182F6",
+                  backgroundColor: element.color,
                   color: "#FFFFFF",
                   fontSize: "16px",
                   fontWeight: "600",
                   borderRadius: "8px",
                   cursor: "pointer",
                   textAlign: "center",
+                  animation: blinkVisible ? undefined : "none",
+                  opacity: blinkVisible ? 1 : 0.4,
+                  transition: "opacity 0.3s",
                 }}
               >
                 {element.label}
@@ -258,13 +372,13 @@ export default function ClutterFinderStage({
             return (
               <div
                 key={idx}
-                onClick={handleWrongClick}
+                onClick={element.isTarget ? handleCorrectClick : handleWrongClick}
                 style={{
                   gridColumn: "1 / -1",
                   padding: "16px",
-                  backgroundColor: "#FFF9E6",
-                  border: "1px solid #FFD700",
-                  color: "#191F28",
+                  backgroundColor: element.color,
+                  border: `1px solid ${element.color}`,
+                  color: "#FFFFFF",
                   fontSize: "14px",
                   borderRadius: "4px",
                   cursor: "pointer",
@@ -279,13 +393,14 @@ export default function ClutterFinderStage({
             return (
               <div
                 key={idx}
-                onClick={handleWrongClick}
+                onClick={element.isTarget ? handleCorrectClick : handleWrongClick}
                 style={{
                   padding: "20px",
                   backgroundColor: "#FFFFFF",
                   borderRadius: "8px",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
                   cursor: "pointer",
+                  borderTop: `3px solid ${element.color}`,
                 }}
               >
                 <div
@@ -305,7 +420,7 @@ export default function ClutterFinderStage({
             );
           }
 
-          // button
+          // button — all same style, just different color
           return (
             <button
               key={idx}
@@ -316,7 +431,7 @@ export default function ClutterFinderStage({
                 fontSize: "14px",
                 fontWeight: "500",
                 color: "#FFFFFF",
-                backgroundColor: element.isTarget ? "#3182F6" : "#8B95A1",
+                backgroundColor: element.color,
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -327,6 +442,7 @@ export default function ClutterFinderStage({
           );
         })}
       </div>
+      {fakeNotifPopup}
     </div>
   );
 }

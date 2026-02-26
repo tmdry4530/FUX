@@ -1,9 +1,11 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import type React from "react";
 
 export interface StateFeedbackBrokenParams {
   fields: string[];
   requireStatusCheck: boolean;
+  wrongCloseAddsLayer?: boolean;
+  shuffleOnMiss?: boolean;
 }
 
 interface StageRendererProps {
@@ -17,45 +19,71 @@ export default function StateFeedbackBrokenStage({
   onComplete,
   onFail,
 }: StageRendererProps) {
+  const [allFields, setAllFields] = useState<string[]>(() => [...params.fields]);
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitCount, setSubmitCount] = useState(0);
+  const [showToast, setShowToast] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
+  const [showResubmit, setShowResubmit] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
-  const [showDuplicateWarning, setShowDuplicateWarning] = useState(false);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleInputChange = useCallback((field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   }, []);
 
+  // Fake toast: appears after first submit, fades out after 1.5s, then shows resubmit trap
+  useEffect(() => {
+    if (!showToast) return;
+    setToastVisible(true);
+    toastTimerRef.current = setTimeout(() => {
+      setToastVisible(false);
+      setTimeout(() => {
+        setShowToast(false);
+        setShowResubmit(true);
+      }, 400);
+    }, 1500);
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, [showToast]);
+
   const handleSubmit = useCallback(() => {
-    const allFilled = params.fields.every((field) => {
+    const allFilled = allFields.every((field) => {
       const value = formData[field];
       return value !== undefined && value.trim() !== "";
     });
 
-    if (!allFilled) {
-      return;
-    }
-
-    const next = submitCount + 1;
-    setSubmitCount(next);
+    if (!allFilled) return;
 
     if (!isSubmitted) {
-      // First submission - actually submit
+      // Real first submission - show fake success toast (dark pattern: lie)
       setIsSubmitted(true);
+      setShowToast(true);
     } else {
-      // Duplicate submission
-      if (next >= 3) {
-        setShowDuplicateWarning(true);
-      }
-      if (next >= 5) {
-        onFail();
-        return;
-      }
+      // Duplicate submission = fail
+      onFail();
     }
+    // NO real visual feedback - broken state feedback dark pattern
+  }, [allFields, formData, isSubmitted, onFail]);
 
-    // NO VISUAL FEEDBACK - this is the bad UX!
-  }, [params.fields, formData, isSubmitted, submitCount, onFail]);
+  // "다시 제출" trap - clicking this after the fake toast = fail
+  const handleResubmitTrap = useCallback(() => {
+    setAllFields((prev) => {
+      let updated = params.wrongCloseAddsLayer
+        ? [...prev, `추가 항목 ${prev.length + 1}`]
+        : [...prev];
+      if (params.shuffleOnMiss) {
+        for (let i = updated.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [updated[i], updated[j]] = [updated[j]!, updated[i]!];
+        }
+      }
+      return updated;
+    });
+    setShowResubmit(false);
+    onFail();
+  }, [params.wrongCloseAddsLayer, params.shuffleOnMiss, onFail]);
 
   const handleViewStatus = useCallback(() => {
     setShowStatus(true);
@@ -67,10 +95,10 @@ export default function StateFeedbackBrokenStage({
   return (
     <div style={containerStyle}>
       <div style={formContainerStyle}>
-        <h2 style={titleStyle}>Submit your request</h2>
-        <p style={subtitleStyle}>Please fill in all fields and submit</p>
+        <h2 style={titleStyle}>요청서 제출</h2>
+        <p style={subtitleStyle}>모든 항목을 입력하고 제출하세요</p>
 
-        {params.fields.map((field) => {
+        {allFields.map((field) => {
           const value = formData[field] ?? "";
           return (
             <div key={field} style={fieldContainerStyle}>
@@ -80,7 +108,7 @@ export default function StateFeedbackBrokenStage({
                 style={inputStyle}
                 value={value}
                 onChange={(e) => handleInputChange(field, e.target.value)}
-                placeholder={`Enter ${field.toLowerCase()}`}
+                placeholder={`${field} 입력`}
               />
             </div>
           );
@@ -91,41 +119,59 @@ export default function StateFeedbackBrokenStage({
           style={submitButtonStyle}
           onClick={handleSubmit}
         >
-          Submit
+          제출
         </button>
 
-        {showDuplicateWarning && (
-          <div style={warningStyle}>
-            Multiple submissions detected
-          </div>
+        {/* "다시 제출" trap - appears after fake toast */}
+        {showResubmit && (
+          <button
+            type="button"
+            style={resubmitTrapStyle}
+            onClick={handleResubmitTrap}
+          >
+            다시 제출
+          </button>
         )}
 
+        {/* Status link: hidden in bottom-right corner, ambiguous label */}
         <div style={statusLinkContainerStyle}>
           <button
             type="button"
             style={statusLinkStyle}
             onClick={handleViewStatus}
           >
-            View Status
+            더보기
           </button>
         </div>
       </div>
 
+      {/* Fake success toast - lies to the user */}
+      {showToast && (
+        <div
+          style={{
+            ...toastStyle,
+            opacity: toastVisible ? 1 : 0,
+          }}
+        >
+          제출 완료!
+        </div>
+      )}
+
       {showStatus && (
         <div style={statusModalOverlayStyle}>
           <div style={statusModalStyle}>
-            <h3 style={statusTitleStyle}>Status</h3>
+            <h3 style={statusTitleStyle}>상태</h3>
             {isSubmitted ? (
-              <p style={statusTextStyle}>✓ Request received</p>
+              <p style={statusTextStyle}>요청이 접수되었습니다</p>
             ) : (
-              <p style={statusTextStyle}>No request submitted yet</p>
+              <p style={statusTextStyle}>제출된 요청이 없습니다</p>
             )}
             <button
               type="button"
               style={closeButtonStyle}
               onClick={() => setShowStatus(false)}
             >
-              Close
+              닫기
             </button>
           </div>
         </div>
@@ -137,6 +183,7 @@ export default function StateFeedbackBrokenStage({
 // --- Styles ---
 
 const containerStyle: React.CSSProperties = {
+  position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -147,6 +194,7 @@ const containerStyle: React.CSSProperties = {
 };
 
 const formContainerStyle: React.CSSProperties = {
+  position: "relative",
   width: "100%",
   maxWidth: 400,
   backgroundColor: "#fff",
@@ -188,6 +236,7 @@ const inputStyle: React.CSSProperties = {
   borderRadius: 6,
   outline: "none",
   transition: "border-color 0.15s",
+  boxSizing: "border-box",
 };
 
 const submitButtonStyle: React.CSSProperties = {
@@ -204,30 +253,55 @@ const submitButtonStyle: React.CSSProperties = {
   WebkitTapHighlightColor: "transparent",
 };
 
-const warningStyle: React.CSSProperties = {
-  marginTop: "12px",
-  padding: "8px",
-  fontSize: 11,
-  color: "#ff9800",
-  backgroundColor: "#fff3e0",
-  borderRadius: 4,
-  textAlign: "center",
+// Trap button: looks like a helpful resubmit but calls onFail
+const resubmitTrapStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "10px",
+  fontSize: 14,
+  fontWeight: 500,
+  color: "#3182F6",
+  backgroundColor: "#EFF6FF",
+  border: "1px solid #BFDBFE",
+  borderRadius: 8,
+  cursor: "pointer",
+  marginTop: "10px",
+  WebkitTapHighlightColor: "transparent",
 };
 
+// Hidden in bottom-right corner, low opacity, ambiguous label
 const statusLinkContainerStyle: React.CSSProperties = {
-  marginTop: "20px",
-  textAlign: "center",
+  position: "absolute",
+  bottom: 8,
+  right: 8,
 };
 
 const statusLinkStyle: React.CSSProperties = {
   background: "none",
   border: "none",
-  color: "#8B95A1",
-  fontSize: 11,
+  color: "rgba(139, 149, 161, 0.5)",
+  fontSize: 10,
   textDecoration: "underline",
   cursor: "pointer",
-  padding: "4px",
+  padding: "2px",
   WebkitTapHighlightColor: "transparent",
+};
+
+// Fake green success toast
+const toastStyle: React.CSSProperties = {
+  position: "fixed",
+  top: 24,
+  left: "50%",
+  transform: "translateX(-50%)",
+  backgroundColor: "#16a34a",
+  color: "#fff",
+  padding: "10px 24px",
+  borderRadius: 8,
+  fontSize: 14,
+  fontWeight: 600,
+  zIndex: 2000,
+  boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+  transition: "opacity 0.4s ease",
+  pointerEvents: "none",
 };
 
 const statusModalOverlayStyle: React.CSSProperties = {

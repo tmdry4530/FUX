@@ -56,23 +56,34 @@ export async function grantTossPoint(code: string, amount: number): Promise<Gran
 // Rewarded Ad
 export async function showRewardedAd(adGroupId: string): Promise<boolean> {
   return new Promise((resolve) => {
+    let settled = false;
+    const done = (value: boolean) => {
+      if (!settled) {
+        settled = true;
+        resolve(value);
+      }
+    };
+
+    // 광고 SDK가 응답하지 않을 경우 무한 로딩 방지 (5초 타임아웃)
+    setTimeout(() => done(false), 5000);
+
     try {
       let earned = false;
       (loadFullScreenAd as any)({
         options: { adGroupId },
         onEvent: (event: { type: string }) => {
           if (event.type === 'userEarnedReward') earned = true;
-          if (event.type === 'dismissed' || event.type === 'closed') resolve(earned);
+          if (event.type === 'dismissed' || event.type === 'closed') done(earned);
         },
-        onError: () => resolve(false),
+        onError: () => done(false),
       });
       (showFullScreenAd as any)({
         options: { adGroupId },
         onEvent: () => {},
-        onError: () => resolve(false),
+        onError: () => done(false),
       });
     } catch {
-      resolve(false);
+      done(false);
     }
   });
 }

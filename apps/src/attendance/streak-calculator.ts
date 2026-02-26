@@ -25,14 +25,14 @@ export function daysUntilNextMilestone(currentStreak: number): { milestone: numb
 
 /** 이번 주 출석 현황 (일~토) */
 export function getWeekAttendance(attendedDates: string[]): boolean[] {
-  const today = new Date(getTodayKST() + 'T00:00:00+09:00');
-  const dayOfWeek = today.getDay(); // 0 = Sunday
-  const weekStart = new Date(today);
-  weekStart.setDate(today.getDate() - dayOfWeek);
+  const todayStr = getTodayKST();
+  // UTC noon을 사용하여 타임존 날짜 시프트 방지
+  const today = new Date(todayStr + 'T12:00:00Z');
+  const dayOfWeek = today.getUTCDay(); // 0 = Sunday
 
   return Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(weekStart);
-    d.setDate(weekStart.getDate() + i);
+    const d = new Date(today);
+    d.setUTCDate(today.getUTCDate() - dayOfWeek + i);
     const dateStr = d.toISOString().slice(0, 10);
     return attendedDates.includes(dateStr);
   });

@@ -43,7 +43,7 @@ export function StageListScreen() {
   const { attendance } = useAttendance();
   const { watchAd, loading: adLoading } = useRewardedAd();
 
-  // 하드 챌린지: 난이도 4~5에서 랜덤 3개
+  // 하드 챌린지: 난이도 4~5에서 랜덤 3개 (동일 type 중복 방지)
   const hardStages = useMemo(() => {
     const pool = allStages.filter((s) => s.difficulty >= 4);
     const shuffled = [...pool];
@@ -51,7 +51,12 @@ export function StageListScreen() {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!];
     }
-    return shuffled.slice(0, 3);
+    const seen = new Set<string>();
+    return shuffled.filter((s) => {
+      if (seen.has(s.type)) return false;
+      seen.add(s.type);
+      return true;
+    }).slice(0, 3);
   }, []);
 
   return (
@@ -98,7 +103,11 @@ export function StageListScreen() {
           UX력 <strong style={{ color: TDS.blue500, fontSize: 16 }}>{state.uxp.total.toLocaleString()}</strong>
         </span>
         <button
-          onClick={() => navigate('/profile')}
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate('/profile');
+          }}
           style={{
             padding: '6px 12px',
             fontSize: 12,
@@ -108,6 +117,8 @@ export function StageListScreen() {
             border: 'none',
             borderRadius: TDS.radius8,
             cursor: 'pointer',
+            position: 'relative',
+            zIndex: 1,
           }}
         >
           내 프로필

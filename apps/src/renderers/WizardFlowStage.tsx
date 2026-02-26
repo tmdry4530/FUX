@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 
 export interface WizardFlowParams {
   mode: "endless_wizard" | "government_portal";
@@ -8,6 +8,8 @@ export interface WizardFlowParams {
   decoyCtas: number;
   forcedScroll: boolean;
   requiredFields: number | string[];
+  wrongCloseAddsLayer?: boolean;
+  shuffleOnMiss?: boolean;
 }
 
 interface WizardFlowStageProps {
@@ -30,27 +32,85 @@ function normalizeFields(input: number | string[]): string[] {
   return FIELD_NAMES.slice(0, count);
 }
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i] as T;
+    a[i] = a[j] as T;
+    a[j] = tmp;
+  }
+  return a;
+}
+
+// 데코이 레이블 풀 - 진짜 "다음"과 매우 유사하게
+const DECOY_LABEL_POOL = [
+  "다음 단계",
+  "계속 진행",
+  "다음으로",
+  "확인 후 진행",
+  "진행하기",
+  "이동",
+  "저장 후 다음",
+  "완료",
+];
+
+// misleadingLabels=true 일 때 진짜 버튼에 붙는 혼란 레이블
+const MISLEADING_NEXT_LABELS = ["이전으로", "취소", "뒤로", "초기화"];
+
 export default function WizardFlowStage({
   params,
   onComplete,
   onFail,
 }: WizardFlowStageProps) {
-  const [totalSteps] = useState(() => randomStepCount(params.stepCount));
+  const [totalSteps, setTotalSteps] = useState(() => randomStepCount(params.stepCount));
+  const maxTotalStepsRef = useRef<number | null>(null);
+  if (maxTotalStepsRef.current === null) {
+    maxTotalStepsRef.current = Math.ceil(totalSteps * 1.5);
+  }
+  const maxTotalSteps = maxTotalStepsRef.current;
   const [fields] = useState(() => normalizeFields(params.requiredFields));
   const [currentStep, setCurrentStep] = useState(1);
-  const [resetCount, setResetCount] = useState(0);
-  const [decoyClickCount, setDecoyClickCount] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(!params.forcedScroll);
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
   const [showPopup, setShowPopup] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // 각 스텝마다 버튼 순서(셔플) 고정 - 스텝 변경 시 새로 셔플
+  const [buttonOrder, setButtonOrder] = useState<number[]>(() => {
+    const count = params.decoyCtas + 1; // 데코이 + 진짜 1개
+    return shuffle(Array.from({ length: count }, (_, i) => i));
+  });
+
+  const reshuffleButtons = useCallback(() => {
+    const count = params.decoyCtas + 1;
+    setButtonOrder(shuffle(Array.from({ length: count }, (_, i) => i)));
+  }, [params.decoyCtas]);
+
+  // 각 데코이에 배정된 레이블 (스텝마다 새로 선택)
+  const [decoyLabels, setDecoyLabels] = useState<string[]>(() =>
+    Array.from({ length: params.decoyCtas }, (_, i) =>
+      DECOY_LABEL_POOL[i % DECOY_LABEL_POOL.length] ?? "확인",
+    ),
+  );
+
+  const reshuffleDecoyLabels = useCallback(() => {
+    const shuffled = shuffle(DECOY_LABEL_POOL);
+    setDecoyLabels(
+      Array.from({ length: params.decoyCtas }, (_, i) => shuffled[i % shuffled.length] ?? "확인"),
+    );
+  }, [params.decoyCtas]);
+
+  // misleadingLabels=true 일 때 진짜 버튼 레이블
+  const [misleadingNextLabel] = useState<string>(() =>
+    MISLEADING_NEXT_LABELS[Math.floor(Math.random() * MISLEADING_NEXT_LABELS.length)] ?? "이전으로",
+  );
+
   const handleScroll = useCallback(() => {
     if (!params.forcedScroll) return;
     const container = scrollContainerRef.current;
     if (!container) return;
-
     const scrolledToBottom =
       container.scrollHeight - container.scrollTop <= container.clientHeight + 50;
     if (scrolledToBottom) {
@@ -58,17 +118,11 @@ export default function WizardFlowStage({
     }
   }, [params.forcedScroll]);
 
-  useEffect(() => {
-    if (resetCount >= 3 || decoyClickCount >= 3) {
-      onFail();
-    }
-  }, [resetCount, decoyClickCount, onFail]);
-
   const handleNext = useCallback(() => {
     if (!hasScrolled) return;
 
     const requiredFieldsFilled = fields.every(
-      (field) => (fieldValues[field] ?? "").trim().length > 0
+      (field) => (fieldValues[field] ?? "").trim().length > 0,
     );
     if (!requiredFieldsFilled) {
       alert("모든 필수 항목을 입력해주세요.");
@@ -87,6 +141,8 @@ export default function WizardFlowStage({
       setHasScrolled(!params.forcedScroll);
       setFieldValues({});
       setAgreedToTerms(false);
+      reshuffleButtons();
+      reshuffleDecoyLabels();
     }
   }, [
     hasScrolled,
@@ -98,34 +154,64 @@ export default function WizardFlowStage({
     fieldValues,
     onComplete,
     params.forcedScroll,
+    reshuffleButtons,
+    reshuffleDecoyLabels,
   ]);
 
   const handleBack = useCallback(() => {
     if (params.backResets) {
       setCurrentStep(1);
-      setResetCount((prev) => prev + 1);
+      onFail();
       setFieldValues({});
       setHasScrolled(!params.forcedScroll);
+      reshuffleButtons();
+      reshuffleDecoyLabels();
     } else {
       setCurrentStep((prev) => Math.max(1, prev - 1));
+      reshuffleButtons();
+      reshuffleDecoyLabels();
     }
-  }, [params.backResets, params.forcedScroll]);
+  }, [params.backResets, params.forcedScroll, onFail, reshuffleButtons, reshuffleDecoyLabels]);
 
   const handleDecoy = useCallback(() => {
-    setDecoyClickCount((prev) => prev + 1);
+    onFail();
     setCurrentStep(1);
     setFieldValues({});
     setHasScrolled(!params.forcedScroll);
-  }, [params.forcedScroll]);
+    reshuffleButtons();
+    reshuffleDecoyLabels();
+    if (params.wrongCloseAddsLayer) {
+      setTotalSteps((prev) => Math.min(prev + 1, maxTotalSteps));
+    }
+  }, [params.forcedScroll, params.wrongCloseAddsLayer, maxTotalSteps, onFail, reshuffleButtons, reshuffleDecoyLabels]);
 
   const handleFieldChange = useCallback((field: string, value: string) => {
     setFieldValues((prev) => ({ ...prev, [field]: value }));
   }, []);
 
-  const nextLabel = params.misleadingLabels ? "이전" : "다음";
-  const backLabel = params.misleadingLabels ? "다음" : "이전";
-  const actualNext = params.misleadingLabels ? handleBack : handleNext;
-  const actualBack = params.misleadingLabels ? handleNext : handleBack;
+  // misleadingLabels=true: 진짜 버튼에 혼란 레이블, 행동은 반대로
+  // misleadingLabels=false: 정상 레이블
+  const realNextLabel = params.misleadingLabels ? misleadingNextLabel : "다음";
+  const realNextAction = params.misleadingLabels ? handleBack : handleNext;
+
+  // 버튼 정의: 인덱스 0 = 진짜 다음, 인덱스 1..N = 데코이
+  // 모든 버튼이 동일한 파란색 스타일 (구별 불가)
+  const allButtonDefs = useMemo(() => {
+    const defs: Array<{ label: string; action: () => void; isReal: boolean }> = [
+      { label: realNextLabel, action: realNextAction, isReal: true },
+      ...Array.from({ length: params.decoyCtas }, (_, i) => ({
+        label: decoyLabels[i] ?? "확인",
+        action: handleDecoy,
+        isReal: false,
+      })),
+    ];
+    return defs;
+  }, [realNextLabel, realNextAction, params.decoyCtas, decoyLabels, handleDecoy]);
+
+  type ButtonDef = { label: string; action: () => void; isReal: boolean };
+  const orderedButtons = buttonOrder
+    .map((i) => allButtonDefs[i])
+    .filter((b): b is ButtonDef => b !== undefined);
 
   return (
     <div
@@ -271,7 +357,7 @@ export default function WizardFlowStage({
         </div>
       </div>
 
-      {/* Buttons */}
+      {/* Buttons - 모두 동일한 파란색, 셔플된 순서 */}
       <div
         style={{
           padding: "16px",
@@ -279,12 +365,13 @@ export default function WizardFlowStage({
           borderTop: "1px solid #E5E8EB",
           display: "flex",
           gap: "8px",
+          flexWrap: "wrap",
         }}
       >
         {currentStep > 1 && (
           <button
             type="button"
-            onClick={actualBack}
+            onClick={params.misleadingLabels ? handleNext : handleBack}
             style={{
               flex: 1,
               padding: "12px",
@@ -295,55 +382,41 @@ export default function WizardFlowStage({
               border: "1px solid #E5E8EB",
               borderRadius: "4px",
               cursor: "pointer",
+              minWidth: "60px",
             }}
           >
-            {backLabel}
+            {params.misleadingLabels ? "다음" : "이전"}
           </button>
         )}
 
-        {Array.from({ length: params.decoyCtas }).map((_, idx) => (
+        {orderedButtons.map((btn, idx) => (
           <button
             key={idx}
             type="button"
-            onClick={handleDecoy}
+            onClick={btn.isReal && !hasScrolled ? undefined : btn.action}
+            disabled={btn.isReal && !hasScrolled}
             style={{
               flex: 1,
               padding: "12px",
               fontSize: "14px",
               fontWeight: "500",
               color: "#FFFFFF",
-              backgroundColor: "#8B95A1",
+              // 모든 버튼 동일한 파란색 - 구별 불가능
+              backgroundColor:
+                btn.isReal && !hasScrolled ? "#E5E8EB" : "#3182F6",
               border: "none",
               borderRadius: "4px",
-              cursor: "pointer",
+              cursor: btn.isReal && !hasScrolled ? "not-allowed" : "pointer",
+              minWidth: "60px",
+              boxShadow:
+                params.mode === "government_portal"
+                  ? "0 2px 4px rgba(0,0,0,0.2)"
+                  : "none",
             }}
           >
-            {["확인", "취소", "건너뛰기", "저장"][idx % 4]}
+            {btn.label}
           </button>
         ))}
-
-        <button
-          type="button"
-          onClick={actualNext}
-          disabled={!hasScrolled}
-          style={{
-            flex: 1,
-            padding: "12px",
-            fontSize: "14px",
-            fontWeight: "500",
-            color: "#FFFFFF",
-            backgroundColor: hasScrolled ? "#3182F6" : "#E5E8EB",
-            border: "none",
-            borderRadius: "4px",
-            cursor: hasScrolled ? "pointer" : "not-allowed",
-            boxShadow:
-              params.mode === "government_portal"
-                ? "0 2px 4px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.1)"
-                : "none",
-          }}
-        >
-          {nextLabel}
-        </button>
       </div>
 
       {/* Government popup */}
@@ -379,7 +452,7 @@ export default function WizardFlowStage({
                 marginBottom: "12px",
               }}
             >
-              ⚠️ 필수 동의 항목
+              필수 동의 항목
             </div>
             <div style={{ fontSize: "14px", color: "#4E5968", marginBottom: "20px" }}>
               개인정보 수집 및 이용에 동의해주셔야 다음 단계로 진행할 수 있습니다.

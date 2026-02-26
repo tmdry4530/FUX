@@ -359,6 +359,39 @@ const ARCHETYPE_EXPLAIN_WHY_BAD: Record<string, string[]> = {
 };
 
 // ---------------------------------------------------------------------------
+// Type-based objectives (실제 렌더러 체험에 맞는 objective)
+// ---------------------------------------------------------------------------
+
+const TYPE_OBJECTIVES: Record<string, string[]> = {
+  volume_hover_slider: ['호버로 볼륨을 조절하세요', '마우스를 올려 볼륨을 맞추세요', '목표 볼륨에 정확히 도달하세요', '볼륨 슬라이더를 호버로 제어하세요', '떠다니는 슬라이더로 목표에 도달하세요'],
+  volume_hyper_sensitive: ['극도로 민감한 볼륨을 조절하세요', '과민 반응 슬라이더로 볼륨을 맞추세요', '초고감도 볼륨 컨트롤을 제어하세요', '미세 조정이 필요한 볼륨을 맞추세요', '살짝만 건드려도 폭주하는 볼륨을 맞추세요'],
+  volume_tiny_hitbox: ['초소형 볼륨 컨트롤을 조작하세요', '작디작은 히트박스로 볼륨을 맞추세요', '보이지 않는 볼륨 슬라이더를 찾아 조절하세요', '히트박스가 최소화된 볼륨을 맞추세요', '초소형 클릭 영역으로 볼륨을 조절하세요'],
+  volume_hidden_icon: ['숨겨진 볼륨 아이콘을 찾아 조절하세요', '보이지 않는 볼륨 버튼을 찾으세요', '어디에 있는지 모를 볼륨을 찾으세요', '숨어있는 소리 설정을 찾아 조절하세요', '볼륨 컨트롤을 찾아 사용하세요'],
+  volume_reverse_mapping: ['반대로 움직이는 볼륨을 맞추세요', '역방향 슬라이더로 볼륨을 조절하세요', '직감과 반대인 볼륨 컨트롤을 사용하세요', '뒤바뀐 볼륨 매핑을 극복하세요', '역전된 볼륨 조절기를 제어하세요'],
+  volume_random_jump: ['랜덤 점프하는 볼륨을 맞추세요', '불규칙한 볼륨 슬라이더를 제어하세요', '튀어다니는 볼륨을 잡으세요', '점프하는 슬라이더로 목표에 도달하세요', '예측 불가 볼륨 컨트롤을 정복하세요'],
+  volume_circular_gesture: ['원형 제스처로 볼륨을 맞추세요', '다이얼식 볼륨 컨트롤을 사용하세요', '회전 제스처로 목표 볼륨에 도달하세요', '돌려서 볼륨을 조절하세요', '볼륨 다이얼을 정확히 돌리세요'],
+  volume_puzzle_lock: ['퍼즐을 풀어 볼륨을 조절하세요', '잠금 해제 후 볼륨을 맞추세요', '보안 퍼즐을 통과해 볼륨을 조절하세요', '잠겨있는 볼륨 컨트롤을 해제하세요', '볼륨 퍼즐 잠금을 풀고 설정하세요'],
+  volume_physics_launcher: ['물리 발사체로 볼륨을 맞추세요', '던져서 볼륨을 설정하세요', '발사 각도를 맞춰 볼륨에 도달하세요', '탄성 있는 볼륨 컨트롤을 사용하세요', '물리 엔진으로 볼륨을 조절하세요'],
+  volume_voice_shout: ['소리쳐서 볼륨을 맞추세요', '음성으로 볼륨을 조절하세요', '마이크에 대고 볼륨을 설정하세요', '목소리 크기로 볼륨을 제어하세요', '외쳐서 목표 볼륨에 도달하세요'],
+  endless_wizard_flow: ['끝없는 단계를 통과하세요', '마법사 흐름을 완주하세요', '끝이 안 보이는 절차를 완료하세요', '숨겨진 마지막 단계에 도달하세요', '모든 단계를 빠짐없이 넘기세요'],
+  government_portal_popups: ['관공서 스타일 포털을 통과하세요', '팝업 지옥을 뚫고 목표에 도달하세요', '공무원이 만든 웹사이트를 통과하세요', '팝업을 닫으며 절차를 완료하세요', '복잡한 공공기관 UI를 탐색하세요'],
+  clutter_find_cta: ['광고 속 진짜 버튼을 찾으세요', '수많은 페이크 버튼 중 진짜를 찾으세요', '혼잡한 화면에서 실제 CTA를 클릭하세요', '어지러운 화면에서 목표를 찾으세요', '광고와 섞인 진짜 링크를 구별하세요'],
+  chaotic_layout_scavenger: ['혼돈의 레이아웃에서 목표를 찾으세요', '엉망인 화면에서 올바른 버튼을 찾으세요', '무질서한 레이아웃을 탐색하세요', '뒤죽박죽 UI에서 목표를 달성하세요', '난잡한 UI 속 진짜 기능을 찾으세요'],
+  nav_ambiguity_map: ['미로 같은 메뉴에서 목표를 찾으세요', '숨겨진 설정 메뉴를 찾으세요', '모호한 메뉴 속 올바른 경로를 찾으세요', '중첩된 메뉴를 탐험해 목표에 도달하세요', '혼란스러운 네비게이션을 탐색하세요'],
+  enterprise_filter_overload: ['복잡한 필터를 사용해 목표를 찾으세요', '수십 개의 필터 옵션 중 올바른 조합을 찾으세요', '과도한 필터 UI를 통과하세요', '기업용 필터 과부하를 극복하세요', '복잡한 검색 필터를 설정하세요'],
+  picker_no_search: ['검색 없는 긴 목록에서 항목을 찾으세요', '수백 개 목록에서 올바른 항목을 선택하세요', '끝없는 드롭다운에서 정답을 고르세요', '필터 없는 긴 목록을 탐색하세요', '검색 기능 없이 스크롤로 항목을 찾으세요'],
+  label_ambiguity: ['모호한 버튼 레이블을 정확히 고르세요', 'OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요', '헷갈리는 버튼 이름 중 올바른 것을 클릭하세요', '의미가 불명확한 버튼들 사이에서 선택하세요', '혼동스러운 레이블 속에서 정답을 고르세요'],
+  consent_toggle_labour: ['수많은 동의 토글을 하나하나 꺼주세요', '쿠키 동의 토글을 수동으로 설정하세요', '"모두 허용" 없이 토글을 하나씩 처리하세요', '함정이 있는 동의 설정을 올바르게 완료하세요', '개별 동의 토글을 모두 거부로 전환하세요'],
+  modal_stack: ['쌓인 모달을 모두 닫으세요', '겹쳐진 모달창을 전부 닫으세요', '모달 위의 모달을 하나씩 해결하세요', '끝없이 쌓이는 팝업을 처리하세요', '팝업 스택을 순서대로 처리하세요'],
+  roach_motel_flow: ['구독 취소/탈퇴를 완료하세요', '빠져나갈 수 없는 흐름에서 탈출하세요', '숨겨진 해지 절차를 끝까지 완료하세요', '가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요', '로치 모텔 패턴에서 빠져나오세요'],
+  hidden_reject_link: ['숨겨진 거절 링크를 찾으세요', '"아니요" 버튼을 찾아 클릭하세요', '투명한 거절 링크를 발견하세요', '화려한 CTA 사이에 숨은 거절 버튼을 찾으세요', '유도 버튼 대신 진짜 거절 옵션을 찾으세요'],
+  disguised_cta_grid: ['진짜 버튼을 광고 속에서 구별하세요', '가짜 버튼과 진짜 버튼을 구분하세요', '위장된 CTA 중 올바른 것을 클릭하세요', '광고처럼 생긴 진짜 기능을 찾으세요', '위장 버튼 그리드에서 정답을 고르세요'],
+  state_feedback_broken: ['피드백이 깨진 폼을 완성하세요', '오류 메시지 없이 올바른 값을 입력하세요', '상태 표시가 없는 양식을 제출하세요', '피드백 없는 폼을 시행착오로 완성하세요', '진행 상태가 안 보이는 폼을 채우세요'],
+  moving_target: ['움직이는 버튼을 클릭하세요', '도망치는 버튼을 잡아 클릭하세요', '끊임없이 움직이는 타겟을 맞추세요', '피하는 버튼을 잡으세요', '이리저리 움직이는 버튼을 정확히 클릭하세요'],
+  tiny_button: ['작디작은 버튼을 클릭하세요', '초소형 버튼을 정확히 찾아 클릭하세요', '거의 보이지 않는 버튼을 터치하세요', '극미세 클릭 영역을 정확히 누르세요', '눈을 크게 뜨고 작은 버튼을 찾으세요'],
+};
+
+// ---------------------------------------------------------------------------
 // Picker item pools (different per stage to avoid duplication)
 // ---------------------------------------------------------------------------
 
@@ -817,8 +850,501 @@ function getTimeLimitMs(difficulty: number): number {
   return 15000;
 }
 
-function generateMemeCaption(title: string): string {
-  return `"${title}" - 실제로 존재하는 UX입니다`;
+const TYPE_MEME_CAPTIONS: Record<string, string[]> = {
+  volume_hover_slider: [
+    "마우스를 올리면 슬라이더가 나타나고, 떼면 사라집니다. 실화입니다.",
+    "호버 슬라이더의 발명자는 트랙패드를 써본 적이 없나 봅니다.",
+    "슬라이더가 부끄러움을 많이 타나 봐요. 마우스 올려야 나오다니.",
+    "UX 디자이너가 '인터랙티브하게' 만들래서 이렇게 된 겁니다.",
+    "이 슬라이더는 존재 자체가 미스터리입니다.",
+  ],
+  volume_hyper_sensitive: [
+    "숨만 쉬어도 볼륨이 100%가 됩니다. 조심하세요.",
+    "이 슬라이더의 감도는 지진계 수준입니다.",
+    "0.1mm 움직이면 볼륨이 50 변합니다. 정상입니다.",
+    "심장이 뛰는 것만으로도 볼륨이 변할 수 있습니다.",
+    "외과의사의 손놀림이 필요한 볼륨 컨트롤입니다.",
+  ],
+  volume_tiny_hitbox: [
+    "슬라이더는 있는데 크기가 개미만 합니다.",
+    "이 슬라이더를 조작하려면 돋보기가 필요합니다.",
+    "1픽셀 슬라이더를 만든 사람, 나와주세요.",
+    "터치스크린에서는 절대 못 쓰는 슬라이더입니다.",
+    "시력 검사가 아닌데 시력 검사 같은 UI입니다.",
+  ],
+  volume_hidden_icon: [
+    "볼륨 조절? 먼저 찾아야죠. 꾹 눌러보세요.",
+    "숨겨진 볼륨 아이콘을 찾는 것 자체가 미니게임입니다.",
+    "이스터에그인 줄 알았는데 메인 기능이었습니다.",
+    "UX 디자이너: '사용자가 찾는 재미도 있잖아요!'",
+    "이 아이콘은 자기가 볼륨 컨트롤인 게 부끄러운 모양입니다.",
+  ],
+  volume_reverse_mapping: [
+    "왼쪽으로 가면 볼륨이 올라갑니다. 직관적이죠?",
+    "이 슬라이더는 거울 세계에서 왔습니다.",
+    "반대로 동작하는 게 특징이자 버그입니다.",
+    "사용자 테스트? 그게 뭔데요?",
+    "오른쪽이 작아지는 세계에 오신 걸 환영합니다.",
+  ],
+  volume_random_jump: [
+    "볼륨이 마음대로 점프합니다. 놀라지 마세요.",
+    "이 슬라이더는 ADHD가 있습니다.",
+    "조작할 때마다 노브가 도망갑니다.",
+    "정확한 볼륨 조절은 운에 맡기세요.",
+    "노브가 제멋대로 튀는 건 의도된 기능입니다.",
+  ],
+  volume_circular_gesture: [
+    "볼륨 1을 올리려면 다이얼을 5바퀴 돌려야 합니다.",
+    "팔목 운동과 볼륨 조절을 동시에 할 수 있습니다.",
+    "원형 제스처로 볼륨 조절, 혁신이 아닌 고문입니다.",
+    "이 다이얼을 돌리다 보면 손목이 먼저 항의합니다.",
+    "회전식 볼륨의 로맨스, 2026년에는 아닙니다.",
+  ],
+  volume_puzzle_lock: [
+    "볼륨을 조절하기 전에 퍼즐을 풀어야 합니다. 진짜로요.",
+    "잠금 해제가 필요한 볼륨, 금고인 줄 알았습니다.",
+    "볼륨에 보안을 건 개발자의 집착이 느껴집니다.",
+    "1-3-2-4 순서를 외우셨나요? 볼륨 조절의 첫 관문입니다.",
+    "매번 퍼즐을 풀어야 소리를 줄일 수 있다니.",
+  ],
+  volume_physics_launcher: [
+    "볼륨을 발사체로 조절하는 시대가 왔습니다.",
+    "물리 엔진으로 볼륨 조절, 과학이 UX를 만나면.",
+    "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
+    "볼륨 조절에 왜 발사 버튼이 필요한 거죠?",
+    "이건 볼륨 컨트롤이 아니라 앵그리버드입니다.",
+  ],
+  volume_voice_shout: [
+    "소리를 질러야 볼륨이 올라갑니다. 아이러니하죠.",
+    "탭 속도로 볼륨 조절, 손가락 운동에 좋습니다.",
+    "조용히 볼륨을 올리고 싶다면? 여기선 안 됩니다.",
+    "빠르게 탭해서 볼륨 올리기, 모바일 게임인 줄 알았습니다.",
+    "이 볼륨 컨트롤은 당신의 체력을 시험합니다.",
+  ],
+  tiny_button: [
+    "동의 버튼이 개미만 합니다. 거부 버튼은 화면 전체죠.",
+    "이 버튼을 누르려면 바늘이 필요합니다.",
+    "작은 버튼에 숨겨진 진실: 누르면 안 되게 만든 겁니다.",
+    "UI 디자이너: '버튼은 있잖아요. 크기가 문제인가요?'",
+    "손가락이 두꺼운 사람은 영원히 동의할 수 없습니다.",
+  ],
+  moving_target: [
+    "버튼이 도망갑니다. 정말로요.",
+    "클릭하려는 순간 버튼이 이사를 갑니다.",
+    "이 버튼은 사용자와 술래잡기를 하고 있습니다.",
+    "움직이는 타겟, 게임이 아닌 실제 UI에서요.",
+    "이 버튼을 누르면 당신은 진정한 UX 서바이버입니다.",
+  ],
+  modal_stack: [
+    "팝업 위에 팝업, 그 위에 또 팝업. 팝업 타워입니다.",
+    "모달을 닫으면 새 모달이 나타나는 무한 루프.",
+    "이 팝업 스택은 하노이의 탑보다 어렵습니다.",
+    "팝업 지옥에 오신 걸 환영합니다.",
+    "모달 6개를 순서대로 닫아야 합니다. 순서 틀리면 추가요.",
+  ],
+  picker_no_search: [
+    "137개 항목 중 하나를 고르세요. 검색? 그런 건 없습니다.",
+    "스크롤의 끝이 보이지 않는 드롭다운입니다.",
+    "검색 기능을 빼면 사용자가 더 오래 머문다는 논리.",
+    "이 목록을 다 보려면 커피 한 잔이 필요합니다.",
+    "검색 없는 긴 목록, UX의 고전적 안티패턴입니다.",
+  ],
+  roach_motel_flow: [
+    "구독은 원클릭, 해지는 12단계입니다.",
+    "들어오긴 쉬운데 나가긴 어려운 바퀴벌레 모텔.",
+    "해지 버튼이 왜 이렇게 잘 숨어있을까요.",
+    "구독 취소를 포기하게 만드는 것이 목적인 UI입니다.",
+    "'정말 떠나시겠어요?' 를 47번째 보고 있습니다.",
+  ],
+  consent_toggle_labour: [
+    "쿠키 설정 토글 73개를 하나하나 꺼야 합니다.",
+    "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
+    "모두 거부 버튼? 그런 건 사치입니다.",
+    "토글 하나하나에 당신의 인내심이 소모됩니다.",
+    "개인정보 규정은 지키되, 최대한 불편하게.",
+  ],
+  hidden_reject_link: [
+    "거절 링크가 배경색과 같은 색입니다. 투명 거절.",
+    "\"괜찮습니다\"가 폰트 사이즈 8에 투명도 30%.",
+    "이 UI에서 '아니오'를 찾으면 UX 탐정 자격증을 드립니다.",
+    "수락 버튼은 형광색, 거절은 유령 텍스트.",
+    "거절하고 싶다면 먼저 찾아야 합니다.",
+  ],
+  disguised_cta_grid: [
+    "콘텐츠인 줄 알았는데 광고였습니다.",
+    "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "클릭하면 광고, 안 하면 못 넘어가는 함정.",
+    "진짜 콘텐츠와 광고의 경계가 사라진 UI입니다.",
+    "스폰서 뱃지가 5픽셀 크기로 숨어있습니다.",
+  ],
+  state_feedback_broken: [
+    "제출했는데 아무 반응이 없습니다. 된 건가요?",
+    "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
+    "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
+    "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
+    "상태 피드백이 고장난 폼, 실제로 많이 존재합니다.",
+  ],
+  label_ambiguity: [
+    "확인이 취소이고 취소가 확인인 세계.",
+    "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
+    "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
+    "라벨만 보면 반대로 동작하는 UI의 공포.",
+    "이 다이얼로그의 정답은 직감의 반대입니다.",
+  ],
+  clutter_find_cta: [
+    "진짜 버튼을 찾아라! 화면에 가짜가 30개.",
+    "광고, 배너, 팝업 사이에서 진짜 버튼을 찾는 서바이벌.",
+    "어수선한 화면이 의도된 거라면, 이건 범죄입니다.",
+    "정보 과부하 속에서 정답을 찾는 UX 지옥.",
+    "이 화면에서 뭘 눌러야 하는지 3초 안에 찾으면 천재.",
+  ],
+  chaotic_layout_scavenger: [
+    "요소들이 랜덤 위치에 겹쳐있는 카오스 레이아웃.",
+    "이 레이아웃을 만든 사람은 CSS를 포기한 겁니다.",
+    "정렬? 그게 뭔데요? 여긴 카오스입니다.",
+    "모든 요소가 절대 좌표인 악몽의 화면.",
+    "이 화면을 보면 디자인 시스템의 소중함을 알게 됩니다.",
+  ],
+  endless_wizard_flow: [
+    "마법사 플로우가 끝나지 않습니다. 영원히요.",
+    "7단계 중 5단계입니다. 그런데 7단계 뒤에 8단계가 있어요.",
+    "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
+    "이 폼을 완성하면 석사 학위를 줘야 합니다.",
+    "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
+  ],
+  government_portal_popups: [
+    "관공서 웹사이트의 정수를 담았습니다.",
+    "액티브엑스 없이도 이렇게 불편할 수 있습니다.",
+    "스크롤 후 동의, 입력 후 팝업, 팝업 후 다시 입력.",
+    "이 UI를 통과하면 민원 처리보다 어려운 건 없습니다.",
+    "관공서 포털의 UX를 체험하세요. 체감 난이도: 극악.",
+  ],
+  nav_ambiguity_map: [
+    "메뉴가 미로입니다. 정답은 5단계 아래에 있어요.",
+    "설정을 찾으려면 일단 팀 > 그룹 > 채널 > 설정 > ...",
+    "네비게이션이 이렇게 복잡할 필요가 있나요?",
+    "이 메뉴 구조를 만든 사람도 길을 잃었을 겁니다.",
+    "메뉴 깊이가 마리아나 해구보다 깊습니다.",
+  ],
+  enterprise_filter_overload: [
+    "필터가 15개인데 '적용' 버튼이 안 보입니다.",
+    "검색 필터의 과잉은 검색 불가와 같습니다.",
+    "필터 옵션이 많으면 좋다고 누가 그랬나요.",
+    "이 필터 UI를 통과하면 엑셀 고수가 됩니다.",
+    "적용 버튼을 찾으려면 맨 아래까지 스크롤하세요.",
+  ],
+};
+
+function generateTypeMemeCaption(type: string, params: Record<string, unknown>, hash: number): string {
+  const captions = TYPE_MEME_CAPTIONS[type];
+  if (!captions || captions.length === 0) {
+    return "이 UI를 만든 사람은 반성해야 합니다.";
+  }
+  return captions[hash % captions.length]!;
+}
+
+// ---------------------------------------------------------------------------
+// Type-based title generation (실제 렌더러와 일치하는 제목)
+// ---------------------------------------------------------------------------
+
+function generateTypeTitle(type: string, params: Record<string, unknown>, hash: number): string {
+  switch (type) {
+    case 'volume_hover_slider': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `호버로 볼륨 ${vol}% 맞추기` : '호버 슬라이더 볼륨 도전',
+        '마우스 올려 볼륨 조절',
+        '호버 감지 볼륨 컨트롤',
+        vol != null ? `볼륨 ${vol}% 목표: 호버 조작` : '떠다니는 볼륨 슬라이더',
+        '올려야만 작동하는 볼륨',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_hyper_sensitive': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `초민감 볼륨 ${vol}%로 맞추기` : '초민감 볼륨 컨트롤',
+        '손 떨림 주의: 과민 슬라이더',
+        '숨만 쉬어도 튀는 볼륨',
+        vol != null ? `극초민감 슬라이더: 목표 ${vol}%` : '1픽셀이면 폭주하는 볼륨',
+        '극도로 민감한 볼륨 조절',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_tiny_hitbox': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `초소형 히트박스로 ${vol}% 맞추기` : '초소형 볼륨 히트박스',
+        '작디작은 볼륨 컨트롤',
+        '찾을 수 없는 볼륨 클릭 영역',
+        '히트박스 1px 볼륨 도전',
+        vol != null ? `볼륨 ${vol}% 목표: 극소 버튼` : '눈 크게 뜨고 볼륨 찾기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_hidden_icon': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `숨은 볼륨 아이콘으로 ${vol}%` : '숨겨진 볼륨 아이콘 찾기',
+        '어디 있는지 모를 볼륨 버튼',
+        '투명 볼륨 아이콘 탐색',
+        '볼륨 컨트롤이 사라졌다',
+        vol != null ? `볼륨 ${vol}% 목표: 아이콘 찾기` : '숨바꼭질 볼륨 UI',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_reverse_mapping': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `역방향 볼륨 ${vol}%로 맞추기` : '역방향 볼륨 슬라이더',
+        '올리면 줄고 내리면 느는 볼륨',
+        '반대로 움직이는 볼륨 컨트롤',
+        vol != null ? `볼륨 ${vol}%: 뒤집힌 조작` : '직관 반대로 움직이는 볼륨',
+        '역전된 볼륨 매핑 정복',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_random_jump': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `튀어다니는 볼륨 ${vol}% 잡기` : '랜덤 점프 볼륨 잡기',
+        '예측 불가 볼륨 컨트롤',
+        '점프하는 슬라이더 도전',
+        vol != null ? `볼륨 ${vol}%: 랜덤 점프` : '불규칙 볼륨 슬라이더',
+        '튀는 볼륨을 정복하라',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_circular_gesture': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `원형 제스처로 볼륨 ${vol}%` : '원형 다이얼 볼륨 조절',
+        '돌려서 맞추는 볼륨 다이얼',
+        '회전 제스처 볼륨 컨트롤',
+        vol != null ? `볼륨 ${vol}%: 다이얼 돌리기` : '원을 그려 볼륨 맞추기',
+        '시계 방향 볼륨 컨트롤',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_puzzle_lock': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `퍼즐 풀고 볼륨 ${vol}%` : '퍼즐 잠금 볼륨 해제',
+        '잠긴 볼륨: 퍼즐을 풀어라',
+        '보안 퍼즐 통과 후 볼륨 조절',
+        vol != null ? `볼륨 ${vol}%: 퍼즐 해제 필요` : '볼륨 잠금 퍼즐 도전',
+        '잠금 해제하고 볼륨 맞추기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_physics_launcher': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `물리 발사로 볼륨 ${vol}%` : '물리 발사체 볼륨 조절',
+        '던져서 볼륨 맞추기',
+        '발사 각도로 볼륨 설정',
+        vol != null ? `볼륨 ${vol}%: 물리 법칙` : '탄성 있는 볼륨 컨트롤',
+        '물리 엔진 볼륨 챌린지',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'volume_voice_shout': {
+      const vol = params.targetVolume as number | undefined;
+      const titles = [
+        vol != null ? `소리쳐서 볼륨 ${vol}%로` : '외쳐서 볼륨 조절하기',
+        '목소리로 제어하는 볼륨',
+        '마이크에 대고 볼륨 맞추기',
+        vol != null ? `볼륨 ${vol}%: 외치면 됩니다` : '음성 볼륨 컨트롤 도전',
+        '소리 질러 볼륨 설정',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'endless_wizard_flow': {
+      const steps = params.stepCount as number | undefined;
+      const titles = [
+        steps != null ? `${steps}단계 끝없는 마법사 흐름` : '끝없는 마법사 흐름',
+        '단계가 끝나지 않는 절차',
+        '다음 버튼의 저주',
+        steps != null ? `${steps}개 단계 완주 도전` : '끝없는 단계 통과하기',
+        '언제 끝나는지 모를 가입 절차',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'government_portal_popups': {
+      const steps = params.stepCount as number | undefined;
+      const titles = [
+        steps != null ? `관공서 포털 ${steps}단계 통과` : '관공서 포털 팝업 지옥',
+        '팝업이 끝없이 뜨는 포털',
+        '공공기관 UI 탈출하기',
+        steps != null ? `${steps}개 팝업 닫고 목표 달성` : '공무원식 웹사이트 통과',
+        '관공서 스타일 UI 정복',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'clutter_find_cta': {
+      const label = params.targetLabel as string | undefined;
+      const count = params.clutterItems as number | undefined;
+      const titles = [
+        label != null ? `"${label}" 버튼 찾기` : '광고 속 진짜 버튼 찾기',
+        count != null ? `${count}개 항목 중 진짜 CTA` : '가짜 버튼 속 진짜 찾기',
+        '광고 도배 속 진짜 링크 구별',
+        '혼잡한 화면에서 실제 버튼 찾기',
+        label != null ? `잡동사니 속 "${label}" 찾기` : '페이크 속 진짜 CTA 클릭',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'chaotic_layout_scavenger': {
+      const label = params.targetLabel as string | undefined;
+      const titles = [
+        label != null ? `혼돈 레이아웃에서 "${label}" 찾기` : '혼돈 레이아웃 탐색',
+        '엉망인 화면에서 목표 버튼 찾기',
+        '뒤죽박죽 UI 속 진짜 기능 찾기',
+        '카오틱 레이아웃 스캐빈저',
+        label != null ? `난잡한 UI 속 "${label}"` : '무질서한 레이아웃 정복',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'nav_ambiguity_map': {
+      const action = params.targetAction as string | undefined;
+      const depth = params.menuDepth as number | undefined;
+      const titles = [
+        action != null ? `메뉴 미로: ${action} 찾기` : '모호한 메뉴 미로 탐색',
+        depth != null ? `${depth}단계 중첩 메뉴 탐색` : '혼란스러운 네비게이션 정복',
+        action != null ? `숨겨진 ${action} 메뉴 찾기` : '메뉴 미로에서 탈출',
+        '모호한 메뉴명 속 정답 찾기',
+        action != null ? `중첩 메뉴: ${action}` : '네비게이션 미로 도전',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'enterprise_filter_overload': {
+      const count = params.filterCount as number | undefined;
+      const action = params.targetAction as string | undefined;
+      const titles = [
+        count != null ? `${count}개 필터 과부하 극복` : '기업용 필터 과부하',
+        action != null ? `필터 지옥: ${action} 찾기` : '복잡한 필터 UI 정복',
+        count != null ? `${count}개 필터 옵션 탐색` : '과도한 필터 UI 통과',
+        '엔터프라이즈 필터 지옥',
+        action != null ? `필터 미로에서 ${action}` : '수십 개 필터로 목표 찾기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'picker_no_search': {
+      const category = params.category as string | undefined;
+      const items = params.items as unknown[] | undefined;
+      const count = items?.length;
+      const titles = [
+        count != null && category != null ? `${count}개 ${category}에서 찾기: 검색 불가` : '검색 없는 긴 목록 탐색',
+        category != null ? `${category} 스크롤 선택 도전` : '끝없는 드롭다운 정복',
+        count != null ? `${count}개 항목 중 정답 고르기` : '검색 없이 목록 탐색',
+        category != null ? `${category}: 필터 없이 찾기` : '드롭다운 스크롤 지옥',
+        count != null && category != null ? `${count}개 ${category} 목록: 검색 없음` : '스크롤로만 선택하기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'label_ambiguity': {
+      const count = params.dialogCount as number | undefined;
+      const titles = [
+        count != null ? `${count}개 모호한 다이얼로그 통과` : '모호한 버튼 레이블 도전',
+        'OK/Cancel이 뒤바뀐 다이얼로그',
+        '헷갈리는 버튼 이름 정복',
+        count != null ? `${count}개 혼동 다이얼로그 클리어` : '의미 불명 버튼 선택',
+        '레이블 모호성 다이얼로그 통과',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'consent_toggle_labour': {
+      const count = params.toggleCount as number | undefined;
+      const titles = [
+        count != null ? `${count}개 쿠키 토글 수동 거부` : '쿠키 동의 토글 노동',
+        count != null ? `${count}개 동의 항목 수동 해제` : '수동 동의 토글 지옥',
+        '"모두 거부" 없는 쿠키 설정',
+        count != null ? `${count}개 토글 하나씩 끄기` : '개별 쿠키 토글 정복',
+        '쿠키 동의 노동 챌린지',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'state_feedback_broken': {
+      const fields = params.fields as string[] | undefined;
+      const titles = [
+        '피드백 없는 폼 완성 도전',
+        '오류 메시지 제로 폼 채우기',
+        fields != null ? `${fields.length}개 필드: 피드백 없음` : '상태 표시 없는 폼 제출',
+        '시행착오로 폼 완성하기',
+        '피드백이 깨진 입력 양식',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'modal_stack': {
+      const layers = params.layers as number | undefined;
+      const titles = [
+        layers != null ? `${layers}겹 모달 닫기 도전` : '모달 스택 해체하기',
+        '겹겹이 쌓인 팝업 닫기',
+        layers != null ? `${layers}개 팝업 스택 클리어` : '모달 위의 모달 처리',
+        '끝없이 쌓이는 팝업 정복',
+        layers != null ? `${layers}층 팝업 탑 해체` : '팝업 스택 순서대로 닫기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'roach_motel_flow': {
+      const steps = params.steps as number | undefined;
+      const titles = [
+        steps != null ? `${steps}단계 구독 취소 탈출` : '로치 모텔 탈출 도전',
+        '가입은 쉽고 탈퇴는 험난',
+        steps != null ? `${steps}개 관문 뚫고 해지하기` : '숨겨진 탈퇴 절차 완료',
+        '구독 취소 미로 탈출',
+        steps != null ? `${steps}단계 해지 흐름 클리어` : '로치 모텔 패턴 정복',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'hidden_reject_link': {
+      const opacity = params.linkOpacity as number | undefined;
+      const pct = opacity != null ? Math.round(opacity * 100) : undefined;
+      const titles = [
+        pct != null ? `투명도 ${pct}% 거절 링크 찾기` : '숨겨진 거절 링크 찾기',
+        '"아니요" 버튼을 찾아라',
+        '거의 안 보이는 거절 옵션',
+        pct != null ? `불투명도 ${pct}% 숨겨진 거부` : '투명 거절 버튼 탐색',
+        '유도 버튼 속 진짜 거절 찾기',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'disguised_cta_grid': {
+      const size = params.gridSize as number | undefined;
+      const fakes = params.disguisedCount as number | undefined;
+      const titles = [
+        size != null ? `${size}×${size} 그리드: 진짜 버튼 찾기` : '위장 CTA 그리드 도전',
+        fakes != null ? `${fakes}개 가짜 중 진짜 CTA 찾기` : '광고처럼 위장된 버튼 구별',
+        '위장 버튼 그리드 정복',
+        size != null ? `${size}×${size} 버튼 그리드 탐색` : '가짜 vs 진짜 CTA 구별',
+        fakes != null ? `${fakes}개 위장 버튼 속 정답` : 'disguised CTA 그리드 클리어',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'moving_target': {
+      const speed = params.speedPxPerSec as number | undefined;
+      const titles = [
+        speed != null ? `속도 ${speed}px/s 도망치는 버튼` : '움직이는 버튼 잡기',
+        '도망가는 버튼을 클릭하라',
+        '끊임없이 피하는 타겟 맞추기',
+        speed != null ? `${speed}px/s로 도망치는 CTA` : '이동하는 버튼 포착',
+        '반응하는 피하기 버튼 도전',
+      ];
+      return pickFrom(titles, hash);
+    }
+    case 'tiny_button': {
+      const size = params.visualSizePx as number | undefined;
+      const titles = [
+        size != null ? `${size}px 초소형 버튼 클릭` : '초소형 버튼 클릭 도전',
+        '거의 안 보이는 버튼 찾기',
+        size != null ? `${size}px 버튼: 눈 부릅떠라` : '극미세 클릭 영역 정복',
+        '작디작은 버튼 정확히 누르기',
+        size != null ? `${size}px 크기 버튼 클릭 챌린지` : '초소형 타겟 클릭 챌린지',
+      ];
+      return pickFrom(titles, hash);
+    }
+    default:
+      return '알 수 없는 UX 지옥 도전';
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -913,7 +1439,9 @@ function referenceToVariants(ref: Reference): StageSpec[] {
     const difficulty = Math.max(1, Math.min(5, rawDiff)) as 1 | 2 | 3 | 4 | 5;
     const timeLimitMs = Math.max(10000, getTimeLimitMs(difficulty) + VARIANT_TIME_BONUS_MS[variant]);
 
-    const objectives = ARCHETYPE_OBJECTIVES[ref.archetype] ?? ['주어진 미션을 완료하세요'];
+    // type 기반 objective 선택 (실제 렌더러 체험과 일치하도록)
+    const typeObj = TYPE_OBJECTIVES[type];
+    const objectives = typeObj ?? ARCHETYPE_OBJECTIVES[ref.archetype] ?? ['주어진 미션을 완료하세요'];
     const objective = pickFrom(objectives, variantHash, 5);
 
     const explains = ARCHETYPE_EXPLAIN_WHY_BAD[ref.archetype] ?? ['이 인터페이스는 UX 안티패턴을 보여줍니다.'];
@@ -925,9 +1453,9 @@ function referenceToVariants(ref: Reference): StageSpec[] {
     return {
       id: `${ref.id}_${variant}`,
       type,
-      title: `${ref.title}${VARIANT_TITLE_SUFFIX[variant]}`,
+      title: `${generateTypeTitle(type, params, variantHash)}${VARIANT_TITLE_SUFFIX[variant]}`,
       objective,
-      memeCaption: generateMemeCaption(ref.title),
+      memeCaption: generateTypeMemeCaption(type, params, variantHash),
       explainWhyBad,
       difficulty,
       timeLimitMs,
@@ -946,6 +1474,97 @@ function referenceToVariants(ref: Reference): StageSpec[] {
       },
     };
   });
+}
+
+// ---------------------------------------------------------------------------
+// Deduplication: type+params 완전 중복 제거
+// ---------------------------------------------------------------------------
+
+function deduplicateParams(stages: StageSpec[]): number {
+  let dedupCount = 0;
+  const usedSigs = new Set<string>();
+
+  for (const stage of stages) {
+    let sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+
+    if (!usedSigs.has(sig)) {
+      usedSigs.add(sig);
+      continue;
+    }
+
+    // 원본 수치 저장 후 오프셋 증가시키며 고유 시그니처 생성
+    const numericKeys = Object.keys(stage.params).filter(
+      k => k !== '_seed' && typeof stage.params[k] === 'number'
+    );
+
+    if (numericKeys.length === 0) {
+      // 숫자형 파라미터가 없는 경우 (예: state_feedback_broken) _seed 추가
+      let seed = hashStr(stage.id) % 10000;
+      stage.params._seed = seed;
+      sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+      while (usedSigs.has(sig)) {
+        seed++;
+        stage.params._seed = seed;
+        sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+      }
+    } else {
+      const origValues = new Map(numericKeys.map(k => [k, stage.params[k] as number]));
+      let attempt = 0;
+      while (usedSigs.has(sig) && attempt < 100) {
+        attempt++;
+        for (const [key, origVal] of origValues) {
+          stage.params[key] = Number.isInteger(origVal)
+            ? origVal + attempt
+            : Math.round((origVal + attempt * 0.07) * 100) / 100;
+        }
+        sig = `${stage.type}:${JSON.stringify(stage.params)}`;
+      }
+    }
+
+    usedSigs.add(sig);
+    dedupCount++;
+
+    // params가 변경됐으므로 제목도 params 기반으로 재생성
+    const suffix = stage.title.endsWith(' (Easy)') ? ' (Easy)'
+      : stage.title.endsWith(' (Hard)') ? ' (Hard)'
+      : '';
+    stage.title = `${generateTypeTitle(stage.type, stage.params, hashStr(stage.id))}${suffix}`;
+  }
+
+  return dedupCount;
+}
+
+// ---------------------------------------------------------------------------
+// Title deduplication: 동일 제목에 번호 suffix 부여
+// ---------------------------------------------------------------------------
+
+function deduplicateTitles(stages: StageSpec[]): number {
+  let dedupCount = 0;
+  const titleCount = new Map<string, number>();
+
+  // 1pass: 각 제목이 몇 번 나오는지 집계
+  for (const stage of stages) {
+    titleCount.set(stage.title, (titleCount.get(stage.title) ?? 0) + 1);
+  }
+
+  // 중복이 있는 제목만 처리
+  const duplicatedTitles = new Set([...titleCount.entries()]
+    .filter(([, count]) => count > 1)
+    .map(([title]) => title));
+
+  if (duplicatedTitles.size === 0) return 0;
+
+  // 2pass: 중복 제목에 순번 부여
+  const titleSeq = new Map<string, number>();
+  for (const stage of stages) {
+    if (!duplicatedTitles.has(stage.title)) continue;
+    const seq = (titleSeq.get(stage.title) ?? 0) + 1;
+    titleSeq.set(stage.title, seq);
+    stage.title = `${stage.title} #${seq}`;
+    dedupCount++;
+  }
+
+  return dedupCount;
 }
 
 // ---------------------------------------------------------------------------
@@ -969,6 +1588,12 @@ function main(): void {
 
   // id 기준 알파벳 정렬 (deterministic 출력 보장)
   stages.sort((a, b) => a.id.localeCompare(b.id));
+
+  // type+params 중복 제거 (수치 파라미터 변형)
+  const dedupCount = deduplicateParams(stages);
+
+  // 제목 중복 제거 (동일 제목에 #N suffix 부여)
+  const titleDedupCount = deduplicateTitles(stages);
 
   // 출력
   fs.writeFileSync(outputPath, JSON.stringify(stages, null, 2), 'utf-8');
@@ -1000,6 +1625,28 @@ function main(): void {
   } else {
     console.log('All stages have non-empty params.');
   }
+  console.log(`Dedup: ${dedupCount} stages had params perturbed to ensure uniqueness`);
+  console.log(`Title dedup: ${titleDedupCount} stages had duplicate titles resolved with #N suffix`);
+
+  // 중복 검증
+  const paramSigs = new Map<string, string[]>();
+  for (const s of stages) {
+    const sig = `${s.type}:${JSON.stringify(s.params)}`;
+    const ids = paramSigs.get(sig) ?? [];
+    ids.push(s.id);
+    paramSigs.set(sig, ids);
+  }
+  const remaining = [...paramSigs.entries()].filter(([, ids]) => ids.length > 1);
+  if (remaining.length > 0) {
+    console.warn(`WARNING: ${remaining.length} duplicate type+params groups remain`);
+    for (const [sig, ids] of remaining) {
+      const type = sig.split(':')[0];
+      console.warn(`  dup type="${type}" ids=[${ids.join(', ')}]`);
+    }
+  } else {
+    console.log('All stages have unique type+params combinations.');
+  }
+
   console.log(`Output written to: ${outputPath}`);
 }
 

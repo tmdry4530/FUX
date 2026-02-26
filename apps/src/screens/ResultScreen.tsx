@@ -317,7 +317,10 @@ export function ResultScreen() {
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
         <button
           onClick={() => {
-            setPendingNavigation(`/stage/${spec.id}`);
+            const retryUrl = isChallengeMode
+              ? `/stage/${encodeURIComponent(spec.id)}?challenge=1&step=${currentStep}`
+              : `/stage/${encodeURIComponent(spec.id)}`;
+            setPendingNavigation(retryUrl);
             setAdTrigger(true);
           }}
           style={{
