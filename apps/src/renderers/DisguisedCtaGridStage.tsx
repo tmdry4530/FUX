@@ -146,6 +146,8 @@ export default function DisguisedCtaGridStage({
         onFail();
         if (params.wrongCloseAddsLayer) {
           setCardStates((prev) => {
+            const currentDisguised = prev.filter((c) => c.isDisguised).length;
+            if (currentDisguised >= params.disguisedCount * 2) return prev;
             const realCards = prev.filter((c) => !c.isDisguised);
             if (realCards.length === 0) return prev;
             const newId = prev.length;
@@ -311,13 +313,13 @@ const sponsoredBadgeStyle: React.CSSProperties = {
   position: "absolute",
   top: 6,
   right: 6,
-  fontSize: 7,
+  fontSize: 8,
   color: "#e5e7eb",
   backgroundColor: "transparent",
   padding: "1px 3px",
   borderRadius: 2,
   fontWeight: 400,
-  opacity: 0.3,
+  opacity: 0.4,
 };
 
 const cardTitleStyle: React.CSSProperties = {

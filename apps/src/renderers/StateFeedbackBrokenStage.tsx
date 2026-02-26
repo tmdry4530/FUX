@@ -70,7 +70,7 @@ export default function StateFeedbackBrokenStage({
   // "다시 제출" trap - clicking this after the fake toast = fail
   const handleResubmitTrap = useCallback(() => {
     setAllFields((prev) => {
-      let updated = params.wrongCloseAddsLayer
+      let updated = params.wrongCloseAddsLayer && prev.length < params.fields.length + 4
         ? [...prev, `추가 항목 ${prev.length + 1}`]
         : [...prev];
       if (params.shuffleOnMiss) {
@@ -278,8 +278,8 @@ const statusLinkContainerStyle: React.CSSProperties = {
 const statusLinkStyle: React.CSSProperties = {
   background: "none",
   border: "none",
-  color: "rgba(139, 149, 161, 0.5)",
-  fontSize: 10,
+  color: "rgba(139, 149, 161, 0.6)",
+  fontSize: 11,
   textDecoration: "underline",
   cursor: "pointer",
   padding: "2px",
