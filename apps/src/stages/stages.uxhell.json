@@ -18,7 +18,9 @@
       "targetVolume": 35,
       "tolerance": 13,
       "sensitivity": 2,
-      "jitterPx": 15
+      "jitterPx": 15,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_001_at-least-it-s-intuitive",
@@ -90,7 +92,9 @@
       "targetVolume": 60,
       "tolerance": 6,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_001_at-least-it-s-intuitive",
@@ -125,7 +129,9 @@
       "targetVolume": 30,
       "tolerance": 11,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_002_one-volume-for-each-person",
@@ -189,7 +195,9 @@
       "targetVolume": 35,
       "tolerance": 5,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_002_one-volume-for-each-person",
@@ -264,7 +272,9 @@
         "현대차증권"
       ],
       "targetIndex": 6,
-      "category": "은행"
+      "category": "은행",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_003_gamified-ui-is-a-double-edged-sword",
@@ -329,7 +339,7 @@
       "layers": 6,
       "closeControl": "button",
       "closeOrder": "topFirst",
-      "wrongCloseAddsLayer": true,
+      "wrongCloseAddsLayer": false,
       "requiresScrollToEnableClose": false,
       "modalTitles": [
         "오류 발생",
@@ -337,7 +347,8 @@
         "네트워크 오류",
         "서버 오류",
         "다시 시도"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_003_gamified-ui-is-a-double-edged-sword",
@@ -367,7 +378,9 @@
     "params": {
       "linkPosition": "bottom-right",
       "linkOpacity": 0.35,
-      "ctaText": "건너뛰기"
+      "ctaText": "건너뛰기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_004_corollas-forever-3",
@@ -483,7 +496,9 @@
     "patternTag": "misc_hell",
     "params": {
       "steps": 7,
-      "requireTyping": false
+      "requireTyping": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_004_corollas-forever-3",
@@ -514,7 +529,9 @@
       "targetVolume": 50,
       "tolerance": 11,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_005_choose-your-favourite-audio-control",
@@ -578,7 +595,9 @@
       "targetVolume": 75,
       "tolerance": 5,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_005_choose-your-favourite-audio-control",
@@ -609,7 +628,9 @@
       "targetVolume": 80,
       "tolerance": 5,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_006_that-fragile-slider-careful-it-might-actually-break",
@@ -679,7 +700,9 @@
       "targetVolume": 45,
       "tolerance": 7,
       "sensitivity": 2,
-      "jitterPx": 15
+      "jitterPx": 15,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_006_that-fragile-slider-careful-it-might-actually-break",
@@ -713,7 +736,9 @@
       "targetVolume": 40,
       "tolerance": 9,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_007_friend-had-a-neat-idea-for-volume-slider",
@@ -781,7 +806,9 @@
       "targetVolume": 20,
       "tolerance": 3,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_007_friend-had-a-neat-idea-for-volume-slider",
@@ -814,7 +841,9 @@
       "targetVolume": 65,
       "tolerance": 10,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_008_just-a-simple-volume-control",
@@ -878,7 +907,9 @@
       "targetVolume": 70,
       "tolerance": 4,
       "sensitivity": 2,
-      "jitterPx": 15
+      "jitterPx": 15,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_008_just-a-simple-volume-control",
@@ -909,7 +940,9 @@
       "targetVolume": 65,
       "tolerance": 10,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_009_ready-your-arms-air-pump-filled-volume-control",
@@ -977,7 +1010,9 @@
       "targetVolume": 30,
       "tolerance": 4,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_009_ready-your-arms-air-pump-filled-volume-control",
@@ -1010,7 +1045,9 @@
       "targetVolume": 75,
       "tolerance": 8,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_010_finally-made-the-notorious-worst-volume-control",
@@ -1074,7 +1111,9 @@
       "targetVolume": 70,
       "tolerance": 8,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_010_finally-made-the-notorious-worst-volume-control",
@@ -1105,7 +1144,9 @@
       "targetVolume": 50,
       "tolerance": 11,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_011_created-one-for-myself-too-inspired-by-the-classic-volume-co",
@@ -1169,7 +1210,9 @@
       "targetVolume": 75,
       "tolerance": 5,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_011_created-one-for-myself-too-inspired-by-the-classic-volume-co",
@@ -1200,7 +1243,9 @@
       "targetVolume": 60,
       "tolerance": 9,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_012_volume-control",
@@ -1264,7 +1309,9 @@
       "targetVolume": 21,
       "tolerance": 4,
       "sensitivity": 1.57,
-      "jitterPx": 11
+      "jitterPx": 11,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_012_volume-control",
@@ -1295,7 +1342,9 @@
       "targetVolume": 40,
       "tolerance": 5,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_013_in-2017-a-group-of-developers-competed-for-who-could-create-",
@@ -1361,7 +1410,9 @@
       "targetVolume": 35,
       "tolerance": 5,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_013_in-2017-a-group-of-developers-competed-for-who-could-create-",
@@ -1377,7 +1428,7 @@
   {
     "id": "uxref_014_a-tedious-volume-control-ui_easy",
     "type": "volume_physics_launcher",
-    "title": "발사 각도로 볼륨 설정 (Easy)",
+    "title": "발사 각도로 볼륨 설정 (Easy) #1",
     "objective": "발사 각도를 맞춰 볼륨에 도달하세요",
     "memeCaption": "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
     "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",
@@ -1393,7 +1444,9 @@
       "targetVolume": 35,
       "tolerance": 8,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_014_a-tedious-volume-control-ui",
@@ -1457,7 +1510,9 @@
       "targetVolume": 70,
       "tolerance": 8,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_014_a-tedious-volume-control-ui",
@@ -1488,7 +1543,9 @@
       "targetVolume": 55,
       "tolerance": 13,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_015_volume-control-without-boundaries",
@@ -1552,7 +1609,9 @@
       "targetVolume": 70,
       "tolerance": 4,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_015_volume-control-without-boundaries",
@@ -1583,7 +1642,9 @@
       "targetVolume": 20,
       "tolerance": 10,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_016_request-volume-control-where-you-press-a-button-and-shout-in",
@@ -1651,7 +1712,9 @@
       "targetVolume": 40,
       "tolerance": 6,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_016_request-volume-control-where-you-press-a-button-and-shout-in",
@@ -1684,7 +1747,9 @@
       "targetVolume": 40,
       "tolerance": 5,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_017_my-orbital-volume-slider",
@@ -1754,7 +1819,9 @@
       "targetVolume": 20,
       "tolerance": 7,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_017_my-orbital-volume-slider",
@@ -1788,7 +1855,9 @@
       "targetVolume": 35,
       "tolerance": 13,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_018_what-do-you-think-about-my-volume-slider",
@@ -1856,7 +1925,9 @@
       "targetVolume": 80,
       "tolerance": 6,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_018_what-do-you-think-about-my-volume-slider",
@@ -1891,7 +1962,9 @@
         "국적",
         "직업"
       ],
-      "requireStatusCheck": true
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_019_the-phone-number-slider-but-worse",
@@ -1953,7 +2026,9 @@
     "patternTag": "form_input_hell",
     "params": {
       "toggleCount": 18,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_019_the-phone-number-slider-but-worse",
@@ -1988,7 +2063,9 @@
         "국적",
         "직업"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider",
@@ -2050,7 +2127,9 @@
     "patternTag": "form_input_hell",
     "params": {
       "toggleCount": 5,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider",
@@ -2083,7 +2162,9 @@
       "targetLabel": "저장",
       "clutterItems": 30,
       "scrollHeight": 2000,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_021_i-have-created-the-easiest-phone-number-picker-ever-no-silly",
@@ -2154,7 +2235,9 @@
       "menuDepth": 4,
       "misleadingMenus": 6,
       "filterCount": 5,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_021_i-have-created-the-easiest-phone-number-picker-ever-no-silly",
@@ -2187,7 +2270,9 @@
       "targetVolume": 50,
       "tolerance": 7,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_022_the-ultimate-name-slider",
@@ -2253,7 +2338,9 @@
       "targetVolume": 65,
       "tolerance": 7,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_022_the-ultimate-name-slider",
@@ -2285,7 +2372,9 @@
       "targetVolume": 30,
       "tolerance": 11,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_023_name-slider-mk2",
@@ -2351,7 +2440,9 @@
       "targetVolume": 65,
       "tolerance": 3,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_023_name-slider-mk2",
@@ -2383,7 +2474,9 @@
       "targetVolume": 80,
       "tolerance": 5,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_024_name-slider",
@@ -2449,7 +2542,9 @@
       "targetVolume": 20,
       "tolerance": 3,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_024_name-slider",
@@ -2481,7 +2576,9 @@
       "targetVolume": 75,
       "tolerance": 13,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_025_there-is-an-other-option-at-the-end-of-each-slider-incase-yo",
@@ -2547,7 +2644,9 @@
       "targetVolume": 30,
       "tolerance": 4,
       "sensitivity": 1.5,
-      "jitterPx": 10
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_025_there-is-an-other-option-at-the-end-of-each-slider-incase-yo",
@@ -2580,7 +2679,9 @@
       "menuDepth": 5,
       "misleadingMenus": 3,
       "filterCount": 8,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_026_a-revolutionary-date-birth-selector-perfect-for-your-anxiety",
@@ -2644,7 +2745,9 @@
       "targetVolume": 75,
       "tolerance": 10,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_026_a-revolutionary-date-birth-selector-perfect-for-your-anxiety",
@@ -2673,7 +2776,9 @@
     "params": {
       "gridSize": 3,
       "disguisedCount": 3,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_027_revolving-birthday-slider-just-have-to-time-your-pick",
@@ -2703,7 +2808,7 @@
     "patternTag": "date_time_hell",
     "params": {
       "steps": 8,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -2736,7 +2841,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.08,
-      "ctaText": "구독 안 하겠습니다"
+      "ctaText": "구독 안 하겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_027_revolving-birthday-slider-just-have-to-time-your-pick",
@@ -2767,7 +2874,9 @@
     "params": {
       "gridSize": 5,
       "disguisedCount": 2,
-      "showSimBadge": true
+      "showSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_028_bad-date-picker",
@@ -2795,7 +2904,7 @@
     "patternTag": "date_time_hell",
     "params": {
       "steps": 5,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -2826,7 +2935,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.2,
-      "ctaText": "나중에 하겠습니다"
+      "ctaText": "나중에 하겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_028_bad-date-picker",
@@ -2858,7 +2969,9 @@
       "menuDepth": 5,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_029_calendar-hell",
@@ -2922,7 +3035,9 @@
       "targetVolume": 20,
       "tolerance": 3,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_029_calendar-hell",
@@ -2954,7 +3069,9 @@
       "menuDepth": 4,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_030_it-s-not-that-bad-the-date-picker-concept-from-my-job",
@@ -3018,7 +3135,9 @@
       "targetVolume": 45,
       "tolerance": 3,
       "sensitivity": 0.5,
-      "jitterPx": 2
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_030_it-s-not-that-bad-the-date-picker-concept-from-my-job",
@@ -3051,7 +3170,9 @@
       "misleadingLabels": false,
       "decoyCtas": 3,
       "forcedScroll": true,
-      "requiredFields": 4
+      "requiredFields": 4,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi",
@@ -3114,7 +3235,9 @@
     "patternTag": "date_time_hell",
     "params": {
       "toggleCount": 8,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi",
@@ -3145,7 +3268,9 @@
       "targetVolume": 70,
       "tolerance": 7,
       "sensitivity": 2,
-      "jitterPx": 15
+      "jitterPx": 15,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_032_atomo-a-date-picker-with-atomic-precision",
@@ -3214,7 +3339,9 @@
       "menuDepth": 4,
       "misleadingMenus": 5,
       "filterCount": 15,
-      "hiddenApplyButton": false
+      "hiddenApplyButton": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_032_atomo-a-date-picker-with-atomic-precision",
@@ -3248,7 +3375,9 @@
         "연락처",
         "배송 메모"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_033_event-date-picker",
@@ -3313,7 +3442,9 @@
       "menuDepth": 4,
       "misleadingMenus": 3,
       "filterCount": 8,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_033_event-date-picker",
@@ -3346,7 +3477,9 @@
         "비밀번호 확인",
         "이메일"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_034_my-submission-for-the-most-annoying-date-picker",
@@ -3411,7 +3544,9 @@
       "menuDepth": 5,
       "misleadingMenus": 6,
       "filterCount": 5,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_034_my-submission-for-the-most-annoying-date-picker",
@@ -3481,7 +3616,9 @@
         "UTC+14:00 라인 제도"
       ],
       "targetIndex": 4,
-      "category": "시간대"
+      "category": "시간대",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_035_4-click-max-birthday-date-picker",
@@ -3510,7 +3647,7 @@
     "params": {
       "mode": "endless_wizard",
       "stepCount": 10,
-      "backResets": false,
+      "backResets": true,
       "misleadingLabels": true,
       "decoyCtas": 2,
       "forcedScroll": true,
@@ -3544,7 +3681,9 @@
     "patternTag": "date_time_hell",
     "params": {
       "dialogCount": 3,
-      "includeIcons": true
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_035_4-click-max-birthday-date-picker",
@@ -3576,7 +3715,9 @@
       "menuDepth": 6,
       "misleadingMenus": 6,
       "filterCount": 5,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_036_client-said-be-creative-with-the-date-picker",
@@ -3640,7 +3781,9 @@
       "targetVolume": 20,
       "tolerance": 7,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_036_client-said-be-creative-with-the-date-picker",
@@ -3668,7 +3811,9 @@
     "patternTag": "date_time_hell",
     "params": {
       "toggleCount": 7,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_037_the-worst-time-date-selectors",
@@ -3717,7 +3862,7 @@
   {
     "id": "uxref_037_the-worst-time-date-selectors_normal",
     "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기",
+    "title": "오류 메시지 제로 폼 채우기 #1",
     "objective": "오류 메시지 없이 올바른 값을 입력하세요",
     "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
     "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
@@ -3735,7 +3880,9 @@
         "비밀번호",
         "전화번호"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_037_the-worst-time-date-selectors",
@@ -3766,7 +3913,9 @@
       "targetLabel": "다음 단계",
       "clutterItems": 15,
       "scrollHeight": 1800,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_038_binary-search-date-picker",
@@ -3830,7 +3979,9 @@
       "targetLabel": "구독 취소",
       "clutterItems": 60,
       "scrollHeight": 3500,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_038_binary-search-date-picker",
@@ -3860,7 +4011,9 @@
     "params": {
       "gridSize": 4,
       "disguisedCount": 1,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_039_calendar-but-it-s-graph-x-months-and-y-temperature-c",
@@ -3889,7 +4042,7 @@
     "patternTag": "date_time_hell",
     "params": {
       "steps": 9,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -3921,7 +4074,9 @@
     "params": {
       "linkPosition": "inline-text",
       "linkOpacity": 0.15,
-      "ctaText": "아니요, 할인받지 않겠습니다"
+      "ctaText": "아니요, 할인받지 않겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_039_calendar-but-it-s-graph-x-months-and-y-temperature-c",
@@ -3953,7 +4108,9 @@
       "targetVolume": 65,
       "tolerance": 6,
       "sensitivity": 0.8,
-      "jitterPx": 5
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_040_seen-in-the-wild-setting-time-with-separate-sliders-for-hour",
@@ -4022,7 +4179,9 @@
       "targetVolume": 30,
       "tolerance": 8,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_040_seen-in-the-wild-setting-time-with-separate-sliders-for-hour",
@@ -4052,7 +4211,9 @@
     "patternTag": "captcha_hell",
     "params": {
       "dialogCount": 2,
-      "includeIcons": true
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_041_selectcha-all-in-one-date-picker-captcha-solution",
@@ -4123,7 +4284,8 @@
         "네트워크 오류",
         "서버 오류",
         "다시 시도"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_041_selectcha-all-in-one-date-picker-captcha-solution",
@@ -4156,7 +4318,9 @@
         "연락처",
         "배송 메모"
       ],
-      "requireStatusCheck": true
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild",
@@ -4280,7 +4444,9 @@
         "Elm"
       ],
       "targetIndex": 48,
-      "category": "프로그래밍 언어"
+      "category": "프로그래밍 언어",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild",
@@ -4314,7 +4480,9 @@
       "menuDepth": 4,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_043_what-the-heck-is-that-captcha",
@@ -4376,7 +4544,9 @@
     "params": {
       "gridSize": 5,
       "disguisedCount": 2,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_043_what-the-heck-is-that-captcha",
@@ -4407,7 +4577,8 @@
       "visualSizePx": 18,
       "hitSizePx": 12,
       "decoyCount": 6,
-      "shuffleOnMiss": false
+      "shuffleOnMiss": false,
+      "wrongCloseAddsLayer": false
     },
     "meta": {
       "referenceId": "uxref_044_when-captcha-and-the-submit-button-become-one",
@@ -4438,7 +4609,10 @@
       "linkOpacity": 0.03,
       "ctaText": "정가로 구매하겠습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_044_when-captcha-and-the-submit-button-become-one",
@@ -4468,7 +4642,9 @@
       "path": "bounce",
       "reactionDelayMs": 150,
       "speedPxPerSec": 100,
-      "jitterPx": 15
+      "jitterPx": 15,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_044_when-captcha-and-the-submit-button-become-one",
@@ -4499,7 +4675,9 @@
       "targetLabel": "나중에 하기",
       "clutterItems": 10,
       "scrollHeight": 3000,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_045_put-your-webcam-back-in-order-a-cursed-captcha",
@@ -4655,7 +4833,9 @@
         "CVC",
         "청구지 주소"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_045_put-your-webcam-back-in-order-a-cursed-captcha",
@@ -4684,7 +4864,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.30000000000000004,
-      "ctaText": "아니요, 할인받지 않겠습니다"
+      "ctaText": "아니요, 할인받지 않겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_046_the-number-guessing-captcha",
@@ -4723,7 +4905,10 @@
         "오늘만 할인",
         "놓치지 마세요"
       ],
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeCloseTraps": true,
+      "dontShowAgainTrap": true,
+      "misleadingTitles": true
     },
     "meta": {
       "referenceId": "uxref_046_the-number-guessing-captcha",
@@ -4751,7 +4936,9 @@
     "patternTag": "captcha_hell",
     "params": {
       "dialogCount": 4,
-      "includeIcons": true
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_046_the-number-guessing-captcha",
@@ -4780,7 +4967,9 @@
     "params": {
       "gridSize": 5,
       "disguisedCount": 3,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_047_captcha",
@@ -4843,7 +5032,9 @@
       "targetLabel": "저장",
       "clutterItems": 40,
       "scrollHeight": 2000,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_047_captcha",
@@ -4876,7 +5067,9 @@
         "비밀번호 확인",
         "이메일"
       ],
-      "requireStatusCheck": true
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru",
@@ -4983,7 +5176,9 @@
         "한국교원대학교"
       ],
       "targetIndex": 12,
-      "category": "대학교"
+      "category": "대학교",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru",
@@ -4998,7 +5193,7 @@
   {
     "id": "uxref_049_i-made-3-cursed-captchas_easy",
     "type": "label_ambiguity",
-    "title": "5개 혼동 다이얼로그 클리어 (Easy)",
+    "title": "4개 혼동 다이얼로그 클리어 (Easy)",
     "objective": "의미가 불명확한 버튼들 사이에서 선택하세요",
     "memeCaption": "라벨만 보면 반대로 동작하는 UI의 공포.",
     "explainWhyBad": "\"확인\"과 \"취소\"가 뒤바뀐 다이얼로그는 심각한 데이터 손실을 유발할 수 있습니다.",
@@ -5010,8 +5205,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "captcha_hell",
     "params": {
-      "dialogCount": 5,
-      "includeIcons": true
+      "dialogCount": 4,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_049_i-made-3-cursed-captchas",
@@ -5082,7 +5279,8 @@
         "추가 정보 입력",
         "서비스 이용약관",
         "완료"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_049_i-made-3-cursed-captchas",
@@ -5113,7 +5311,9 @@
       "targetLabel": "설정 변경",
       "clutterItems": 24,
       "scrollHeight": 3500,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_050_captcha-using-weird-images-generated-by-an-ai",
@@ -5145,7 +5345,9 @@
       "speedPxPerSec": 160,
       "jitterPx": 15,
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "punishTapSpam": true,
+      "colorCycle": true
     },
     "meta": {
       "referenceId": "uxref_050_captcha-using-weird-images-generated-by-an-ai",
@@ -5176,7 +5378,8 @@
       "visualSizePx": 16,
       "hitSizePx": 7,
       "decoyCount": 12,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": false,
+      "wrongCloseAddsLayer": true
     },
     "meta": {
       "referenceId": "uxref_050_captcha-using-weird-images-generated-by-an-ai",
@@ -5207,7 +5410,9 @@
       "targetLabel": "설정 변경",
       "clutterItems": 18,
       "scrollHeight": 3500,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_051_request-a-captcha-where-you-have-to-complete-a-totally-rando",
@@ -5239,7 +5444,9 @@
       "speedPxPerSec": 192,
       "jitterPx": 20,
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "punishTapSpam": true,
+      "colorCycle": true
     },
     "meta": {
       "referenceId": "uxref_051_request-a-captcha-where-you-have-to-complete-a-totally-rando",
@@ -5270,7 +5477,8 @@
       "visualSizePx": 18,
       "hitSizePx": 7,
       "decoyCount": 3,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": false,
+      "wrongCloseAddsLayer": true
     },
     "meta": {
       "referenceId": "uxref_051_request-a-captcha-where-you-have-to-complete-a-totally-rando",
@@ -5345,7 +5553,9 @@
         "현대차증권"
       ],
       "targetIndex": 40,
-      "category": "은행"
+      "category": "은행",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for",
@@ -5378,7 +5588,10 @@
       "linkOpacity": 0.15000000000000002,
       "ctaText": "정가로 구매하겠습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for",
@@ -5408,7 +5621,9 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 7,
-      "requireTyping": true
+      "requireTyping": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for",
@@ -5425,7 +5640,7 @@
   {
     "id": "uxref_053_request-password-cannot-contain-anything_easy",
     "type": "consent_toggle_labour",
-    "title": "6개 토글 하나씩 끄기 (Easy)",
+    "title": "5개 토글 하나씩 끄기 (Easy)",
     "objective": "함정이 있는 동의 설정을 올바르게 완료하세요",
     "memeCaption": "토글 하나하나에 당신의 인내심이 소모됩니다.",
     "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
@@ -5437,8 +5652,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "auth_hell",
     "params": {
-      "toggleCount": 6,
-      "hasRejectAll": false
+      "toggleCount": 5,
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_053_request-password-cannot-contain-anything",
@@ -5467,8 +5684,8 @@
     "params": {
       "mode": "endless_wizard",
       "stepCount": 7,
-      "backResets": false,
-      "misleadingLabels": false,
+      "backResets": true,
+      "misleadingLabels": true,
       "decoyCtas": 5,
       "forcedScroll": true,
       "requiredFields": 2,
@@ -5511,7 +5728,8 @@
         "네트워크 오류",
         "서버 오류",
         "다시 시도"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_053_request-password-cannot-contain-anything",
@@ -5539,7 +5757,9 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 4,
-      "requireTyping": true
+      "requireTyping": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_054_a-secure-password-must-consist-of-at-least-characters",
@@ -5598,7 +5818,9 @@
     "params": {
       "linkPosition": "inline-text",
       "linkOpacity": 0.12,
-      "ctaText": "무료 체험 포기"
+      "ctaText": "무료 체험 포기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_054_a-secure-password-must-consist-of-at-least-characters",
@@ -5629,7 +5851,9 @@
       "targetLabel": "계속하기",
       "clutterItems": 27,
       "scrollHeight": 2500,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_055_lowercase-and-uppercase-password-dots",
@@ -5657,7 +5881,7 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 7,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -5780,7 +6004,9 @@
         "동물 조련사"
       ],
       "targetIndex": 34,
-      "category": "직업"
+      "category": "직업",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_055_lowercase-and-uppercase-password-dots",
@@ -5811,7 +6037,9 @@
       "targetLabel": "나중에 하기",
       "clutterItems": 21,
       "scrollHeight": 3000,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password",
@@ -5839,7 +6067,7 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 10,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -5927,7 +6155,9 @@
         "랍스터"
       ],
       "targetIndex": 48,
-      "category": "동물"
+      "category": "동물",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password",
@@ -5960,7 +6190,9 @@
       "misleadingLabels": false,
       "decoyCtas": 1,
       "forcedScroll": true,
-      "requiredFields": 5
+      "requiredFields": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_057_req-basket-catcher-password-thingy",
@@ -6010,7 +6242,7 @@
   {
     "id": "uxref_057_req-basket-catcher-password-thingy_normal",
     "type": "disguised_cta_grid",
-    "title": "4개 가짜 중 진짜 CTA 찾기",
+    "title": "3개 가짜 중 진짜 CTA 찾기",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
     "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -6022,9 +6254,11 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "auth_hell",
     "params": {
-      "gridSize": 6,
-      "disguisedCount": 4,
-      "showSimBadge": false
+      "gridSize": 5,
+      "disguisedCount": 3,
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_057_req-basket-catcher-password-thingy",
@@ -6055,7 +6289,9 @@
       "targetLabel": "계정 삭제",
       "clutterItems": 15,
       "scrollHeight": 4000,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_058_idea-you-have-to-type-in-your-password-in-morse-code",
@@ -6084,7 +6320,7 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 6,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -6173,7 +6409,9 @@
         "Elm"
       ],
       "targetIndex": 6,
-      "category": "프로그래밍 언어"
+      "category": "프로그래밍 언어",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_058_idea-you-have-to-type-in-your-password-in-morse-code",
@@ -6244,7 +6482,9 @@
         "UTC+14:00 라인 제도"
       ],
       "targetIndex": 21,
-      "category": "시간대"
+      "category": "시간대",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_059_show-password",
@@ -6275,7 +6515,10 @@
       "linkOpacity": 0.03,
       "ctaText": "나중에 하겠습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_059_show-password",
@@ -6303,7 +6546,9 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 3,
-      "requireTyping": false
+      "requireTyping": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_059_show-password",
@@ -6336,7 +6581,9 @@
       "misleadingLabels": false,
       "decoyCtas": 1,
       "forcedScroll": true,
-      "requiredFields": 6
+      "requiredFields": 6,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo",
@@ -6386,7 +6633,7 @@
   {
     "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_normal",
     "type": "label_ambiguity",
-    "title": "6개 모호한 다이얼로그 통과",
+    "title": "5개 모호한 다이얼로그 통과",
     "objective": "모호한 버튼 레이블을 정확히 고르세요",
     "memeCaption": "확인이 취소이고 취소가 확인인 세계.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -6398,8 +6645,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "auth_hell",
     "params": {
-      "dialogCount": 6,
-      "includeIcons": true
+      "dialogCount": 5,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo",
@@ -6427,7 +6676,9 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 2,
-      "requireTyping": true
+      "requireTyping": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_061_login-with-on-screen-keyboard-only",
@@ -6486,7 +6737,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.05,
-      "ctaText": "이 혜택 포기하기"
+      "ctaText": "이 혜택 포기하기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_061_login-with-on-screen-keyboard-only",
@@ -6517,7 +6770,9 @@
       "targetLabel": "다음 단계",
       "clutterItems": 21,
       "scrollHeight": 1800,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_062_no-keyboard-friendly-login-ui-with-dropdown-menu",
@@ -6546,7 +6801,7 @@
     "patternTag": "auth_hell",
     "params": {
       "steps": 11,
-      "requireTyping": false,
+      "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -6679,7 +6934,9 @@
         "2024년"
       ],
       "targetIndex": 34,
-      "category": "생년도"
+      "category": "생년도",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_062_no-keyboard-friendly-login-ui-with-dropdown-menu",
@@ -6713,7 +6970,9 @@
         "대표자명",
         "업종"
       ],
-      "requireStatusCheck": true
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press",
@@ -6745,7 +7004,10 @@
       "linkOpacity": 0.09999999999999999,
       "ctaText": "구독 안 하겠습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press",
@@ -6816,7 +7078,9 @@
         "UTC+14:00 라인 제도"
       ],
       "targetIndex": 22,
-      "category": "시간대"
+      "category": "시간대",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press",
@@ -6855,7 +7119,8 @@
         "한정 offer",
         "오늘만 할인",
         "놓치지 마세요"
-      ]
+      ],
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor",
@@ -6920,7 +7185,9 @@
       "misleadingLabels": true,
       "decoyCtas": 2,
       "forcedScroll": true,
-      "requiredFields": 6
+      "requiredFields": 6,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor",
@@ -6936,7 +7203,7 @@
   {
     "id": "uxref_065_binary-search-keyboard_easy",
     "type": "label_ambiguity",
-    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy)",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy) #1",
     "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
     "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
     "explainWhyBad": "\"확인\"과 \"취소\"가 뒤바뀐 다이얼로그는 심각한 데이터 손실을 유발할 수 있습니다.",
@@ -6948,8 +7215,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "keyboard_hell",
     "params": {
-      "dialogCount": 7,
-      "includeIcons": true
+      "dialogCount": 3,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_065_binary-search-keyboard",
@@ -6983,7 +7252,7 @@
         "CVC",
         "청구지 주소"
       ],
-      "requireStatusCheck": false,
+      "requireStatusCheck": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
     },
@@ -7014,7 +7283,9 @@
     "patternTag": "keyboard_hell",
     "params": {
       "toggleCount": 15,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_065_binary-search-keyboard",
@@ -7044,7 +7315,9 @@
     "params": {
       "linkPosition": "after-tos",
       "linkOpacity": 0.22,
-      "ctaText": "건너뛰기"
+      "ctaText": "건너뛰기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-",
@@ -7074,7 +7347,7 @@
       "mode": "endless_wizard",
       "stepCount": 9,
       "backResets": true,
-      "misleadingLabels": false,
+      "misleadingLabels": true,
       "decoyCtas": 2,
       "forcedScroll": false,
       "requiredFields": 5,
@@ -7117,7 +7390,8 @@
         "추가 정보 입력",
         "서비스 이용약관",
         "완료"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-",
@@ -7145,7 +7419,9 @@
     "patternTag": "keyboard_hell",
     "params": {
       "toggleCount": 4,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave",
@@ -7348,7 +7624,8 @@
         "업종"
       ],
       "requireStatusCheck": true,
-      "_seed": 8144
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave",
@@ -7382,7 +7659,8 @@
         "청구지 주소"
       ],
       "requireStatusCheck": false,
-      "_seed": 7697
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_068_i-have-created-a-keyboard-from-hell",
@@ -7413,7 +7691,10 @@
       "linkOpacity": 0.15000000000000002,
       "ctaText": "계속 진행",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_068_i-have-created-a-keyboard-from-hell",
@@ -7580,7 +7861,9 @@
         "예카테린부르크"
       ],
       "targetIndex": 86,
-      "category": "도시"
+      "category": "도시",
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_068_i-have-created-a-keyboard-from-hell",
@@ -7666,7 +7949,9 @@
         "뫼슬리"
       ],
       "targetIndex": 41,
-      "category": "음식"
+      "category": "음식",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_069_extremely-usefull-keyboard",
@@ -7705,7 +7990,10 @@
         "오늘만 할인",
         "놓치지 마세요"
       ],
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeCloseTraps": true,
+      "dontShowAgainTrap": true,
+      "misleadingTitles": true
     },
     "meta": {
       "referenceId": "uxref_069_extremely-usefull-keyboard",
@@ -7734,7 +8022,9 @@
     "params": {
       "linkPosition": "inline-text",
       "linkOpacity": 0.18,
-      "ctaText": "아니요, 할인받지 않겠습니다"
+      "ctaText": "아니요, 할인받지 않겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_069_extremely-usefull-keyboard",
@@ -7765,7 +8055,9 @@
       "targetLabel": "건너뛰기",
       "clutterItems": 36,
       "scrollHeight": 2800,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_070_suggestion-meta-can-someone-please-make-a-username-generator",
@@ -7814,7 +8106,7 @@
   {
     "id": "uxref_070_suggestion-meta-can-someone-please-make-a-username-generator_normal",
     "type": "disguised_cta_grid",
-    "title": "6×6 버튼 그리드 탐색 #1",
+    "title": "5×5 버튼 그리드 탐색",
     "objective": "광고처럼 생긴 진짜 기능을 찾으세요",
     "memeCaption": "진짜 콘텐츠와 광고의 경계가 사라진 UI입니다.",
     "explainWhyBad": "진짜 버튼과 가짜 버튼을 구분 불가능하게 만드는 것은 사기적 UI 패턴입니다.",
@@ -7826,9 +8118,11 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "misc_hell",
     "params": {
-      "gridSize": 6,
-      "disguisedCount": 3,
-      "showSimBadge": true
+      "gridSize": 5,
+      "disguisedCount": 2,
+      "showSimBadge": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_070_suggestion-meta-can-someone-please-make-a-username-generator",
@@ -7856,7 +8150,9 @@
     "patternTag": "dropdown_hell",
     "params": {
       "toggleCount": 9,
-      "hasRejectAll": false
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_071_having-this-be-a-dropdown-and-not-a-number-input-field",
@@ -8108,7 +8404,9 @@
       "menuDepth": 5,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_071_having-this-be-a-dropdown-and-not-a-number-input-field",
@@ -8231,7 +8529,9 @@
         "+998 우즈베키스탄"
       ],
       "targetIndex": 36,
-      "category": "전화번호 국가코드"
+      "category": "전화번호 국가코드",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e",
@@ -8280,7 +8580,7 @@
   {
     "id": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e_normal",
     "type": "label_ambiguity",
-    "title": "헷갈리는 버튼 이름 정복",
+    "title": "헷갈리는 버튼 이름 정복 #1",
     "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
     "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -8292,8 +8592,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "dropdown_hell",
     "params": {
-      "dialogCount": 8,
-      "includeIcons": true
+      "dialogCount": 6,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e",
@@ -8308,7 +8610,7 @@
   {
     "id": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo_easy",
     "type": "consent_toggle_labour",
-    "title": "10개 동의 항목 수동 해제 (Easy)",
+    "title": "8개 동의 항목 수동 해제 (Easy)",
     "objective": "쿠키 동의 토글을 수동으로 설정하세요",
     "memeCaption": "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
     "explainWhyBad": "쿠키 동의 UI에서 토글 노동을 강요하면 대부분 사용자는 포기하고 \"모두 허용\"을 누릅니다.",
@@ -8320,8 +8622,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "dropdown_hell",
     "params": {
-      "toggleCount": 10,
-      "hasRejectAll": false
+      "toggleCount": 8,
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo",
@@ -8480,7 +8784,9 @@
       "menuDepth": 5,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo",
@@ -8508,8 +8814,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "dropdown_hell",
     "params": {
-      "toggleCount": 11,
-      "hasRejectAll": false
+      "toggleCount": 6,
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_074_a-forum-but-you-can-only-input-text-with-a-dropdown",
@@ -8666,7 +8974,9 @@
       "menuDepth": 4,
       "misleadingMenus": 3,
       "filterCount": 8,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_074_a-forum-but-you-can-only-input-text-with-a-dropdown",
@@ -8698,7 +9008,9 @@
       "menuDepth": 4,
       "misleadingMenus": 2,
       "filterCount": 7,
-      "hiddenApplyButton": false
+      "hiddenApplyButton": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_075_when-a-developer-only-knows-dropdowns",
@@ -8761,7 +9073,9 @@
         "관심사",
         "공개 여부"
       ],
-      "requireStatusCheck": true
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_075_when-a-developer-only-knows-dropdowns",
@@ -8793,7 +9107,9 @@
       "menuDepth": 3,
       "misleadingMenus": 4,
       "filterCount": 12,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_076_please-select-your-street-name-from-a-big-city-using-the-dro",
@@ -8900,7 +9216,9 @@
         "현대차증권"
       ],
       "targetIndex": 10,
-      "category": "은행"
+      "category": "은행",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_076_please-select-your-street-name-from-a-big-city-using-the-dro",
@@ -9119,7 +9437,9 @@
         "헝가리"
       ],
       "targetIndex": 116,
-      "category": "국가"
+      "category": "국가",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_077_so-i-made-very-intuitive-and-user-friendly-method-of-text-in",
@@ -9190,7 +9510,8 @@
         "위치 정보 동의",
         "카메라 접근",
         "마이크 접근"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_077_so-i-made-very-intuitive-and-user-friendly-method-of-text-in",
@@ -9219,7 +9540,9 @@
     "params": {
       "linkPosition": "bottom-right",
       "linkOpacity": 0.42,
-      "ctaText": "건너뛰기"
+      "ctaText": "건너뛰기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_078_request-website-language-picker-where-the-user-has-to-draw-t",
@@ -9281,7 +9604,9 @@
       "targetLabel": "취소하기",
       "clutterItems": 30,
       "scrollHeight": 1500,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_078_request-website-language-picker-where-the-user-has-to-draw-t",
@@ -9309,11 +9634,13 @@
     "patternTag": "scroll_hell",
     "params": {
       "mode": "filter_overload",
-      "targetAction": "계정 삭제",
+      "targetAction": "자동결제 해지",
       "menuDepth": 4,
       "misleadingMenus": 6,
       "filterCount": 5,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_079_request-logarithmic-scroll-bar",
@@ -9381,7 +9708,9 @@
       "misleadingLabels": false,
       "decoyCtas": 3,
       "forcedScroll": true,
-      "requiredFields": 5
+      "requiredFields": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_079_request-logarithmic-scroll-bar",
@@ -9414,7 +9743,9 @@
       "menuDepth": 3,
       "misleadingMenus": 3,
       "filterCount": 8,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_080_coaxed-into-scroll-bars-for-some-reason-from-r-coaxedintoasn",
@@ -9480,7 +9811,9 @@
       "misleadingLabels": false,
       "decoyCtas": 4,
       "forcedScroll": true,
-      "requiredFields": 3
+      "requiredFields": 3,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_080_coaxed-into-scroll-bars-for-some-reason-from-r-coaxedintoasn",
@@ -9511,7 +9844,9 @@
       "targetLabel": "결제하기",
       "clutterItems": 15,
       "scrollHeight": 4000,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-",
@@ -9578,7 +9913,9 @@
       "misleadingLabels": false,
       "decoyCtas": 2,
       "forcedScroll": false,
-      "requiredFields": 4
+      "requiredFields": 4,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-",
@@ -9609,7 +9946,9 @@
       "targetLabel": "로그아웃",
       "clutterItems": 15,
       "scrollHeight": 1800,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima",
@@ -9678,7 +10017,9 @@
       "misleadingLabels": false,
       "decoyCtas": 4,
       "forcedScroll": false,
-      "requiredFields": 4
+      "requiredFields": 4,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima",
@@ -9712,7 +10053,9 @@
       "misleadingLabels": false,
       "decoyCtas": 2,
       "forcedScroll": true,
-      "requiredFields": 3
+      "requiredFields": 3,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-",
@@ -9741,7 +10084,7 @@
     "params": {
       "mode": "endless_wizard",
       "stepCount": 10,
-      "backResets": false,
+      "backResets": true,
       "misleadingLabels": true,
       "decoyCtas": 1,
       "forcedScroll": true,
@@ -9778,7 +10121,9 @@
       "targetLabel": "삭제",
       "clutterItems": 55,
       "scrollHeight": 1800,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-",
@@ -9809,7 +10154,8 @@
       "visualSizePx": 18,
       "hitSizePx": 12,
       "decoyCount": 6,
-      "shuffleOnMiss": false
+      "shuffleOnMiss": false,
+      "wrongCloseAddsLayer": false
     },
     "meta": {
       "referenceId": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell",
@@ -9840,7 +10186,10 @@
       "linkOpacity": 0.09999999999999999,
       "ctaText": "감사하지만 괜찮습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell",
@@ -9871,7 +10220,9 @@
       "targetVolume": 80,
       "tolerance": 2,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell",
@@ -9902,7 +10253,9 @@
       "targetVolume": 60,
       "tolerance": 5,
       "sensitivity": 1,
-      "jitterPx": 8
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_085_mouse-cursor-with-limited-clicks-needs-to-be-recharged",
@@ -9964,7 +10317,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.18,
-      "ctaText": "이 혜택 포기하기"
+      "ctaText": "이 혜택 포기하기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_085_mouse-cursor-with-limited-clicks-needs-to-be-recharged",
@@ -9995,7 +10350,8 @@
       "visualSizePx": 24,
       "hitSizePx": 8,
       "decoyCount": 2,
-      "shuffleOnMiss": false
+      "shuffleOnMiss": false,
+      "wrongCloseAddsLayer": false
     },
     "meta": {
       "referenceId": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman",
@@ -10028,7 +10384,10 @@
       "linkOpacity": 0.17,
       "ctaText": "감사하지만 괜찮습니다",
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "fakeRejectLinks": true,
+      "scrollableToS": true,
+      "timerPopup": true
     },
     "meta": {
       "referenceId": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman",
@@ -10061,7 +10420,9 @@
       "targetVolume": 80,
       "tolerance": 6,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman",
@@ -10092,7 +10453,9 @@
     "params": {
       "linkPosition": "bottom-left",
       "linkOpacity": 0.28,
-      "ctaText": "나중에 하겠습니다"
+      "ctaText": "나중에 하겠습니다",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_087_mouse-cursor-annoying-you-only-want-to-see-it-when-it-s-usef",
@@ -10154,7 +10517,9 @@
       "targetLabel": "계속하기",
       "clutterItems": 15,
       "scrollHeight": 2500,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_087_mouse-cursor-annoying-you-only-want-to-see-it-when-it-s-usef",
@@ -10183,7 +10548,9 @@
     "params": {
       "gridSize": 4,
       "disguisedCount": 3,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game",
@@ -10215,7 +10582,9 @@
       "speedPxPerSec": 288,
       "jitterPx": 30,
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
+      "shuffleOnMiss": true,
+      "punishTapSpam": true,
+      "colorCycle": true
     },
     "meta": {
       "referenceId": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game",
@@ -10246,7 +10615,9 @@
       "targetVolume": 55,
       "tolerance": 10,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game",
@@ -10275,7 +10646,9 @@
     "params": {
       "linkPosition": "after-tos",
       "linkOpacity": 0.18,
-      "ctaText": "건너뛰기"
+      "ctaText": "건너뛰기",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_089_an-app-where-you-control-the-cursor-by-turning-your-face-and",
@@ -10339,7 +10712,9 @@
       "targetLabel": "확인",
       "clutterItems": 50,
       "scrollHeight": 1500,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_089_an-app-where-you-control-the-cursor-by-turning-your-face-and",
@@ -10355,7 +10730,7 @@
   {
     "id": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you_easy",
     "type": "label_ambiguity",
-    "title": "9개 모호한 다이얼로그 통과 (Easy)",
+    "title": "5개 모호한 다이얼로그 통과 (Easy)",
     "objective": "모호한 버튼 레이블을 정확히 고르세요",
     "memeCaption": "확인이 취소이고 취소가 확인인 세계.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -10367,8 +10742,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "form_input_hell",
     "params": {
-      "dialogCount": 9,
-      "includeIcons": true
+      "dialogCount": 5,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you",
@@ -10433,7 +10810,9 @@
         "관심사",
         "공개 여부"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you",
@@ -10465,7 +10844,9 @@
       "targetLabel": "무시하기",
       "clutterItems": 30,
       "scrollHeight": 2800,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_091_hey-i-am-creating-a-mobile-game-about-bad-ui-you-should",
@@ -10528,7 +10909,9 @@
     "params": {
       "gridSize": 5,
       "disguisedCount": 1,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_091_hey-i-am-creating-a-mobile-game-about-bad-ui-you-should",
@@ -10561,7 +10944,9 @@
       "misleadingLabels": false,
       "decoyCtas": 4,
       "forcedScroll": false,
-      "requiredFields": 4
+      "requiredFields": 4,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm",
@@ -10588,7 +10973,7 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "misc_hell",
     "params": {
-      "steps": 7,
+      "steps": 12,
       "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
@@ -10620,7 +11005,9 @@
     "params": {
       "linkPosition": "bottom-right",
       "linkOpacity": 0.12,
-      "ctaText": "계속 진행"
+      "ctaText": "계속 진행",
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm",
@@ -10651,7 +11038,9 @@
       "targetLabel": "구독 취소",
       "clutterItems": 36,
       "scrollHeight": 3500,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_093_read-it-or-else",
@@ -10700,7 +11089,7 @@
   {
     "id": "uxref_093_read-it-or-else_normal",
     "type": "disguised_cta_grid",
-    "title": "6×6 버튼 그리드 탐색 #2",
+    "title": "6×6 버튼 그리드 탐색",
     "objective": "광고처럼 생긴 진짜 기능을 찾으세요",
     "memeCaption": "진짜 콘텐츠와 광고의 경계가 사라진 UI입니다.",
     "explainWhyBad": "위장된 CTA는 사용자를 원치 않는 페이지로 유도해 시간을 낭비시킵니다.",
@@ -10714,7 +11103,9 @@
     "params": {
       "gridSize": 6,
       "disguisedCount": 1,
-      "showSimBadge": false
+      "showSimBadge": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_093_read-it-or-else",
@@ -10881,7 +11272,9 @@
         "예카테린부르크"
       ],
       "targetIndex": 44,
-      "category": "도시"
+      "category": "도시",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y",
@@ -10910,7 +11303,7 @@
     "params": {
       "mode": "endless_wizard",
       "stepCount": 10,
-      "backResets": false,
+      "backResets": true,
       "misleadingLabels": true,
       "decoyCtas": 5,
       "forcedScroll": true,
@@ -10931,7 +11324,7 @@
   {
     "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y_normal",
     "type": "label_ambiguity",
-    "title": "OK/Cancel이 뒤바뀐 다이얼로그",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 #1",
     "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
     "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
     "explainWhyBad": "\"확인\"과 \"취소\"가 뒤바뀐 다이얼로그는 심각한 데이터 손실을 유발할 수 있습니다.",
@@ -10943,8 +11336,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "date_time_hell",
     "params": {
-      "dialogCount": 10,
-      "includeIcons": true
+      "dialogCount": 7,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y",
@@ -10977,7 +11372,9 @@
       "misleadingLabels": false,
       "decoyCtas": 3,
       "forcedScroll": false,
-      "requiredFields": 2
+      "requiredFields": 2,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches",
@@ -11005,7 +11402,7 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "misc_hell",
     "params": {
-      "steps": 8,
+      "steps": 13,
       "requireTyping": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
@@ -11038,7 +11435,9 @@
     "params": {
       "linkPosition": "after-tos",
       "linkOpacity": 0.08,
-      "ctaText": "정가로 구매하겠습니다"
+      "ctaText": "정가로 구매하겠습니다",
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches",
@@ -11054,7 +11453,7 @@
   {
     "id": "uxref_096_bad-color-picker_easy",
     "type": "label_ambiguity",
-    "title": "11개 혼동 다이얼로그 클리어 (Easy)",
+    "title": "6개 혼동 다이얼로그 클리어 (Easy)",
     "objective": "의미가 불명확한 버튼들 사이에서 선택하세요",
     "memeCaption": "라벨만 보면 반대로 동작하는 UI의 공포.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -11066,8 +11465,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "color_theme_hell",
     "params": {
-      "dialogCount": 11,
-      "includeIcons": true
+      "dialogCount": 6,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_096_bad-color-picker",
@@ -11131,6 +11532,8 @@
         "청구지 주소"
       ],
       "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true,
       "_seed": 1403
     },
     "meta": {
@@ -11164,7 +11567,9 @@
         "대표자명",
         "업종"
       ],
-      "requireStatusCheck": false
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_097_changing-the-theme-just-inverts-the-screen-colors",
@@ -11228,8 +11633,10 @@
     "sourceTag": "reddit/r/badUIbattles",
     "patternTag": "color_theme_hell",
     "params": {
-      "dialogCount": 12,
-      "includeIcons": true
+      "dialogCount": 8,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_097_changing-the-theme-just-inverts-the-screen-colors",
@@ -11261,7 +11668,9 @@
       "targetLabel": "진짜 다운로드",
       "clutterItems": 21,
       "scrollHeight": 3000,
-      "hasSimBadge": false
+      "hasSimBadge": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_098_am-i-doing-this-right-date-format-confusion",
@@ -11323,7 +11732,9 @@
       "targetLabel": "취소하기",
       "clutterItems": 40,
       "scrollHeight": 1500,
-      "hasSimBadge": true
+      "hasSimBadge": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_098_am-i-doing-this-right-date-format-confusion",
@@ -11355,7 +11766,9 @@
       "menuDepth": 3,
       "misleadingMenus": 2,
       "filterCount": 7,
-      "hiddenApplyButton": false
+      "hiddenApplyButton": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman",
@@ -11426,7 +11839,9 @@
       "menuDepth": 3,
       "misleadingMenus": 3,
       "filterCount": 8,
-      "hiddenApplyButton": true
+      "hiddenApplyButton": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman",
@@ -11514,7 +11929,9 @@
         "랍스터"
       ],
       "targetIndex": 55,
-      "category": "동물"
+      "category": "동물",
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_100_why-is-the-user-number-channel-setting-on-discord-like-this",
@@ -11579,7 +11996,7 @@
       "layers": 4,
       "closeControl": "x",
       "closeOrder": "topFirst",
-      "wrongCloseAddsLayer": true,
+      "wrongCloseAddsLayer": false,
       "requiresScrollToEnableClose": false,
       "modalTitles": [
         "쿠키 설정",
@@ -11587,7 +12004,8 @@
         "위치 정보 동의",
         "카메라 접근",
         "마이크 접근"
-      ]
+      ],
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_100_why-is-the-user-number-channel-setting-on-discord-like-this",
@@ -11597,6 +12015,223 @@
       "patternTags": [
         "misc",
         "discord-setting"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_rainbow_chaos_easy",
+    "type": "state_feedback_broken",
+    "title": "4개 필드: 피드백 없음 (Easy) #3",
+    "objective": "상태 표시가 없는 양식을 제출하세요",
+    "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
+    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
+    "difficulty": 2,
+    "timeLimitMs": 40000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "fields": [
+        "이름",
+        "이메일",
+        "비밀번호",
+        "전화번호"
+      ],
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_rainbow_chaos",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "rainbow",
+        "chaos",
+        "animation"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_rainbow_chaos_hard",
+    "type": "state_feedback_broken",
+    "title": "오류 메시지 제로 폼 채우기 (Hard)",
+    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
+    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
+    "explainWhyBad": "상태 피드백이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
+    "difficulty": 4,
+    "timeLimitMs": 15000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "fields": [
+        "닉네임",
+        "자기소개",
+        "관심사",
+        "공개 여부"
+      ],
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true,
+      "_seed": 8866
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_rainbow_chaos",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "rainbow",
+        "chaos",
+        "animation"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_rainbow_chaos_normal",
+    "type": "label_ambiguity",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 #2",
+    "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
+    "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
+    "explainWhyBad": "\"확인\"과 \"취소\"가 뒤바뀐 다이얼로그는 심각한 데이터 손실을 유발할 수 있습니다.",
+    "difficulty": 3,
+    "timeLimitMs": 25000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "dialogCount": 9,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_rainbow_chaos",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "rainbow",
+        "chaos",
+        "animation"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_zero_contrast_easy",
+    "type": "state_feedback_broken",
+    "title": "오류 메시지 제로 폼 채우기 (Easy) #3",
+    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
+    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
+    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
+    "difficulty": 2,
+    "timeLimitMs": 40000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "fields": [
+        "아이디",
+        "비밀번호",
+        "비밀번호 확인",
+        "이메일"
+      ],
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false,
+      "_seed": 5731
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_zero_contrast",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "contrast",
+        "invisible"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_zero_contrast_hard",
+    "type": "state_feedback_broken",
+    "title": "4개 필드: 피드백 없음 (Hard) #4",
+    "objective": "상태 표시가 없는 양식을 제출하세요",
+    "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
+    "explainWhyBad": "피드백 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
+    "difficulty": 4,
+    "timeLimitMs": 15000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "fields": [
+        "회사명",
+        "사업자번호",
+        "대표자명",
+        "업종"
+      ],
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_zero_contrast",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "contrast",
+        "invisible"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_color_zero_contrast_normal",
+    "type": "label_ambiguity",
+    "title": "헷갈리는 버튼 이름 정복 #2",
+    "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
+    "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
+    "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
+    "difficulty": 3,
+    "timeLimitMs": 25000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "color_theme_hell",
+    "params": {
+      "dialogCount": 2,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_color_zero_contrast",
+      "url": null,
+      "archetype": "color_theme_hell",
+      "kind": "internal",
+      "patternTags": [
+        "color_theme",
+        "contrast",
+        "invisible"
       ]
     }
   },
@@ -11619,7 +12254,9 @@
       "targetVolume": 50,
       "tolerance": 11,
       "sensitivity": 3,
-      "jitterPx": 0
+      "jitterPx": 0,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_bonus_curling_stone_lock",
@@ -11691,7 +12328,9 @@
       "targetVolume": 55,
       "tolerance": 5,
       "sensitivity": 2.5,
-      "jitterPx": 20
+      "jitterPx": 20,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_bonus_curling_stone_lock",
@@ -11704,6 +12343,428 @@
         "precision",
         "friction",
         "lockscreen"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_captcha_every_field_easy",
+    "type": "consent_toggle_labour",
+    "title": "10개 토글 하나씩 끄기 (Easy)",
+    "objective": "함정이 있는 동의 설정을 올바르게 완료하세요",
+    "memeCaption": "토글 하나하나에 당신의 인내심이 소모됩니다.",
+    "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
+    "difficulty": 1,
+    "timeLimitMs": 45000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "toggleCount": 10,
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_captcha_every_field",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "captcha",
+        "friction"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_captcha_every_field_hard",
+    "type": "state_feedback_broken",
+    "title": "피드백이 깨진 입력 양식 (Hard)",
+    "objective": "진행 상태가 안 보이는 폼을 채우세요",
+    "memeCaption": "상태 피드백이 고장난 폼, 실제로 많이 존재합니다.",
+    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
+    "difficulty": 3,
+    "timeLimitMs": 20000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "fields": [
+        "카드번호",
+        "유효기간",
+        "CVC",
+        "청구지 주소"
+      ],
+      "requireStatusCheck": true,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true,
+      "_seed": 949
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_captcha_every_field",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "captcha",
+        "friction"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_captcha_every_field_normal",
+    "type": "label_ambiguity",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 #3",
+    "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
+    "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
+    "explainWhyBad": "모호한 버튼 레이블은 사용자가 어떤 결과가 일어날지 예측할 수 없게 만듭니다.",
+    "difficulty": 2,
+    "timeLimitMs": 30000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "dialogCount": 6,
+      "includeIcons": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_captcha_every_field",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "captcha",
+        "friction"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_morse_input_easy",
+    "type": "label_ambiguity",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy) #2",
+    "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
+    "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
+    "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
+    "difficulty": 1,
+    "timeLimitMs": 45000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "dialogCount": 7,
+      "includeIcons": true,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_morse_input",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "morse",
+        "encoding"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_morse_input_hard",
+    "type": "consent_toggle_labour",
+    "title": "15개 쿠키 토글 수동 거부 (Hard)",
+    "objective": "수많은 동의 토글을 하나하나 꺼주세요",
+    "memeCaption": "쿠키 설정 토글 73개를 하나하나 꺼야 합니다.",
+    "explainWhyBad": "쿠키 동의 UI에서 토글 노동을 강요하면 대부분 사용자는 포기하고 \"모두 허용\"을 누릅니다.",
+    "difficulty": 3,
+    "timeLimitMs": 20000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "toggleCount": 15,
+      "hasRejectAll": false,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_morse_input",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "morse",
+        "encoding"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_form_morse_input_normal",
+    "type": "state_feedback_broken",
+    "title": "오류 메시지 제로 폼 채우기 #2",
+    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
+    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
+    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
+    "difficulty": 2,
+    "timeLimitMs": 30000,
+    "allowHint": true,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "form_input_hell",
+    "params": {
+      "fields": [
+        "생년월일",
+        "성별",
+        "국적",
+        "직업"
+      ],
+      "requireStatusCheck": false,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_form_morse_input",
+      "url": null,
+      "archetype": "form_input_hell",
+      "kind": "internal",
+      "patternTags": [
+        "form_input",
+        "morse",
+        "encoding"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_ball_drop_easy",
+    "type": "volume_physics_launcher",
+    "title": "발사 각도로 볼륨 설정 (Easy) #2",
+    "objective": "발사 각도를 맞춰 볼륨에 도달하세요",
+    "memeCaption": "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
+    "explainWhyBad": "게임스러운 물리 인터랙션은 실제 작업 완료를 방해하는 불필요한 복잡성입니다.",
+    "difficulty": 3,
+    "timeLimitMs": 35000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 75,
+      "tolerance": 8,
+      "sensitivity": 1,
+      "jitterPx": 8,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_ball_drop",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "ball",
+        "physics",
+        "precision",
+        "gravity",
+        "lockscreen"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_ball_drop_hard",
+    "type": "volume_physics_launcher",
+    "title": "볼륨 40%: 물리 법칙 (Hard)",
+    "objective": "탄성 있는 볼륨 컨트롤을 사용하세요",
+    "memeCaption": "볼륨 조절에 왜 발사 버튼이 필요한 거죠?",
+    "explainWhyBad": "물리 엔진 기반 UI는 재미있지만, 정확한 값 설정이 사실상 불가능합니다.",
+    "difficulty": 5,
+    "timeLimitMs": 10000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 40,
+      "tolerance": 4,
+      "sensitivity": 1.5,
+      "jitterPx": 10,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_ball_drop",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "ball",
+        "physics",
+        "precision",
+        "gravity",
+        "lockscreen"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_ball_drop_normal",
+    "type": "volume_physics_launcher",
+    "title": "발사 각도로 볼륨 설정",
+    "objective": "발사 각도를 맞춰 볼륨에 도달하세요",
+    "memeCaption": "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
+    "explainWhyBad": "물리 엔진 기반 UI는 재미있지만, 정확한 값 설정이 사실상 불가능합니다.",
+    "difficulty": 4,
+    "timeLimitMs": 20000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 40,
+      "tolerance": 6,
+      "sensitivity": 0.8,
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_ball_drop",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "ball",
+        "physics",
+        "precision",
+        "gravity",
+        "lockscreen"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_pendulum_dial_easy",
+    "type": "volume_physics_launcher",
+    "title": "물리 발사로 볼륨 75% (Easy)",
+    "objective": "물리 발사체로 볼륨을 맞추세요",
+    "memeCaption": "볼륨을 발사체로 조절하는 시대가 왔습니다.",
+    "explainWhyBad": "게임스러운 물리 인터랙션은 실제 작업 완료를 방해하는 불필요한 복잡성입니다.",
+    "difficulty": 3,
+    "timeLimitMs": 35000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 75,
+      "tolerance": 13,
+      "sensitivity": 0.8,
+      "jitterPx": 5,
+      "wrongCloseAddsLayer": false,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_pendulum_dial",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "pendulum",
+        "physics",
+        "precision",
+        "oscillation"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_pendulum_dial_hard",
+    "type": "volume_physics_launcher",
+    "title": "물리 엔진 볼륨 챌린지 (Hard)",
+    "objective": "물리 엔진으로 볼륨을 조절하세요",
+    "memeCaption": "이건 볼륨 컨트롤이 아니라 앵그리버드입니다.",
+    "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",
+    "difficulty": 5,
+    "timeLimitMs": 10000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 50,
+      "tolerance": 6,
+      "sensitivity": 0.5,
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": true
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_pendulum_dial",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "pendulum",
+        "physics",
+        "precision",
+        "oscillation"
+      ]
+    }
+  },
+  {
+    "id": "uxref_bonus_physics_pendulum_dial_normal",
+    "type": "volume_physics_launcher",
+    "title": "볼륨 70%: 물리 법칙",
+    "objective": "탄성 있는 볼륨 컨트롤을 사용하세요",
+    "memeCaption": "볼륨 조절에 왜 발사 버튼이 필요한 거죠?",
+    "explainWhyBad": "물리 엔진 기반 UI는 재미있지만, 정확한 값 설정이 사실상 불가능합니다.",
+    "difficulty": 4,
+    "timeLimitMs": 20000,
+    "allowHint": false,
+    "allowSkip": true,
+    "packTag": "uxhell",
+    "sourceTag": "internal/idea",
+    "patternTag": "physics_target_hell",
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 70,
+      "tolerance": 4,
+      "sensitivity": 0.5,
+      "jitterPx": 2,
+      "wrongCloseAddsLayer": true,
+      "shuffleOnMiss": false
+    },
+    "meta": {
+      "referenceId": "uxref_bonus_physics_pendulum_dial",
+      "url": null,
+      "archetype": "physics_target_hell",
+      "kind": "internal",
+      "patternTags": [
+        "pendulum",
+        "physics",
+        "precision",
+        "oscillation"
       ]
     }
   }

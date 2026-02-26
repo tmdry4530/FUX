@@ -1580,11 +1580,11 @@ function pickStageTypeForVariant(archetype: string, referenceId: string, variant
 }
 
 /** variant에 따라 params를 스케일링 */
-function scaleParams(params: Record<string, unknown>, variant: Variant): Record<string, unknown> {
+function scaleParams(params: Record<string, unknown>, variant: Variant, hash: number, type: string): Record<string, unknown> {
   const scaled = { ...params };
 
   if (variant === 'easy') {
-    // 쉽게: 수치 줄이기
+    // 쉽게: 수치 줄이기 + 페널티 비활성화
     if (typeof scaled.clutterItems === 'number') scaled.clutterItems = Math.max(10, Math.round((scaled.clutterItems as number) * 0.6));
     if (typeof scaled.stepCount === 'number') scaled.stepCount = Math.max(3, (scaled.stepCount as number) - 2);
     if (typeof scaled.layers === 'number') scaled.layers = Math.max(2, (scaled.layers as number) - 2);
@@ -1599,8 +1599,19 @@ function scaleParams(params: Record<string, unknown>, variant: Variant): Record<
     if (typeof scaled.hitSizePx === 'number') scaled.hitSizePx = Math.min(25, (scaled.hitSizePx as number) + 4);
     if (typeof scaled.decoyCount === 'number') scaled.decoyCount = Math.max(2, (scaled.decoyCount as number) - 2);
     if (typeof scaled.speedPxPerSec === 'number') scaled.speedPxPerSec = Math.max(30, Math.round((scaled.speedPxPerSec as number) * 0.6));
+    scaled.wrongCloseAddsLayer = false;
+    scaled.shuffleOnMiss = false;
+  } else if (variant === 'normal') {
+    // 보통: 페널티 둘 중 하나만 활성 (hash 기반)
+    if (hash % 2 === 0) {
+      scaled.wrongCloseAddsLayer = true;
+      scaled.shuffleOnMiss = false;
+    } else {
+      scaled.wrongCloseAddsLayer = false;
+      scaled.shuffleOnMiss = true;
+    }
   } else if (variant === 'hard') {
-    // 어렵게: 수치 늘리기
+    // 어렵게: 수치 늘리기 + 둘 다 활성 + type별 추가 장치
     if (typeof scaled.clutterItems === 'number') scaled.clutterItems = Math.round((scaled.clutterItems as number) * 1.5);
     if (typeof scaled.stepCount === 'number') scaled.stepCount = (scaled.stepCount as number) + 3;
     if (typeof scaled.layers === 'number') scaled.layers = Math.min(12, (scaled.layers as number) + 3);
@@ -1617,6 +1628,27 @@ function scaleParams(params: Record<string, unknown>, variant: Variant): Record<
     if (typeof scaled.speedPxPerSec === 'number') scaled.speedPxPerSec = Math.round((scaled.speedPxPerSec as number) * 1.6);
     scaled.wrongCloseAddsLayer = true;
     scaled.shuffleOnMiss = true;
+    // Type별 추가 Hard 전용 장치
+    if (type === 'hidden_reject_link') {
+      scaled.fakeRejectLinks = true;
+      scaled.scrollableToS = true;
+      scaled.timerPopup = true;
+    } else if (type === 'modal_stack') {
+      scaled.fakeCloseTraps = true;
+      scaled.dontShowAgainTrap = true;
+      scaled.misleadingTitles = true;
+    } else if (type === 'moving_target') {
+      scaled.punishTapSpam = true;
+      scaled.colorCycle = true;
+    } else if (type === 'roach_motel_flow') {
+      scaled.requireTyping = true;
+    } else if (type === 'endless_wizard_flow') {
+      scaled.misleadingLabels = true;
+      scaled.backResets = true;
+    } else if (type === 'state_feedback_broken') {
+      scaled.requireStatusCheck = true;
+    }
+    // consent_toggle_labour: auto re-enable은 렌더러에 내장
   }
 
   return scaled;
@@ -1649,7 +1681,7 @@ function referenceToVariants(ref: Reference): StageSpec[] {
     const explainWhyBad = pickFrom(explains, variantHash, 7);
 
     const baseParams = generateParams(type, ref.id, variantHash);
-    const params = scaleParams(baseParams, variant);
+    const params = scaleParams(baseParams, variant, variantHash, type);
 
     return {
       id: `${ref.id}_${variant}`,

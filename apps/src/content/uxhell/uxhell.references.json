@@ -1185,5 +1185,87 @@
       "reference"
     ],
     "kind": "external_bonus"
+  },
+  {
+    "id": "uxref_bonus_physics_ball_drop",
+    "title": "FUX Original: Ball Drop Lock — 공을 떨어뜨려 목표 홈에 착지하면 성공",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "physics_target_hell",
+    "patternTags": [
+      "ball",
+      "physics",
+      "precision",
+      "gravity",
+      "lockscreen"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_physics_pendulum_dial",
+    "title": "FUX Original: Pendulum Dial — 진자 운동으로 정확한 각도에 멈추면 성공",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "physics_target_hell",
+    "patternTags": [
+      "pendulum",
+      "physics",
+      "precision",
+      "oscillation"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_color_zero_contrast",
+    "title": "FUX Original: Zero Contrast Mode — 텍스트와 배경이 동일한 색으로 수렴",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "color_theme_hell",
+    "patternTags": [
+      "color_theme",
+      "contrast",
+      "invisible"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_color_rainbow_chaos",
+    "title": "FUX Original: Rainbow Chaos — 매초 전체 UI 색상이 무작위 변환",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "color_theme_hell",
+    "patternTags": [
+      "color_theme",
+      "rainbow",
+      "chaos",
+      "animation"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_form_morse_input",
+    "title": "FUX Original: Morse Code Form — 모스 부호로 모든 입력을 타이핑해야 하는 폼",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "form_input_hell",
+    "patternTags": [
+      "form_input",
+      "morse",
+      "encoding"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_form_captcha_every_field",
+    "title": "FUX Original: CAPTCHA Every Field — 매 필드마다 캡차 인증이 필요한 폼",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "form_input_hell",
+    "patternTags": [
+      "form_input",
+      "captcha",
+      "friction"
+    ],
+    "kind": "internal"
   }
 ]
