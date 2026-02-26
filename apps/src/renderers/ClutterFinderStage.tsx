@@ -93,7 +93,26 @@ export default function ClutterFinderStage({
     return elements;
   }, [params.clutterItems, randomTarget, params.mode]);
 
-  const containerHeight = `${params.scrollHeight * 100}vh`;
+  const containerHeight = `${params.scrollHeight}px`;
+
+  const targetHeader = (
+    <div
+      style={{
+        position: "fixed",
+        top: "16px",
+        left: "16px",
+        padding: "8px 14px",
+        backgroundColor: "#191F28",
+        color: "#FFFFFF",
+        fontSize: "13px",
+        fontWeight: "600",
+        borderRadius: "6px",
+        zIndex: 1001,
+      }}
+    >
+      목표: "{randomTarget}" 버튼 찾기 | 오클릭 {wrongClicks}/3
+    </div>
+  );
 
   if (params.mode === "chaotic_layout") {
     return (
@@ -106,6 +125,7 @@ export default function ClutterFinderStage({
           backgroundColor: "#F9FAFB",
         }}
       >
+        {targetHeader}
         {params.hasSimBadge && (
           <div
             style={{
@@ -182,6 +202,7 @@ export default function ClutterFinderStage({
         backgroundColor: "#F9FAFB",
       }}
     >
+      {targetHeader}
       {params.hasSimBadge && (
         <div
           style={{

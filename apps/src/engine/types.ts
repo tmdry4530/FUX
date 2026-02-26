@@ -14,6 +14,7 @@ export interface StageRunnerState {
   phase: StagePhase;
   remainingMs: number;
   missCount: number;
+  maxMisses: number;
   start: () => void;
   succeed: () => void;
   miss: () => void;

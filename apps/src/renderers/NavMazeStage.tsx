@@ -192,12 +192,14 @@ export default function NavMazeStage({
             padding: "16px",
             backgroundColor: "#FFFFFF",
             borderBottom: "1px solid #E5E8EB",
-            fontSize: "18px",
-            fontWeight: "600",
-            color: "#191F28",
           }}
         >
-          필터 설정
+          <div style={{ fontSize: "18px", fontWeight: "600", color: "#191F28" }}>
+            필터 설정
+          </div>
+          <div style={{ fontSize: "13px", color: "#8B95A1", marginTop: "4px" }}>
+            모든 필터를 확인하고, 맨 아래 숨겨진 "적용" 버튼을 찾아 누르세요.
+          </div>
         </div>
 
         <div

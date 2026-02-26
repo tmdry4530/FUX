@@ -54,3 +54,35 @@ export const Analytics = {
     console.log("[Mock:Analytics.impression]", params);
   },
 };
+
+// --- Storage mock ---
+export const Storage = {
+  setItem: async (key: string, value: string) => localStorage.setItem(`fux:${key}`, value),
+  getItem: async (key: string) => localStorage.getItem(`fux:${key}`),
+  removeItem: async (key: string) => localStorage.removeItem(`fux:${key}`),
+  clearItems: async () => {
+    Object.keys(localStorage).filter(k => k.startsWith('fux:')).forEach(k => localStorage.removeItem(k));
+  },
+};
+
+// --- Game Auth mock ---
+export async function getUserKeyForGame() {
+  return { hash: 'local-dev-user-001' };
+}
+
+// --- Promotion mock ---
+export async function grantPromotionRewardForGame(params: { params: { promotionCode: string; amount: number } }) {
+  console.log('[Mock:grantPromotionRewardForGame]', params.params);
+  return { key: `mock-reward-${Date.now()}` };
+}
+
+// --- Leaderboard mock ---
+export async function submitGameCenterLeaderBoardScore(params: { params: { score: number } }) {
+  console.log('[Mock:submitGameCenterLeaderBoardScore]', params.params);
+}
+
+// --- Viral mock ---
+export async function contactsViral(params: { params: { promotionCode: string } }) {
+  console.log('[Mock:contactsViral]', params.params);
+  return { success: true };
+}

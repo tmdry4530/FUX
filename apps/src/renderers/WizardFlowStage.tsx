@@ -7,7 +7,7 @@ export interface WizardFlowParams {
   misleadingLabels: boolean;
   decoyCtas: number;
   forcedScroll: boolean;
-  requiredFields: string[];
+  requiredFields: number | string[];
 }
 
 interface WizardFlowStageProps {
@@ -22,12 +22,21 @@ function randomStepCount(base: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const FIELD_NAMES = ["이름", "이메일", "전화번호", "주소", "생년월일", "직업", "소속", "사유"];
+
+function normalizeFields(input: number | string[]): string[] {
+  if (Array.isArray(input)) return input;
+  const count = Math.max(1, Math.min(input, FIELD_NAMES.length));
+  return FIELD_NAMES.slice(0, count);
+}
+
 export default function WizardFlowStage({
   params,
   onComplete,
   onFail,
 }: WizardFlowStageProps) {
   const [totalSteps] = useState(() => randomStepCount(params.stepCount));
+  const [fields] = useState(() => normalizeFields(params.requiredFields));
   const [currentStep, setCurrentStep] = useState(1);
   const [resetCount, setResetCount] = useState(0);
   const [decoyClickCount, setDecoyClickCount] = useState(0);
@@ -58,7 +67,7 @@ export default function WizardFlowStage({
   const handleNext = useCallback(() => {
     if (!hasScrolled) return;
 
-    const requiredFieldsFilled = params.requiredFields.every(
+    const requiredFieldsFilled = fields.every(
       (field) => (fieldValues[field] ?? "").trim().length > 0
     );
     if (!requiredFieldsFilled) {
@@ -83,7 +92,7 @@ export default function WizardFlowStage({
     hasScrolled,
     currentStep,
     totalSteps,
-    params.requiredFields,
+    fields,
     params.mode,
     agreedToTerms,
     fieldValues,
@@ -166,12 +175,12 @@ export default function WizardFlowStage({
         >
           {params.mode === "government_portal"
             ? "민원 신청서 작성"
-            : `Step ${currentStep} of ${totalSteps}`}
+            : `${totalSteps}단계 중 ${currentStep}단계`}
         </div>
         <div style={{ fontSize: "14px", color: "#8B95A1" }}>
           {params.mode === "government_portal"
             ? "정보 입력 중... 잠시만 기다려 주세요"
-            : "Please complete all fields"}
+            : "모든 필드를 입력해주세요"}
         </div>
       </div>
 
@@ -198,7 +207,7 @@ export default function WizardFlowStage({
                 : "0 1px 3px rgba(0,0,0,0.1)",
           }}
         >
-          {params.requiredFields.map((field) => (
+          {fields.map((field) => (
             <div key={field} style={{ marginBottom: "20px" }}>
               <label
                 style={{

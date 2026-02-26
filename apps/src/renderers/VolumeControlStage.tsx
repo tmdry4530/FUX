@@ -26,7 +26,8 @@ export default function VolumeControlStage({
   onFail: () => void;
 }) {
   const [target] = useState(() => randomTarget());
-  const [volume, setVolume] = useState(50);
+  const [volume, setVolume] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
   const [overshootCount, setOvershootCount] = useState(0);
@@ -46,13 +47,14 @@ export default function VolumeControlStage({
 
   const targetPuzzle = [1, 3, 2, 4]; // solution for puzzle_lock
 
-  // Check win condition (use randomized target)
+  // Check win condition (only after first user interaction)
   useEffect(() => {
+    if (!hasInteracted) return;
     const diff = Math.abs(volume - target);
     if (diff <= params.tolerance) {
       onComplete();
     }
-  }, [volume, target, params.tolerance, onComplete]);
+  }, [volume, target, params.tolerance, onComplete, hasInteracted]);
 
   // Track overshoots
   const checkOvershoot = useCallback((newVolume: number) => {
@@ -73,6 +75,7 @@ export default function VolumeControlStage({
   // Mode-specific handlers
   const handleHoverSlider = useCallback((clientX: number) => {
     if (!trackRef.current || !isHovering) return;
+    setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
     const newVolume = Math.round(percent);
@@ -82,10 +85,10 @@ export default function VolumeControlStage({
 
   const handleHyperSensitive = useCallback((clientX: number) => {
     if (!trackRef.current) return;
+    setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = ((clientX - rect.left) / rect.width) * 100;
     const sensitivity = params.sensitivity ?? 2.5;
-    // Non-linear: amplify movement away from center
     const centered = percent - 50;
     const amplified = 50 + (centered * sensitivity);
     const newVolume = Math.round(Math.max(0, Math.min(100, amplified)));
@@ -95,6 +98,7 @@ export default function VolumeControlStage({
 
   const handleTinyHitbox = useCallback((clientX: number) => {
     if (!trackRef.current) return;
+    setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
     const newVolume = Math.round(percent);
@@ -104,6 +108,7 @@ export default function VolumeControlStage({
 
   const handleReverseMapping = useCallback((clientX: number) => {
     if (!trackRef.current) return;
+    setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = ((clientX - rect.left) / rect.width) * 100;
     const newVolume = Math.round(100 - Math.max(0, Math.min(100, percent)));
@@ -113,6 +118,7 @@ export default function VolumeControlStage({
 
   const handleRandomJump = useCallback((clientX: number) => {
     if (!trackRef.current) return;
+    setHasInteracted(true);
     const rect = trackRef.current.getBoundingClientRect();
     const percent = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
     const newVolume = Math.round(percent);
@@ -131,6 +137,7 @@ export default function VolumeControlStage({
 
   const handleCircularGesture = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!dialRef.current || !isDragging) return;
+    setHasInteracted(true);
     const rect = dialRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -167,6 +174,7 @@ export default function VolumeControlStage({
   }, [puzzleSequence, overshootCount, onFail]);
 
   const handlePhysicsLaunch = useCallback(() => {
+    setHasInteracted(true);
     const newVolume = Math.round(launchPower);
     checkOvershoot(newVolume);
     setVolume(newVolume);
@@ -174,6 +182,7 @@ export default function VolumeControlStage({
   }, [launchPower, checkOvershoot]);
 
   const handleVoiceShout = useCallback(() => {
+    setHasInteracted(true);
     const newCount = tapCount + 1;
     setTapCount(newCount);
 
@@ -194,6 +203,19 @@ export default function VolumeControlStage({
       case 'hover_slider':
         return (
           <div style={{ position: 'relative', width: '100%', padding: '20px' }}>
+            {'ontouchstart' in window && (
+              <div style={{
+                padding: '8px 12px',
+                marginBottom: '12px',
+                fontSize: '12px',
+                color: '#E53935',
+                backgroundColor: '#FFF3E0',
+                borderRadius: '6px',
+                textAlign: 'center'
+              }}>
+                이 스테이지는 마우스 호버가 필요합니다. 터치 디바이스에서는 체험이 제한됩니다.
+              </div>
+            )}
             <div
               ref={trackRef}
               onMouseEnter={() => setIsHovering(true)}

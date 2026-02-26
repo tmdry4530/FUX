@@ -9,6 +9,9 @@ import {
 import { StageListScreen } from "./screens/StageListScreen";
 import { StagePlayScreen } from "./screens/StagePlayScreen";
 import { ResultScreen } from "./screens/ResultScreen";
+import { DailyChallengeScreen } from "./screens/DailyChallengeScreen";
+import { ProfileScreen } from "./screens/ProfileScreen";
+import { CollectionScreen } from "./screens/CollectionScreen";
 
 /**
  * 딥링크 query param fallback
@@ -36,6 +39,9 @@ export default function App() {
       <Route path="/" element={<QueryParamRedirect />} />
       <Route path="/stage/:stageId" element={<StagePlayScreen />} />
       <Route path="/result/:stageId" element={<ResultScreen />} />
+      <Route path="/challenge" element={<DailyChallengeScreen />} />
+      <Route path="/profile" element={<ProfileScreen />} />
+      <Route path="/collection" element={<CollectionScreen />} />
       {/* Catch-all: 알 수 없는 경로는 Home으로 안전 이동 */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -24,13 +24,13 @@ export function StagePlayScreen() {
           <div style={{ marginTop: 16 }}>
             <p style={{ fontSize: 13, color: "#4E5968", marginBottom: 8 }}>혹시 이 스테이지를 찾으시나요?</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "center" }}>
-              {suggestions.map((id) => (
+              {suggestions.map((s) => (
                 <button
-                  key={id}
-                  onClick={() => navigate(`/stage/${encodeURIComponent(id)}`)}
+                  key={s.id}
+                  onClick={() => navigate(`/stage/${encodeURIComponent(s.id)}`)}
                   style={{ padding: "8px 16px", fontSize: 13, color: "#3182F6", background: "#F0F4FF", border: "1px solid #3182F6", borderRadius: 8, cursor: "pointer" }}
                 >
-                  {id}
+                  {s.title}
                 </button>
               ))}
             </div>
@@ -51,7 +51,8 @@ export function StagePlayScreen() {
 
 function StagePlayInner({ spec }: { spec: StageSpec }) {
   const navigate = useNavigate();
-  const { phase, remainingMs, start, succeed, miss, result } =
+  const [searchParams] = useSearchParams();
+  const { phase, remainingMs, missCount, maxMisses, start, succeed, miss, result } =
     useStageRunner(spec);
 
   // Analytics: screen view
@@ -74,9 +75,14 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
   const shouldNavigate = !!result;
   React.useEffect(() => {
     if (shouldNavigate && result) {
-      navigate(`/result/${spec.id}`, { state: result, replace: true });
+      const challengeParam = searchParams.get('challenge');
+      const stepParam = searchParams.get('step');
+      const resultUrl = challengeParam
+        ? `/result/${spec.id}?challenge=1&step=${stepParam ?? '0'}`
+        : `/result/${spec.id}`;
+      navigate(resultUrl, { state: result, replace: true });
     }
-  }, [shouldNavigate, result, navigate, spec.id]);
+  }, [shouldNavigate, result, navigate, spec.id, searchParams]);
 
   if (shouldNavigate) {
     return null;
@@ -104,7 +110,7 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
         }}
       >
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate(searchParams.get('challenge') === '1' ? '/challenge' : '/')}
           style={{
             background: "none",
             border: "none",
@@ -113,21 +119,35 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
             cursor: "pointer",
           }}
         >
-          ← 목록
+          {searchParams.get('challenge') === '1' ? '← 챌린지' : '← 목록'}
         </button>
         <span style={{ fontSize: 14, fontWeight: 600 }}>{spec.title}</span>
-        <span
-          style={{
-            fontSize: 14,
-            fontWeight: 700,
-            color: seconds <= 5 ? "#e53935" : "#333",
-            fontVariantNumeric: "tabular-nums",
-            minWidth: 32,
-            textAlign: "right",
-          }}
-        >
-          {phase === "PLAYING" ? `${seconds}s` : ""}
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          {phase === "PLAYING" && (
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: missCount >= maxMisses - 1 ? "#e53935" : "#8B95A1",
+                fontVariantNumeric: "tabular-nums",
+              }}
+            >
+              {missCount}/{maxMisses}
+            </span>
+          )}
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 700,
+              color: seconds <= 5 ? "#e53935" : "#333",
+              fontVariantNumeric: "tabular-nums",
+              minWidth: 32,
+              textAlign: "right",
+            }}
+          >
+            {phase === "PLAYING" ? `${seconds}s` : ""}
+          </span>
+        </div>
       </div>
 
       {/* Play area */}

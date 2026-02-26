@@ -1,0 +1,1189 @@
+[
+  {
+    "id": "uxref_001_at-least-it-s-intuitive",
+    "title": "At least it's intuitive",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1nijcmr/at_least_its_intuitive/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "lid-angle",
+      "physical",
+      "gesture",
+      "unintuitive"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_002_one-volume-for-each-person",
+    "title": "One volume for each person",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ohd93u/one_volume_for_each_person/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_003_gamified-ui-is-a-double-edged-sword",
+    "title": "Gamified UI is a double-edged sword",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1n83yc9/gamified_ui_is_a_doubleedged_sword/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc",
+      "gamified"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_004_corollas-forever-3",
+    "title": "Corollas forever <3",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ncc4mh/corollas_forever_3/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_005_choose-your-favourite-audio-control",
+    "title": "Choose your favourite audio control",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1o68zt3/choose_your_favourite_audio_control/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_006_that-fragile-slider-careful-it-might-actually-break",
+    "title": "That fragile slider—careful, it might actually break!",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1kljj7m/that_fragile_slidercareful_it_might_actually_break/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "slider_hell",
+    "patternTags": [
+      "slider",
+      "fragile",
+      "breakable",
+      "lid-angle"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_007_friend-had-a-neat-idea-for-volume-slider",
+    "title": "Friend had a neat idea for volume slider",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/d8s9vq/friend_had_a_neat_idea_for_volume_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_008_just-a-simple-volume-control",
+    "title": "Just a simple volume control",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1o39vqf/just_a_simple_volume_control/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_009_ready-your-arms-air-pump-filled-volume-control",
+    "title": "Ready your arms, air-pump filled volume control!",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/e805pl/ready_your_arms_airpump_filled_volume_control/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "air-pump",
+      "pump"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_010_finally-made-the-notorious-worst-volume-control",
+    "title": "Finally made the notorious worst Volume control",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1q20w02/finally_made_the_notorious_worst_volume_control/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_011_created-one-for-myself-too-inspired-by-the-classic-volume-co",
+    "title": "Created one for myself too inspired by the Classic Volume Controller list",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1j97w5c/created_one_for_myself_too_inspired_by_the/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_012_volume-control",
+    "title": "Volume Control",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1arb93o/volume_control/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_013_in-2017-a-group-of-developers-competed-for-who-could-create-",
+    "title": "In 2017, a group of developers competed for who could create the worst volume control interface. (Thread)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/12pfxin/in_2017_a_group_of_developers_competed_for_who/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "face-control"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_014_a-tedious-volume-control-ui",
+    "title": "A tedious volume control UI",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1nxpx07/a_tedious_volume_control_ui/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_015_volume-control-without-boundaries",
+    "title": "Volume Control without boundaries",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/ey74ya/volume_control_without_boundaries/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_016_request-volume-control-where-you-press-a-button-and-shout-in",
+    "title": "[Request] Volume control where you press a button and shout into your microphone",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1fiptul/request_volume_control_where_you_press_a_button/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "shout",
+      "mic"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_017_my-orbital-volume-slider",
+    "title": "My Orbital Volume Slider",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/dwutmt/my_orbital_volume_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "orbital",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_018_what-do-you-think-about-my-volume-slider",
+    "title": "What do you think about my volume slider ?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/yrfl8k/what_do_you_think_about_my_volume_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "volume_hell",
+    "patternTags": [
+      "volume",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_019_the-phone-number-slider-but-worse",
+    "title": "The Phone Number Slider... BUT WORSE",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1gzaeka/the_phone_number_slider_but_worse/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "form_input_hell",
+    "patternTags": [
+      "form_input",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider",
+    "title": "You have to insert your phone number, using a slider",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/vte38o/you_have_to_insert_your_phone_number_using_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "form_input_hell",
+    "patternTags": [
+      "form_input",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_021_i-have-created-the-easiest-phone-number-picker-ever-no-silly",
+    "title": "I have created the easiest phone number picker ever. No silly sliders, no flying buttons. Just a list with your phone number on it. Scroll until you find it :)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/g8rncu/i_have_created_the_easiest_phone_number_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_022_the-ultimate-name-slider",
+    "title": "The Ultimate Name Slider",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/cchcxc/the_ultimate_name_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "slider_hell",
+    "patternTags": [
+      "slider",
+      "lid-angle"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_023_name-slider-mk2",
+    "title": "Name slider mk2",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/9iazxc/name_slider_mk2/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "slider_hell",
+    "patternTags": [
+      "slider",
+      "lid-angle"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_024_name-slider",
+    "title": "Name slider",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/9i324c/name_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "slider_hell",
+    "patternTags": [
+      "slider",
+      "lid-angle"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_025_there-is-an-other-option-at-the-end-of-each-slider-incase-yo",
+    "title": "there is an 'other' option at the end of each slider incase your name isn't listed",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/mqfrmi/there_is_an_other_option_at_the_end_of_each/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "slider_hell",
+    "patternTags": [
+      "slider",
+      "lid-angle"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_026_a-revolutionary-date-birth-selector-perfect-for-your-anxiety",
+    "title": "A revolutionary Date Birth Selector. Perfect for your anxiety!",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/pqbvjz/a_revolutionary_date_birth_selector_perfect_for/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_027_revolving-birthday-slider-just-have-to-time-your-pick",
+    "title": "Revolving birthday slider, just have to time your pick!",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/e7g8jn/revolving_birthday_slider_just_have_to_time_your/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_028_bad-date-picker",
+    "title": "Bad date picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/klf6a6/bad_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_029_calendar-hell",
+    "title": "Calendar Hell",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/pqjd0p/calendar_hell/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_030_it-s-not-that-bad-the-date-picker-concept-from-my-job",
+    "title": "(it's not that bad) THE 'date picker' concept from my job",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1l61fpy/its_not_that_bad_the_date_picker_concept_from_my/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi",
+    "title": "date picker that i found a while before i found the subreddit",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1kc4bcr/date_picker_that_i_found_a_while_before_i_found/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_032_atomo-a-date-picker-with-atomic-precision",
+    "title": "AtOMo - A date picker with atomic precision",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1p24pay/atomo_a_date_picker_with_atomic_precision/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time",
+      "atomic"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_033_event-date-picker",
+    "title": "event date picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1olrkbn/event_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_034_my-submission-for-the-most-annoying-date-picker",
+    "title": "My submission for the most annoying date picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1hqdiux/my_submission_for_the_most_annoying_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_035_4-click-max-birthday-date-picker",
+    "title": "4-click-max birthday date picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/13ivnqy/4clickmax_birthday_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_036_client-said-be-creative-with-the-date-picker",
+    "title": "Client said: “Be creative with the date picker”",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/s2l182/client_said_be_creative_with_the_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_037_the-worst-time-date-selectors",
+    "title": "The worst Time/Date selectors",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/u4b4pe/the_worst_timedate_selectors/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_038_binary-search-date-picker",
+    "title": "Binary search date picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1av1w0u/binary_search_date_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time",
+      "binary-search"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_039_calendar-but-it-s-graph-x-months-and-y-temperature-c",
+    "title": "calendar, but it's graph x (months) and y (temperature, C⁰)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1hjdwl0/calendar_but_its_graph_x_months_and_y_temperature/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time",
+      "graph"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_040_seen-in-the-wild-setting-time-with-separate-sliders-for-hour",
+    "title": "seen in the wild: setting time with separate sliders for hours and for minutes",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1omg0ho/seen_in_the_wild_setting_time_with_separate/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_041_selectcha-all-in-one-date-picker-captcha-solution",
+    "title": "Selectcha - All in one date picker & captcha solution",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ocma24/selectcha_all_in_one_date_picker_captcha_solution/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild",
+    "title": "A fucking slider? (captcha slider in the wild)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ltaxwk/a_fucking_slider/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_043_what-the-heck-is-that-captcha",
+    "title": "What the heck is that captcha?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1oyxha6/what_the_heck_is_that_captcha/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_044_when-captcha-and-the-submit-button-become-one",
+    "title": "When CAPTCHA and the Submit Button Become One",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1peh5mz/when_captcha_and_the_submit_button_become_one/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_045_put-your-webcam-back-in-order-a-cursed-captcha",
+    "title": "Put Your Webcam Back in Order (a cursed captcha)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1mxychn/put_your_webcam_back_in_order_a_cursed_captcha/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_046_the-number-guessing-captcha",
+    "title": "The Number Guessing Captcha",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1nr0su3/the_number_guessing_captcha/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_047_captcha",
+    "title": "CAPTCHA",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1havot1/captcha/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru",
+    "title": "The right CAPTCHA to test if you are not a scamguru",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ntbiee/the_right_captcha_to_test_if_you_are_not_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_049_i-made-3-cursed-captchas",
+    "title": "I made 3 cursed captchas",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1mlobm0/i_made_3_cursed_captchas/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_050_captcha-using-weird-images-generated-by-an-ai",
+    "title": "Captcha using weird images generated by an AI",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/oi9m7u/captcha_using_weird_images_generated_by_an_ai/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_051_request-a-captcha-where-you-have-to-complete-a-totally-rando",
+    "title": "Request: A captcha where you have to complete a totally random task irl and upload evidence",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/xtu3rh/request_a_captcha_where_you_have_to_complete_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "captcha_hell",
+    "patternTags": [
+      "captcha"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for",
+    "title": "use the slider to enter your password, which is censored for ...",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/jt0ssb/use_the_slider_to_enter_your_password_which_is/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth",
+      "lid-angle",
+      "slider"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_053_request-password-cannot-contain-anything",
+    "title": "[Request] Password cannot contain anything",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/n4rmdx/request_password_cannot_contain_anything/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_054_a-secure-password-must-consist-of-at-least-characters",
+    "title": "A secure password must consist of AT LEAST characters",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1fwko9r/a_secure_password_must_consist_of_at_least/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_055_lowercase-and-uppercase-password-dots",
+    "title": "Lowercase and Uppercase password dots",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1fvbd4w/lowercase_and_uppercase_password_dots/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password",
+    "title": "A text input that takes the day's date to enter a password",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/g9fpio/a_text_input_that_takes_the_days_date_to_enter_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_057_req-basket-catcher-password-thingy",
+    "title": "[REQ]: Basket-catcher-password-thingy",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/nrd7et/req_basketcatcherpasswordthingy/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_058_idea-you-have-to-type-in-your-password-in-morse-code",
+    "title": "Idea: you have to type in your password in morse code",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/r5mesv/idea_you_have_to_type_in_your_password_in_morse/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth",
+      "morse"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_059_show-password",
+    "title": "Show password",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/fkjojs/show_password/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo",
+    "title": "A log-in screen that says \"close one!\" or \"almost got it!\" when you type in an almost-correct password.",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1ir868a/a_login_screen_that_says_close_one_or_almost_got/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_061_login-with-on-screen-keyboard-only",
+    "title": "Login with On-Screen Keyboard Only!",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1kr5ozr/login_with_onscreen_keyboard_only/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_062_no-keyboard-friendly-login-ui-with-dropdown-menu",
+    "title": "No-keyboard-friendly login UI with dropdown menu",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/y5l3un/nokeyboardfriendly_login_ui_with_dropdown_menu/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "auth_hell",
+    "patternTags": [
+      "auth",
+      "dropdown"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press",
+    "title": "I made a keyboard that scrambles itself every time you press a key",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/pu1u6h/i_made_a_keyboard_that_scrambles_itself_every/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard",
+      "scramble"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor",
+    "title": "A keyboard, but the letters are scared by the cursor",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1hl9use/a_keyboard_but_the_letters_are_scared_by_the/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard",
+      "fleeing"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_065_binary-search-keyboard",
+    "title": "Binary search keyboard",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/ezmb57/binary_search_keyboard/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard",
+      "binary-search"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-",
+    "title": "A keyboard, but each key has a picture on it where the first letter of that picture correlates to the key you want to press",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/imzl5b/a_keyboard_but_each_key_has_a_picture_on_it_where/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave",
+    "title": "[Request] Keyboard that works by \"entering rooms\", House of Leaves style",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1fity8r/request_keyboard_that_works_by_entering_rooms/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_068_i-have-created-a-keyboard-from-hell",
+    "title": "I have created a keyboard from hell",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1r0f40x/i_have_created_a_keyboard_from_hell/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_069_extremely-usefull-keyboard",
+    "title": "Extremely usefull keyboard",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1pkgsgn/extremely_usefull_keyboard/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "keyboard_hell",
+    "patternTags": [
+      "keyboard"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_070_suggestion-meta-can-someone-please-make-a-username-generator",
+    "title": "[Suggestion/Meta] Can someone please make a username generator based on colo(u)r?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/hne1dn/suggestionmeta_can_someone_please_make_a_username/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_071_having-this-be-a-dropdown-and-not-a-number-input-field",
+    "title": "Having this be a dropdown and not a number input field",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1jjll36/having_this_be_a_dropdown_and_not_a_number_input/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e",
+    "title": "This dropdown on a health insurance website has about 1000 entries",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1quxmgw/this_dropdown_on_a_health_insurance_website_has/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo",
+    "title": "Why does this calculator make me pick everything from dropdown?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1m2o5k8/why_does_this_calculator_make_me_pick_everything/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown",
+      "calculator"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_074_a-forum-but-you-can-only-input-text-with-a-dropdown",
+    "title": "A forum but you can only input text with a dropdown",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/jrncpw/a_forum_but_you_can_only_input_text_with_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_075_when-a-developer-only-knows-dropdowns",
+    "title": "When a developer only knows dropdowns",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1i6ml3c/when_a_developer_only_knows_dropdowns/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_076_please-select-your-street-name-from-a-big-city-using-the-dro",
+    "title": "Please select your street name from a big city using the dropdown",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1qgldug/please_select_your_street_name_from_a_big_city/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "dropdown_hell",
+    "patternTags": [
+      "dropdown",
+      "street-picker"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_077_so-i-made-very-intuitive-and-user-friendly-method-of-text-in",
+    "title": "So i made very intuitive and user friendly method of text input",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/u8qp0n/so_i_made_very_intuitive_and_user_friendly_method/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_078_request-website-language-picker-where-the-user-has-to-draw-t",
+    "title": "[Request] Website language picker where the user has to draw the nations flag with the cursor",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/qs9xgk/request_website_language_picker_where_the_user/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_079_request-logarithmic-scroll-bar",
+    "title": "[Request] Logarithmic scroll bar",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/qjw0in/request_logarithmic_scroll_bar/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll",
+      "logarithmic"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_080_coaxed-into-scroll-bars-for-some-reason-from-r-coaxedintoasn",
+    "title": "\"Coaxed into scroll bars for some reason\" (from r/coaxedintoasnafu)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1mnzbua/coaxed_into_scroll_bars_for_some_reason_from/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-",
+    "title": "Vertical scroll bars are notorious for not obeying the laws of physics",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/s5lfsy/vertical_scroll_bars_are_notorious_for_not/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima",
+    "title": "I modified my code to make a vertically-scrolling hexadecimal scroll bar",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/lidp0n/i_modified_my_code_a_to_make_a/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll",
+      "hex"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-",
+    "title": "I had to sign a form on my phone. Writing in the box scrolls the window.",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/y5nwr7/i_had_to_sign_a_form_on_my_phone_writing_in_the/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "scroll_hell",
+    "patternTags": [
+      "scroll"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell",
+    "title": "Cursor That Actually Points to the Direction You Are Travelling",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/vuxwoh/cursor_that_actually_points_to_the_direction_you/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_085_mouse-cursor-with-limited-clicks-needs-to-be-recharged",
+    "title": "Mouse Cursor with limited clicks, needs to be recharged",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/pne1cm/mouse_cursor_with_limited_clicks_needs_to_be/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman",
+    "title": "[Request] Computer cursor controlled by turtle graphics commands",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/t9foxq/request_computer_cursor_controlled_by_turtle/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor",
+      "graph",
+      "turtle-graphics"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_087_mouse-cursor-annoying-you-only-want-to-see-it-when-it-s-usef",
+    "title": "Mouse cursor annoying you? Only want to see it when it's useful?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/r0toz7/mouse_cursor_annoying_you_only_want_to_see_it/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game",
+    "title": "Just close the ad - a much worse version of the cursor 'game'",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/zmru23/just_close_the_ad_a_much_worse_version_of_the/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_089_an-app-where-you-control-the-cursor-by-turning-your-face-and",
+    "title": "An app where you control the cursor by turning your face and head",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/e1npf6/an_app_where_you_control_the_cursor_by_turning/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "cursor_hell",
+    "patternTags": [
+      "cursor",
+      "face-control"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you",
+    "title": "A literally infinite amount of buttons: find the one with your phone number",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/erh2aw/a_literally_infinite_amount_of_buttons_find_the/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "form_input_hell",
+    "patternTags": [
+      "form_input",
+      "infinite"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_091_hey-i-am-creating-a-mobile-game-about-bad-ui-you-should",
+    "title": "Hey i am creating a mobile game about bad ui. You should ...",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1kyc6i6/hey_i_am_creating_a_mobile_game_about_bad_ui_you/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm",
+    "title": "Took me 10 minutes and several search promts to find ... (confirmation message covers buttons)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1m7741j/took_me_10_minutes_and_several_search_promts_to/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_093_read-it-or-else",
+    "title": "Read it. Or else",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1b7lqpg/read_it_or_else/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y",
+    "title": "Since too many people liked my previous clock - I present to you ...",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1jrlfen/since_too_many_people_liked_my_previous_clock_i/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches",
+    "title": "I made an app that controls the brightness with switches",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/s3uoa4/i_made_an_app_that_controls_the_brightness_with/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc",
+      "switches"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_096_bad-color-picker",
+    "title": "Bad Color Picker",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/cvos0r/bad_color_picker/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "color_theme_hell",
+    "patternTags": [
+      "color_theme"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors",
+    "title": "Changing the theme just inverts the screen colors",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/fdtxwc/changing_the_theme_just_inverts_the_screen_colors/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "color_theme_hell",
+    "patternTags": [
+      "color_theme",
+      "invert"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_098_am-i-doing-this-right-date-format-confusion",
+    "title": "Am I doing this right? (date format confusion)",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/130e1fg/am_i_doing_this_right/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "date_time_hell",
+    "patternTags": [
+      "date_time"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman",
+    "title": "What could go wrong joining a calculator and Hangman ...",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/vwsyas/what_could_go_wrong_joining_a_calculator_and/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc",
+      "hangman",
+      "calculator"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_100_why-is-the-user-number-channel-setting-on-discord-like-this",
+    "title": "Why is the User Number channel setting on Discord like this?",
+    "url": "https://www.reddit.com/r/badUIbattles/comments/1mn1viw/why_is_the_user_number_channel_setting_on_discord/",
+    "sourceTag": "reddit/r/badUIbattles",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "misc",
+      "discord-setting"
+    ],
+    "kind": "community"
+  },
+  {
+    "id": "uxref_bonus_curling_stone_lock",
+    "title": "FUX Original: Curling Stone Lock — 스톤을 밀어서 중앙 원에 정착하면 성공",
+    "url": null,
+    "sourceTag": "internal/idea",
+    "archetype": "physics_target_hell",
+    "patternTags": [
+      "curling",
+      "physics",
+      "precision",
+      "friction",
+      "lockscreen"
+    ],
+    "kind": "internal"
+  },
+  {
+    "id": "uxref_bonus_x_0xdesigner_1642554856303910912",
+    "title": "X thread (0xDesigner): bad UX/volume UI reference (접속 제한 가능)",
+    "url": "https://x.com/0xDesigner/status/1642554856303910912",
+    "sourceTag": "x.com",
+    "archetype": "misc_hell",
+    "patternTags": [
+      "x",
+      "thread",
+      "reference"
+    ],
+    "kind": "external_bonus"
+  }
+]
