@@ -310,8 +310,8 @@ function StepReveal({
         }}
       >
         {[
-          { label: '수락 버튼 면적', value: '100%', sub: '너비 전체, 높이 54px' },
-          { label: '거절 텍스트 면적', value: '~6%', sub: '11px 글씨, 패딩 없음' },
+          { label: '"수락" 누르는 영역', value: '17배', sub: '화면 가득 채운 큰 버튼' },
+          { label: '"거절" 누르는 영역', value: '1배', sub: '눈에 잘 안 보이는 작은 글씨' },
         ].map((item, i) => (
           <div
             key={i}
@@ -354,15 +354,15 @@ function StepReveal({
         }}
       >
         {[
-          { label: '폰트 크기', accept: '17px (Bold)', reject: '11px (Regular)' },
-          { label: '색상', accept: '흰색 on 파랑 (대비 4.5:1)', reject: '연회색 on 흰색 (대비 1.5:1)' },
-          { label: '그림자', accept: '있음 (시선 유도)', reject: '없음' },
+          { label: '글씨', accept: '크고 굵게', reject: '작고 얇게' },
+          { label: '색상', accept: '눈에 확 띄는 파란색', reject: '배경에 묻히는 회색' },
+          { label: '입체감', accept: '튀어나와 보임', reject: '평평하게 숨김' },
         ].map((row, i) => (
-          <div key={i} style={{ display: 'flex', fontSize: 12, lineHeight: 1.4 }}>
-            <div style={{ width: 64, flexShrink: 0, fontWeight: 600, color: TDS.grey900 }}>
+          <div key={i} style={{ display: 'flex', fontSize: 13, lineHeight: 1.4 }}>
+            <div style={{ width: 52, flexShrink: 0, fontWeight: 600, color: TDS.grey900 }}>
               {row.label}
             </div>
-            <div style={{ flex: 1, color: TDS.blue500 }}>{row.accept}</div>
+            <div style={{ flex: 1, color: TDS.blue500, fontWeight: 500 }}>{row.accept}</div>
             <div style={{ flex: 1, color: TDS.grey500 }}>{row.reject}</div>
           </div>
         ))}
