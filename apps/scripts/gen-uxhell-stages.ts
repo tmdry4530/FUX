@@ -1171,7 +1171,7 @@ const TYPE_MEME_CAPTIONS: Record<string, string[]> = {
   ],
   disguised_cta_grid: [
     "콘텐츠인 줄 알았는데 광고였습니다.",
-    "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "클릭하면 광고, 안 하면 못 넘어가는 함정.",
     "진짜 콘텐츠와 광고의 경계가 사라진 UI입니다.",
     "스폰서 뱃지가 5픽셀 크기로 숨어있습니다.",
@@ -1564,10 +1564,12 @@ const VARIANT_TIME_BONUS_MS: Record<Variant, number> = {
   hard: -5000,
 };
 
-const VARIANT_TITLE_SUFFIX: Record<Variant, string> = {
-  easy: ' (Easy)',
-  normal: '',
-  hard: ' (Hard)',
+const DIFFICULTY_LABEL: Record<number, string> = {
+  1: 'Very Easy',
+  2: 'Easy',
+  3: 'Normal',
+  4: 'Hard',
+  5: 'Very Hard',
 };
 
 /** variant별로 다른 type을 선택해 같은 ref라도 다른 렌더러 사용 */
@@ -1686,7 +1688,7 @@ function referenceToVariants(ref: Reference): StageSpec[] {
     return {
       id: `${ref.id}_${variant}`,
       type,
-      title: `${generateTypeTitle(type, params, variantHash)}${VARIANT_TITLE_SUFFIX[variant]}`,
+      title: `${generateTypeTitle(type, params, variantHash)}${variant !== 'normal' ? ` (${DIFFICULTY_LABEL[difficulty] ?? ''})` : ''}`,
       objective,
       memeCaption: generateTypeMemeCaption(type, params, variantHash),
       explainWhyBad,

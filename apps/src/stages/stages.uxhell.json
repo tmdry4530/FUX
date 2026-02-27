@@ -2,7 +2,7 @@
   {
     "id": "uxref_001_at-least-it-s-intuitive_easy",
     "type": "volume_physics_launcher",
-    "title": "물리 엔진 볼륨 챌린지 (Easy) #1",
+    "title": "물리 엔진 볼륨 챌린지 (Easy)",
     "objective": "물리 엔진으로 볼륨을 조절하세요",
     "memeCaption": "이건 볼륨 컨트롤이 아니라 앵그리버드입니다.",
     "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",
@@ -290,7 +290,7 @@
   {
     "id": "uxref_003_gamified-ui-is-a-double-edged-sword_hard",
     "type": "clutter_find_cta",
-    "title": "혼잡한 화면에서 실제 버튼 찾기 (Hard) #1",
+    "title": "혼잡한 화면에서 실제 버튼 찾기 (Hard)",
     "objective": "어지러운 화면에서 목표를 찾으세요",
     "memeCaption": "정보 과부하 속에서 정답을 찾는 UX 지옥.",
     "explainWhyBad": "화면에 불필요한 요소가 넘치면 사용자는 진짜 기능을 찾을 수 없게 됩니다.",
@@ -483,7 +483,7 @@
   {
     "id": "uxref_004_corollas-forever-3_normal",
     "type": "roach_motel_flow",
-    "title": "가입은 쉽고 탈퇴는 험난",
+    "title": "가입은 쉽고 탈퇴는 험난 #1",
     "objective": "빠져나갈 수 없는 흐름에서 탈출하세요",
     "memeCaption": "들어오긴 쉬운데 나가긴 어려운 바퀴벌레 모텔.",
     "explainWhyBad": "가입은 쉽고 탈퇴는 어렵게 만드는 비대칭 UX는 사용자 신뢰를 파괴합니다.",
@@ -755,7 +755,7 @@
   {
     "id": "uxref_007_friend-had-a-neat-idea-for-volume-slider_hard",
     "type": "volume_hyper_sensitive",
-    "title": "극초민감 슬라이더: 목표 65% (Hard) #1",
+    "title": "극초민감 슬라이더: 목표 65% (Hard)",
     "objective": "미세 조정이 필요한 볼륨을 맞추세요",
     "memeCaption": "심장이 뛰는 것만으로도 볼륨이 변할 수 있습니다.",
     "explainWhyBad": "비선형 슬라이더 응답은 사용자의 멘탈 모델을 완전히 무너뜨립니다.",
@@ -858,7 +858,7 @@
   {
     "id": "uxref_008_just-a-simple-volume-control_hard",
     "type": "volume_hover_slider",
-    "title": "호버 감지 볼륨 컨트롤 (Hard) #1",
+    "title": "호버 감지 볼륨 컨트롤 (Hard)",
     "objective": "목표 볼륨에 정확히 도달하세요",
     "memeCaption": "슬라이더가 부끄러움을 많이 타나 봐요. 마우스 올려야 나오다니.",
     "explainWhyBad": "마우스를 올려야만 나타나는 컨트롤은 발견 가능성(discoverability)을 제로로 만듭니다.",
@@ -1428,7 +1428,7 @@
   {
     "id": "uxref_014_a-tedious-volume-control-ui_easy",
     "type": "volume_physics_launcher",
-    "title": "발사 각도로 볼륨 설정 (Easy) #1",
+    "title": "발사 각도로 볼륨 설정 (Easy)",
     "objective": "발사 각도를 맞춰 볼륨에 도달하세요",
     "memeCaption": "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
     "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",
@@ -1944,7 +1944,7 @@
   {
     "id": "uxref_019_the-phone-number-slider-but-worse_easy",
     "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Easy) #1",
+    "title": "오류 메시지 제로 폼 채우기 (Very Easy)",
     "objective": "오류 메시지 없이 올바른 값을 입력하세요",
     "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
     "explainWhyBad": "상태 피드백이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
@@ -1981,7 +1981,7 @@
   {
     "id": "uxref_019_the-phone-number-slider-but-worse_hard",
     "type": "label_ambiguity",
-    "title": "헷갈리는 버튼 이름 정복 (Hard) #1",
+    "title": "헷갈리는 버튼 이름 정복 (Normal) #1",
     "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
     "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
     "explainWhyBad": "버튼 레이블이 동작을 정확히 반영하지 않으면 사용자는 클릭할 때마다 불안합니다.",
@@ -2045,7 +2045,7 @@
   {
     "id": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider_easy",
     "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #1",
+    "title": "시행착오로 폼 완성하기 (Very Easy) #1",
     "objective": "피드백 없는 폼을 시행착오로 완성하세요",
     "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
     "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
@@ -2082,7 +2082,7 @@
   {
     "id": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider_hard",
     "type": "label_ambiguity",
-    "title": "헷갈리는 버튼 이름 정복 (Hard) #2",
+    "title": "헷갈리는 버튼 이름 정복 (Normal) #2",
     "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
     "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -2146,7 +2146,7 @@
   {
     "id": "uxref_021_i-have-created-the-easiest-phone-number-picker-ever-no-silly_easy",
     "type": "chaotic_layout_scavenger",
-    "title": "혼돈 레이아웃에서 \"저장\" 찾기 (Easy)",
+    "title": "혼돈 레이아웃에서 \"저장\" 찾기 (Very Easy)",
     "objective": "혼돈의 레이아웃에서 목표를 찾으세요",
     "memeCaption": "요소들이 랜덤 위치에 겹쳐있는 카오스 레이아웃.",
     "explainWhyBad": "요소의 위치가 예측 불가능하면 사용자의 스캔 패턴이 무력화됩니다.",
@@ -2181,7 +2181,7 @@
   {
     "id": "uxref_021_i-have-created-the-easiest-phone-number-picker-ever-no-silly_hard",
     "type": "government_portal_popups",
-    "title": "관공서 스타일 UI 정복 (Hard) #1",
+    "title": "관공서 스타일 UI 정복 (Normal)",
     "objective": "복잡한 공공기관 UI를 탐색하세요",
     "memeCaption": "관공서 포털의 UX를 체험하세요. 체감 난이도: 극악.",
     "explainWhyBad": "복잡한 공공 UI는 디지털 리터러시가 낮은 사용자를 완전히 배제합니다.",
@@ -2662,7 +2662,7 @@
   {
     "id": "uxref_026_a-revolutionary-date-birth-selector-perfect-for-your-anxiety_easy",
     "type": "nav_ambiguity_map",
-    "title": "메뉴 미로: 환불 요청 찾기 (Easy)",
+    "title": "메뉴 미로: 환불 요청 찾기 (Very Easy)",
     "objective": "미로 같은 메뉴에서 목표를 찾으세요",
     "memeCaption": "메뉴가 미로입니다. 정답은 5단계 아래에 있어요.",
     "explainWhyBad": "모호한 메뉴 레이블은 사용자에게 추측을 강요하며 오탐을 유발합니다.",
@@ -2696,7 +2696,7 @@
   {
     "id": "uxref_026_a-revolutionary-date-birth-selector-perfect-for-your-anxiety_hard",
     "type": "volume_hyper_sensitive",
-    "title": "손 떨림 주의: 과민 슬라이더 (Hard) #1",
+    "title": "손 떨림 주의: 과민 슬라이더 (Normal) #1",
     "objective": "과민 반응 슬라이더로 볼륨을 맞추세요",
     "memeCaption": "이 슬라이더의 감도는 지진계 수준입니다.",
     "explainWhyBad": "입력 감도가 너무 높으면 사용자는 원하는 값에 도달할 수 없어 포기합니다.",
@@ -2762,7 +2762,7 @@
   {
     "id": "uxref_027_revolving-birthday-slider-just-have-to-time-your-pick_easy",
     "type": "disguised_cta_grid",
-    "title": "3×3 그리드: 진짜 버튼 찾기 (Easy)",
+    "title": "3×3 그리드: 진짜 버튼 찾기 (Very Easy)",
     "objective": "진짜 버튼을 광고 속에서 구별하세요",
     "memeCaption": "콘텐츠인 줄 알았는데 광고였습니다.",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -2795,7 +2795,7 @@
   {
     "id": "uxref_027_revolving-birthday-slider-just-have-to-time-your-pick_hard",
     "type": "roach_motel_flow",
-    "title": "가입은 쉽고 탈퇴는 험난 (Hard) #1",
+    "title": "가입은 쉽고 탈퇴는 험난 (Normal)",
     "objective": "빠져나갈 수 없는 흐름에서 탈출하세요",
     "memeCaption": "들어오긴 쉬운데 나가긴 어려운 바퀴벌레 모텔.",
     "explainWhyBad": "해지 과정에 불필요한 단계를 추가하는 것은 FTC가 규제하는 다크 패턴입니다.",
@@ -2860,9 +2860,9 @@
   {
     "id": "uxref_028_bad-date-picker_easy",
     "type": "disguised_cta_grid",
-    "title": "2개 가짜 중 진짜 CTA 찾기 (Easy)",
+    "title": "2개 가짜 중 진짜 CTA 찾기 (Very Easy)",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "진짜 버튼과 가짜 버튼을 구분 불가능하게 만드는 것은 사기적 UI 패턴입니다.",
     "difficulty": 1,
     "timeLimitMs": 45000,
@@ -2891,7 +2891,7 @@
   {
     "id": "uxref_028_bad-date-picker_hard",
     "type": "roach_motel_flow",
-    "title": "5개 관문 뚫고 해지하기 (Hard)",
+    "title": "5개 관문 뚫고 해지하기 (Normal)",
     "objective": "숨겨진 해지 절차를 끝까지 완료하세요",
     "memeCaption": "해지 버튼이 왜 이렇게 잘 숨어있을까요.",
     "explainWhyBad": "가입은 쉽고 탈퇴는 어렵게 만드는 비대칭 UX는 사용자 신뢰를 파괴합니다.",
@@ -2952,7 +2952,7 @@
   {
     "id": "uxref_029_calendar-hell_easy",
     "type": "nav_ambiguity_map",
-    "title": "메뉴 미로: 세션 관리 찾기 (Easy)",
+    "title": "메뉴 미로: 세션 관리 찾기 (Very Easy)",
     "objective": "미로 같은 메뉴에서 목표를 찾으세요",
     "memeCaption": "메뉴가 미로입니다. 정답은 5단계 아래에 있어요.",
     "explainWhyBad": "복잡한 내비게이션은 이탈률의 가장 큰 원인 중 하나입니다.",
@@ -2986,7 +2986,7 @@
   {
     "id": "uxref_029_calendar-hell_hard",
     "type": "volume_hyper_sensitive",
-    "title": "손 떨림 주의: 과민 슬라이더 (Hard) #2",
+    "title": "손 떨림 주의: 과민 슬라이더 (Normal) #2",
     "objective": "과민 반응 슬라이더로 볼륨을 맞추세요",
     "memeCaption": "이 슬라이더의 감도는 지진계 수준입니다.",
     "explainWhyBad": "극도로 민감한 슬라이더는 정밀 조작을 불가능하게 만들어 좌절감을 줍니다.",
@@ -3052,7 +3052,7 @@
   {
     "id": "uxref_030_it-s-not-that-bad-the-date-picker-concept-from-my-job_easy",
     "type": "nav_ambiguity_map",
-    "title": "4단계 중첩 메뉴 탐색 (Easy)",
+    "title": "4단계 중첩 메뉴 탐색 (Very Easy)",
     "objective": "숨겨진 설정 메뉴를 찾으세요",
     "memeCaption": "설정을 찾으려면 일단 팀 > 그룹 > 채널 > 설정 > ...",
     "explainWhyBad": "복잡한 내비게이션은 이탈률의 가장 큰 원인 중 하나입니다.",
@@ -3086,7 +3086,7 @@
   {
     "id": "uxref_030_it-s-not-that-bad-the-date-picker-concept-from-my-job_hard",
     "type": "volume_hyper_sensitive",
-    "title": "초민감 볼륨 65%로 맞추기 (Hard)",
+    "title": "초민감 볼륨 65%로 맞추기 (Normal)",
     "objective": "극도로 민감한 볼륨을 조절하세요",
     "memeCaption": "숨만 쉬어도 볼륨이 100%가 됩니다. 조심하세요.",
     "explainWhyBad": "비선형 슬라이더 응답은 사용자의 멘탈 모델을 완전히 무너뜨립니다.",
@@ -3152,7 +3152,7 @@
   {
     "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_easy",
     "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Easy) #1",
+    "title": "언제 끝나는지 모를 가입 절차 (Very Easy)",
     "objective": "모든 단계를 빠짐없이 넘기세요",
     "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
     "explainWhyBad": "진행률 표시 없는 긴 절차는 사용자에게 \"끝이 있긴 한 건가?\"라는 불안을 줍니다.",
@@ -3187,7 +3187,7 @@
   {
     "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_hard",
     "type": "state_feedback_broken",
-    "title": "피드백 없는 폼 완성 도전 (Hard)",
+    "title": "피드백 없는 폼 완성 도전 (Normal)",
     "objective": "피드백이 깨진 폼을 완성하세요",
     "memeCaption": "제출했는데 아무 반응이 없습니다. 된 건가요?",
     "explainWhyBad": "피드백 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
@@ -3252,7 +3252,7 @@
   {
     "id": "uxref_032_atomo-a-date-picker-with-atomic-precision_easy",
     "type": "volume_hyper_sensitive",
-    "title": "초민감 볼륨 70%로 맞추기 (Easy)",
+    "title": "초민감 볼륨 70%로 맞추기 (Very Easy)",
     "objective": "극도로 민감한 볼륨을 조절하세요",
     "memeCaption": "숨만 쉬어도 볼륨이 100%가 됩니다. 조심하세요.",
     "explainWhyBad": "극도로 민감한 슬라이더는 정밀 조작을 불가능하게 만들어 좌절감을 줍니다.",
@@ -3286,7 +3286,7 @@
   {
     "id": "uxref_032_atomo-a-date-picker-with-atomic-precision_hard",
     "type": "government_portal_popups",
-    "title": "팝업이 끝없이 뜨는 포털 (Hard)",
+    "title": "팝업이 끝없이 뜨는 포털 (Normal) #1",
     "objective": "팝업 지옥을 뚫고 목표에 도달하세요",
     "memeCaption": "액티브엑스 없이도 이렇게 불편할 수 있습니다.",
     "explainWhyBad": "복잡한 공공 UI는 디지털 리터러시가 낮은 사용자를 완전히 배제합니다.",
@@ -3357,7 +3357,7 @@
   {
     "id": "uxref_033_event-date-picker_easy",
     "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #2",
+    "title": "시행착오로 폼 완성하기 (Very Easy) #2",
     "objective": "피드백 없는 폼을 시행착오로 완성하세요",
     "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
     "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
@@ -3392,7 +3392,7 @@
   {
     "id": "uxref_033_event-date-picker_hard",
     "type": "volume_hover_slider",
-    "title": "호버 감지 볼륨 컨트롤 (Hard) #2",
+    "title": "호버 감지 볼륨 컨트롤 (Normal)",
     "objective": "목표 볼륨에 정확히 도달하세요",
     "memeCaption": "슬라이더가 부끄러움을 많이 타나 봐요. 마우스 올려야 나오다니.",
     "explainWhyBad": "마우스를 올려야만 나타나는 컨트롤은 발견 가능성(discoverability)을 제로로 만듭니다.",
@@ -3459,7 +3459,7 @@
   {
     "id": "uxref_034_my-submission-for-the-most-annoying-date-picker_easy",
     "type": "state_feedback_broken",
-    "title": "피드백이 깨진 입력 양식 (Easy)",
+    "title": "피드백이 깨진 입력 양식 (Very Easy)",
     "objective": "진행 상태가 안 보이는 폼을 채우세요",
     "memeCaption": "상태 피드백이 고장난 폼, 실제로 많이 존재합니다.",
     "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
@@ -3494,7 +3494,7 @@
   {
     "id": "uxref_034_my-submission-for-the-most-annoying-date-picker_hard",
     "type": "volume_hover_slider",
-    "title": "호버로 볼륨 40% 맞추기 (Hard)",
+    "title": "호버로 볼륨 40% 맞추기 (Normal)",
     "objective": "호버로 볼륨을 조절하세요",
     "memeCaption": "마우스를 올리면 슬라이더가 나타나고, 떼면 사라집니다. 실화입니다.",
     "explainWhyBad": "호버로만 작동하는 슬라이더는 터치 디바이스에서 완전히 무용지물이 됩니다.",
@@ -3561,7 +3561,7 @@
   {
     "id": "uxref_035_4-click-max-birthday-date-picker_easy",
     "type": "picker_no_search",
-    "title": "시간대: 필터 없이 찾기 (Easy)",
+    "title": "시간대: 필터 없이 찾기 (Very Easy)",
     "objective": "필터 없는 긴 목록을 탐색하세요",
     "memeCaption": "이 목록을 다 보려면 커피 한 잔이 필요합니다.",
     "explainWhyBad": "검색 없는 긴 드롭다운은 선택을 고통스럽게 만들고 사용자를 이탈시킵니다.",
@@ -3633,7 +3633,7 @@
   {
     "id": "uxref_035_4-click-max-birthday-date-picker_hard",
     "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Hard)",
+    "title": "언제 끝나는지 모를 가입 절차 (Normal)",
     "objective": "모든 단계를 빠짐없이 넘기세요",
     "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
     "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
@@ -3698,7 +3698,7 @@
   {
     "id": "uxref_036_client-said-be-creative-with-the-date-picker_easy",
     "type": "nav_ambiguity_map",
-    "title": "숨겨진 자동결제 해지 메뉴 찾기 (Easy)",
+    "title": "숨겨진 자동결제 해지 메뉴 찾기 (Very Easy)",
     "objective": "모호한 메뉴 속 올바른 경로를 찾으세요",
     "memeCaption": "네비게이션이 이렇게 복잡할 필요가 있나요?",
     "explainWhyBad": "모호한 메뉴 레이블은 사용자에게 추측을 강요하며 오탐을 유발합니다.",
@@ -3732,7 +3732,7 @@
   {
     "id": "uxref_036_client-said-be-creative-with-the-date-picker_hard",
     "type": "volume_hyper_sensitive",
-    "title": "극초민감 슬라이더: 목표 65% (Hard) #2",
+    "title": "극초민감 슬라이더: 목표 65% (Normal)",
     "objective": "미세 조정이 필요한 볼륨을 맞추세요",
     "memeCaption": "심장이 뛰는 것만으로도 볼륨이 변할 수 있습니다.",
     "explainWhyBad": "비선형 슬라이더 응답은 사용자의 멘탈 모델을 완전히 무너뜨립니다.",
@@ -3798,7 +3798,7 @@
   {
     "id": "uxref_037_the-worst-time-date-selectors_easy",
     "type": "consent_toggle_labour",
-    "title": "7개 동의 항목 수동 해제 (Easy)",
+    "title": "7개 동의 항목 수동 해제 (Very Easy)",
     "objective": "쿠키 동의 토글을 수동으로 설정하세요",
     "memeCaption": "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
     "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
@@ -3828,7 +3828,7 @@
   {
     "id": "uxref_037_the-worst-time-date-selectors_hard",
     "type": "nav_ambiguity_map",
-    "title": "메뉴 미로: 로그인 기록 확인 찾기 (Hard)",
+    "title": "메뉴 미로: 로그인 기록 확인 찾기 (Normal)",
     "objective": "미로 같은 메뉴에서 목표를 찾으세요",
     "memeCaption": "메뉴가 미로입니다. 정답은 5단계 아래에 있어요.",
     "explainWhyBad": "메뉴 깊이가 깊을수록 사용자의 위치 감각이 사라지고 길을 잃게 됩니다.",
@@ -3897,7 +3897,7 @@
   {
     "id": "uxref_038_binary-search-date-picker_easy",
     "type": "clutter_find_cta",
-    "title": "\"다음 단계\" 버튼 찾기 (Easy)",
+    "title": "\"다음 단계\" 버튼 찾기 (Very Easy)",
     "objective": "광고 속 진짜 버튼을 찾으세요",
     "memeCaption": "진짜 버튼을 찾아라! 화면에 가짜가 30개.",
     "explainWhyBad": "광고와 진짜 버튼을 구분하기 어렵게 만드는 것은 사기성 다크 패턴입니다.",
@@ -3931,9 +3931,9 @@
   {
     "id": "uxref_038_binary-search-date-picker_hard",
     "type": "disguised_cta_grid",
-    "title": "1개 가짜 중 진짜 CTA 찾기 (Hard) #1",
+    "title": "1개 가짜 중 진짜 CTA 찾기 (Normal) #1",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 3,
     "timeLimitMs": 20000,
@@ -3997,9 +3997,9 @@
   {
     "id": "uxref_039_calendar-but-it-s-graph-x-months-and-y-temperature-c_easy",
     "type": "disguised_cta_grid",
-    "title": "1개 가짜 중 진짜 CTA 찾기 (Easy)",
+    "title": "1개 가짜 중 진짜 CTA 찾기 (Very Easy)",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "위장된 CTA는 사용자를 원치 않는 페이지로 유도해 시간을 낭비시킵니다.",
     "difficulty": 1,
     "timeLimitMs": 45000,
@@ -4029,7 +4029,7 @@
   {
     "id": "uxref_039_calendar-but-it-s-graph-x-months-and-y-temperature-c_hard",
     "type": "roach_motel_flow",
-    "title": "9단계 구독 취소 탈출 (Hard)",
+    "title": "9단계 구독 취소 탈출",
     "objective": "구독 취소/탈퇴를 완료하세요",
     "memeCaption": "구독은 원클릭, 해지는 12단계입니다.",
     "explainWhyBad": "가입은 쉽고 탈퇴는 어렵게 만드는 비대칭 UX는 사용자 신뢰를 파괴합니다.",
@@ -4092,7 +4092,7 @@
   {
     "id": "uxref_040_seen-in-the-wild-setting-time-with-separate-sliders-for-hour_easy",
     "type": "volume_hover_slider",
-    "title": "볼륨 65% 목표: 호버 조작 (Easy)",
+    "title": "볼륨 65% 목표: 호버 조작 (Very Easy)",
     "objective": "볼륨 슬라이더를 호버로 제어하세요",
     "memeCaption": "UX 디자이너가 '인터랙티브하게' 만들래서 이렇게 된 겁니다.",
     "explainWhyBad": "호버 의존 UI는 접근성 지침(WCAG)을 위반하며, 운동 장애 사용자를 배제합니다.",
@@ -4127,7 +4127,7 @@
   {
     "id": "uxref_040_seen-in-the-wild-setting-time-with-separate-sliders-for-hour_hard",
     "type": "enterprise_filter_overload",
-    "title": "필터 미로에서 알림 끄기 (Hard)",
+    "title": "필터 미로에서 알림 끄기 (Normal)",
     "objective": "복잡한 검색 필터를 설정하세요",
     "memeCaption": "적용 버튼을 찾으려면 맨 아래까지 스크롤하세요.",
     "explainWhyBad": "수십 개의 필터를 한 화면에 보여주면 사용자는 시작 전에 포기합니다.",
@@ -4300,7 +4300,7 @@
   {
     "id": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild_easy",
     "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #3",
+    "title": "시행착오로 폼 완성하기 (Easy) #1",
     "objective": "피드백 없는 폼을 시행착오로 완성하세요",
     "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
     "explainWhyBad": "상태 피드백이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
@@ -4497,7 +4497,7 @@
   {
     "id": "uxref_043_what-the-heck-is-that-captcha_hard",
     "type": "clutter_find_cta",
-    "title": "45개 항목 중 진짜 CTA (Hard) #1",
+    "title": "45개 항목 중 진짜 CTA (Hard)",
     "objective": "수많은 페이크 버튼 중 진짜를 찾으세요",
     "memeCaption": "광고, 배너, 팝업 사이에서 진짜 버튼을 찾는 서바이벌.",
     "explainWhyBad": "정보 과부하는 인지 부하를 폭증시켜 의사결정을 마비시킵니다.",
@@ -4593,7 +4593,7 @@
   {
     "id": "uxref_044_when-captcha-and-the-submit-button-become-one_hard",
     "type": "hidden_reject_link",
-    "title": "투명도 3% 거절 링크 찾기 (Hard) #1",
+    "title": "투명도 3% 거절 링크 찾기 (Hard)",
     "objective": "숨겨진 거절 링크를 찾으세요",
     "memeCaption": "거절 링크가 배경색과 같은 색입니다. 투명 거절.",
     "explainWhyBad": "화려한 CTA 옆에 투명한 거절 링크를 배치하는 것은 대표적 기만형 다크 패턴입니다.",
@@ -4953,9 +4953,9 @@
   {
     "id": "uxref_047_captcha_easy",
     "type": "disguised_cta_grid",
-    "title": "3개 가짜 중 진짜 CTA 찾기 (Easy) #1",
+    "title": "3개 가짜 중 진짜 CTA 찾기 (Easy)",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 2,
     "timeLimitMs": 40000,
@@ -5049,7 +5049,7 @@
   {
     "id": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru_easy",
     "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Easy) #2",
+    "title": "오류 메시지 제로 폼 채우기 (Easy) #1",
     "objective": "오류 메시지 없이 올바른 값을 입력하세요",
     "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
     "explainWhyBad": "상태 피드백이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
@@ -5493,7 +5493,7 @@
   {
     "id": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for_easy",
     "type": "picker_no_search",
-    "title": "은행 스크롤 선택 도전 (Easy)",
+    "title": "은행 스크롤 선택 도전 (Normal)",
     "objective": "수백 개 목록에서 올바른 항목을 선택하세요",
     "memeCaption": "스크롤의 끝이 보이지 않는 드롭다운입니다.",
     "explainWhyBad": "검색 없는 긴 드롭다운은 선택을 고통스럽게 만들고 사용자를 이탈시킵니다.",
@@ -5572,7 +5572,7 @@
   {
     "id": "uxref_052_use-the-slider-to-enter-your-password-which-is-censored-for_hard",
     "type": "hidden_reject_link",
-    "title": "투명도 15% 거절 링크 찾기 (Hard)",
+    "title": "투명도 15% 거절 링크 찾기 (Very Hard)",
     "objective": "숨겨진 거절 링크를 찾으세요",
     "memeCaption": "거절 링크가 배경색과 같은 색입니다. 투명 거절.",
     "explainWhyBad": "동의 버튼은 크고 화려하게, 거절 버튼은 숨기는 것은 사용자를 기만하는 행위입니다.",
@@ -5640,7 +5640,7 @@
   {
     "id": "uxref_053_request-password-cannot-contain-anything_easy",
     "type": "consent_toggle_labour",
-    "title": "5개 토글 하나씩 끄기 (Easy)",
+    "title": "5개 토글 하나씩 끄기 (Normal)",
     "objective": "함정이 있는 동의 설정을 올바르게 완료하세요",
     "memeCaption": "토글 하나하나에 당신의 인내심이 소모됩니다.",
     "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
@@ -5670,7 +5670,7 @@
   {
     "id": "uxref_053_request-password-cannot-contain-anything_hard",
     "type": "endless_wizard_flow",
-    "title": "다음 버튼의 저주 (Hard) #1",
+    "title": "다음 버튼의 저주 (Very Hard)",
     "objective": "끝이 안 보이는 절차를 완료하세요",
     "memeCaption": "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
     "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
@@ -5744,7 +5744,7 @@
   {
     "id": "uxref_054_a-secure-password-must-consist-of-at-least-characters_easy",
     "type": "roach_motel_flow",
-    "title": "구독 취소 미로 탈출 (Easy)",
+    "title": "구독 취소 미로 탈출 (Normal)",
     "objective": "가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요",
     "memeCaption": "구독 취소를 포기하게 만드는 것이 목적인 UI입니다.",
     "explainWhyBad": "탈퇴 버튼을 숨기거나 복잡한 절차를 요구하는 것은 로치 모텔 패턴의 전형입니다.",
@@ -5774,7 +5774,7 @@
   {
     "id": "uxref_054_a-secure-password-must-consist-of-at-least-characters_hard",
     "type": "consent_toggle_labour",
-    "title": "\"모두 거부\" 없는 쿠키 설정 (Hard)",
+    "title": "\"모두 거부\" 없는 쿠키 설정 (Very Hard)",
     "objective": "\"모두 허용\" 없이 토글을 하나씩 처리하세요",
     "memeCaption": "모두 거부 버튼? 그런 건 사치입니다.",
     "explainWhyBad": "\"모두 거부\" 없이 수십 개 토글을 개별 해제하게 하는 것은 의도적 동의 착취입니다.",
@@ -5804,7 +5804,7 @@
   {
     "id": "uxref_054_a-secure-password-must-consist-of-at-least-characters_normal",
     "type": "hidden_reject_link",
-    "title": "\"아니요\" 버튼을 찾아라",
+    "title": "\"아니요\" 버튼을 찾아라 #1",
     "objective": "\"아니요\" 버튼을 찾아 클릭하세요",
     "memeCaption": "\"괜찮습니다\"가 폰트 사이즈 8에 투명도 30%.",
     "explainWhyBad": "거절 옵션을 숨기면 사용자는 원치 않는 서비스에 강제 동의하게 됩니다.",
@@ -5835,7 +5835,7 @@
   {
     "id": "uxref_055_lowercase-and-uppercase-password-dots_easy",
     "type": "clutter_find_cta",
-    "title": "잡동사니 속 \"계속하기\" 찾기 (Easy)",
+    "title": "잡동사니 속 \"계속하기\" 찾기 (Normal)",
     "objective": "광고와 섞인 진짜 링크를 구별하세요",
     "memeCaption": "이 화면에서 뭘 눌러야 하는지 3초 안에 찾으면 천재.",
     "explainWhyBad": "어수선한 UI는 핵심 기능의 발견 가능성을 의도적으로 떨어뜨립니다.",
@@ -5868,7 +5868,7 @@
   {
     "id": "uxref_055_lowercase-and-uppercase-password-dots_hard",
     "type": "roach_motel_flow",
-    "title": "7단계 구독 취소 탈출 (Hard)",
+    "title": "7단계 구독 취소 탈출 (Very Hard)",
     "objective": "구독 취소/탈퇴를 완료하세요",
     "memeCaption": "구독은 원클릭, 해지는 12단계입니다.",
     "explainWhyBad": "가입은 쉽고 탈퇴는 어렵게 만드는 비대칭 UX는 사용자 신뢰를 파괴합니다.",
@@ -6021,7 +6021,7 @@
   {
     "id": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password_easy",
     "type": "clutter_find_cta",
-    "title": "광고 도배 속 진짜 링크 구별 (Easy) #1",
+    "title": "광고 도배 속 진짜 링크 구별 (Normal) #1",
     "objective": "혼잡한 화면에서 실제 CTA를 클릭하세요",
     "memeCaption": "어수선한 화면이 의도된 거라면, 이건 범죄입니다.",
     "explainWhyBad": "광고와 진짜 버튼을 구분하기 어렵게 만드는 것은 사기성 다크 패턴입니다.",
@@ -6054,7 +6054,7 @@
   {
     "id": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password_hard",
     "type": "roach_motel_flow",
-    "title": "가입은 쉽고 탈퇴는 험난 (Hard) #2",
+    "title": "가입은 쉽고 탈퇴는 험난 #2",
     "objective": "빠져나갈 수 없는 흐름에서 탈출하세요",
     "memeCaption": "들어오긴 쉬운데 나가긴 어려운 바퀴벌레 모텔.",
     "explainWhyBad": "가입은 쉽고 탈퇴는 어렵게 만드는 비대칭 UX는 사용자 신뢰를 파괴합니다.",
@@ -6172,7 +6172,7 @@
   {
     "id": "uxref_057_req-basket-catcher-password-thingy_easy",
     "type": "endless_wizard_flow",
-    "title": "6단계 끝없는 마법사 흐름 (Easy)",
+    "title": "6단계 끝없는 마법사 흐름 (Normal)",
     "objective": "끝없는 단계를 통과하세요",
     "memeCaption": "마법사 플로우가 끝나지 않습니다. 영원히요.",
     "explainWhyBad": "진행률 표시 없는 긴 절차는 사용자에게 \"끝이 있긴 한 건가?\"라는 불안을 줍니다.",
@@ -6207,7 +6207,7 @@
   {
     "id": "uxref_057_req-basket-catcher-password-thingy_hard",
     "type": "government_portal_popups",
-    "title": "관공서 스타일 UI 정복 (Hard) #2",
+    "title": "관공서 스타일 UI 정복 (Very Hard)",
     "objective": "복잡한 공공기관 UI를 탐색하세요",
     "memeCaption": "관공서 포털의 UX를 체험하세요. 체감 난이도: 극악.",
     "explainWhyBad": "관공서 스타일 팝업 지옥은 사용자의 인내심과 시간을 한계까지 시험합니다.",
@@ -6244,7 +6244,7 @@
     "type": "disguised_cta_grid",
     "title": "3개 가짜 중 진짜 CTA 찾기",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 4,
     "timeLimitMs": 20000,
@@ -6273,7 +6273,7 @@
   {
     "id": "uxref_058_idea-you-have-to-type-in-your-password-in-morse-code_easy",
     "type": "clutter_find_cta",
-    "title": "\"계정 삭제\" 버튼 찾기 (Easy)",
+    "title": "\"계정 삭제\" 버튼 찾기 (Normal)",
     "objective": "광고 속 진짜 버튼을 찾으세요",
     "memeCaption": "진짜 버튼을 찾아라! 화면에 가짜가 30개.",
     "explainWhyBad": "어수선한 UI는 핵심 기능의 발견 가능성을 의도적으로 떨어뜨립니다.",
@@ -6307,7 +6307,7 @@
   {
     "id": "uxref_058_idea-you-have-to-type-in-your-password-in-morse-code_hard",
     "type": "roach_motel_flow",
-    "title": "6단계 해지 흐름 클리어 (Hard)",
+    "title": "6단계 해지 흐름 클리어",
     "objective": "로치 모텔 패턴에서 빠져나오세요",
     "memeCaption": "'정말 떠나시겠어요?' 를 47번째 보고 있습니다.",
     "explainWhyBad": "해지 과정에 불필요한 단계를 추가하는 것은 FTC가 규제하는 다크 패턴입니다.",
@@ -6427,7 +6427,7 @@
   {
     "id": "uxref_059_show-password_easy",
     "type": "picker_no_search",
-    "title": "40개 시간대 목록: 검색 없음 (Easy)",
+    "title": "40개 시간대 목록: 검색 없음 (Normal)",
     "objective": "검색 기능 없이 스크롤로 항목을 찾으세요",
     "memeCaption": "검색 없는 긴 목록, UX의 고전적 안티패턴입니다.",
     "explainWhyBad": "검색 없이 스크롤만으로 항목을 찾게 하면 사용자의 시간과 인내심을 고갈시킵니다.",
@@ -6499,7 +6499,7 @@
   {
     "id": "uxref_059_show-password_hard",
     "type": "hidden_reject_link",
-    "title": "투명도 3% 거절 링크 찾기 (Hard) #2",
+    "title": "투명도 3% 거절 링크 찾기 (Very Hard)",
     "objective": "숨겨진 거절 링크를 찾으세요",
     "memeCaption": "거절 링크가 배경색과 같은 색입니다. 투명 거절.",
     "explainWhyBad": "거절 옵션을 숨기면 사용자는 원치 않는 서비스에 강제 동의하게 됩니다.",
@@ -6563,7 +6563,7 @@
   {
     "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_easy",
     "type": "government_portal_popups",
-    "title": "팝업이 끝없이 뜨는 포털 (Easy)",
+    "title": "팝업이 끝없이 뜨는 포털 (Normal) #2",
     "objective": "팝업 지옥을 뚫고 목표에 도달하세요",
     "memeCaption": "액티브엑스 없이도 이렇게 불편할 수 있습니다.",
     "explainWhyBad": "복잡한 공공 UI는 디지털 리터러시가 낮은 사용자를 완전히 배제합니다.",
@@ -6598,7 +6598,7 @@
   {
     "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_hard",
     "type": "state_feedback_broken",
-    "title": "4개 필드: 피드백 없음 (Hard) #1",
+    "title": "4개 필드: 피드백 없음 (Very Hard)",
     "objective": "상태 표시가 없는 양식을 제출하세요",
     "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
     "explainWhyBad": "피드백 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
@@ -6633,7 +6633,7 @@
   {
     "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_normal",
     "type": "label_ambiguity",
-    "title": "5개 모호한 다이얼로그 통과",
+    "title": "5개 모호한 다이얼로그 통과 #1",
     "objective": "모호한 버튼 레이블을 정확히 고르세요",
     "memeCaption": "확인이 취소이고 취소가 확인인 세계.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -6663,7 +6663,7 @@
   {
     "id": "uxref_061_login-with-on-screen-keyboard-only_easy",
     "type": "roach_motel_flow",
-    "title": "2단계 구독 취소 탈출 (Easy)",
+    "title": "2단계 구독 취소 탈출 (Normal)",
     "objective": "구독 취소/탈퇴를 완료하세요",
     "memeCaption": "구독은 원클릭, 해지는 12단계입니다.",
     "explainWhyBad": "탈퇴 버튼을 숨기거나 복잡한 절차를 요구하는 것은 로치 모텔 패턴의 전형입니다.",
@@ -6693,7 +6693,7 @@
   {
     "id": "uxref_061_login-with-on-screen-keyboard-only_hard",
     "type": "consent_toggle_labour",
-    "title": "쿠키 동의 노동 챌린지 (Hard)",
+    "title": "쿠키 동의 노동 챌린지 (Very Hard)",
     "objective": "개별 동의 토글을 모두 거부로 전환하세요",
     "memeCaption": "개인정보 규정은 지키되, 최대한 불편하게.",
     "explainWhyBad": "\"모두 거부\" 없이 수십 개 토글을 개별 해제하게 하는 것은 의도적 동의 착취입니다.",
@@ -6754,7 +6754,7 @@
   {
     "id": "uxref_062_no-keyboard-friendly-login-ui-with-dropdown-menu_easy",
     "type": "clutter_find_cta",
-    "title": "광고 도배 속 진짜 링크 구별 (Easy) #2",
+    "title": "광고 도배 속 진짜 링크 구별 (Normal) #2",
     "objective": "혼잡한 화면에서 실제 CTA를 클릭하세요",
     "memeCaption": "어수선한 화면이 의도된 거라면, 이건 범죄입니다.",
     "explainWhyBad": "광고와 진짜 버튼을 구분하기 어렵게 만드는 것은 사기성 다크 패턴입니다.",
@@ -6788,7 +6788,7 @@
   {
     "id": "uxref_062_no-keyboard-friendly-login-ui-with-dropdown-menu_hard",
     "type": "roach_motel_flow",
-    "title": "구독 취소 미로 탈출 (Hard) #1",
+    "title": "구독 취소 미로 탈출",
     "objective": "가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요",
     "memeCaption": "구독 취소를 포기하게 만드는 것이 목적인 UI입니다.",
     "explainWhyBad": "해지 과정에 불필요한 단계를 추가하는 것은 FTC가 규제하는 다크 패턴입니다.",
@@ -7136,7 +7136,7 @@
   {
     "id": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor_hard",
     "type": "label_ambiguity",
-    "title": "헷갈리는 버튼 이름 정복 (Hard) #3",
+    "title": "헷갈리는 버튼 이름 정복 (Hard) #1",
     "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
     "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -7203,7 +7203,7 @@
   {
     "id": "uxref_065_binary-search-keyboard_easy",
     "type": "label_ambiguity",
-    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy) #1",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy)",
     "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
     "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
     "explainWhyBad": "\"확인\"과 \"취소\"가 뒤바뀐 다이얼로그는 심각한 데이터 손실을 유발할 수 있습니다.",
@@ -7234,7 +7234,7 @@
   {
     "id": "uxref_065_binary-search-keyboard_hard",
     "type": "state_feedback_broken",
-    "title": "4개 필드: 피드백 없음 (Hard) #2",
+    "title": "4개 필드: 피드백 없음 (Hard) #1",
     "objective": "상태 표시가 없는 양식을 제출하세요",
     "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
     "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
@@ -7406,7 +7406,7 @@
   {
     "id": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave_easy",
     "type": "consent_toggle_labour",
-    "title": "쿠키 동의 노동 챌린지 (Easy) #1",
+    "title": "쿠키 동의 노동 챌린지 (Easy)",
     "objective": "개별 동의 토글을 모두 거부로 전환하세요",
     "memeCaption": "개인정보 규정은 지키되, 최대한 불편하게.",
     "explainWhyBad": "\"모두 거부\" 없이 수십 개 토글을 개별 해제하게 하는 것은 의도적 동의 착취입니다.",
@@ -8137,7 +8137,7 @@
   {
     "id": "uxref_071_having-this-be-a-dropdown-and-not-a-number-input-field_easy",
     "type": "consent_toggle_labour",
-    "title": "9개 토글 하나씩 끄기 (Easy)",
+    "title": "9개 토글 하나씩 끄기 (Very Easy)",
     "objective": "함정이 있는 동의 설정을 올바르게 완료하세요",
     "memeCaption": "토글 하나하나에 당신의 인내심이 소모됩니다.",
     "explainWhyBad": "쿠키 동의 UI에서 토글 노동을 강요하면 대부분 사용자는 포기하고 \"모두 허용\"을 누릅니다.",
@@ -8167,7 +8167,7 @@
   {
     "id": "uxref_071_having-this-be-a-dropdown-and-not-a-number-input-field_hard",
     "type": "picker_no_search",
-    "title": "188개 항목 중 정답 고르기 (Hard)",
+    "title": "188개 항목 중 정답 고르기 (Normal)",
     "objective": "끝없는 드롭다운에서 정답을 고르세요",
     "memeCaption": "검색 기능을 빼면 사용자가 더 오래 머문다는 논리.",
     "explainWhyBad": "수백 개 항목이 있는 목록에 검색이 없으면 원하는 항목을 찾는 것이 운에 의존하게 됩니다.",
@@ -8421,7 +8421,7 @@
   {
     "id": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e_easy",
     "type": "picker_no_search",
-    "title": "93개 전화번호 국가코드 목록: 검색 없음 (Easy)",
+    "title": "93개 전화번호 국가코드 목록: 검색 없음 (Very Easy)",
     "objective": "검색 기능 없이 스크롤로 항목을 찾으세요",
     "memeCaption": "검색 없는 긴 목록, UX의 고전적 안티패턴입니다.",
     "explainWhyBad": "알파벳순 정렬과 검색 기능 없는 긴 목록은 UX의 고전적 안티패턴입니다.",
@@ -8546,7 +8546,7 @@
   {
     "id": "uxref_072_this-dropdown-on-a-health-insurance-website-has-about-1000-e_hard",
     "type": "enterprise_filter_overload",
-    "title": "8개 필터 과부하 극복 (Hard)",
+    "title": "8개 필터 과부하 극복 (Normal)",
     "objective": "복잡한 필터를 사용해 목표를 찾으세요",
     "memeCaption": "필터가 15개인데 '적용' 버튼이 안 보입니다.",
     "explainWhyBad": "핵심 필터와 부수적 필터를 구분하지 않으면 모든 필터가 무의미해집니다.",
@@ -8610,7 +8610,7 @@
   {
     "id": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo_easy",
     "type": "consent_toggle_labour",
-    "title": "8개 동의 항목 수동 해제 (Easy)",
+    "title": "8개 동의 항목 수동 해제",
     "objective": "쿠키 동의 토글을 수동으로 설정하세요",
     "memeCaption": "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
     "explainWhyBad": "쿠키 동의 UI에서 토글 노동을 강요하면 대부분 사용자는 포기하고 \"모두 허용\"을 누릅니다.",
@@ -8641,7 +8641,7 @@
   {
     "id": "uxref_073_why-does-this-calculator-make-me-pick-everything-from-dropdo_hard",
     "type": "picker_no_search",
-    "title": "93개 전화번호 국가코드에서 찾기: 검색 불가 (Hard) #1",
+    "title": "93개 전화번호 국가코드에서 찾기: 검색 불가 (Normal) #1",
     "objective": "검색 없는 긴 목록에서 항목을 찾으세요",
     "memeCaption": "137개 항목 중 하나를 고르세요. 검색? 그런 건 없습니다.",
     "explainWhyBad": "수백 개 항목이 있는 목록에 검색이 없으면 원하는 항목을 찾는 것이 운에 의존하게 됩니다.",
@@ -8802,7 +8802,7 @@
   {
     "id": "uxref_074_a-forum-but-you-can-only-input-text-with-a-dropdown_easy",
     "type": "consent_toggle_labour",
-    "title": "쿠키 동의 노동 챌린지 (Easy) #2",
+    "title": "쿠키 동의 노동 챌린지 (Very Easy)",
     "objective": "개별 동의 토글을 모두 거부로 전환하세요",
     "memeCaption": "개인정보 규정은 지키되, 최대한 불편하게.",
     "explainWhyBad": "\"모두 거부\" 없이 수십 개 토글을 개별 해제하게 하는 것은 의도적 동의 착취입니다.",
@@ -8832,7 +8832,7 @@
   {
     "id": "uxref_074_a-forum-but-you-can-only-input-text-with-a-dropdown_hard",
     "type": "picker_no_search",
-    "title": "93개 전화번호 국가코드에서 찾기: 검색 불가 (Hard) #2",
+    "title": "93개 전화번호 국가코드에서 찾기: 검색 불가 (Normal) #2",
     "objective": "검색 없는 긴 목록에서 항목을 찾으세요",
     "memeCaption": "137개 항목 중 하나를 고르세요. 검색? 그런 건 없습니다.",
     "explainWhyBad": "수백 개 항목이 있는 목록에 검색이 없으면 원하는 항목을 찾는 것이 운에 의존하게 됩니다.",
@@ -8991,7 +8991,7 @@
   {
     "id": "uxref_075_when-a-developer-only-knows-dropdowns_easy",
     "type": "enterprise_filter_overload",
-    "title": "7개 필터 옵션 탐색 (Easy)",
+    "title": "7개 필터 옵션 탐색 (Very Easy)",
     "objective": "과도한 필터 UI를 통과하세요",
     "memeCaption": "필터 옵션이 많으면 좋다고 누가 그랬나요.",
     "explainWhyBad": "수십 개의 필터를 한 화면에 보여주면 사용자는 시작 전에 포기합니다.",
@@ -9025,7 +9025,7 @@
   {
     "id": "uxref_075_when-a-developer-only-knows-dropdowns_hard",
     "type": "consent_toggle_labour",
-    "title": "14개 동의 항목 수동 해제 (Hard)",
+    "title": "14개 동의 항목 수동 해제 (Normal)",
     "objective": "쿠키 동의 토글을 수동으로 설정하세요",
     "memeCaption": "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
     "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
@@ -9090,7 +9090,7 @@
   {
     "id": "uxref_076_please-select-your-street-name-from-a-big-city-using-the-dro_easy",
     "type": "nav_ambiguity_map",
-    "title": "모호한 메뉴명 속 정답 찾기 (Easy)",
+    "title": "모호한 메뉴명 속 정답 찾기 (Very Easy)",
     "objective": "중첩된 메뉴를 탐험해 목표에 도달하세요",
     "memeCaption": "이 메뉴 구조를 만든 사람도 길을 잃었을 겁니다.",
     "explainWhyBad": "복잡한 내비게이션은 이탈률의 가장 큰 원인 중 하나입니다.",
@@ -9125,7 +9125,7 @@
   {
     "id": "uxref_076_please-select-your-street-name-from-a-big-city-using-the-dro_hard",
     "type": "label_ambiguity",
-    "title": "레이블 모호성 다이얼로그 통과 (Hard)",
+    "title": "레이블 모호성 다이얼로그 통과 (Normal)",
     "objective": "혼동스러운 레이블 속에서 정답을 고르세요",
     "memeCaption": "이 다이얼로그의 정답은 직감의 반대입니다.",
     "explainWhyBad": "모호한 버튼 레이블은 사용자가 어떤 결과가 일어날지 예측할 수 없게 만듭니다.",
@@ -9526,7 +9526,7 @@
   {
     "id": "uxref_078_request-website-language-picker-where-the-user-has-to-draw-t_easy",
     "type": "hidden_reject_link",
-    "title": "\"아니요\" 버튼을 찾아라 (Easy) #3",
+    "title": "\"아니요\" 버튼을 찾아라 #2",
     "objective": "\"아니요\" 버튼을 찾아 클릭하세요",
     "memeCaption": "\"괜찮습니다\"가 폰트 사이즈 8에 투명도 30%.",
     "explainWhyBad": "동의 버튼은 크고 화려하게, 거절 버튼은 숨기는 것은 사용자를 기만하는 행위입니다.",
@@ -9557,7 +9557,7 @@
   {
     "id": "uxref_078_request-website-language-picker-where-the-user-has-to-draw-t_hard",
     "type": "disguised_cta_grid",
-    "title": "4×4 그리드: 진짜 버튼 찾기 (Hard)",
+    "title": "4×4 그리드: 진짜 버튼 찾기 (Very Hard)",
     "objective": "진짜 버튼을 광고 속에서 구별하세요",
     "memeCaption": "콘텐츠인 줄 알았는데 광고였습니다.",
     "explainWhyBad": "진짜 버튼과 가짜 버튼을 구분 불가능하게 만드는 것은 사기적 UI 패턴입니다.",
@@ -9621,7 +9621,7 @@
   {
     "id": "uxref_079_request-logarithmic-scroll-bar_easy",
     "type": "enterprise_filter_overload",
-    "title": "5개 필터 옵션 탐색 (Easy)",
+    "title": "5개 필터 옵션 탐색 (Very Easy)",
     "objective": "과도한 필터 UI를 통과하세요",
     "memeCaption": "필터 옵션이 많으면 좋다고 누가 그랬나요.",
     "explainWhyBad": "과도한 필터 옵션은 선택의 역설을 일으켜 오히려 결정을 어렵게 만듭니다.",
@@ -9656,7 +9656,7 @@
   {
     "id": "uxref_079_request-logarithmic-scroll-bar_hard",
     "type": "clutter_find_cta",
-    "title": "혼잡한 화면에서 실제 버튼 찾기 (Hard) #2",
+    "title": "혼잡한 화면에서 실제 버튼 찾기 (Normal)",
     "objective": "어지러운 화면에서 목표를 찾으세요",
     "memeCaption": "정보 과부하 속에서 정답을 찾는 UX 지옥.",
     "explainWhyBad": "정보 과부하는 인지 부하를 폭증시켜 의사결정을 마비시킵니다.",
@@ -9726,7 +9726,7 @@
   {
     "id": "uxref_080_coaxed-into-scroll-bars-for-some-reason-from-r-coaxedintoasn_easy",
     "type": "enterprise_filter_overload",
-    "title": "8개 필터 과부하 극복 (Easy)",
+    "title": "8개 필터 과부하 극복 (Very Easy)",
     "objective": "복잡한 필터를 사용해 목표를 찾으세요",
     "memeCaption": "필터가 15개인데 '적용' 버튼이 안 보입니다.",
     "explainWhyBad": "핵심 필터와 부수적 필터를 구분하지 않으면 모든 필터가 무의미해집니다.",
@@ -9760,7 +9760,7 @@
   {
     "id": "uxref_080_coaxed-into-scroll-bars-for-some-reason-from-r-coaxedintoasn_hard",
     "type": "clutter_find_cta",
-    "title": "45개 항목 중 진짜 CTA (Hard) #2",
+    "title": "45개 항목 중 진짜 CTA (Normal)",
     "objective": "수많은 페이크 버튼 중 진짜를 찾으세요",
     "memeCaption": "광고, 배너, 팝업 사이에서 진짜 버튼을 찾는 서바이벌.",
     "explainWhyBad": "화면에 불필요한 요소가 넘치면 사용자는 진짜 기능을 찾을 수 없게 됩니다.",
@@ -9828,7 +9828,7 @@
   {
     "id": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-_easy",
     "type": "clutter_find_cta",
-    "title": "\"결제하기\" 버튼 찾기 (Easy)",
+    "title": "\"결제하기\" 버튼 찾기 (Very Easy)",
     "objective": "광고 속 진짜 버튼을 찾으세요",
     "memeCaption": "진짜 버튼을 찾아라! 화면에 가짜가 30개.",
     "explainWhyBad": "어수선한 UI는 핵심 기능의 발견 가능성을 의도적으로 떨어뜨립니다.",
@@ -9861,7 +9861,7 @@
   {
     "id": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-_hard",
     "type": "nav_ambiguity_map",
-    "title": "6단계 중첩 메뉴 탐색 (Hard)",
+    "title": "6단계 중첩 메뉴 탐색 (Normal)",
     "objective": "숨겨진 설정 메뉴를 찾으세요",
     "memeCaption": "설정을 찾으려면 일단 팀 > 그룹 > 채널 > 설정 > ...",
     "explainWhyBad": "중첩된 메뉴 구조는 사용자가 원하는 기능을 찾는 데 과도한 시간을 소비하게 합니다.",
@@ -9930,7 +9930,7 @@
   {
     "id": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima_easy",
     "type": "clutter_find_cta",
-    "title": "\"로그아웃\" 버튼 찾기 (Easy)",
+    "title": "\"로그아웃\" 버튼 찾기 (Very Easy)",
     "objective": "광고 속 진짜 버튼을 찾으세요",
     "memeCaption": "진짜 버튼을 찾아라! 화면에 가짜가 30개.",
     "explainWhyBad": "광고와 진짜 버튼을 구분하기 어렵게 만드는 것은 사기성 다크 패턴입니다.",
@@ -9964,7 +9964,7 @@
   {
     "id": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima_hard",
     "type": "nav_ambiguity_map",
-    "title": "중첩 메뉴: 개인정보 설정 (Hard)",
+    "title": "중첩 메뉴: 개인정보 설정 (Normal)",
     "objective": "혼란스러운 네비게이션을 탐색하세요",
     "memeCaption": "메뉴 깊이가 마리아나 해구보다 깊습니다.",
     "explainWhyBad": "중첩된 메뉴 구조는 사용자가 원하는 기능을 찾는 데 과도한 시간을 소비하게 합니다.",
@@ -10035,7 +10035,7 @@
   {
     "id": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-_easy",
     "type": "government_portal_popups",
-    "title": "6개 팝업 닫고 목표 달성 (Easy)",
+    "title": "6개 팝업 닫고 목표 달성 (Very Easy)",
     "objective": "팝업을 닫으며 절차를 완료하세요",
     "memeCaption": "이 UI를 통과하면 민원 처리보다 어려운 건 없습니다.",
     "explainWhyBad": "관공서 스타일 팝업 지옥은 사용자의 인내심과 시간을 한계까지 시험합니다.",
@@ -10070,7 +10070,7 @@
   {
     "id": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-_hard",
     "type": "endless_wizard_flow",
-    "title": "다음 버튼의 저주 (Hard) #2",
+    "title": "다음 버튼의 저주 (Normal)",
     "objective": "끝이 안 보이는 절차를 완료하세요",
     "memeCaption": "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
     "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
@@ -10138,7 +10138,7 @@
   {
     "id": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell_easy",
     "type": "tiny_button",
-    "title": "작디작은 버튼 정확히 누르기 (Easy) #1",
+    "title": "작디작은 버튼 정확히 누르기 (Normal) #1",
     "objective": "극미세 클릭 영역을 정확히 누르세요",
     "memeCaption": "UI 디자이너: '버튼은 있잖아요. 크기가 문제인가요?'",
     "explainWhyBad": "초소형 버튼은 피츠의 법칙에 따라 클릭 난이도를 기하급수적으로 높입니다.",
@@ -10170,7 +10170,7 @@
   {
     "id": "uxref_084_cursor-that-actually-points-to-the-direction-you-are-travell_hard",
     "type": "hidden_reject_link",
-    "title": "유도 버튼 속 진짜 거절 찾기 (Hard) #1",
+    "title": "유도 버튼 속 진짜 거절 찾기 (Very Hard)",
     "objective": "유도 버튼 대신 진짜 거절 옵션을 찾으세요",
     "memeCaption": "거절하고 싶다면 먼저 찾아야 합니다.",
     "explainWhyBad": "화려한 CTA 옆에 투명한 거절 링크를 배치하는 것은 대표적 기만형 다크 패턴입니다.",
@@ -10237,7 +10237,7 @@
   {
     "id": "uxref_085_mouse-cursor-with-limited-clicks-needs-to-be-recharged_easy",
     "type": "volume_tiny_hitbox",
-    "title": "초소형 히트박스로 60% 맞추기 (Easy)",
+    "title": "초소형 히트박스로 60% 맞추기 (Normal)",
     "objective": "초소형 볼륨 컨트롤을 조작하세요",
     "memeCaption": "슬라이더는 있는데 크기가 개미만 합니다.",
     "explainWhyBad": "시각적 크기와 실제 클릭 영역의 불일치는 사용자를 혼란스럽게 합니다.",
@@ -10270,7 +10270,7 @@
   {
     "id": "uxref_085_mouse-cursor-with-limited-clicks-needs-to-be-recharged_hard",
     "type": "clutter_find_cta",
-    "title": "잡동사니 속 \"확인\" 찾기 (Hard)",
+    "title": "잡동사니 속 \"확인\" 찾기 (Very Hard)",
     "objective": "광고와 섞인 진짜 링크를 구별하세요",
     "memeCaption": "이 화면에서 뭘 눌러야 하는지 3초 안에 찾으면 천재.",
     "explainWhyBad": "화면에 불필요한 요소가 넘치면 사용자는 진짜 기능을 찾을 수 없게 됩니다.",
@@ -10334,7 +10334,7 @@
   {
     "id": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman_easy",
     "type": "tiny_button",
-    "title": "작디작은 버튼 정확히 누르기 (Easy) #2",
+    "title": "작디작은 버튼 정확히 누르기 (Normal) #2",
     "objective": "극미세 클릭 영역을 정확히 누르세요",
     "memeCaption": "UI 디자이너: '버튼은 있잖아요. 크기가 문제인가요?'",
     "explainWhyBad": "초소형 버튼은 피츠의 법칙에 따라 클릭 난이도를 기하급수적으로 높입니다.",
@@ -10368,7 +10368,7 @@
   {
     "id": "uxref_086_request-computer-cursor-controlled-by-turtle-graphics-comman_hard",
     "type": "hidden_reject_link",
-    "title": "유도 버튼 속 진짜 거절 찾기 (Hard) #2",
+    "title": "유도 버튼 속 진짜 거절 찾기 #3",
     "objective": "유도 버튼 대신 진짜 거절 옵션을 찾으세요",
     "memeCaption": "거절하고 싶다면 먼저 찾아야 합니다.",
     "explainWhyBad": "화려한 CTA 옆에 투명한 거절 링크를 배치하는 것은 대표적 기만형 다크 패턴입니다.",
@@ -10439,7 +10439,7 @@
   {
     "id": "uxref_087_mouse-cursor-annoying-you-only-want-to-see-it-when-it-s-usef_easy",
     "type": "hidden_reject_link",
-    "title": "투명도 28% 거절 링크 찾기 (Easy)",
+    "title": "투명도 28% 거절 링크 찾기 (Normal)",
     "objective": "숨겨진 거절 링크를 찾으세요",
     "memeCaption": "거절 링크가 배경색과 같은 색입니다. 투명 거절.",
     "explainWhyBad": "거절/닫기 버튼의 가시성을 의도적으로 낮추면 사용자 선택권을 침해합니다.",
@@ -10470,9 +10470,9 @@
   {
     "id": "uxref_087_mouse-cursor-annoying-you-only-want-to-see-it-when-it-s-usef_hard",
     "type": "disguised_cta_grid",
-    "title": "3개 가짜 중 진짜 CTA 찾기 (Hard)",
+    "title": "3개 가짜 중 진짜 CTA 찾기 (Very Hard)",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 5,
     "timeLimitMs": 10000,
@@ -10534,9 +10534,9 @@
   {
     "id": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game_easy",
     "type": "disguised_cta_grid",
-    "title": "3개 가짜 중 진짜 CTA 찾기 (Easy) #2",
+    "title": "3개 가짜 중 진짜 CTA 찾기 (Normal)",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 3,
     "timeLimitMs": 35000,
@@ -10565,7 +10565,7 @@
   {
     "id": "uxref_088_just-close-the-ad-a-much-worse-version-of-the-cursor-game_hard",
     "type": "moving_target",
-    "title": "속도 288px/s 도망치는 버튼 (Hard)",
+    "title": "속도 288px/s 도망치는 버튼 (Very Hard)",
     "objective": "움직이는 버튼을 클릭하세요",
     "memeCaption": "버튼이 도망갑니다. 정말로요.",
     "explainWhyBad": "도망치는 버튼은 사용자에게 불필요한 운동 부담을 주고 좌절감을 극대화합니다.",
@@ -10632,7 +10632,7 @@
   {
     "id": "uxref_089_an-app-where-you-control-the-cursor-by-turning-your-face-and_easy",
     "type": "hidden_reject_link",
-    "title": "\"아니요\" 버튼을 찾아라 (Easy) #4",
+    "title": "\"아니요\" 버튼을 찾아라 (Normal)",
     "objective": "\"아니요\" 버튼을 찾아 클릭하세요",
     "memeCaption": "\"괜찮습니다\"가 폰트 사이즈 8에 투명도 30%.",
     "explainWhyBad": "화려한 CTA 옆에 투명한 거절 링크를 배치하는 것은 대표적 기만형 다크 패턴입니다.",
@@ -10664,7 +10664,7 @@
   {
     "id": "uxref_089_an-app-where-you-control-the-cursor-by-turning-your-face-and_hard",
     "type": "disguised_cta_grid",
-    "title": "위장 버튼 그리드 정복 (Hard)",
+    "title": "위장 버튼 그리드 정복 (Very Hard)",
     "objective": "위장된 CTA 중 올바른 것을 클릭하세요",
     "memeCaption": "클릭하면 광고, 안 하면 못 넘어가는 함정.",
     "explainWhyBad": "위장된 CTA는 사용자를 원치 않는 페이지로 유도해 시간을 낭비시킵니다.",
@@ -10730,7 +10730,7 @@
   {
     "id": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you_easy",
     "type": "label_ambiguity",
-    "title": "5개 모호한 다이얼로그 통과 (Easy)",
+    "title": "5개 모호한 다이얼로그 통과 #2",
     "objective": "모호한 버튼 레이블을 정확히 고르세요",
     "memeCaption": "확인이 취소이고 취소가 확인인 세계.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -10761,7 +10761,7 @@
   {
     "id": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you_hard",
     "type": "consent_toggle_labour",
-    "title": "13개 동의 항목 수동 해제 (Hard)",
+    "title": "13개 동의 항목 수동 해제 (Normal)",
     "objective": "쿠키 동의 토글을 수동으로 설정하세요",
     "memeCaption": "개인정보 설정에 이렇게 많은 노동이 필요한 이유.",
     "explainWhyBad": "\"모두 거부\" 없이 수십 개 토글을 개별 해제하게 하는 것은 의도적 동의 착취입니다.",
@@ -10897,7 +10897,7 @@
     "type": "disguised_cta_grid",
     "title": "1개 가짜 중 진짜 CTA 찾기",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "위장된 CTA는 사용자를 원치 않는 페이지로 유도해 시간을 낭비시킵니다.",
     "difficulty": 3,
     "timeLimitMs": 25000,
@@ -10926,7 +10926,7 @@
   {
     "id": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm_easy",
     "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Easy) #2",
+    "title": "언제 끝나는지 모를 가입 절차 (Easy)",
     "objective": "모든 단계를 빠짐없이 넘기세요",
     "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
     "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
@@ -10961,7 +10961,7 @@
   {
     "id": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm_hard",
     "type": "roach_motel_flow",
-    "title": "구독 취소 미로 탈출 (Hard) #2",
+    "title": "구독 취소 미로 탈출 (Hard) #1",
     "objective": "가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요",
     "memeCaption": "구독 취소를 포기하게 만드는 것이 목적인 UI입니다.",
     "explainWhyBad": "구독 취소를 의도적으로 어렵게 만들면 사용자 이탈 대신 소송을 얻게 됩니다.",
@@ -11120,7 +11120,7 @@
   {
     "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y_easy",
     "type": "picker_no_search",
-    "title": "137개 항목 중 정답 고르기 (Easy)",
+    "title": "137개 항목 중 정답 고르기",
     "objective": "끝없는 드롭다운에서 정답을 고르세요",
     "memeCaption": "검색 기능을 빼면 사용자가 더 오래 머문다는 논리.",
     "explainWhyBad": "검색 없는 긴 드롭다운은 선택을 고통스럽게 만들고 사용자를 이탈시킵니다.",
@@ -11289,7 +11289,7 @@
   {
     "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y_hard",
     "type": "endless_wizard_flow",
-    "title": "10개 단계 완주 도전 (Hard)",
+    "title": "10개 단계 완주 도전 (Normal)",
     "objective": "숨겨진 마지막 단계에 도달하세요",
     "memeCaption": "이 폼을 완성하면 석사 학위를 줘야 합니다.",
     "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
@@ -11390,7 +11390,7 @@
   {
     "id": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches_hard",
     "type": "roach_motel_flow",
-    "title": "구독 취소 미로 탈출 (Hard) #3",
+    "title": "구독 취소 미로 탈출 (Hard) #2",
     "objective": "가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요",
     "memeCaption": "구독 취소를 포기하게 만드는 것이 목적인 UI입니다.",
     "explainWhyBad": "탈퇴 버튼을 숨기거나 복잡한 절차를 요구하는 것은 로치 모텔 패턴의 전형입니다.",
@@ -11483,7 +11483,7 @@
   {
     "id": "uxref_096_bad-color-picker_hard",
     "type": "label_ambiguity",
-    "title": "헷갈리는 버튼 이름 정복 (Hard) #4",
+    "title": "헷갈리는 버튼 이름 정복 (Hard) #2",
     "objective": "헷갈리는 버튼 이름 중 올바른 것을 클릭하세요",
     "memeCaption": "어떤 버튼이 진짜 '확인'인지 3초간 고민하게 됩니다.",
     "explainWhyBad": "버튼 레이블이 동작을 정확히 반영하지 않으면 사용자는 클릭할 때마다 불안합니다.",
@@ -11549,7 +11549,7 @@
   {
     "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors_easy",
     "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #4",
+    "title": "시행착오로 폼 완성하기 (Easy) #2",
     "objective": "피드백 없는 폼을 시행착오로 완성하세요",
     "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
     "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
@@ -11585,7 +11585,7 @@
   {
     "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors_hard",
     "type": "state_feedback_broken",
-    "title": "4개 필드: 피드백 없음 (Hard) #3",
+    "title": "4개 필드: 피드백 없음 (Hard) #2",
     "objective": "상태 표시가 없는 양식을 제출하세요",
     "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
     "explainWhyBad": "상태 피드백이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
@@ -11652,7 +11652,7 @@
   {
     "id": "uxref_098_am-i-doing-this-right-date-format-confusion_easy",
     "type": "clutter_find_cta",
-    "title": "광고 도배 속 진짜 링크 구별 (Easy) #3",
+    "title": "광고 도배 속 진짜 링크 구별",
     "objective": "혼잡한 화면에서 실제 CTA를 클릭하세요",
     "memeCaption": "어수선한 화면이 의도된 거라면, 이건 범죄입니다.",
     "explainWhyBad": "광고와 진짜 버튼을 구분하기 어렵게 만드는 것은 사기성 다크 패턴입니다.",
@@ -11685,9 +11685,9 @@
   {
     "id": "uxref_098_am-i-doing-this-right-date-format-confusion_hard",
     "type": "disguised_cta_grid",
-    "title": "1개 가짜 중 진짜 CTA 찾기 (Hard) #2",
+    "title": "1개 가짜 중 진짜 CTA 찾기 (Normal) #2",
     "objective": "가짜 버튼과 진짜 버튼을 구분하세요",
-    "memeCaption": "카드 10개 중 4개가 위장 광고, 구별할 수 있나요?",
+    "memeCaption": "진짜 버튼과 위장 광고, 구별할 수 있나요?",
     "explainWhyBad": "광고를 실제 기능처럼 위장하면 사용자의 신뢰를 근본적으로 훼손합니다.",
     "difficulty": 3,
     "timeLimitMs": 20000,
@@ -12131,7 +12131,7 @@
   {
     "id": "uxref_bonus_color_zero_contrast_easy",
     "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Easy) #3",
+    "title": "오류 메시지 제로 폼 채우기 (Easy) #2",
     "objective": "오류 메시지 없이 올바른 값을 입력하세요",
     "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
     "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
@@ -12169,7 +12169,7 @@
   {
     "id": "uxref_bonus_color_zero_contrast_hard",
     "type": "state_feedback_broken",
-    "title": "4개 필드: 피드백 없음 (Hard) #4",
+    "title": "4개 필드: 피드백 없음 (Hard) #3",
     "objective": "상태 표시가 없는 양식을 제출하세요",
     "memeCaption": "피드백 없는 UI는 사용자를 불안하게 만듭니다.",
     "explainWhyBad": "피드백 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
@@ -12238,7 +12238,7 @@
   {
     "id": "uxref_bonus_curling_stone_lock_easy",
     "type": "volume_physics_launcher",
-    "title": "물리 엔진 볼륨 챌린지 (Easy) #2",
+    "title": "물리 엔진 볼륨 챌린지 (Normal)",
     "objective": "물리 엔진으로 볼륨을 조절하세요",
     "memeCaption": "이건 볼륨 컨트롤이 아니라 앵그리버드입니다.",
     "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",
@@ -12275,7 +12275,7 @@
   {
     "id": "uxref_bonus_curling_stone_lock_hard",
     "type": "volume_physics_launcher",
-    "title": "볼륨 20%: 물리 법칙 (Hard)",
+    "title": "볼륨 20%: 물리 법칙 (Very Hard)",
     "objective": "탄성 있는 볼륨 컨트롤을 사용하세요",
     "memeCaption": "볼륨 조절에 왜 발사 버튼이 필요한 거죠?",
     "explainWhyBad": "물리 엔진 기반 UI는 재미있지만, 정확한 값 설정이 사실상 불가능합니다.",
@@ -12349,7 +12349,7 @@
   {
     "id": "uxref_bonus_form_captcha_every_field_easy",
     "type": "consent_toggle_labour",
-    "title": "10개 토글 하나씩 끄기 (Easy)",
+    "title": "10개 토글 하나씩 끄기",
     "objective": "함정이 있는 동의 설정을 올바르게 완료하세요",
     "memeCaption": "토글 하나하나에 당신의 인내심이 소모됩니다.",
     "explainWhyBad": "개별 토글 해제를 요구하는 것은 사용자의 프라이버시 권리를 침해하는 다크 패턴입니다.",
@@ -12381,7 +12381,7 @@
   {
     "id": "uxref_bonus_form_captcha_every_field_hard",
     "type": "state_feedback_broken",
-    "title": "피드백이 깨진 입력 양식 (Hard)",
+    "title": "피드백이 깨진 입력 양식 #3",
     "objective": "진행 상태가 안 보이는 폼을 채우세요",
     "memeCaption": "상태 피드백이 고장난 폼, 실제로 많이 존재합니다.",
     "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
@@ -12451,7 +12451,7 @@
   {
     "id": "uxref_bonus_form_morse_input_easy",
     "type": "label_ambiguity",
-    "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy) #2",
+    "title": "OK/Cancel이 뒤바뀐 다이얼로그 #4",
     "objective": "OK와 Cancel이 뒤바뀐 다이얼로그를 통과하세요",
     "memeCaption": "버튼 레이블이 반대인 다이얼로그, 실화입니다.",
     "explainWhyBad": "혼동스러운 레이블은 사용자의 신뢰를 근본적으로 훼손합니다.",
@@ -12483,7 +12483,7 @@
   {
     "id": "uxref_bonus_form_morse_input_hard",
     "type": "consent_toggle_labour",
-    "title": "15개 쿠키 토글 수동 거부 (Hard)",
+    "title": "15개 쿠키 토글 수동 거부",
     "objective": "수많은 동의 토글을 하나하나 꺼주세요",
     "memeCaption": "쿠키 설정 토글 73개를 하나하나 꺼야 합니다.",
     "explainWhyBad": "쿠키 동의 UI에서 토글 노동을 강요하면 대부분 사용자는 포기하고 \"모두 허용\"을 누릅니다.",
@@ -12552,7 +12552,7 @@
   {
     "id": "uxref_bonus_physics_ball_drop_easy",
     "type": "volume_physics_launcher",
-    "title": "발사 각도로 볼륨 설정 (Easy) #2",
+    "title": "발사 각도로 볼륨 설정 (Normal)",
     "objective": "발사 각도를 맞춰 볼륨에 도달하세요",
     "memeCaption": "정확한 볼륨은 포물선 계산 능력에 달렸습니다.",
     "explainWhyBad": "게임스러운 물리 인터랙션은 실제 작업 완료를 방해하는 불필요한 복잡성입니다.",
@@ -12589,7 +12589,7 @@
   {
     "id": "uxref_bonus_physics_ball_drop_hard",
     "type": "volume_physics_launcher",
-    "title": "볼륨 40%: 물리 법칙 (Hard)",
+    "title": "볼륨 40%: 물리 법칙 (Very Hard)",
     "objective": "탄성 있는 볼륨 컨트롤을 사용하세요",
     "memeCaption": "볼륨 조절에 왜 발사 버튼이 필요한 거죠?",
     "explainWhyBad": "물리 엔진 기반 UI는 재미있지만, 정확한 값 설정이 사실상 불가능합니다.",
@@ -12663,7 +12663,7 @@
   {
     "id": "uxref_bonus_physics_pendulum_dial_easy",
     "type": "volume_physics_launcher",
-    "title": "물리 발사로 볼륨 75% (Easy)",
+    "title": "물리 발사로 볼륨 75% (Normal)",
     "objective": "물리 발사체로 볼륨을 맞추세요",
     "memeCaption": "볼륨을 발사체로 조절하는 시대가 왔습니다.",
     "explainWhyBad": "게임스러운 물리 인터랙션은 실제 작업 완료를 방해하는 불필요한 복잡성입니다.",
@@ -12699,7 +12699,7 @@
   {
     "id": "uxref_bonus_physics_pendulum_dial_hard",
     "type": "volume_physics_launcher",
-    "title": "물리 엔진 볼륨 챌린지 (Hard)",
+    "title": "물리 엔진 볼륨 챌린지 (Very Hard)",
     "objective": "물리 엔진으로 볼륨을 조절하세요",
     "memeCaption": "이건 볼륨 컨트롤이 아니라 앵그리버드입니다.",
     "explainWhyBad": "관성이 있는 인터페이스는 고령자나 운동 장애가 있는 사용자에게 사용 불가능합니다.",

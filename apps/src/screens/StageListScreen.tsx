@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
 import stagesV3 from "../stages/stages.v3.json";
@@ -42,6 +42,7 @@ export function StageListScreen() {
   const { progress, clearedCount, totalSteps } = useDailyChallenge();
   const { attendance } = useAttendance();
   const { watchAd, loading: adLoading } = useRewardedAd();
+  const [adToast, setAdToast] = useState<string | null>(null);
 
   // 하드 챌린지: 난이도 4~5에서 랜덤 3개 (동일 type 중복 방지)
   const hardStages = useMemo(() => {
@@ -175,7 +176,13 @@ export function StageListScreen() {
       {/* 2. 광고 보고 보상 받기 */}
       <button
         onClick={async () => {
-          if (!adLoading) await watchAd('daily-bonus', 50);
+          if (!adLoading) {
+            const ok = await watchAd('daily-bonus', 50);
+            if (!ok) {
+              setAdToast('광고를 불러올 수 없습니다. 잠시 후 다시 시도해주세요.');
+              setTimeout(() => setAdToast(null), 3000);
+            }
+          }
         }}
         disabled={adLoading}
         style={{
@@ -289,6 +296,27 @@ export function StageListScreen() {
           })}
         </div>
       </div>
+      {/* 광고 실패 토스트 */}
+      {adToast && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 40,
+            left: "50%",
+            transform: "translateX(-50%)",
+            padding: "10px 20px",
+            fontSize: 13,
+            fontWeight: 600,
+            color: TDS.white,
+            background: TDS.red500,
+            borderRadius: TDS.radius8,
+            zIndex: 1000,
+            opacity: 0.95,
+          }}
+        >
+          {adToast}
+        </div>
+      )}
     </div>
   );
 }

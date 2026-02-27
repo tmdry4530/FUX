@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import type { StageSpec } from "../stages/stage-spec";
 import type { StageResult } from "../engine/types";
@@ -62,7 +62,8 @@ export function ResultScreen() {
   const [adTrigger, setAdTrigger] = useState(false);
   const [pendingNavigation, setPendingNavigation] = useState<string | null>(null);
   const [shareToast, setShareToast] = useState<string | null>(null);
-  const [uxpAwarded, setUxpAwarded] = useState(false);
+  const [adErrorToast, setAdErrorToast] = useState<string | null>(null);
+  const uxpAwardedRef = useRef(false);
 
   const cleared = result?.cleared ?? false;
 
@@ -74,9 +75,10 @@ export function ResultScreen() {
     ? calculateUXP(spec, result, isFirstClear)
     : null;
 
-  // UXP 적립 + 컬렉션 기록 + 챌린지 스텝 업데이트 (1회만)
+  // UXP 적립 + 컬렉션 기록 + 챌린지 스텝 업데이트 (1회만, ref로 StrictMode 이중 실행 방지)
   useEffect(() => {
-    if (!spec || !result || uxpAwarded) return;
+    if (!spec || !result || uxpAwardedRef.current) return;
+    uxpAwardedRef.current = true;
 
     // UXP 적립 (클리어 시)
     if (uxpBreakdown && uxpBreakdown.total > 0) {
@@ -110,9 +112,7 @@ export function ResultScreen() {
         });
       }
     }
-
-    setUxpAwarded(true);
-  }, [uxpBreakdown, spec, result, uxpAwarded, dispatch, isChallengeMode, searchParams]);
+  }, [uxpBreakdown, spec, result, dispatch, isChallengeMode, searchParams]);
 
   // 1순위: spec.memeCaption, 2순위: merged JSON에서 랜덤 fallback
   const memeText = useMemo(() => {
@@ -121,9 +121,12 @@ export function ResultScreen() {
     return undefined;
   }, [spec, stageId]);
 
-  // Analytics: screen view + stage result
+  // Analytics: screen view + stage result (ref로 StrictMode 이중 실행 방지)
+  const analyticsTrackedRef = useRef(false);
   useEffect(() => {
+    if (analyticsTrackedRef.current) return;
     if (spec && stageId) {
+      analyticsTrackedRef.current = true;
       trackScreen("result_screen", { stage_id: stageId, cleared });
       if (result) {
         const extra: Record<string, string | number | boolean> = {};
@@ -265,7 +268,13 @@ export function ResultScreen() {
           {/* 보상형 광고 버튼 */}
           <button
             onClick={async () => {
-              if (spec) await watchAd(spec.id);
+              if (spec) {
+                const ok = await watchAd(spec.id);
+                if (!ok) {
+                  setAdErrorToast('광고를 불러올 수 없습니다.');
+                  setTimeout(() => setAdErrorToast(null), 2500);
+                }
+              }
             }}
             disabled={adLoading}
             style={{
@@ -456,6 +465,28 @@ export function ResultScreen() {
           }}
         >
           {shareToast}
+        </div>
+      )}
+
+      {/* 광고 실패 토스트 */}
+      {adErrorToast && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 80,
+            left: "50%",
+            transform: "translateX(-50%)",
+            padding: "10px 20px",
+            fontSize: 13,
+            fontWeight: 600,
+            color: TDS.white,
+            background: TDS.red500,
+            borderRadius: TDS.radius8,
+            zIndex: 1000,
+            opacity: 0.95,
+          }}
+        >
+          {adErrorToast}
         </div>
       )}
 

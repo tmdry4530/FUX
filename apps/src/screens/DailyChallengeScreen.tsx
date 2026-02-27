@@ -151,7 +151,8 @@ export function DailyChallengeScreen() {
           const stage = stageResult?.stage;
           const status = step?.status ?? 'locked';
           const isCleared = status === 'cleared';
-          const isUnlocked = status === 'unlocked';
+          const isFailed = status === 'failed';
+          const isUnlocked = status === 'unlocked' || isFailed;
           const isLocked = status === 'locked';
           const uxpEarned = step?.result?.uxpEarned ?? 0;
 
@@ -160,8 +161,8 @@ export function DailyChallengeScreen() {
               key={i}
               style={{
                 borderRadius: TDS.radius12,
-                border: `1px solid ${isCleared ? TDS.green500 : isUnlocked ? TDS.blue500 : TDS.grey200}`,
-                background: isCleared ? '#F0FBF6' : isUnlocked ? TDS.blue100 : TDS.grey50,
+                border: `1px solid ${isCleared ? TDS.green500 : isFailed ? TDS.red500 : isUnlocked ? TDS.blue500 : TDS.grey200}`,
+                background: isCleared ? '#F0FBF6' : isFailed ? '#FFF0F0' : isUnlocked ? TDS.blue100 : TDS.grey50,
                 padding: '14px 16px',
                 opacity: isLocked ? 0.6 : 1,
               }}
@@ -172,7 +173,7 @@ export function DailyChallengeScreen() {
                     style={{
                       fontSize: 12,
                       fontWeight: 700,
-                      color: isCleared ? TDS.green500 : isUnlocked ? TDS.blue500 : TDS.grey500,
+                      color: isCleared ? TDS.green500 : isFailed ? TDS.red500 : isUnlocked ? TDS.blue500 : TDS.grey500,
                     }}
                   >
                     STEP {i + 1}
@@ -182,7 +183,12 @@ export function DailyChallengeScreen() {
                       ✓ 클리어
                     </span>
                   )}
-                  {isUnlocked && (
+                  {isFailed && (
+                    <span style={{ fontSize: 13, color: TDS.red500, fontWeight: 700 }}>
+                      ✗ 실패 · 재도전
+                    </span>
+                  )}
+                  {isUnlocked && !isFailed && (
                     <span style={{ fontSize: 13, color: TDS.blue500, fontWeight: 700 }}>
                       ▶ 도전하기
                     </span>
