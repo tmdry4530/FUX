@@ -168,7 +168,12 @@ export default function LabelAmbiguityStage({
             );
             if (unusedFromPool.length > 0) {
               const toAdd = unusedFromPool[Math.floor(Math.random() * unusedFromPool.length)]!;
-              setDialogs((prev) => [...prev, toAdd]);
+              setDialogs((prev) => {
+                const insertIdx = currentDialogIndex + 1 + Math.floor(Math.random() * (prev.length - currentDialogIndex));
+                const next = [...prev];
+                next.splice(insertIdx, 0, toAdd);
+                return next;
+              });
             }
           }
         }
