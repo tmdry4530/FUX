@@ -116,6 +116,7 @@ function renderButtons(
 
 function CountdownContent({ onExpire }: { onExpire: () => void }) {
   const [count, setCount] = useState(10);
+  const TOTAL = 10;
 
   useEffect(() => {
     if (count <= 0) {
@@ -133,6 +134,14 @@ function CountdownContent({ onExpire }: { onExpire: () => void }) {
       </p>
       <div style={{ fontSize: 32, fontWeight: 700, color: "#3182F6", textAlign: "center" }}>
         {count}
+      </div>
+      <div style={{ width: "100%", height: 6, backgroundColor: "#e5e7eb", borderRadius: 3, overflow: "hidden" }}>
+        <div style={{
+          height: "100%",
+          width: `${(count / TOTAL) * 100}%`,
+          backgroundColor: "#3182F6",
+          transition: "width 1s linear",
+        }} />
       </div>
     </>
   );
@@ -477,6 +486,9 @@ export default function RoachMotelFlowStage({
             width: `${((currentStepIndex + 1) / dynamicSteps) * 100}%`,
           }}
         />
+      </div>
+      <div style={{ position: "absolute", top: 8, right: 12, fontSize: 12, color: "#8B95A1" }}>
+        {currentStepIndex + 1} / {dynamicSteps}
       </div>
       {stepNode}
 

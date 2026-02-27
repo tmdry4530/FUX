@@ -35,6 +35,7 @@ export default function ModalStackStage({
   onFail,
 }: StageRendererProps) {
   const nextIdRef = useRef(1);
+  const initialLayersRef = useRef(params.layers);
   const [confirmModal, setConfirmModal] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState<number | null>(null);
   const [xOnLeft, setXOnLeft] = useState(false);
@@ -80,9 +81,13 @@ export default function ModalStackStage({
   });
 
   const addNewLayer = useCallback(() => {
+    const cap = initialLayersRef.current + 5;
     const newTitle = titles[(layers.length) % titles.length]!;
     const hasDontShowAgain = params.dontShowAgainTrap && Math.random() > 0.5;
-    setLayers((prev) => [...prev, createLayer(newTitle, hasDontShowAgain)]);
+    setLayers((prev) => {
+      if (prev.length >= cap) return prev;
+      return [...prev, createLayer(newTitle, hasDontShowAgain)];
+    });
   }, [layers.length, titles, params.dontShowAgainTrap, createLayer]);
 
   const triggerShuffle = useCallback(() => {
@@ -102,7 +107,8 @@ export default function ModalStackStage({
       if (params.closeOrder === "topFirst" && layerId !== topLayer.id) {
         if (params.wrongCloseAddsLayer) {
           const newTitle = titles[(layers.length) % titles.length]!;
-          setLayers((prev) => [...prev, createLayer(newTitle)]);
+          const cap = initialLayersRef.current + 5;
+          setLayers((prev) => prev.length >= cap ? prev : [...prev, createLayer(newTitle)]);
         }
         triggerShuffle();
         onFail();
@@ -114,7 +120,8 @@ export default function ModalStackStage({
       if (params.requiresScrollToEnableClose && target && !target.scrollEnabled) {
         if (params.wrongCloseAddsLayer) {
           const newTitle = titles[(layers.length) % titles.length]!;
-          setLayers((prev) => [...prev, createLayer(newTitle)]);
+          const cap = initialLayersRef.current + 5;
+          setLayers((prev) => prev.length >= cap ? prev : [...prev, createLayer(newTitle)]);
         }
         triggerShuffle();
         return;
@@ -169,7 +176,8 @@ export default function ModalStackStage({
     (_layerId: number) => {
       if (params.wrongCloseAddsLayer) {
         const newTitle = titles[(layers.length) % titles.length]!;
-        setLayers((prev) => [...prev, createLayer(newTitle)]);
+        const cap = initialLayersRef.current + 5;
+        setLayers((prev) => prev.length >= cap ? prev : [...prev, createLayer(newTitle)]);
       }
       triggerShuffle();
       onFail();
@@ -386,7 +394,7 @@ export default function ModalStackStage({
                 style={{ ...closeButtonStyle, backgroundColor: "#1b64da", color: "#fff", flex: 1 }}
                 onClick={handleConfirmSave}
               >
-                저장
+                설정 적용
               </button>
               <button
                 type="button"

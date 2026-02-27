@@ -218,10 +218,11 @@ export default function WizardFlowStage({
       style={{
         width: "100%",
         height: "100%",
-        backgroundColor: "#F9FAFB",
+        backgroundColor: params.mode === "government_portal" ? "#F5F5DC" : "#F9FAFB",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
+        fontFamily: params.mode === "government_portal" ? "Georgia, 'Times New Roman', serif" : undefined,
       }}
     >
       {/* Progress bar */}

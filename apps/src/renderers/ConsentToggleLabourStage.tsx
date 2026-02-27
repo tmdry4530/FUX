@@ -131,7 +131,7 @@ export default function ConsentToggleLabourStage({
 
           // 플래시 애니메이션용
           setReEnableFlash(toReEnable);
-          setTimeout(() => setReEnableFlash(new Set()), 800);
+          setTimeout(() => setReEnableFlash(new Set()), 2000);
 
           return prev.map((t) =>
             toReEnable.has(t.id) ? { ...t, enabled: true } : t,
@@ -158,8 +158,10 @@ export default function ConsentToggleLabourStage({
   const addExtraToggles = useCallback(() => {
     setToggles((prev) => {
       const currentCount = prev.length;
+      const maxToggles = Math.min(Math.floor(params.toggleCount * 1.5), DEFAULT_LABELS.length);
+      if (currentCount >= maxToggles) return prev;
       const addCount = Math.floor(Math.random() * 2) + 1;
-      const newTotal = Math.min(currentCount + addCount, DEFAULT_LABELS.length);
+      const newTotal = Math.min(currentCount + addCount, maxToggles);
       if (newTotal <= currentCount) return prev;
       const extras = DEFAULT_LABELS.slice(currentCount, newTotal).map((item, relIdx) => {
         const idx = currentCount + relIdx;
@@ -177,7 +179,7 @@ export default function ConsentToggleLabourStage({
       });
       return [...prev, ...extras];
     });
-  }, []);
+  }, [params.toggleCount]);
 
   const shuffleToggles = useCallback(() => {
     setToggles((prev) => {
@@ -222,6 +224,7 @@ export default function ConsentToggleLabourStage({
 
   return (
     <div style={containerStyle}>
+      <style>{`@keyframes reenableShake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-4px)}20%,40%,60%,80%{transform:translateX(4px)}}`}</style>
       <div style={panelStyle}>
         <h2 style={titleStyle}>개인정보 설정 관리</h2>
         <p style={descStyle}>
@@ -241,8 +244,10 @@ export default function ConsentToggleLabourStage({
                 key={toggle.id}
                 style={{
                   ...toggleRowStyle,
-                  backgroundColor: isFlashing ? "#fef3c7" : "#f9fafb",
-                  transition: "background-color 0.3s",
+                  backgroundColor: "#f9fafb",
+                  border: isFlashing ? "2px solid #ef4444" : "2px solid transparent",
+                  animation: isFlashing ? "reenableShake 0.5s ease" : undefined,
+                  transition: "border-color 0.3s",
                 }}
               >
                 <div style={toggleLabelContainerStyle}>
