@@ -1,8 +1,3 @@
-# Claude Code Prompt — UX Hell 100 refs → Playable Pack
-
-아래 프롬프트를 Claude Code(Team 모드)에 그대로 붙여넣으세요.
-
-```txt
 /team autopilot:
 목표: uxhell.references.json(약 100개)에서 playable stage pack(stages.uxhell.json)을 자동 생성해 앱에 등록한다.
 레퍼런스는 많고 렌더러는 적게(6~8개) 유지한다. 생성은 결정적(deterministic)이어야 하며, stage missing(스테이지를 찾을 수 없음)은 0건이어야 한다.
@@ -50,4 +45,4 @@
 - gen/validate 스크립트 + archetype-map.ts 존재
 - docs/UX_HELL_PACK_RULESET.md로 작업 방법 문서화
 - 커밋 1개로 정리
-```
+
