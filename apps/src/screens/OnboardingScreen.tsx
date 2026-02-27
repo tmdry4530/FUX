@@ -274,88 +274,213 @@ function StepReveal({
   const gotCaught = choice === 'accept';
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
-        <div style={{ fontSize: 48, marginBottom: 12 }}>{gotCaught ? '🎣' : '👏'}</div>
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', paddingTop: 32 }}>
+      <div style={{ textAlign: 'center', marginBottom: 24 }}>
+        <div style={{ fontSize: 40, marginBottom: 8 }}>{gotCaught ? '🎣' : '👏'}</div>
         <h2
           style={{
-            fontSize: 24,
+            fontSize: 22,
             fontWeight: 700,
             color: gotCaught ? TDS.red500 : TDS.green500,
-            marginBottom: 12,
+            marginBottom: 8,
           }}
         >
           {gotCaught ? '걸렸습니다!' : '대단합니다!'}
         </h2>
         <p
           style={{
-            fontSize: 15,
+            fontSize: 14,
             color: TDS.grey700,
             lineHeight: 1.6,
-            marginBottom: 0,
+            margin: 0,
           }}
         >
           {gotCaught
-            ? '대부분의 사용자가 크고 눈에 띄는 버튼을 누릅니다.\n이것은 의도적으로 설계된 것입니다.'
-            : '작은 거절 버튼을 찾아내셨군요.\n하지만 대부분의 사용자는 그러지 못합니다.'}
+            ? '대부분의 사용자가 크고 눈에 띄는 버튼을 누릅니다.'
+            : '작은 거절 버튼을 찾아내셨군요. 하지만 대부분은 못합니다.'}
         </p>
       </div>
 
-      {/* 설명 카드 */}
+      {/* 수치 비교 */}
+      <div
+        style={{
+          display: 'flex',
+          gap: 12,
+          marginBottom: 16,
+        }}
+      >
+        {[
+          { label: '수락 버튼 면적', value: '100%', sub: '너비 전체, 높이 54px' },
+          { label: '거절 텍스트 면적', value: '~6%', sub: '11px 글씨, 패딩 없음' },
+        ].map((item, i) => (
+          <div
+            key={i}
+            style={{
+              flex: 1,
+              background: i === 0 ? '#EBF4FF' : TDS.grey50,
+              borderRadius: TDS.radius8,
+              padding: '16px 12px',
+              textAlign: 'center',
+            }}
+          >
+            <div
+              style={{
+                fontSize: 24,
+                fontWeight: 800,
+                color: i === 0 ? TDS.blue500 : TDS.grey500,
+                marginBottom: 4,
+              }}
+            >
+              {item.value}
+            </div>
+            <div style={{ fontSize: 13, fontWeight: 600, color: TDS.grey900, marginBottom: 2 }}>
+              {item.label}
+            </div>
+            <div style={{ fontSize: 11, color: TDS.grey500 }}>{item.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* 세부 수치 카드 */}
       <div
         style={{
           background: TDS.grey50,
-          borderRadius: TDS.radius12,
-          padding: '24px',
-          marginBottom: 32,
+          borderRadius: TDS.radius8,
+          padding: '14px 16px',
+          marginBottom: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
         }}
       >
+        {[
+          { label: '폰트 크기', accept: '17px (Bold)', reject: '11px (Regular)' },
+          { label: '색상', accept: '흰색 on 파랑 (대비 4.5:1)', reject: '연회색 on 흰색 (대비 1.5:1)' },
+          { label: '그림자', accept: '있음 (시선 유도)', reject: '없음' },
+        ].map((row, i) => (
+          <div key={i} style={{ display: 'flex', fontSize: 12, lineHeight: 1.4 }}>
+            <div style={{ width: 64, flexShrink: 0, fontWeight: 600, color: TDS.grey900 }}>
+              {row.label}
+            </div>
+            <div style={{ flex: 1, color: TDS.blue500 }}>{row.accept}</div>
+            <div style={{ flex: 1, color: TDS.grey500 }}>{row.reject}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Before / After 시각 비교 */}
+      <div style={{ marginBottom: 24 }}>
         <h3
           style={{
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: 700,
             color: TDS.grey900,
-            marginBottom: 16,
+            marginBottom: 12,
+            textAlign: 'center',
           }}
         >
-          방금 경험한 것: 시각적 위계 조작
+          같은 선택지, 다른 설계
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-            <span
+        <div style={{ display: 'flex', gap: 12 }}>
+          {/* 조작된 설계 (현재) */}
+          <div style={{ flex: 1 }}>
+            <div
               style={{
-                fontSize: 12,
-                fontWeight: 700,
-                color: TDS.white,
-                background: TDS.blue500,
-                borderRadius: 6,
-                padding: '2px 8px',
-                flexShrink: 0,
+                fontSize: 11,
+                fontWeight: 600,
+                color: TDS.red500,
+                textAlign: 'center',
+                marginBottom: 6,
               }}
             >
-              유도
-            </span>
-            <p style={{ fontSize: 14, color: TDS.grey700, margin: 0, lineHeight: 1.5 }}>
-              크고, 파랗고, 굵은 글씨의 버튼 — 시선이 자동으로 쏠립니다.
-            </p>
+              속이는 설계
+            </div>
+            <div
+              style={{
+                border: `2px solid ${TDS.red500}20`,
+                borderRadius: TDS.radius8,
+                padding: '16px 10px 12px',
+                background: TDS.white,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  padding: '10px 0',
+                  background: TDS.blue500,
+                  color: TDS.white,
+                  fontSize: 13,
+                  fontWeight: 700,
+                  borderRadius: 8,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 8px rgba(49,130,246,0.3)',
+                }}
+              >
+                네, 받을게요!
+              </div>
+              <span style={{ fontSize: 9, color: TDS.grey300 }}>아니요, 괜찮습니다</span>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-            <span
+
+          {/* 공정한 설계 */}
+          <div style={{ flex: 1 }}>
+            <div
               style={{
-                fontSize: 12,
-                fontWeight: 700,
-                color: TDS.white,
-                background: TDS.grey500,
-                borderRadius: 6,
-                padding: '2px 8px',
-                flexShrink: 0,
+                fontSize: 11,
+                fontWeight: 600,
+                color: TDS.green500,
+                textAlign: 'center',
+                marginBottom: 6,
               }}
             >
-              숨김
-            </span>
-            <p style={{ fontSize: 14, color: TDS.grey700, margin: 0, lineHeight: 1.5 }}>
-              작고, 회색이고, 배경이 없는 텍스트 — 거의 보이지 않습니다.
-            </p>
+              공정한 설계
+            </div>
+            <div
+              style={{
+                border: `2px solid ${TDS.green500}20`,
+                borderRadius: TDS.radius8,
+                padding: '16px 10px 12px',
+                background: TDS.white,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  padding: '10px 0',
+                  background: TDS.blue500,
+                  color: TDS.white,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  borderRadius: 8,
+                  textAlign: 'center',
+                }}
+              >
+                수락
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  padding: '10px 0',
+                  background: TDS.white,
+                  color: TDS.grey900,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  borderRadius: 8,
+                  textAlign: 'center',
+                  border: `1px solid ${TDS.grey200}`,
+                }}
+              >
+                거절
+              </div>
+            </div>
           </div>
         </div>
       </div>
