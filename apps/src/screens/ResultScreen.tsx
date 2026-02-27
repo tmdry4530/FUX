@@ -63,6 +63,7 @@ export function ResultScreen() {
   const [pendingNavigation, setPendingNavigation] = useState<string | null>(null);
   const [shareToast, setShareToast] = useState<string | null>(null);
   const [adErrorToast, setAdErrorToast] = useState<string | null>(null);
+  const [retryAdLoading, setRetryAdLoading] = useState(false);
   const uxpAwardedRef = useRef(false);
 
   const cleared = result?.cleared ?? false;
@@ -325,25 +326,38 @@ export function ResultScreen() {
       {/* Actions */}
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
         <button
-          onClick={() => {
+          onClick={async () => {
             const retryUrl = isChallengeMode
               ? `/stage/${encodeURIComponent(spec.id)}?challenge=1&step=${currentStep}`
               : `/stage/${encodeURIComponent(spec.id)}`;
-            setPendingNavigation(retryUrl);
-            setAdTrigger(true);
+            if (isChallengeMode && !cleared) {
+              setRetryAdLoading(true);
+              const ok = await watchAd(spec.id, 0);
+              setRetryAdLoading(false);
+              if (ok) {
+                navigate(retryUrl, { replace: true });
+              } else {
+                setAdErrorToast('광고를 시청해야 재도전할 수 있습니다.');
+                setTimeout(() => setAdErrorToast(null), 2500);
+              }
+            } else {
+              setPendingNavigation(retryUrl);
+              setAdTrigger(true);
+            }
           }}
+          disabled={retryAdLoading}
           style={{
             padding: "14px 24px",
             fontSize: 14,
             fontWeight: 600,
-            background: TDS.white,
-            color: TDS.grey900,
-            border: `1px solid ${TDS.grey200}`,
+            background: isChallengeMode && !cleared ? TDS.orange500 : TDS.white,
+            color: isChallengeMode && !cleared ? TDS.white : TDS.grey900,
+            border: isChallengeMode && !cleared ? 'none' : `1px solid ${TDS.grey200}`,
             borderRadius: TDS.radius8,
-            cursor: "pointer",
+            cursor: retryAdLoading ? "default" : "pointer",
           }}
         >
-          다시 도전
+          {retryAdLoading ? '광고 로딩중...' : isChallengeMode && !cleared ? '광고 보고 재도전' : '다시 도전'}
         </button>
         <button
           onClick={() => {

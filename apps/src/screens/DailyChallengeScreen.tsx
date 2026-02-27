@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDailyChallenge } from '../challenge/useDailyChallenge';
 import { useAttendance } from '../attendance/useAttendance';
 import { useGameState } from '../game-state/useGameState';
+import { useRewardedAd } from '../rewards/useRewardedAd';
 import { findStageById } from '../stages/findStage';
 import { checkAndGrantMilestones } from '../rewards/toss-point-milestones';
 
@@ -31,6 +32,8 @@ export function DailyChallengeScreen() {
   const { today, stages, progress, initChallenge, clearedCount, totalSteps } = useDailyChallenge();
   const { attendance, recordToday } = useAttendance();
   const { state, dispatch } = useGameState();
+  const { watchAd, loading: adLoading } = useRewardedAd();
+  const [adToast, setAdToast] = useState<string | null>(null);
 
   useEffect(() => {
     initChallenge();
@@ -220,7 +223,7 @@ export function DailyChallengeScreen() {
                 </div>
               )}
 
-              {isUnlocked && stage && (
+              {isUnlocked && stage && !isFailed && (
                 <button
                   onClick={() =>
                     navigate(`/stage/${encodeURIComponent(stage.id)}?challenge=1&step=${i}`)
@@ -240,6 +243,35 @@ export function DailyChallengeScreen() {
                   }}
                 >
                   도전하기
+                </button>
+              )}
+              {isFailed && stage && (
+                <button
+                  onClick={async () => {
+                    const ok = await watchAd(stage.id, 0);
+                    if (ok) {
+                      navigate(`/stage/${encodeURIComponent(stage.id)}?challenge=1&step=${i}`);
+                    } else {
+                      setAdToast('광고를 시청해야 재도전할 수 있습니다.');
+                      setTimeout(() => setAdToast(null), 2500);
+                    }
+                  }}
+                  disabled={adLoading}
+                  style={{
+                    marginTop: 12,
+                    width: '100%',
+                    padding: '10px',
+                    background: adLoading ? TDS.grey200 : TDS.orange500,
+                    color: TDS.white,
+                    border: 'none',
+                    borderRadius: TDS.radius8,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    cursor: adLoading ? 'default' : 'pointer',
+                    fontFamily: TDS.fontFamily,
+                  }}
+                >
+                  {adLoading ? '광고 로딩중...' : '광고 보고 재도전'}
                 </button>
               )}
             </div>
@@ -291,6 +323,28 @@ export function DailyChallengeScreen() {
           </div>
         )}
       </div>
+
+      {/* 광고 필수 토스트 */}
+      {adToast && (
+        <div
+          style={{
+            position: 'fixed',
+            bottom: 40,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            padding: '10px 20px',
+            fontSize: 13,
+            fontWeight: 600,
+            color: TDS.white,
+            background: TDS.red500,
+            borderRadius: TDS.radius8,
+            zIndex: 1000,
+            opacity: 0.95,
+          }}
+        >
+          {adToast}
+        </div>
+      )}
     </div>
   );
 }
