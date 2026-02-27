@@ -1,5 +1,6 @@
 export interface GameState {
   userHash: string | null;
+  hasSeenOnboarding: boolean;
   uxp: UXPState;
   attendance: AttendanceState;
   collection: CollectionState;
@@ -62,4 +63,5 @@ export type GameAction =
   | { type: 'SET_CHALLENGE_PROGRESS'; progress: ChallengeProgress }
   | { type: 'UPDATE_CHALLENGE_STEP'; stepIndex: number; status: ChallengeStep['status']; result?: ChallengeStep['result'] }
   | { type: 'CLAIM_CHALLENGE_BONUS' }
-  | { type: 'ADD_TOSS_POINT'; entry: TossPointEntry };
+  | { type: 'ADD_TOSS_POINT'; entry: TossPointEntry }
+  | { type: 'COMPLETE_ONBOARDING' };

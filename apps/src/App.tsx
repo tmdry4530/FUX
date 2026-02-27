@@ -12,24 +12,33 @@ import { ResultScreen } from "./screens/ResultScreen";
 import { DailyChallengeScreen } from "./screens/DailyChallengeScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { CollectionScreen } from "./screens/CollectionScreen";
+import { OnboardingScreen } from "./screens/OnboardingScreen";
+import { useGameState } from "./game-state/useGameState";
 
 /**
  * 딥링크 query param fallback
  * ?stageId=xxx → /stage/xxx 로 리다이렉트
- * 잘못된 stageId는 Home으로 이동 + console 경고
+ * 온보딩 미완료 시 /onboarding 으로 리다이렉트 (딥링크 제외)
  */
 function QueryParamRedirect() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { state, initialized } = useGameState();
   const stageId = searchParams.get("stageId");
 
   useEffect(() => {
+    if (!initialized) return;
     if (stageId) {
       console.log(`[FUX:Deeplink] query param redirect: stageId=${stageId}`);
       navigate(`/stage/${stageId}`, { replace: true });
+      return;
     }
-  }, [stageId, navigate]);
+    if (!state.hasSeenOnboarding) {
+      navigate('/onboarding', { replace: true });
+    }
+  }, [stageId, navigate, initialized, state.hasSeenOnboarding]);
 
+  if (!initialized) return null;
   return <StageListScreen />;
 }
 
@@ -37,6 +46,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<QueryParamRedirect />} />
+      <Route path="/onboarding" element={<OnboardingScreen />} />
       <Route path="/stage/:stageId" element={<StagePlayScreen />} />
       <Route path="/result/:stageId" element={<ResultScreen />} />
       <Route path="/challenge" element={<DailyChallengeScreen />} />

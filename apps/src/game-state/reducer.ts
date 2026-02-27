@@ -2,6 +2,7 @@ import type { GameState, GameAction, UXPEntry } from './types';
 
 export const initialGameState: GameState = {
   userHash: null,
+  hasSeenOnboarding: false,
   uxp: { total: 0, entries: [] },
   attendance: { attendedDates: [], currentStreak: 0, maxStreak: 0, lastDate: null },
   collection: { clearedStageIds: [], viewedCardIds: [] },
@@ -131,6 +132,9 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         ...state,
         tossPointHistory: [action.entry, ...state.tossPointHistory].slice(0, 100),
       };
+
+    case 'COMPLETE_ONBOARDING':
+      return { ...state, hasSeenOnboarding: true };
 
     default:
       return state;
