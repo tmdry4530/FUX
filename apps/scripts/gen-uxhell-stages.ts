@@ -1653,6 +1653,11 @@ function scaleParams(params: Record<string, unknown>, variant: Variant, hash: nu
     // consent_toggle_labour: auto re-enable은 렌더러에 내장
   }
 
+  // disguisedCount가 gridSize 이상이면 게임 불가능 → 보정
+  if (typeof scaled.disguisedCount === 'number' && typeof scaled.gridSize === 'number') {
+    scaled.disguisedCount = Math.min(scaled.disguisedCount as number, (scaled.gridSize as number) - 1);
+  }
+
   return scaled;
 }
 

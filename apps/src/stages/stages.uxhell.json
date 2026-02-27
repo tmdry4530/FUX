@@ -2775,7 +2775,7 @@
     "patternTag": "date_time_hell",
     "params": {
       "gridSize": 3,
-      "disguisedCount": 3,
+      "disguisedCount": 2,
       "showSimBadge": false,
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
@@ -9570,7 +9570,7 @@
     "patternTag": "cursor_hell",
     "params": {
       "gridSize": 4,
-      "disguisedCount": 4,
+      "disguisedCount": 3,
       "showSimBadge": true,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
