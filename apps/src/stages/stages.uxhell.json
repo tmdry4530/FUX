@@ -1942,43 +1942,6 @@
     }
   },
   {
-    "id": "uxref_019_the-phone-number-slider-but-worse_easy",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Very Easy)",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 1,
-    "timeLimitMs": 45000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "form_input_hell",
-    "params": {
-      "fields": [
-        "생년월일",
-        "성별",
-        "국적",
-        "직업"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_019_the-phone-number-slider-but-worse",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1gzaeka/the_phone_number_slider_but_worse/",
-      "archetype": "form_input_hell",
-      "kind": "community",
-      "patternTags": [
-        "form_input",
-        "lid-angle",
-        "slider"
-      ]
-    }
-  },
-  {
     "id": "uxref_019_the-phone-number-slider-but-worse_hard",
     "type": "label_ambiguity",
     "title": "헷갈리는 버튼 이름 정복 (Normal) #1",
@@ -2033,43 +1996,6 @@
     "meta": {
       "referenceId": "uxref_019_the-phone-number-slider-but-worse",
       "url": "https://www.reddit.com/r/badUIbattles/comments/1gzaeka/the_phone_number_slider_but_worse/",
-      "archetype": "form_input_hell",
-      "kind": "community",
-      "patternTags": [
-        "form_input",
-        "lid-angle",
-        "slider"
-      ]
-    }
-  },
-  {
-    "id": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider_easy",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Very Easy) #1",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 1,
-    "timeLimitMs": 45000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "form_input_hell",
-    "params": {
-      "fields": [
-        "생년월일",
-        "성별",
-        "국적",
-        "직업"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_020_you-have-to-insert-your-phone-number-using-a-slider",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/vte38o/you_have_to_insert_your_phone_number_using_a/",
       "archetype": "form_input_hell",
       "kind": "community",
       "patternTags": [
@@ -3185,41 +3111,6 @@
     }
   },
   {
-    "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_hard",
-    "type": "state_feedback_broken",
-    "title": "반응 없는 폼 완성 도전 (Normal)",
-    "objective": "반응이 깨진 폼을 완성하세요",
-    "memeCaption": "제출했는데 아무 반응이 없습니다. 된 건가요?",
-    "explainWhyBad": "반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
-    "difficulty": 3,
-    "timeLimitMs": 20000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "fields": [
-        "생년월일",
-        "성별",
-        "국적",
-        "직업"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1kc4bcr/date_picker_that_i_found_a_while_before_i_found/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
     "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_normal",
     "type": "consent_toggle_labour",
     "title": "\"모두 거부\" 없는 쿠키 설정 #2",
@@ -3355,41 +3246,6 @@
     }
   },
   {
-    "id": "uxref_033_event-date-picker_easy",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Very Easy) #2",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 1,
-    "timeLimitMs": 45000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "fields": [
-        "배송지",
-        "수령인",
-        "연락처",
-        "배송 메모"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_033_event-date-picker",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1olrkbn/event_date_picker/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
     "id": "uxref_033_event-date-picker_hard",
     "type": "volume_hover_slider",
     "title": "호버 감지 볼륨 컨트롤 (Normal)",
@@ -3449,41 +3305,6 @@
     "meta": {
       "referenceId": "uxref_033_event-date-picker",
       "url": "https://www.reddit.com/r/badUIbattles/comments/1olrkbn/event_date_picker/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
-    "id": "uxref_034_my-submission-for-the-most-annoying-date-picker_easy",
-    "type": "state_feedback_broken",
-    "title": "반응이 깨진 입력 양식 (Very Easy)",
-    "objective": "진행 상태가 안 보이는 폼을 채우세요",
-    "memeCaption": "상태 반응이 고장난 폼, 실제로 많이 존재합니다.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 1,
-    "timeLimitMs": 45000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "fields": [
-        "아이디",
-        "비밀번호",
-        "비밀번호 확인",
-        "이메일"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_034_my-submission-for-the-most-annoying-date-picker",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1hqdiux/my_submission_for_the_most_annoying_date_picker/",
       "archetype": "date_time_hell",
       "kind": "community",
       "patternTags": [
@@ -3847,41 +3668,6 @@
       "filterCount": 10,
       "hiddenApplyButton": false,
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_037_the-worst-time-date-selectors",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/u4b4pe/the_worst_timedate_selectors/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
-    "id": "uxref_037_the-worst-time-date-selectors_normal",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 #1",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "fields": [
-        "이름",
-        "이메일",
-        "비밀번호",
-        "전화번호"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
       "shuffleOnMiss": true
     },
     "meta": {
@@ -4294,43 +4080,6 @@
       "kind": "community",
       "patternTags": [
         "captcha"
-      ]
-    }
-  },
-  {
-    "id": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild_easy",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #1",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "captcha_hell",
-    "params": {
-      "fields": [
-        "배송지",
-        "수령인",
-        "연락처",
-        "배송 메모"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_042_a-fucking-slider-captcha-slider-in-the-wild",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1ltaxwk/a_fucking_slider/",
-      "archetype": "captcha_hell",
-      "kind": "community",
-      "patternTags": [
-        "captcha",
-        "lid-angle",
-        "slider"
       ]
     }
   },
@@ -4813,41 +4562,6 @@
     }
   },
   {
-    "id": "uxref_045_put-your-webcam-back-in-order-a-cursed-captcha_normal",
-    "type": "state_feedback_broken",
-    "title": "반응이 깨진 입력 양식 #1",
-    "objective": "진행 상태가 안 보이는 폼을 채우세요",
-    "memeCaption": "상태 반응이 고장난 폼, 실제로 많이 존재합니다.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 3,
-    "timeLimitMs": 25000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "captcha_hell",
-    "params": {
-      "fields": [
-        "카드번호",
-        "유효기간",
-        "CVC",
-        "청구지 주소"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_045_put-your-webcam-back-in-order-a-cursed-captcha",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1mxychn/put_your_webcam_back_in_order_a_cursed_captcha/",
-      "archetype": "captcha_hell",
-      "kind": "community",
-      "patternTags": [
-        "captcha"
-      ]
-    }
-  },
-  {
     "id": "uxref_046_the-number-guessing-captcha_easy",
     "type": "hidden_reject_link",
     "title": "유도 버튼 속 진짜 거절 찾기 (Easy)",
@@ -5039,41 +4753,6 @@
     "meta": {
       "referenceId": "uxref_047_captcha",
       "url": "https://www.reddit.com/r/badUIbattles/comments/1havot1/captcha/",
-      "archetype": "captcha_hell",
-      "kind": "community",
-      "patternTags": [
-        "captcha"
-      ]
-    }
-  },
-  {
-    "id": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru_easy",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Easy) #1",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "captcha_hell",
-    "params": {
-      "fields": [
-        "아이디",
-        "비밀번호",
-        "비밀번호 확인",
-        "이메일"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_048_the-right-captcha-to-test-if-you-are-not-a-scamguru",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1ntbiee/the_right_captcha_to_test_if_you_are_not_a/",
       "archetype": "captcha_hell",
       "kind": "community",
       "patternTags": [
@@ -6596,41 +6275,6 @@
     }
   },
   {
-    "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_hard",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Very Hard)",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
-    "difficulty": 5,
-    "timeLimitMs": 10000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "auth_hell",
-    "params": {
-      "fields": [
-        "닉네임",
-        "자기소개",
-        "관심사",
-        "공개 여부"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1ir868a/a_login_screen_that_says_close_one_or_almost_got/",
-      "archetype": "auth_hell",
-      "kind": "community",
-      "patternTags": [
-        "auth"
-      ]
-    }
-  },
-  {
     "id": "uxref_060_a-log-in-screen-that-says-close-one-or-almost-got-it-when-yo_normal",
     "type": "label_ambiguity",
     "title": "5개 모호한 다이얼로그 통과 #1",
@@ -6950,42 +6594,6 @@
     }
   },
   {
-    "id": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press_easy",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Easy) #1",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "fields": [
-        "회사명",
-        "사업자번호",
-        "대표자명",
-        "업종"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/pu1u6h/i_made_a_keyboard_that_scrambles_itself_every/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard",
-        "scramble"
-      ]
-    }
-  },
-  {
     "id": "uxref_063_i-made-a-keyboard-that-scrambles-itself-every-time-you-press_hard",
     "type": "hidden_reject_link",
     "title": "불투명도 10% 숨겨진 거부 (Hard)",
@@ -7219,42 +6827,6 @@
       "includeIcons": true,
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_065_binary-search-keyboard",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/ezmb57/binary_search_keyboard/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard",
-        "binary-search"
-      ]
-    }
-  },
-  {
-    "id": "uxref_065_binary-search-keyboard_hard",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Hard) #1",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "fields": [
-        "카드번호",
-        "유효기간",
-        "CVC",
-        "청구지 주소"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_065_binary-search-keyboard",
@@ -7595,76 +7167,6 @@
     "meta": {
       "referenceId": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave",
       "url": "https://www.reddit.com/r/badUIbattles/comments/1fity8r/request_keyboard_that_works_by_entering_rooms/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard"
-      ]
-    }
-  },
-  {
-    "id": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave_normal",
-    "type": "state_feedback_broken",
-    "title": "반응이 깨진 입력 양식 #2",
-    "objective": "진행 상태가 안 보이는 폼을 채우세요",
-    "memeCaption": "상태 반응이 고장난 폼, 실제로 많이 존재합니다.",
-    "explainWhyBad": "반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
-    "difficulty": 3,
-    "timeLimitMs": 25000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "fields": [
-        "회사명",
-        "사업자번호",
-        "대표자명",
-        "업종"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_067_request-keyboard-that-works-by-entering-rooms-house-of-leave",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1fity8r/request_keyboard_that_works_by_entering_rooms/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard"
-      ]
-    }
-  },
-  {
-    "id": "uxref_068_i-have-created-a-keyboard-from-hell_easy",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Easy) #2",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "fields": [
-        "카드번호",
-        "유효기간",
-        "CVC",
-        "청구지 주소"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_068_i-have-created-a-keyboard-from-hell",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1r0f40x/i_have_created_a_keyboard_from_hell/",
       "archetype": "keyboard_hell",
       "kind": "community",
       "patternTags": [
@@ -9041,41 +8543,6 @@
       "hasRejectAll": false,
       "wrongCloseAddsLayer": true,
       "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_075_when-a-developer-only-knows-dropdowns",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1i6ml3c/when_a_developer_only_knows_dropdowns/",
-      "archetype": "dropdown_hell",
-      "kind": "community",
-      "patternTags": [
-        "dropdown"
-      ]
-    }
-  },
-  {
-    "id": "uxref_075_when-a-developer-only-knows-dropdowns_normal",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 #1",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "dropdown_hell",
-    "params": {
-      "fields": [
-        "닉네임",
-        "자기소개",
-        "관심사",
-        "공개 여부"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": false
     },
     "meta": {
       "referenceId": "uxref_075_when-a-developer-only-knows-dropdowns",
@@ -10790,42 +10257,6 @@
     }
   },
   {
-    "id": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you_normal",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 #2",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "form_input_hell",
-    "params": {
-      "fields": [
-        "닉네임",
-        "자기소개",
-        "관심사",
-        "공개 여부"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_090_a-literally-infinite-amount-of-buttons-find-the-one-with-you",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/erh2aw/a_literally_infinite_amount_of_buttons_find_the/",
-      "archetype": "form_input_hell",
-      "kind": "community",
-      "patternTags": [
-        "form_input",
-        "infinite"
-      ]
-    }
-  },
-  {
     "id": "uxref_091_hey-i-am-creating-a-mobile-game-about-bad-ui-you-should_easy",
     "type": "chaotic_layout_scavenger",
     "title": "혼돈 레이아웃에서 \"무시하기\" 찾기 (Easy)",
@@ -11511,114 +10942,6 @@
     }
   },
   {
-    "id": "uxref_096_bad-color-picker_normal",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 #3",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 3,
-    "timeLimitMs": 25000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "카드번호",
-        "유효기간",
-        "CVC",
-        "청구지 주소"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": true,
-      "_seed": 1403
-    },
-    "meta": {
-      "referenceId": "uxref_096_bad-color-picker",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/cvos0r/bad_color_picker/",
-      "archetype": "color_theme_hell",
-      "kind": "community",
-      "patternTags": [
-        "color_theme"
-      ]
-    }
-  },
-  {
-    "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors_easy",
-    "type": "state_feedback_broken",
-    "title": "시행착오로 폼 완성하기 (Easy) #2",
-    "objective": "반응 없는 폼을 시행착오로 완성하세요",
-    "memeCaption": "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "회사명",
-        "사업자번호",
-        "대표자명",
-        "업종"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_097_changing-the-theme-just-inverts-the-screen-colors",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/fdtxwc/changing_the_theme_just_inverts_the_screen_colors/",
-      "archetype": "color_theme_hell",
-      "kind": "community",
-      "patternTags": [
-        "color_theme",
-        "invert"
-      ]
-    }
-  },
-  {
-    "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors_hard",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Hard) #2",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "아이디",
-        "비밀번호",
-        "비밀번호 확인",
-        "이메일"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_097_changing-the-theme-just-inverts-the-screen-colors",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/fdtxwc/changing_the_theme_just_inverts_the_screen_colors/",
-      "archetype": "color_theme_hell",
-      "kind": "community",
-      "patternTags": [
-        "color_theme",
-        "invert"
-      ]
-    }
-  },
-  {
     "id": "uxref_097_changing-the-theme-just-inverts-the-screen-colors_normal",
     "type": "label_ambiguity",
     "title": "이름 모호성 다이얼로그 통과",
@@ -12019,83 +11342,6 @@
     }
   },
   {
-    "id": "uxref_bonus_color_rainbow_chaos_easy",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Easy) #3",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "이름",
-        "이메일",
-        "비밀번호",
-        "전화번호"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_color_rainbow_chaos",
-      "url": null,
-      "archetype": "color_theme_hell",
-      "kind": "internal",
-      "patternTags": [
-        "color_theme",
-        "rainbow",
-        "chaos",
-        "animation"
-      ]
-    }
-  },
-  {
-    "id": "uxref_bonus_color_rainbow_chaos_hard",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Hard)",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "닉네임",
-        "자기소개",
-        "관심사",
-        "공개 여부"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true,
-      "_seed": 8866
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_color_rainbow_chaos",
-      "url": null,
-      "archetype": "color_theme_hell",
-      "kind": "internal",
-      "patternTags": [
-        "color_theme",
-        "rainbow",
-        "chaos",
-        "animation"
-      ]
-    }
-  },
-  {
     "id": "uxref_bonus_color_rainbow_chaos_normal",
     "type": "label_ambiguity",
     "title": "OK/Cancel이 뒤바뀐 다이얼로그 #2",
@@ -12125,81 +11371,6 @@
         "rainbow",
         "chaos",
         "animation"
-      ]
-    }
-  },
-  {
-    "id": "uxref_bonus_color_zero_contrast_easy",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 (Easy) #2",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "아이디",
-        "비밀번호",
-        "비밀번호 확인",
-        "이메일"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false,
-      "_seed": 5731
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_color_zero_contrast",
-      "url": null,
-      "archetype": "color_theme_hell",
-      "kind": "internal",
-      "patternTags": [
-        "color_theme",
-        "contrast",
-        "invisible"
-      ]
-    }
-  },
-  {
-    "id": "uxref_bonus_color_zero_contrast_hard",
-    "type": "state_feedback_broken",
-    "title": "4개 필드: 반응 없음 (Hard) #3",
-    "objective": "상태 표시가 없는 양식을 제출하세요",
-    "memeCaption": "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "explainWhyBad": "반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 \"시스템 상태의 가시성\"을 위반합니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "color_theme_hell",
-    "params": {
-      "fields": [
-        "회사명",
-        "사업자번호",
-        "대표자명",
-        "업종"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_color_zero_contrast",
-      "url": null,
-      "archetype": "color_theme_hell",
-      "kind": "internal",
-      "patternTags": [
-        "color_theme",
-        "contrast",
-        "invisible"
       ]
     }
   },
@@ -12379,44 +11550,6 @@
     }
   },
   {
-    "id": "uxref_bonus_form_captcha_every_field_hard",
-    "type": "state_feedback_broken",
-    "title": "반응이 깨진 입력 양식 #3",
-    "objective": "진행 상태가 안 보이는 폼을 채우세요",
-    "memeCaption": "상태 반응이 고장난 폼, 실제로 많이 존재합니다.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 3,
-    "timeLimitMs": 20000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "form_input_hell",
-    "params": {
-      "fields": [
-        "카드번호",
-        "유효기간",
-        "CVC",
-        "청구지 주소"
-      ],
-      "requireStatusCheck": true,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true,
-      "_seed": 949
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_form_captcha_every_field",
-      "url": null,
-      "archetype": "form_input_hell",
-      "kind": "internal",
-      "patternTags": [
-        "form_input",
-        "captcha",
-        "friction"
-      ]
-    }
-  },
-  {
     "id": "uxref_bonus_form_captcha_every_field_normal",
     "type": "label_ambiguity",
     "title": "OK/Cancel이 뒤바뀐 다이얼로그 #3",
@@ -12498,43 +11631,6 @@
       "toggleCount": 15,
       "hasRejectAll": false,
       "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_bonus_form_morse_input",
-      "url": null,
-      "archetype": "form_input_hell",
-      "kind": "internal",
-      "patternTags": [
-        "form_input",
-        "morse",
-        "encoding"
-      ]
-    }
-  },
-  {
-    "id": "uxref_bonus_form_morse_input_normal",
-    "type": "state_feedback_broken",
-    "title": "오류 메시지 제로 폼 채우기 #2",
-    "objective": "오류 메시지 없이 올바른 값을 입력하세요",
-    "memeCaption": "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "explainWhyBad": "오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "internal/idea",
-    "patternTag": "form_input_hell",
-    "params": {
-      "fields": [
-        "생년월일",
-        "성별",
-        "국적",
-        "직업"
-      ],
-      "requireStatusCheck": false,
-      "wrongCloseAddsLayer": false,
       "shuffleOnMiss": true
     },
     "meta": {

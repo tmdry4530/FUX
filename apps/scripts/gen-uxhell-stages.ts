@@ -72,26 +72,26 @@ const ARCHETYPE_TO_STAGE_TYPES: Record<string, string[]> = {
     'enterprise_filter_overload', 'government_portal_popups', 'clutter_find_cta',
   ],
   form_input_hell: [
-    'consent_toggle_labour', 'label_ambiguity', 'state_feedback_broken',
+    'consent_toggle_labour', 'label_ambiguity',
   ],
   dropdown_hell: [
     'picker_no_search', 'label_ambiguity', 'enterprise_filter_overload',
-    'state_feedback_broken', 'consent_toggle_labour', 'nav_ambiguity_map',
+    'consent_toggle_labour', 'nav_ambiguity_map',
   ],
   auth_hell: [
     'roach_motel_flow', 'hidden_reject_link', 'consent_toggle_labour',
     'modal_stack', 'endless_wizard_flow', 'disguised_cta_grid',
-    'government_portal_popups', 'label_ambiguity', 'state_feedback_broken',
+    'government_portal_popups', 'label_ambiguity',
     'clutter_find_cta', 'picker_no_search',
   ],
   captcha_hell: [
     'disguised_cta_grid', 'clutter_find_cta', 'tiny_button',
     'moving_target', 'hidden_reject_link', 'label_ambiguity',
-    'modal_stack', 'chaotic_layout_scavenger', 'state_feedback_broken',
+    'modal_stack', 'chaotic_layout_scavenger',
     'picker_no_search', 'nav_ambiguity_map',
   ],
   color_theme_hell: [
-    'state_feedback_broken', 'label_ambiguity',
+    'label_ambiguity',
   ],
   cursor_hell: [
     'moving_target', 'tiny_button', 'volume_tiny_hitbox',
@@ -100,14 +100,14 @@ const ARCHETYPE_TO_STAGE_TYPES: Record<string, string[]> = {
   ],
   date_time_hell: [
     'picker_no_search', 'label_ambiguity', 'endless_wizard_flow',
-    'consent_toggle_labour', 'state_feedback_broken', 'nav_ambiguity_map',
+    'consent_toggle_labour', 'nav_ambiguity_map',
     'volume_hover_slider', 'volume_hyper_sensitive', 'enterprise_filter_overload',
     'government_portal_popups', 'modal_stack', 'clutter_find_cta',
     'chaotic_layout_scavenger', 'disguised_cta_grid', 'hidden_reject_link',
     'roach_motel_flow',
   ],
   keyboard_hell: [
-    'label_ambiguity', 'consent_toggle_labour', 'state_feedback_broken',
+    'label_ambiguity', 'consent_toggle_labour',
     'picker_no_search', 'hidden_reject_link', 'modal_stack', 'endless_wizard_flow',
   ],
   physics_target_hell: [
@@ -476,12 +476,6 @@ const TYPE_EXPLAIN_WHY_BAD: Record<string, string[]> = {
     '진짜 버튼과 가짜 버튼을 구분 불가능하게 만드는 것은 사기적 UI 패턴입니다.',
     '위장된 버튼은 사용자를 원치 않는 페이지로 유도해 시간을 낭비시킵니다.',
   ],
-  state_feedback_broken: [
-    '오류 메시지 없이 유효성 검사를 하면 사용자는 뭘 고쳐야 할지 알 수 없습니다.',
-    '상태 반응이 없는 폼은 사용자가 시행착오로만 올바른 입력값을 추측하게 합니다.',
-    '진행 상태가 보이지 않는 양식은 사용자에게 극도의 불안감과 좌절감을 줍니다.',
-    '반응 없는 인터페이스는 닐슨의 10가지 휴리스틱 중 "시스템 상태의 가시성"을 위반합니다.',
-  ],
   moving_target: [
     '움직이는 버튼은 접근성 지침(WCAG 2.5.1)을 위반하며 운동 장애 사용자를 배제합니다.',
     '도망치는 버튼은 사용자에게 불필요한 운동 부담을 주고 좌절감을 극대화합니다.',
@@ -533,7 +527,6 @@ const TYPE_OBJECTIVES: Record<string, string[]> = {
   roach_motel_flow: ['구독 취소/탈퇴를 완료하세요', '빠져나갈 수 없는 흐름에서 탈출하세요', '숨겨진 해지 절차를 끝까지 완료하세요', '가입은 쉽고 탈퇴는 어려운 UI를 뚫으세요', '함정 설계 패턴에서 빠져나오세요'],
   hidden_reject_link: ['숨겨진 거절 링크를 찾으세요', '"아니요" 버튼을 찾아 클릭하세요', '투명한 거절 링크를 발견하세요', '화려한 버튼 사이에 숨은 거절 버튼을 찾으세요', '유도 버튼 대신 진짜 거절 옵션을 찾으세요'],
   disguised_cta_grid: ['진짜 버튼을 광고 속에서 구별하세요', '가짜 버튼과 진짜 버튼을 구분하세요', '위장된 버튼 중 올바른 것을 클릭하세요', '광고처럼 생긴 진짜 기능을 찾으세요', '위장 버튼 그리드에서 정답을 고르세요'],
-  state_feedback_broken: ['반응이 깨진 폼을 완성하세요', '오류 메시지 없이 올바른 값을 입력하세요', '상태 표시가 없는 양식을 제출하세요', '반응 없는 폼을 시행착오로 완성하세요', '진행 상태가 안 보이는 폼을 채우세요'],
   moving_target: ['움직이는 버튼을 클릭하세요', '도망치는 버튼을 잡아 클릭하세요', '끊임없이 움직이는 타겟을 맞추세요', '피하는 버튼을 잡으세요', '이리저리 움직이는 버튼을 정확히 클릭하세요'],
   tiny_button: ['작디작은 버튼을 클릭하세요', '초소형 버튼을 정확히 찾아 클릭하세요', '거의 보이지 않는 버튼을 터치하세요', '극미세 클릭 영역을 정확히 누르세요', '눈을 크게 뜨고 작은 버튼을 찾으세요'],
 };
@@ -779,20 +772,6 @@ const NAV_TARGET_ACTIONS = [
 ];
 
 // ---------------------------------------------------------------------------
-// StateFeedbackBroken field sets
-// ---------------------------------------------------------------------------
-
-const STATE_FEEDBACK_FIELD_SETS = [
-  ['이름', '이메일', '비밀번호', '전화번호'],
-  ['카드번호', '유효기간', 'CVC', '청구지 주소'],
-  ['생년월일', '성별', '국적', '직업'],
-  ['배송지', '수령인', '연락처', '배송 메모'],
-  ['아이디', '비밀번호', '비밀번호 확인', '이메일'],
-  ['회사명', '사업자번호', '대표자명', '업종'],
-  ['닉네임', '자기소개', '관심사', '공개 여부'],
-];
-
-// ---------------------------------------------------------------------------
 // Modal titles sets
 // ---------------------------------------------------------------------------
 
@@ -988,15 +967,6 @@ function generateParams(type: string, refId: string, hash: number): Record<strin
     };
   }
 
-  // StateFeedbackBroken
-  if (type === 'state_feedback_broken') {
-    const fieldSet = STATE_FEEDBACK_FIELD_SETS[hash % STATE_FEEDBACK_FIELD_SETS.length]!;
-    return {
-      fields: fieldSet,
-      requireStatusCheck: (hash % 2) === 0,
-    };
-  }
-
   // MovingTarget
   if (type === 'moving_target') {
     const paths: ('bounce' | 'randomWalk')[] = ['bounce', 'randomWalk', 'bounce', 'randomWalk', 'bounce'];
@@ -1175,13 +1145,6 @@ const TYPE_MEME_CAPTIONS: Record<string, string[]> = {
     "클릭하면 광고, 안 하면 못 넘어가는 함정.",
     "진짜 콘텐츠와 광고의 경계가 사라진 UI입니다.",
     "스폰서 뱃지가 5픽셀 크기로 숨어있습니다.",
-  ],
-  state_feedback_broken: [
-    "제출했는데 아무 반응이 없습니다. 된 건가요?",
-    "로딩 중인지, 에러인지, 성공인지 알 수 없습니다.",
-    "반응 없는 UI는 사용자를 불안하게 만듭니다.",
-    "버튼을 눌렀는데 아무 일도 안 일어나면 당황스럽죠.",
-    "상태 반응이 고장난 폼, 실제로 많이 존재합니다.",
   ],
   label_ambiguity: [
     "확인이 취소이고 취소가 확인인 세계.",
@@ -1462,17 +1425,6 @@ function generateTypeTitle(type: string, params: Record<string, unknown>, hash: 
       ];
       return pickFrom(titles, hash);
     }
-    case 'state_feedback_broken': {
-      const fields = params.fields as string[] | undefined;
-      const titles = [
-        '반응 없는 폼 완성 도전',
-        '오류 메시지 제로 폼 채우기',
-        fields != null ? `${fields.length}개 필드: 반응 없음` : '상태 표시 없는 폼 제출',
-        '시행착오로 폼 완성하기',
-        '반응이 깨진 입력 양식',
-      ];
-      return pickFrom(titles, hash);
-    }
     case 'modal_stack': {
       const layers = params.layers as number | undefined;
       const titles = [
@@ -1647,8 +1599,6 @@ function scaleParams(params: Record<string, unknown>, variant: Variant, hash: nu
     } else if (type === 'endless_wizard_flow') {
       scaled.misleadingLabels = true;
       scaled.backResets = true;
-    } else if (type === 'state_feedback_broken') {
-      scaled.requireStatusCheck = true;
     }
     // consent_toggle_labour: auto re-enable은 렌더러에 내장
   }

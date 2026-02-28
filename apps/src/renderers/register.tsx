@@ -15,8 +15,6 @@ import DisguisedCtaGridStage from "./DisguisedCtaGridStage";
 import type { DisguisedCtaGridParams } from "./DisguisedCtaGridStage";
 import PickerNoSearchStage from "./PickerNoSearchStage";
 import type { PickerNoSearchParams } from "./PickerNoSearchStage";
-import StateFeedbackBrokenStage from "./StateFeedbackBrokenStage";
-import type { StateFeedbackBrokenParams } from "./StateFeedbackBrokenStage";
 import LabelAmbiguityStage from "./LabelAmbiguityStage";
 import type { LabelAmbiguityParams } from "./LabelAmbiguityStage";
 import VolumeControlStage from "./VolumeControlStage";
@@ -60,10 +58,6 @@ registerStageRenderer("disguised_cta_grid", ({ spec, onSuccess, onMiss }) => (
 
 registerStageRenderer("picker_no_search", ({ spec, onSuccess, onMiss }) => (
   <PickerNoSearchStage params={spec.params as unknown as PickerNoSearchParams} onComplete={onSuccess} onFail={onMiss} />
-));
-
-registerStageRenderer("state_feedback_broken", ({ spec, onSuccess, onMiss }) => (
-  <StateFeedbackBrokenStage params={spec.params as unknown as StateFeedbackBrokenParams} onComplete={onSuccess} onFail={onMiss} />
 ));
 
 registerStageRenderer("label_ambiguity", ({ spec, onSuccess, onMiss }) => (

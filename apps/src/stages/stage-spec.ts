@@ -9,7 +9,6 @@ export type StageType =
   | "hidden_reject_link"
   | "disguised_cta_grid"
   | "picker_no_search"
-  | "state_feedback_broken"
   | "label_ambiguity"
   // v3 - volume hell (all rendered by VolumeControlStage)
   | "volume_hover_slider"

@@ -25,7 +25,6 @@ const ALLOWED_TYPES = new Set<string>([
   'hidden_reject_link',
   'disguised_cta_grid',
   'picker_no_search',
-  'state_feedback_broken',
   'label_ambiguity',
   'volume_hover_slider',
   'volume_hyper_sensitive',

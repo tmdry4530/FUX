@@ -15,26 +15,26 @@ export const ARCHETYPE_TO_STAGE_TYPES: Record<string, string[]> = {
     'enterprise_filter_overload', 'government_portal_popups', 'clutter_find_cta',
   ],
   form_input_hell: [
-    'consent_toggle_labour', 'label_ambiguity', 'state_feedback_broken',
+    'consent_toggle_labour', 'label_ambiguity',
   ],
   dropdown_hell: [
     'picker_no_search', 'label_ambiguity', 'enterprise_filter_overload',
-    'state_feedback_broken', 'consent_toggle_labour', 'nav_ambiguity_map',
+    'consent_toggle_labour', 'nav_ambiguity_map',
   ],
   auth_hell: [
     'roach_motel_flow', 'hidden_reject_link', 'consent_toggle_labour',
     'modal_stack', 'endless_wizard_flow', 'disguised_cta_grid',
-    'government_portal_popups', 'label_ambiguity', 'state_feedback_broken',
+    'government_portal_popups', 'label_ambiguity',
     'clutter_find_cta', 'picker_no_search',
   ],
   captcha_hell: [
     'disguised_cta_grid', 'clutter_find_cta', 'tiny_button',
     'moving_target', 'hidden_reject_link', 'label_ambiguity',
-    'modal_stack', 'chaotic_layout_scavenger', 'state_feedback_broken',
+    'modal_stack', 'chaotic_layout_scavenger',
     'picker_no_search', 'nav_ambiguity_map',
   ],
   color_theme_hell: [
-    'state_feedback_broken', 'label_ambiguity',
+    'label_ambiguity',
   ],
   cursor_hell: [
     'moving_target', 'tiny_button', 'volume_tiny_hitbox',
@@ -43,14 +43,14 @@ export const ARCHETYPE_TO_STAGE_TYPES: Record<string, string[]> = {
   ],
   date_time_hell: [
     'picker_no_search', 'label_ambiguity', 'endless_wizard_flow',
-    'consent_toggle_labour', 'state_feedback_broken', 'nav_ambiguity_map',
+    'consent_toggle_labour', 'nav_ambiguity_map',
     'volume_hover_slider', 'volume_hyper_sensitive', 'enterprise_filter_overload',
     'government_portal_popups', 'modal_stack', 'clutter_find_cta',
     'chaotic_layout_scavenger', 'disguised_cta_grid', 'hidden_reject_link',
     'roach_motel_flow',
   ],
   keyboard_hell: [
-    'label_ambiguity', 'consent_toggle_labour', 'state_feedback_broken',
+    'label_ambiguity', 'consent_toggle_labour',
     'picker_no_search', 'hidden_reject_link', 'modal_stack', 'endless_wizard_flow',
   ],
   physics_target_hell: [
