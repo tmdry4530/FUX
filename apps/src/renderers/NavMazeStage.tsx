@@ -450,27 +450,94 @@ export default function NavMazeStage({
         {breadcrumb.length > 0 && (
           <div
             style={{
-              fontSize: "14px",
+              fontSize: "13px",
               color: "#8B95A1",
-              marginBottom: "16px",
+              marginBottom: "12px",
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
             }}
           >
-            {breadcrumb.join(" > ")}
+            <span style={{ color: "#3182F6" }}>홈</span>
+            {breadcrumb.map((crumb, i) => (
+              <span key={i}>
+                <span style={{ margin: "0 2px" }}>&gt;</span>
+                <span style={i === breadcrumb.length - 1 ? { color: "#191F28", fontWeight: "600" } : undefined}>{crumb}</span>
+              </span>
+            ))}
           </div>
         )}
 
         <div
           style={{
-            fontSize: "16px",
-            color: "#191F28",
-            fontWeight: "500",
+            padding: "20px",
+            backgroundColor: "#FFFFFF",
+            borderRadius: "12px",
+            border: "1px solid #E5E8EB",
           }}
         >
-          목표: {params.targetAction}
+          <div
+            style={{
+              fontSize: "13px",
+              color: "#8B95A1",
+              marginBottom: "4px",
+            }}
+          >
+            찾아야 할 기능
+          </div>
+          <div
+            style={{
+              fontSize: "20px",
+              color: "#191F28",
+              fontWeight: "700",
+            }}
+          >
+            {params.targetAction}
+          </div>
+
+          <div
+            style={{
+              marginTop: "16px",
+              padding: "12px 16px",
+              backgroundColor: currentPath.length === 0 ? "#E8F3FF" : "#F2F4F6",
+              borderRadius: "8px",
+              fontSize: "13px",
+              color: currentPath.length === 0 ? "#3182F6" : "#4E5968",
+              lineHeight: "1.5",
+            }}
+          >
+            {currentPath.length === 0 ? (
+              <>
+                왼쪽 메뉴를 <b>클릭</b>하면 하위 메뉴로 이동합니다.
+                <br />
+                "{params.targetAction}"이 나올 때까지 올바른 메뉴를 찾아 들어가세요.
+              </>
+            ) : (
+              <>
+                현재 <b>{currentPath.length}단계</b> 깊이에 있습니다.
+                {currentMenu.some((item) => item.isTarget)
+                  ? " 목표가 이 메뉴에 있습니다!"
+                  : " 계속 하위 메뉴를 탐색하세요."}
+              </>
+            )}
+          </div>
         </div>
-        <div style={{ fontSize: "14px", color: "#8B95A1", marginTop: "8px" }}>
-          왼쪽 메뉴에서 올바른 경로를 찾아 이동하세요.
-        </div>
+
+        {currentPath.length === 0 && (
+          <div
+            style={{
+              marginTop: "16px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "12px",
+              color: "#8B95A1",
+            }}
+          >
+            <span style={{ fontSize: "16px" }}>💡</span>
+            비슷한 이름의 메뉴가 많습니다. 잘못된 메뉴를 클릭하면 실패!
+          </div>
+        )}
       </div>
     </div>
   );
