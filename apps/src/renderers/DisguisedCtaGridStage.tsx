@@ -21,6 +21,7 @@ interface CardItem {
   description: string;
   isDisguised: boolean;
   tapped: boolean;
+  category: string;
 }
 
 function shuffleArray<T>(arr: T[]): T[] {
@@ -33,20 +34,28 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 const DISGUISED_TITLES = [
-  "디자인 시스템 실전 가이드",
-  "UX 패턴 분석 도구",
-  "사용성 테스트 프레임워크",
-  "인터랙션 디자인 핸드북",
-  "프로토타이핑 워크플로우",
-  "컴포넌트 라이브러리 구축",
+  "이 운동화 하나로 무릎 통증이 사라졌어요",
+  "직장인 점심 해결! 5분 완성 도시락",
+  "2026 가성비 노트북 TOP 5 (놀라운 순위)",
+  "피부 나이 10살 되돌리는 세럼 솔직 후기",
+  "월세 아끼는 꿀팁 3가지 (아무도 안 알려줌)",
+  "혼자 여행하기 좋은 국내 숙소 BEST",
+  "다이어트 식단, 이것만 바꿨더니 -5kg",
+  "요즘 MZ세대가 열광하는 카페 리스트",
+  "이 앱 하나로 영어 회화 마스터했어요",
+  "30대 재테크, 이 방법이면 월 100만원 추가 수익",
 ];
 
 const DISGUISED_DESCRIPTIONS = [
-  "전문가가 직접 큐레이션한 자료입니다.",
-  "실무에 바로 적용 가능한 인사이트를 확인하세요.",
-  "팀 생산성을 높이는 검증된 방법론입니다.",
-  "현업 디자이너들이 추천하는 필수 가이드.",
+  "지금 가입하면 첫 달 무료! 한정 혜택",
+  "이 링크로 구매 시 50% 할인 적용",
+  "전문가가 직접 추천하는 인기 상품입니다",
+  "한정 수량 특별가 — 오늘만 이 가격",
+  "10만 명이 선택한 검증된 솔루션",
 ];
+
+const DISGUISED_CATEGORIES = ["후기", "추천", "꿀팁", "인기", "트렌드"];
+const REAL_CATEGORIES = ["일상", "뉴스", "요리", "운동", "여행", "꿀팁", "음악", "반려동물"];
 
 export default function DisguisedCtaGridStage({
   params,
@@ -56,43 +65,52 @@ export default function DisguisedCtaGridStage({
   const [showFeedback, setShowFeedback] = useState(false);
 
   const cards = useMemo(() => {
-    // 실제 콘텐츠처럼 보이는 광고 제목 (구분 불가)
+    // 위장 광고 — 진짜 콘텐츠처럼 보이지만 실은 광고
     const disguisedTitles = [
-      "디자인 시스템 실전 가이드",
-      "UX 패턴 분석 도구",
-      "사용성 테스트 프레임워크",
-      "인터랙션 디자인 핸드북",
-      "프로토타이핑 워크플로우",
-      "컴포넌트 라이브러리 구축",
+      "이 운동화 하나로 무릎 통증이 사라졌어요",
+      "직장인 점심 해결! 5분 완성 도시락",
+      "2026 가성비 노트북 TOP 5 (놀라운 순위)",
+      "피부 나이 10살 되돌리는 세럼 솔직 후기",
+      "월세 아끼는 꿀팁 3가지 (아무도 안 알려줌)",
+      "혼자 여행하기 좋은 국내 숙소 BEST",
+      "다이어트 식단, 이것만 바꿨더니 -5kg",
+      "요즘 MZ세대가 열광하는 카페 리스트",
+      "이 앱 하나로 영어 회화 마스터했어요",
+      "30대 재테크, 이 방법이면 월 100만원 추가 수익",
     ];
 
-    // 진짜 콘텐츠이지만 광고처럼 보이는 제목 (false positive 유도)
+    // 진짜 콘텐츠 — 일상적인 포스트/뉴스
     const realTitles = [
-      "무료 디자인 리소스 모음",
-      "지금 바로 쓰는 UI 킷",
-      "최신 디자인 트렌드 2026",
-      "UX 리서치 방법론",
-      "프론트엔드 성능 최적화",
-      "색상 이론과 실무 적용",
-      "타이포그래피 기초",
-      "반응형 디자인 전략",
-      "모바일 UX 베스트 프랙티스",
+      "오늘 서울 미세먼지 '나쁨' 예보",
+      "지하철 2호선 강남역 15분 지연",
+      "이번 주 박스오피스 1위 영화는?",
+      "봄맞이 옷장 정리하는 법",
+      "집에서 만드는 간단 크림 파스타",
+      "퇴근 후 30분 홈트 루틴",
+      "이번 달 전기요금 절약 팁",
+      "주말 나들이 추천 공원 5곳",
+      "초보 자취생 흔한 요리 실수 모음",
+      "비 오는 날 들으면 좋은 노래 플리",
+      "강아지 산책 시 주의할 점 3가지",
+      "냉장고 남은 재료로 만드는 볶음밥",
     ];
 
-    // 실제 콘텐츠 설명 (광고와 동일한 톤)
+    // 진짜 콘텐츠 설명 — 진솔한 개인 톤
     const realDescriptions = [
-      "실무에 바로 적용 가능한 인사이트를 확인하세요.",
-      "전문가가 직접 큐레이션한 자료입니다.",
-      "팀 생산성을 높이는 검증된 방법론입니다.",
-      "현업 디자이너들이 추천하는 필수 가이드.",
+      "어제 직접 해봤는데 진짜 맛있었어요.",
+      "출퇴근길에 참고하세요.",
+      "주변 지인들한테 공유했더니 반응 좋았어요.",
+      "생각보다 쉬워서 바로 따라 해봤습니다.",
+      "알아두면 은근 유용한 정보!",
     ];
 
-    // 광고 설명 (실제 콘텐츠와 동일한 톤)
+    // 위장 광고 설명 — 진짜 후기처럼 보이지만 프로모션
     const disguisedDescriptions = [
-      "전문가가 직접 큐레이션한 자료입니다.",
-      "실무에 바로 적용 가능한 인사이트를 확인하세요.",
-      "팀 생산성을 높이는 검증된 방법론입니다.",
-      "현업 디자이너들이 추천하는 필수 가이드.",
+      "써보고 인생템 등극... 링크 남겨둘게요.",
+      "솔직 후기인데 이건 진짜 추천합니다.",
+      "주변에서 다 쓰길래 나도 써봤는데 대박.",
+      "광고 아니고 진심으로 추천하는 거예요.",
+      "이건 두 번 말하면 입 아플 정도로 좋아요.",
     ];
 
     const allCards: CardItem[] = [];
@@ -108,23 +126,27 @@ export default function DisguisedCtaGridStage({
       if (shouldBeDisguised) {
         const titleIdx = disguisedCount % disguisedTitles.length;
         const descIdx = disguisedCount % disguisedDescriptions.length;
+        const catIdx = disguisedCount % DISGUISED_CATEGORIES.length;
         allCards.push({
           id: i,
           title: disguisedTitles[titleIdx]!,
           description: disguisedDescriptions[descIdx]!,
           isDisguised: true,
           tapped: false,
+          category: DISGUISED_CATEGORIES[catIdx]!,
         });
         disguisedCount++;
       } else {
         const titleIdx = realCount % realTitles.length;
         const descIdx = realCount % realDescriptions.length;
+        const catIdx = realCount % REAL_CATEGORIES.length;
         allCards.push({
           id: i,
           title: realTitles[titleIdx]!,
           description: realDescriptions[descIdx]!,
           isDisguised: false,
           tapped: false,
+          category: REAL_CATEGORIES[catIdx]!,
         });
         realCount++;
       }
@@ -157,6 +179,7 @@ export default function DisguisedCtaGridStage({
               description: DISGUISED_DESCRIPTIONS[newId % DISGUISED_DESCRIPTIONS.length]!,
               isDisguised: true,
               tapped: false,
+              category: DISGUISED_CATEGORIES[newId % DISGUISED_CATEGORIES.length]!,
             };
             return shuffleArray([...prev, newCard]);
           });
@@ -197,7 +220,7 @@ export default function DisguisedCtaGridStage({
       )}
 
       <div style={headerStyle}>
-        <h2 style={titleStyle}>추천 콘텐츠</h2>
+        <h2 style={titleStyle}>오늘의 피드</h2>
         <div style={progressStyle}>
           진행도: {realTappedCount} / {realCount}
         </div>
@@ -224,7 +247,8 @@ export default function DisguisedCtaGridStage({
               style={cardStyle}
               onClick={() => handleCardTap(card.id)}
             >
-              {card.isDisguised && <div style={sponsoredBadgeStyle}>광고</div>}
+              {card.isDisguised && <div style={sponsoredBadgeStyle}>Sponsored</div>}
+              <div style={categoryTagStyle}>{card.category}</div>
               <h3 style={cardTitleStyle}>{card.title}</h3>
               <p style={cardDescStyle}>{card.description}</p>
               {card.tapped && (
@@ -241,7 +265,7 @@ export default function DisguisedCtaGridStage({
         <div style={feedbackOverlayStyle}>
           <div style={feedbackBoxStyle}>
             <div style={feedbackIconStyle}>⚠️</div>
-            <div style={feedbackTextStyle}>이것은 위장된 광고입니다!</div>
+            <div style={feedbackTextStyle}>네이티브 광고에 속았습니다!</div>
           </div>
         </div>
       )}
@@ -320,6 +344,17 @@ const sponsoredBadgeStyle: React.CSSProperties = {
   borderRadius: 2,
   fontWeight: 400,
   opacity: 0.4,
+};
+
+const categoryTagStyle: React.CSSProperties = {
+  display: 'inline-block',
+  fontSize: 10,
+  fontWeight: 600,
+  color: '#3182F6',
+  backgroundColor: '#E8F3FF',
+  padding: '2px 6px',
+  borderRadius: 4,
+  marginBottom: 6,
 };
 
 const cardTitleStyle: React.CSSProperties = {
