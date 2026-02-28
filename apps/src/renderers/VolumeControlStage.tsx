@@ -52,12 +52,15 @@ export default function VolumeControlStage({
   const [iconOffset, setIconOffset] = useState({ x: 0, y: 0 });
   const [hitboxScale, setHitboxScale] = useState(1.0);
 
+  const [isCharging, setIsCharging] = useState(false);
+
   const trackRef = useRef<HTMLDivElement>(null);
   const dialRef = useRef<HTMLDivElement>(null);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const chargeInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const [showHint, setShowHint] = useState(false);
 
   const targetPuzzle = [1, 3, 2, 4]; // solution for puzzle_lock
@@ -180,7 +183,10 @@ export default function VolumeControlStage({
     const newAngle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
 
     // Require many rotations: 1 full rotation = ~10 volume units
-    const angleDelta = newAngle - angle;
+    let angleDelta = newAngle - angle;
+    // 각도 래핑: -180~180 범위로 정규화
+    if (angleDelta > 180) angleDelta -= 360;
+    if (angleDelta < -180) angleDelta += 360;
     const volumeChange = angleDelta / 36;
     const newVolume = Math.round(Math.max(0, Math.min(100, volume + volumeChange)));
     checkOvershoot(newVolume);
@@ -203,13 +209,29 @@ export default function VolumeControlStage({
     }
   }, [puzzleSequence, onFail]);
 
-  const handlePhysicsLaunch = useCallback(() => {
-    setHasInteracted(true);
-    const newVolume = Math.round(launchPower);
-    checkOvershoot(newVolume);
-    setVolume(newVolume);
+  const startCharge = useCallback(() => {
+    setIsCharging(true);
     setLaunchPower(0);
-  }, [launchPower, checkOvershoot]);
+    chargeInterval.current = setInterval(() => {
+      setLaunchPower(prev => {
+        const next = prev + 2; // 50ms마다 2씩 증가 (약 2.5초에 0→100)
+        return next > 100 ? 0 : next;
+      });
+    }, 50);
+  }, []);
+
+  const releaseLaunch = useCallback(() => {
+    setIsCharging(false);
+    if (chargeInterval.current) clearInterval(chargeInterval.current);
+    setHasInteracted(true);
+    setLaunchPower(prev => {
+      const scatter = 1 + (Math.random() * 0.2 - 0.1); // ±10% 오차
+      const finalVolume = Math.round(Math.min(100, Math.max(0, prev * scatter)));
+      checkOvershoot(finalVolume);
+      setVolume(finalVolume);
+      return 0;
+    });
+  }, [checkOvershoot]);
 
   const handleVoiceShout = useCallback(() => {
     setHasInteracted(true);
@@ -494,7 +516,7 @@ export default function VolumeControlStage({
 
       case 'circular_gesture':
         return (
-          <div style={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: '100%', padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div
               ref={dialRef}
               onMouseDown={() => setIsDragging(true)}
@@ -505,24 +527,26 @@ export default function VolumeControlStage({
               onTouchEnd={() => setIsDragging(false)}
               onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleCircularGestureXY(t.clientX, t.clientY); }}
               style={{
-                width: '150px',
-                height: '150px',
+                width: '200px',
+                height: '200px',
                 touchAction: 'none',
                 borderRadius: '50%',
                 border: '4px solid #4E5968',
                 position: 'relative',
                 cursor: 'pointer',
-                background: '#E8EBED'
+                background: isDragging ? '#D1D6DB' : '#E8EBED',
+                transition: 'background 0.15s',
+                boxShadow: isDragging ? '0 0 0 4px rgba(78,89,104,0.2)' : 'none',
               }}
             >
               <div style={{
                 position: 'absolute',
                 width: '6px',
-                height: '60px',
+                height: '80px',
                 background: '#191F28',
-                top: '15px',
+                top: '20px',
                 left: '50%',
-                transformOrigin: 'center 60px',
+                transformOrigin: 'center 80px',
                 transform: `translateX(-50%) rotate(${(volume / 100) * 360 * 2}deg)`,
                 borderRadius: '3px'
               }} />
@@ -531,12 +555,15 @@ export default function VolumeControlStage({
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                fontSize: '24px',
+                fontSize: '28px',
                 fontWeight: 'bold',
                 color: '#191F28'
               }}>
                 {volume}
               </div>
+            </div>
+            <div style={{ marginTop: '16px', fontSize: '13px', color: '#8B95A1', textAlign: 'center' }}>
+              원을 그리듯 드래그하세요
             </div>
           </div>
         );
@@ -623,56 +650,65 @@ export default function VolumeControlStage({
       case 'physics_launcher':
         return (
           <div style={{ width: '100%', padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ position: 'relative', width: '300px', height: '200px', background: '#E8EBED', borderRadius: '8px', marginBottom: '20px' }}>
+            {/* 파워 게이지 바 */}
+            <div style={{ width: '300px', height: '200px', background: '#E8EBED', borderRadius: '8px', marginBottom: '20px', position: 'relative', overflow: 'hidden' }}>
               <div style={{
                 position: 'absolute',
-                bottom: '20px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                fontSize: '32px'
-              }}>
-                🎯
-              </div>
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: `${launchPower}%`,
+                background: launchPower > 70 ? '#E53935' : launchPower > 40 ? '#F59F00' : '#3182F6',
+                transition: 'height 0.05s, background 0.2s',
+              }} />
               <div style={{
                 position: 'absolute',
-                top: `${100 - launchPower}%`,
+                top: '50%',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                fontSize: '24px',
-                transition: 'top 0.3s'
+                transform: 'translate(-50%, -50%)',
+                fontSize: '36px',
+                fontWeight: 'bold',
+                color: '#191F28',
+                zIndex: 1,
               }}>
-                🔊
+                {launchPower}
               </div>
             </div>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={launchPower}
-              onChange={(e) => setLaunchPower(Number(e.target.value))}
-              style={{ width: '300px', marginBottom: '10px' }}
-            />
+            {/* 꾹 누르기 버튼 */}
             <button
               type="button"
-              onClick={handlePhysicsLaunch}
+              onMouseDown={startCharge}
+              onMouseUp={releaseLaunch}
+              onMouseLeave={() => { if (isCharging) releaseLaunch(); }}
+              onTouchStart={(e) => { e.preventDefault(); startCharge(); }}
+              onTouchEnd={(e) => { e.preventDefault(); releaseLaunch(); }}
               style={{
-                padding: '12px 24px',
-                fontSize: '16px',
-                background: '#3182F6',
+                padding: '16px 32px',
+                fontSize: '18px',
+                background: isCharging ? '#E53935' : '#3182F6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'background 0.2s',
+                userSelect: 'none',
+                touchAction: 'none',
               }}
             >
-              발사! (파워: {launchPower})
+              {isCharging ? '손을 떼서 발사!' : '꾹 누르세요'}
             </button>
+            <div style={{ marginTop: '12px', fontSize: '13px', color: '#8B95A1', textAlign: 'center' }}>
+              꾹 누른 채로 파워를 맞추세요
+            </div>
           </div>
         );
 
       case 'voice_shout':
         return (
           <div style={{ width: '100%', padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ fontSize: '12px', color: '#8B95A1', marginBottom: '12px' }}>
+              🔇 실제 소리를 낼 필요 없어요
+            </div>
             <div style={{ fontSize: '64px', marginBottom: '20px' }}>🎤</div>
             <div style={{ width: '300px', height: '40px', background: '#E8EBED', borderRadius: '20px', overflow: 'hidden', marginBottom: '20px' }}>
               <div style={{
@@ -695,10 +731,10 @@ export default function VolumeControlStage({
                 cursor: 'pointer'
               }}
             >
-              탭하여 소리지르기!
+              빠르게 탭하세요!
             </button>
-            <div style={{ marginTop: '10px', fontSize: '12px', color: '#8B95A1' }}>
-              1초 내 탭 횟수 = 음량 (최대 100)
+            <div style={{ marginTop: '10px', fontSize: '12px', color: '#8B95A1', textAlign: 'center' }}>
+              1초 안에 최대한 빠르게 탭! 탭 횟수가 음량이 됩니다
             </div>
           </div>
         );

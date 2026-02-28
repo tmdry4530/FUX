@@ -7,7 +7,7 @@
     "memeCaption": "해지 버튼이 4차원에 있다",
     "explainWhyBad": "구독은 원클릭인데 해지는 5단계. 사용자를 가두는 '바퀴벌레 모텔' 패턴은 대표적인 속이는 설계입니다. 유럽 디지털서비스법은 가입만큼 쉬운 해지를 요구합니다.",
     "difficulty": 2,
-    "timeLimitMs": 30000,
+    "timeLimitMs": 20000,
     "allowHint": true,
     "allowSkip": true,
     "hintText": "작은 글씨를 잘 살펴보세요",
@@ -15,7 +15,7 @@
     "patternTag": "dark_pattern",
     "safety": "simulation_only",
     "params": {
-      "steps": 4,
+      "steps": 5,
       "requireTyping": false
     }
   },
