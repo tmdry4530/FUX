@@ -252,8 +252,8 @@ export default function NavMazeStage({
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-              gap: "16px",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: "12px",
             }}
           >
             {filters.map((filter) => (
@@ -370,92 +370,35 @@ export default function NavMazeStage({
         width: "100%",
         height: "100%",
         display: "flex",
+        flexDirection: "column",
         backgroundColor: "#F9FAFB",
         overflow: "hidden",
       }}
     >
-      {/* Sidebar */}
+      {/* 목표 카드 */}
       <div
         style={{
-          width: "240px",
+          padding: "12px 16px",
           backgroundColor: "#FFFFFF",
-          borderRight: "1px solid #E5E8EB",
-          display: "flex",
-          flexDirection: "column",
+          borderBottom: "1px solid #E5E8EB",
         }}
       >
-        <div
-          style={{
-            padding: "16px",
-            fontSize: "18px",
-            fontWeight: "600",
-            color: "#191F28",
-            borderBottom: "1px solid #E5E8EB",
-          }}
-        >
-          메뉴
+        <div style={{ fontSize: "11px", color: "#8B95A1", marginBottom: "2px" }}>
+          찾아야 할 기능
         </div>
-
-        <div style={{ flex: 1, overflowY: "auto", padding: "8px" }}>
-          {currentMenu.map((item, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => handleMenuClick(idx)}
-              style={{
-                width: "100%",
-                padding: "12px",
-                marginBottom: "4px",
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "#191F28",
-                backgroundColor: "#F9FAFB",
-                border: "1px solid #E5E8EB",
-                borderRadius: "4px",
-                cursor: "pointer",
-                textAlign: "left",
-              }}
-            >
-              {item.label}
-              {item.children && item.children.length > 0 && " →"}
-            </button>
-          ))}
+        <div style={{ fontSize: "17px", fontWeight: "700", color: "#191F28" }}>
+          {params.targetAction}
         </div>
-
-        {currentPath.length > 0 && (
-          <div style={{ padding: "16px", borderTop: "1px solid #E5E8EB" }}>
-            <button
-              type="button"
-              onClick={handleBack}
-              style={{
-                width: "100%",
-                padding: "12px",
-                fontSize: "14px",
-                fontWeight: "500",
-                color: "#4E5968",
-                backgroundColor: "#F9FAFB",
-                border: "1px solid #E5E8EB",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              ← 뒤로
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* Main content */}
-      <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
         {breadcrumb.length > 0 && (
           <div
             style={{
-              fontSize: "13px",
+              marginTop: "6px",
+              fontSize: "12px",
               color: "#8B95A1",
-              marginBottom: "12px",
               display: "flex",
               alignItems: "center",
-              gap: "4px",
+              gap: "3px",
+              flexWrap: "wrap",
             }}
           >
             <span style={{ color: "#3182F6" }}>홈</span>
@@ -467,77 +410,81 @@ export default function NavMazeStage({
             ))}
           </div>
         )}
+      </div>
 
-        <div
-          style={{
-            padding: "20px",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "12px",
-            border: "1px solid #E5E8EB",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "13px",
-              color: "#8B95A1",
-              marginBottom: "4px",
-            }}
-          >
-            찾아야 할 기능
-          </div>
-          <div
-            style={{
-              fontSize: "20px",
-              color: "#191F28",
-              fontWeight: "700",
-            }}
-          >
-            {params.targetAction}
-          </div>
-
-          <div
-            style={{
-              marginTop: "16px",
-              padding: "12px 16px",
-              backgroundColor: currentPath.length === 0 ? "#E8F3FF" : "#F2F4F6",
-              borderRadius: "8px",
-              fontSize: "13px",
-              color: currentPath.length === 0 ? "#3182F6" : "#4E5968",
-              lineHeight: "1.5",
-            }}
-          >
-            {currentPath.length === 0 ? (
-              <>
-                왼쪽 메뉴를 <b>클릭</b>하면 하위 메뉴로 이동합니다.
-                <br />
-                "{params.targetAction}"이 나올 때까지 올바른 메뉴를 찾아 들어가세요.
-              </>
-            ) : (
-              <>
-                현재 <b>{currentPath.length}단계</b> 깊이에 있습니다.
-                {currentMenu.some((item) => item.isTarget)
-                  ? " 목표가 이 메뉴에 있습니다!"
-                  : " 계속 하위 메뉴를 탐색하세요."}
-              </>
-            )}
-          </div>
-        </div>
-
-        {currentPath.length === 0 && (
-          <div
-            style={{
-              marginTop: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              fontSize: "12px",
-              color: "#8B95A1",
-            }}
-          >
-            <span style={{ fontSize: "16px" }}>💡</span>
-            비슷한 이름의 메뉴가 많습니다. 잘못된 메뉴를 클릭하면 실패!
-          </div>
+      {/* 상태 안내 */}
+      <div
+        style={{
+          padding: "10px 16px",
+          backgroundColor: currentPath.length === 0 ? "#E8F3FF" : "#F2F4F6",
+          fontSize: "13px",
+          color: currentPath.length === 0 ? "#3182F6" : "#4E5968",
+          lineHeight: "1.5",
+        }}
+      >
+        {currentPath.length === 0 ? (
+          <>아래 메뉴를 탭해 하위 메뉴로 이동하세요. 잘못된 메뉴를 누르면 실패!</>
+        ) : (
+          <>
+            현재 <b>{currentPath.length}단계</b> 깊이
+            {currentMenu.some((item) => item.isTarget)
+              ? " — 목표가 이 메뉴에 있습니다!"
+              : " — 계속 탐색하세요."}
+          </>
         )}
+      </div>
+
+      {/* 뒤로가기 */}
+      {currentPath.length > 0 && (
+        <div style={{ padding: "8px 16px", backgroundColor: "#FFFFFF", borderBottom: "1px solid #E5E8EB" }}>
+          <button
+            type="button"
+            onClick={handleBack}
+            style={{
+              padding: "8px 16px",
+              fontSize: "14px",
+              fontWeight: "500",
+              color: "#4E5968",
+              backgroundColor: "#F9FAFB",
+              border: "1px solid #E5E8EB",
+              borderRadius: "6px",
+              cursor: "pointer",
+            }}
+          >
+            ← 뒤로
+          </button>
+        </div>
+      )}
+
+      {/* 메뉴 목록 — 전체 폭 리스트 */}
+      <div style={{ flex: 1, overflowY: "auto", padding: "8px 16px" }}>
+        {currentMenu.map((item, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => handleMenuClick(idx)}
+            style={{
+              display: "block",
+              width: "100%",
+              padding: "14px 16px",
+              marginBottom: "6px",
+              fontSize: "15px",
+              fontWeight: "500",
+              color: "#191F28",
+              backgroundColor: "#FFFFFF",
+              border: "1px solid #E5E8EB",
+              borderRadius: "8px",
+              cursor: "pointer",
+              textAlign: "left",
+              boxSizing: "border-box",
+            }}
+          >
+            {item.label}
+            {item.children && item.children.length > 0 && (
+              <span style={{ float: "right", color: "#8B95A1" }}>{">"}</span>
+            )}
+          </button>
+        ))}
       </div>
     </div>
   );

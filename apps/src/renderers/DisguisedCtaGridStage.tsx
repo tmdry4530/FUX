@@ -226,12 +226,7 @@ export default function DisguisedCtaGridStage({
         </div>
       </div>
 
-      <div
-        style={{
-          ...gridContainerStyle,
-          gridTemplateColumns: `repeat(${Math.min(3, params.gridSize)}, 1fr)`,
-        }}
-      >
+      <div style={feedListStyle}>
         {cardStates.map((card) => {
           const cardStyle: React.CSSProperties = {
             ...cardBaseStyle,
@@ -247,10 +242,17 @@ export default function DisguisedCtaGridStage({
               style={cardStyle}
               onClick={() => handleCardTap(card.id)}
             >
-              {card.isDisguised && <div style={sponsoredBadgeStyle}>Sponsored</div>}
-              <div style={categoryTagStyle}>{card.category}</div>
-              <h3 style={cardTitleStyle}>{card.title}</h3>
-              <p style={cardDescStyle}>{card.description}</p>
+              <div style={cardHeaderRowStyle}>
+                <div style={categoryTagStyle}>{card.category}</div>
+                {card.isDisguised && <div style={sponsoredBadgeStyle}>Sponsored</div>}
+              </div>
+              <div style={cardBodyStyle}>
+                <div style={thumbnailStyle} />
+                <div style={cardTextAreaStyle}>
+                  <h3 style={cardTitleStyle}>{card.title}</h3>
+                  <p style={cardDescStyle}>{card.description}</p>
+                </div>
+              </div>
               {card.tapped && (
                 <div style={checkMarkStyle}>
                   {card.isDisguised ? "❌" : "✓"}
@@ -317,10 +319,10 @@ const progressStyle: React.CSSProperties = {
   color: "#4E5968",
 };
 
-const gridContainerStyle: React.CSSProperties = {
-  display: "grid",
-  gap: "16px",
-  gridTemplateColumns: "repeat(3, 1fr)",
+const feedListStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "12px",
 };
 
 const cardBaseStyle: React.CSSProperties = {
@@ -332,41 +334,64 @@ const cardBaseStyle: React.CSSProperties = {
   WebkitTapHighlightColor: "transparent",
 };
 
+const cardHeaderRowStyle: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  marginBottom: 10,
+};
+
+const cardBodyStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+  gap: "12px",
+  alignItems: "flex-start",
+};
+
+const thumbnailStyle: React.CSSProperties = {
+  width: 72,
+  height: 72,
+  borderRadius: 8,
+  backgroundColor: "#e5e7eb",
+  flexShrink: 0,
+};
+
+const cardTextAreaStyle: React.CSSProperties = {
+  flex: 1,
+  minWidth: 0,
+};
+
 // "광고" 뱃지: 극도로 작고 낮은 opacity로 거의 안 보임
 const sponsoredBadgeStyle: React.CSSProperties = {
-  position: "absolute",
-  top: 6,
-  right: 6,
-  fontSize: 8,
-  color: "#e5e7eb",
+  fontSize: 9,
+  color: "#9ca3af",
   backgroundColor: "transparent",
-  padding: "1px 3px",
+  padding: "1px 4px",
   borderRadius: 2,
   fontWeight: 400,
-  opacity: 0.4,
+  opacity: 0.5,
 };
 
 const categoryTagStyle: React.CSSProperties = {
-  display: 'inline-block',
-  fontSize: 10,
+  display: "inline-block",
+  fontSize: 11,
   fontWeight: 600,
-  color: '#3182F6',
-  backgroundColor: '#E8F3FF',
-  padding: '2px 6px',
+  color: "#3182F6",
+  backgroundColor: "#E8F3FF",
+  padding: "3px 8px",
   borderRadius: 4,
-  marginBottom: 6,
 };
 
 const cardTitleStyle: React.CSSProperties = {
-  fontSize: 14,
+  fontSize: 15,
   fontWeight: 600,
   color: "#191F28",
-  margin: "0 0 8px 0",
-  lineHeight: 1.3,
+  margin: "0 0 6px 0",
+  lineHeight: 1.4,
 };
 
 const cardDescStyle: React.CSSProperties = {
-  fontSize: 12,
+  fontSize: 13,
   color: "#4E5968",
   margin: 0,
   lineHeight: 1.5,
