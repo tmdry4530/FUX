@@ -284,7 +284,7 @@ const missionBannerStyle: React.CSSProperties = {
   top: 0,
   left: 0,
   right: 0,
-  zIndex: 10,
+  zIndex: 1000,
   display: "flex",
   alignItems: "center",
   gap: "8px",

@@ -384,6 +384,7 @@ export default function WizardFlowStage({
               borderRadius: "4px",
               cursor: "pointer",
               minWidth: "60px",
+              minHeight: 44,
             }}
           >
             {params.misleadingLabels ? "다음" : "이전"}
@@ -409,6 +410,7 @@ export default function WizardFlowStage({
               borderRadius: "4px",
               cursor: btn.isReal && !hasScrolled ? "not-allowed" : "pointer",
               minWidth: "60px",
+              minHeight: 44,
               boxShadow:
                 params.mode === "government_portal"
                   ? "0 2px 4px rgba(0,0,0,0.2)"
