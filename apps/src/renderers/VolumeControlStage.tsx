@@ -238,12 +238,14 @@ export default function VolumeControlStage({
                 hideTimer.current = setTimeout(() => setIsHovering(false), params.hideOnOutMs ?? 100);
               }}
               onTouchMove={(e) => {
+                e.preventDefault();
                 if (hideTimer.current) clearTimeout(hideTimer.current);
                 const touch = e.touches[0];
                 if (touch) handleHoverSlider(touch.clientX);
               }}
               style={{
                 height: '40px',
+                touchAction: 'none',
                 background: isHovering ? '#E8EBED' : 'transparent',
                 borderRadius: '4px',
                 position: 'relative',
@@ -283,9 +285,10 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleHyperSensitive(e.clientX)}
-              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleHyperSensitive(t.clientX); }}
+              onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleHyperSensitive(t.clientX); }}
               style={{
                 height: '40px',
+                touchAction: 'none',
                 background: '#E8EBED',
                 borderRadius: '4px',
                 position: 'relative',
@@ -319,9 +322,10 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleTinyHitbox(e.clientX)}
-              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
+              onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
               style={{
                 width: '300px',
+                touchAction: 'none',
                 height: `${(params.trackWidthPx ?? 3) * hitboxScale}px`,
                 background: '#8B95A1',
                 position: 'relative',
@@ -374,9 +378,10 @@ export default function VolumeControlStage({
                 <div
                   ref={trackRef}
                   onMouseMove={(e) => handleTinyHitbox(e.clientX)}
-                  onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
+                  onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
                   style={{
                     position: 'absolute',
+                    touchAction: 'none',
                     top: '60px',
                     left: '-100px',
                     width: '200px',
@@ -404,9 +409,10 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleReverseMapping(e.clientX)}
-              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleReverseMapping(t.clientX); }}
+              onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleReverseMapping(t.clientX); }}
               style={{
                 height: '40px',
+                touchAction: 'none',
                 background: '#E8EBED',
                 borderRadius: '4px',
                 position: 'relative',
@@ -442,9 +448,10 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleRandomJump(e.clientX)}
-              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleRandomJump(t.clientX); }}
+              onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleRandomJump(t.clientX); }}
               style={{
                 height: '40px',
+                touchAction: 'none',
                 background: '#E8EBED',
                 borderRadius: '4px',
                 position: 'relative',
@@ -483,10 +490,11 @@ export default function VolumeControlStage({
               onMouseMove={(e) => handleCircularGestureXY(e.clientX, e.clientY)}
               onTouchStart={() => setIsDragging(true)}
               onTouchEnd={() => setIsDragging(false)}
-              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleCircularGestureXY(t.clientX, t.clientY); }}
+              onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleCircularGestureXY(t.clientX, t.clientY); }}
               style={{
                 width: '150px',
                 height: '150px',
+                touchAction: 'none',
                 borderRadius: '50%',
                 border: '4px solid #4E5968',
                 position: 'relative',
@@ -578,9 +586,10 @@ export default function VolumeControlStage({
               <div
                 ref={trackRef}
                 onMouseMove={(e) => handleTinyHitbox(e.clientX)}
-                onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
+                onTouchMove={(e) => { e.preventDefault(); const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
                 style={{
                   height: '40px',
+                  touchAction: 'none',
                   background: '#E8EBED',
                   borderRadius: '4px',
                   position: 'relative',
