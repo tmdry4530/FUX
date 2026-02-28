@@ -432,8 +432,9 @@ const overlayStyle: React.CSSProperties = {
 };
 
 const modalStyle: React.CSSProperties = {
-  width: 280,
-  maxHeight: 360,
+  width: "calc(100vw - 32px)",
+  maxWidth: 400,
+  maxHeight: 420,
   backgroundColor: "#fff",
   borderRadius: 16,
   boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
@@ -446,7 +447,7 @@ const headerStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "16px 16px 8px",
+  padding: "18px 20px 10px",
 };
 
 const titleStyle: React.CSSProperties = {
@@ -479,8 +480,8 @@ const fakeTextCloseStyle: React.CSSProperties = {
 const bodyStyle: React.CSSProperties = {
   flex: 1,
   overflowY: "auto",
-  padding: "0 16px 16px",
-  maxHeight: 240,
+  padding: "0 20px 16px",
+  maxHeight: 280,
 };
 
 const bodyTextStyle: React.CSSProperties = {
@@ -491,7 +492,7 @@ const bodyTextStyle: React.CSSProperties = {
 };
 
 const checkboxRowStyle: React.CSSProperties = {
-  padding: "0 16px 12px",
+  padding: "0 20px 12px",
 };
 
 const checkboxLabelStyle: React.CSSProperties = {
@@ -503,7 +504,7 @@ const checkboxLabelStyle: React.CSSProperties = {
 };
 
 const footerStyle: React.CSSProperties = {
-  padding: "8px 16px 16px",
+  padding: "8px 20px 20px",
   display: "flex",
   justifyContent: "stretch",
 };

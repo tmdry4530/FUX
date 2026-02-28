@@ -161,8 +161,77 @@ export default function TinyButtonStage({
     }
   }, [params.layout]);
 
+  // 가짜 앱 설정 화면 배경 (topRight 레이아웃일 때만)
+  const fakeSettingsBg = params.layout === "topRight" ? (
+    <div style={{
+      position: "absolute",
+      inset: 0,
+      backgroundColor: "#F9FAFB",
+      pointerEvents: "none",
+      userSelect: "none",
+    }}>
+      {/* 헤더 */}
+      <div style={{
+        padding: "16px",
+        borderBottom: "1px solid #E5E8EB",
+        backgroundColor: "#FFFFFF",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+      }}>
+        <div style={{ width: 28, height: 28, borderRadius: "50%", backgroundColor: "#E5E8EB" }} />
+        <div>
+          <div style={{ width: 80, height: 12, backgroundColor: "#E5E8EB", borderRadius: 4, marginBottom: 4 }} />
+          <div style={{ width: 120, height: 10, backgroundColor: "#F2F4F6", borderRadius: 4 }} />
+        </div>
+      </div>
+      {/* 설정 항목들 */}
+      {["알림 설정", "개인정보 보호", "계정 관리", "서비스 이용약관", "앱 버전"].map((label, i) => (
+        <div key={i} style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "14px 16px",
+          borderBottom: "1px solid #F2F4F6",
+          backgroundColor: "#FFFFFF",
+          marginBottom: i === 2 ? 8 : 0,
+        }}>
+          <span style={{ fontSize: 14, color: "#191F28" }}>{label}</span>
+          <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: "#E5E8EB" }} />
+        </div>
+      ))}
+      {/* 팝업 배너 */}
+      <div style={{
+        margin: "8px 16px",
+        padding: "12px 16px",
+        backgroundColor: "#EBF2FF",
+        borderRadius: 8,
+        border: "1px solid #C7DCF9",
+      }}>
+        <div style={{ width: 140, height: 11, backgroundColor: "#C7DCF9", borderRadius: 4, marginBottom: 6 }} />
+        <div style={{ width: 100, height: 10, backgroundColor: "#D9E8FA", borderRadius: 4 }} />
+      </div>
+      {/* 하단 섹션 */}
+      <div style={{
+        margin: "0 0",
+        backgroundColor: "#FFFFFF",
+        borderTop: "1px solid #E5E8EB",
+      }}>
+        {["로그아웃", "회원 탈퇴"].map((label, i) => (
+          <div key={i} style={{
+            padding: "14px 16px",
+            borderBottom: "1px solid #F2F4F6",
+            fontSize: 14,
+            color: i === 1 ? "#E53935" : "#4E5968",
+          }}>{label}</div>
+        ))}
+      </div>
+    </div>
+  ) : null;
+
   return (
-    <div style={layoutStyle}>
+    <div style={{ ...layoutStyle, position: "relative" }}>
+      {fakeSettingsBg}
       {buttons.map((item) => {
         const isTarget = item.isTarget;
         const visualSize = isTarget ? Math.max(16, params.visualSizePx) : 44;
@@ -180,6 +249,7 @@ export default function TinyButtonStage({
           background: "transparent",
           cursor: "pointer",
           WebkitTapHighlightColor: "transparent",
+          zIndex: 1,
         };
 
         const labelStyle: React.CSSProperties = {

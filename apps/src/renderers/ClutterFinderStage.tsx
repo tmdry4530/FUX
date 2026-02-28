@@ -180,18 +180,32 @@ export default function ClutterFinderStage({
     <div
       style={{
         position: "fixed",
-        top: "16px",
-        left: "16px",
-        padding: "8px 14px",
-        backgroundColor: "#191F28",
-        color: "#FFFFFF",
-        fontSize: "13px",
-        fontWeight: "600",
-        borderRadius: "6px",
+        top: 0,
+        left: 0,
+        right: 0,
+        padding: "12px 16px",
+        background: "linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
         zIndex: 1001,
       }}
     >
-      목표: "{params.targetLabel}" 버튼 찾기
+      <span style={{
+        fontSize: 11,
+        fontWeight: 800,
+        color: "rgba(255,255,255,0.8)",
+        background: "rgba(255,255,255,0.2)",
+        padding: "2px 8px",
+        borderRadius: 4,
+        flexShrink: 0,
+        letterSpacing: "0.5px",
+      }}>미션</span>
+      <span style={{
+        fontSize: 15,
+        fontWeight: 700,
+        color: "#fff",
+      }}>"{params.targetLabel}" 버튼 찾기</span>
     </div>
   );
 
@@ -246,6 +260,7 @@ export default function ClutterFinderStage({
           overflow: "auto",
           position: "relative",
           backgroundColor: "#F9FAFB",
+          paddingTop: "44px",
         }}
       >
         {targetHeader}
@@ -313,6 +328,7 @@ export default function ClutterFinderStage({
         height: "100%",
         overflow: "auto",
         backgroundColor: "#F9FAFB",
+        paddingTop: "44px",
       }}
     >
       {targetHeader}

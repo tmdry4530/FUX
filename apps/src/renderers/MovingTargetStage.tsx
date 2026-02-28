@@ -322,13 +322,14 @@ export default function MovingTargetStage({
     height: CONTAINER_H,
     margin: "0 auto",
     overflow: "hidden",
-    backgroundColor: "#fafafa",
+    backgroundColor: "#F2F4F6",
     borderRadius: 12,
+    border: "1px solid #E5E8EB",
     touchAction: "manipulation",
     userSelect: "none",
     // Background noise: subtle grid
     backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)",
+      "linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)",
     backgroundSize: "32px 32px",
   };
 
@@ -359,10 +360,11 @@ export default function MovingTargetStage({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    fontSize: 16,
-    color: "#999",
+    fontSize: 18,
+    color: "#8B95A1",
     flexDirection: "column",
     gap: 8,
+    fontWeight: 500,
   };
 
   const headerStyle: React.CSSProperties = {
