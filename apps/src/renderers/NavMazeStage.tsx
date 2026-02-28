@@ -389,27 +389,28 @@ export default function NavMazeStage({
         <div style={{ fontSize: "17px", fontWeight: "700", color: "#191F28" }}>
           {params.targetAction}
         </div>
-        {breadcrumb.length > 0 && (
-          <div
-            style={{
-              marginTop: "6px",
-              fontSize: "12px",
-              color: "#8B95A1",
-              display: "flex",
-              alignItems: "center",
-              gap: "3px",
-              flexWrap: "wrap",
-            }}
-          >
-            <span style={{ color: "#3182F6" }}>홈</span>
-            {breadcrumb.map((crumb, i) => (
-              <span key={i}>
-                <span style={{ margin: "0 2px" }}>&gt;</span>
-                <span style={i === breadcrumb.length - 1 ? { color: "#191F28", fontWeight: "600" } : undefined}>{crumb}</span>
-              </span>
-            ))}
-          </div>
-        )}
+        <div
+          style={{
+            marginTop: "6px",
+            fontSize: "12px",
+            color: "#8B95A1",
+            display: "flex",
+            alignItems: "center",
+            gap: "3px",
+            flexWrap: "wrap",
+            minHeight: "18px",
+            visibility: breadcrumb.length > 0 ? "visible" : "hidden",
+          }}
+        >
+          <span style={{ color: "#3182F6" }}>홈</span>
+          {breadcrumb.map((crumb, i) => (
+            <span key={i}>
+              <span style={{ margin: "0 2px" }}>&gt;</span>
+              <span style={i === breadcrumb.length - 1 ? { color: "#191F28", fontWeight: "600" } : undefined}>{crumb}</span>
+            </span>
+          ))}
+          {breadcrumb.length === 0 && <span>&nbsp;</span>}
+        </div>
       </div>
 
       {/* 상태 안내 */}
@@ -434,9 +435,9 @@ export default function NavMazeStage({
         )}
       </div>
 
-      {/* 뒤로가기 */}
-      {currentPath.length > 0 && (
-        <div style={{ padding: "8px 16px", backgroundColor: "#FFFFFF", borderBottom: "1px solid #E5E8EB" }}>
+      {/* 뒤로가기 — 항상 공간 확보하여 레이아웃 시프트 방지 */}
+      <div style={{ padding: "8px 16px", backgroundColor: "#FFFFFF", borderBottom: "1px solid #E5E8EB", minHeight: 60 }}>
+        {currentPath.length > 0 && (
           <button
             type="button"
             onClick={handleBack}
@@ -454,8 +455,8 @@ export default function NavMazeStage({
           >
             ← 뒤로
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* 메뉴 목록 — 전체 폭 리스트 */}
       <div style={{ flex: 1, overflowY: "auto", padding: "8px 16px" }}>
