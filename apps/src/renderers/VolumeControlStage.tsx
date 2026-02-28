@@ -695,58 +695,84 @@ export default function VolumeControlStage({
     }
   };
 
+  const modeTheme: Record<string, { color: string; icon: string }> = {
+    hover_slider:     { color: '#3182F6', icon: '🎚️' },
+    hyper_sensitive:  { color: '#20C997', icon: '🔼' },
+    tiny_hitbox:      { color: '#7950F2', icon: '👆' },
+    hidden_icon:      { color: '#FD7E14', icon: '📜' },
+    reverse_mapping:  { color: '#4C6EF5', icon: '🔄' },
+    random_jump:      { color: '#F59F00', icon: '⏳' },
+    circular_gesture: { color: '#15AABF', icon: '🎤' },
+    puzzle_lock:      { color: '#E64980', icon: '👇' },
+    physics_launcher: { color: '#1971C2', icon: '🚀' },
+    voice_shout:      { color: '#E53935', icon: '🎯' },
+  };
+  const theme = modeTheme[params.mode] ?? { color: '#3182F6', icon: '🔊' };
+
   return (
     <div style={{
       width: '100%',
       maxWidth: '600px',
       margin: '0 auto',
-      padding: '40px 20px',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+      padding: '0 20px',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      boxSizing: 'border-box',
     }}>
-      <div style={{
-        background: '#F2F4F6',
-        padding: '20px',
-        borderRadius: '12px',
-        marginBottom: '20px',
-        textAlign: 'center'
-      }}>
-        <div style={{ fontSize: '14px', color: '#4E5968', marginBottom: '8px' }}>
-          목표 볼륨
-        </div>
-        <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#191F28', marginBottom: '8px' }}>
-          {params.targetVolume}
-        </div>
-        <div style={{ fontSize: '14px', color: '#8B95A1' }}>
-          (±{dynamicTolerance} 허용)
+      <div style={{ flex: '0 0 auto', paddingTop: '40px' }}>
+        <div style={{
+          background: theme.color,
+          padding: '20px',
+          borderRadius: '12px',
+          marginBottom: '20px',
+          textAlign: 'center',
+        }}>
+          <div style={{ fontSize: '28px', marginBottom: '4px' }}>{theme.icon}</div>
+          <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)', marginBottom: '8px' }}>
+            목표 볼륨
+          </div>
+          <div style={{ fontSize: '32px', fontWeight: 'bold', color: 'white', marginBottom: '8px' }}>
+            {params.targetVolume}
+          </div>
+          <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
+            (±{dynamicTolerance} 허용)
+          </div>
         </div>
       </div>
 
       <div style={{
+        flex: '1 1 auto',
         background: 'white',
         borderRadius: '12px',
-        padding: '20px',
         border: '1px solid #E5E8EB',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        overflowY: 'auto',
       }}>
         {renderControl()}
       </div>
 
       <div style={{
+        flex: '0 0 auto',
+        position: 'sticky',
+        bottom: 0,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '16px',
         background: '#F2F4F6',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        marginBottom: '20px',
+        zIndex: 10,
       }}>
         <div style={{ fontSize: '14px', color: '#4E5968' }}>
           현재 볼륨
         </div>
-        <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#191F28' }}>
+        <div style={{ fontSize: '24px', fontWeight: 'bold', color: theme.color }}>
           {volume}
         </div>
       </div>
-
     </div>
   );
 }
