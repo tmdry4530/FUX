@@ -442,6 +442,7 @@ export default function NavMazeStage({
             onClick={handleBack}
             style={{
               padding: "8px 16px",
+              minHeight: 44,
               fontSize: "14px",
               fontWeight: "500",
               color: "#4E5968",

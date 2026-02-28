@@ -162,7 +162,7 @@ export default function TinyButtonStage({
   }, [params.layout]);
 
   // 가짜 앱 설정 화면 배경 (topRight 레이아웃일 때만)
-  const fakeSettingsBg = params.layout === "topRight" ? (
+  const fakeSettingsBg = useMemo(() => params.layout === "topRight" ? (
     <div style={{
       position: "absolute",
       inset: 0,
@@ -213,7 +213,6 @@ export default function TinyButtonStage({
       </div>
       {/* 하단 섹션 */}
       <div style={{
-        margin: "0 0",
         backgroundColor: "#FFFFFF",
         borderTop: "1px solid #E5E8EB",
       }}>
@@ -227,7 +226,7 @@ export default function TinyButtonStage({
         ))}
       </div>
     </div>
-  ) : null;
+  ) : null, [params.layout]);
 
   return (
     <div style={{ ...layoutStyle, position: "relative" }}>

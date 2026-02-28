@@ -13,6 +13,19 @@ export interface VolumeControlParams {
   shuffleOnMiss?: boolean;
 }
 
+const MODE_THEME: Record<string, { color: string; icon: string }> = {
+  hover_slider:     { color: '#3182F6', icon: '🎚️' },
+  hyper_sensitive:  { color: '#20C997', icon: '🔼' },
+  tiny_hitbox:      { color: '#7950F2', icon: '👆' },
+  hidden_icon:      { color: '#FD7E14', icon: '📜' },
+  reverse_mapping:  { color: '#4C6EF5', icon: '🔄' },
+  random_jump:      { color: '#F59F00', icon: '⏳' },
+  circular_gesture: { color: '#15AABF', icon: '🎤' },
+  puzzle_lock:      { color: '#E64980', icon: '👇' },
+  physics_launcher: { color: '#1971C2', icon: '🚀' },
+  voice_shout:      { color: '#E53935', icon: '🎯' },
+};
+
 export default function VolumeControlStage({
   params,
   onComplete,
@@ -695,19 +708,7 @@ export default function VolumeControlStage({
     }
   };
 
-  const modeTheme: Record<string, { color: string; icon: string }> = {
-    hover_slider:     { color: '#3182F6', icon: '🎚️' },
-    hyper_sensitive:  { color: '#20C997', icon: '🔼' },
-    tiny_hitbox:      { color: '#7950F2', icon: '👆' },
-    hidden_icon:      { color: '#FD7E14', icon: '📜' },
-    reverse_mapping:  { color: '#4C6EF5', icon: '🔄' },
-    random_jump:      { color: '#F59F00', icon: '⏳' },
-    circular_gesture: { color: '#15AABF', icon: '🎤' },
-    puzzle_lock:      { color: '#E64980', icon: '👇' },
-    physics_launcher: { color: '#1971C2', icon: '🚀' },
-    voice_shout:      { color: '#E53935', icon: '🎯' },
-  };
-  const theme = modeTheme[params.mode] ?? { color: '#3182F6', icon: '🔊' };
+  const theme = MODE_THEME[params.mode] ?? { color: '#3182F6', icon: '🔊' };
 
   return (
     <div style={{

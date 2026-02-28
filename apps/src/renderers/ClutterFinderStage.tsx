@@ -18,6 +18,8 @@ interface ClutterElement {
   top?: string;
   left?: string;
   rotation?: string;
+  fontSize: string;
+  zIndex: number;
 }
 
 function buildClutterElements(params: ClutterFinderParams): ClutterElement[] {
@@ -31,7 +33,9 @@ function buildClutterElements(params: ClutterFinderParams): ClutterElement[] {
     const type = elementTypes[Math.floor(Math.random() * elementTypes.length)] ?? "button";
     const label = isTarget ? params.targetLabel : decoyPool[i % decoyPool.length] ?? "더 보기";
     const color = getRandomColor();
-    const element: ClutterElement = { type, label, isTarget, color };
+    const fontSize = `${Math.random() * 8 + 12}px`;
+    const zIndex = Math.floor(Math.random() * 100);
+    const element: ClutterElement = { type, label, isTarget, color, fontSize, zIndex };
     if (params.mode === "chaotic_layout") {
       element.top = `${Math.random() * 80 + 10}%`;
       element.left = `${Math.random() * 80 + 5}%`;
@@ -122,6 +126,8 @@ export default function ClutterFinderStage({
             label: decoyPool[(prev.length + i) % decoyPool.length] ?? "더 보기",
             isTarget: false,
             color: getRandomColor(),
+            fontSize: `${Math.random() * 8 + 12}px`,
+            zIndex: Math.floor(Math.random() * 100),
           };
           if (params.mode === "chaotic_layout") {
             element.top = `${Math.random() * 80 + 10}%`;
@@ -285,7 +291,6 @@ export default function ClutterFinderStage({
 
         <div style={{ width: "100%", height: containerHeight, position: "relative" }}>
           {clutterElements.map((element, idx) => {
-            const fontSize = `${Math.random() * 8 + 12}px`;
             const rotation = element.rotation ?? "rotate(0deg)";
             const textColor = "#FFFFFF";
 
@@ -300,14 +305,14 @@ export default function ClutterFinderStage({
                   padding: "12px 16px",
                   backgroundColor: element.color,
                   color: textColor,
-                  fontSize,
+                  fontSize: element.fontSize,
                   fontWeight: "500",
                   borderRadius: "4px",
                   cursor: "pointer",
                   transform: rotation,
                   boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
                   whiteSpace: "nowrap",
-                  zIndex: Math.floor(Math.random() * 100),
+                  zIndex: element.zIndex,
                 }}
               >
                 {element.label}
