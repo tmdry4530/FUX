@@ -15,6 +15,8 @@ interface StageRendererProps {
 }
 
 interface DialogConfig {
+  /** 플레이어에게 보여줄 미션 (예: "계정을 삭제하세요") */
+  mission: string;
   question: string;
   correctChoice: "left" | "right";
   leftLabel: string;
@@ -28,6 +30,7 @@ interface DialogConfig {
 const DIALOG_POOL: DialogConfig[] = [
   // 1. 기본 삭제 확인 — 확인(좌,빨강)이 정답
   {
+    mission: "계정을 삭제하세요",
     question: "계정을 삭제하시겠습니까?",
     correctChoice: "left",
     leftLabel: "확인",
@@ -37,6 +40,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 2. 저장 — 아이콘이 반대로 붙어 있음(휴지통이 저장 버튼에)
   {
+    mission: "변경사항을 저장하세요",
     question: "변경사항을 저장하시겠습니까?",
     correctChoice: "right",
     leftLabel: "저장 안 함",
@@ -46,6 +50,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 3. 이중 부정 — "네, 계속 받겠습니다"가 올바른 선택(수신 유지)
   {
+    mission: "이메일 수신을 유지하세요",
     question: "이메일 수신을 거부하시겠습니까?",
     correctChoice: "left",
     leftLabel: "네, 계속 받겠습니다",
@@ -55,6 +60,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 4. 위험해 보이는 정답 — "해지"가 정답(구독 해지 확인)
   {
+    mission: "구독을 해지하세요",
     question: "구독을 해지하시겠습니까?",
     correctChoice: "left",
     leftLabel: "해지",
@@ -64,6 +70,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 5. "취소"가 정답 — 삭제 취소(파일 보존)
   {
+    mission: "파일을 보존하세요 (삭제하지 마세요)",
     question: "파일을 삭제하시겠습니까?\n이 작업은 취소할 수 없습니다.",
     correctChoice: "right",
     leftLabel: "확인",
@@ -75,6 +82,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 6. 로그아웃 — "취소" 옆에 로그아웃 아이콘
   {
+    mission: "로그아웃하세요",
     question: "로그아웃 하시겠습니까?",
     correctChoice: "left",
     leftLabel: "로그아웃",
@@ -86,6 +94,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 7. 자동저장 비활성화 — "비활성화 취소"(= 자동저장 유지)가 정답
   {
+    mission: "자동 저장을 유지하세요 (끄지 마세요)",
     question: "자동 저장을 비활성화하시겠습니까?",
     correctChoice: "right",
     leftLabel: "비활성화",
@@ -95,6 +104,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 8. 변경사항 저장 안 하고 나가기 — "머무르기"가 정답
   {
+    mission: "페이지에 머물러서 변경사항을 지키세요",
     question: "변경사항이 저장되지 않았습니다.\n나가시겠습니까?",
     correctChoice: "right",
     leftLabel: "나가기",
@@ -106,6 +116,7 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 9. 되돌리기 — "되돌리기 취소"(변경 유지)가 정답
   {
+    mission: "변경사항을 유지하세요 (되돌리지 마세요)",
     question: "이 작업을 되돌리시겠습니까?",
     correctChoice: "right",
     leftLabel: "되돌리기",
@@ -115,7 +126,8 @@ const DIALOG_POOL: DialogConfig[] = [
   },
   // 10. 알림 끄기 — 해석에 따라 혼란, "끄지 않기"가 정답(알림 유지)
   {
-    question: "알림을 끄시겠습니까?\n(알림을 유지하려면 선택하세요)",
+    mission: "알림을 유지하세요 (끄지 마세요)",
+    question: "알림을 끄시겠습니까?",
     correctChoice: "right",
     leftLabel: "끄기",
     rightLabel: "끄지 않기",
@@ -205,6 +217,12 @@ export default function LabelAmbiguityStage({
 
   return (
     <div style={containerStyle}>
+      {/* 미션 배너 — 플레이어가 무엇을 해야 하는지 명시 */}
+      <div style={missionBannerStyle}>
+        <span style={missionLabelStyle}>미션</span>
+        <span style={missionTextStyle}>{currentDialog.mission}</span>
+      </div>
+
       <div style={overlayStyle}>
         <div style={dialogStyle}>
           <div style={headerStyle}>
@@ -259,6 +277,36 @@ const containerStyle: React.CSSProperties = {
   width: "100%",
   height: "100%",
   minHeight: 400,
+};
+
+const missionBannerStyle: React.CSSProperties = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: 10,
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
+  padding: "12px 16px",
+  background: "linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)",
+};
+
+const missionLabelStyle: React.CSSProperties = {
+  fontSize: 11,
+  fontWeight: 800,
+  color: "rgba(255,255,255,0.8)",
+  background: "rgba(255,255,255,0.2)",
+  padding: "2px 8px",
+  borderRadius: 4,
+  flexShrink: 0,
+  letterSpacing: "0.5px",
+};
+
+const missionTextStyle: React.CSSProperties = {
+  fontSize: 15,
+  fontWeight: 700,
+  color: "#fff",
 };
 
 const overlayStyle: React.CSSProperties = {
