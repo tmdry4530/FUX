@@ -156,14 +156,14 @@ export default function VolumeControlStage({
     }
   }, [dynamicJitter, checkOvershoot]);
 
-  const handleCircularGesture = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCircularGestureXY = useCallback((clientX: number, clientY: number) => {
     if (!dialRef.current || !isDragging) return;
     setHasInteracted(true);
     const rect = dialRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    const deltaX = e.clientX - centerX;
-    const deltaY = e.clientY - centerY;
+    const deltaX = clientX - centerX;
+    const deltaY = clientY - centerY;
     const newAngle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
 
     // Require many rotations: 1 full rotation = ~10 volume units
@@ -283,6 +283,7 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleHyperSensitive(e.clientX)}
+              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleHyperSensitive(t.clientX); }}
               style={{
                 height: '40px',
                 background: '#E8EBED',
@@ -318,6 +319,7 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleTinyHitbox(e.clientX)}
+              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
               style={{
                 width: '300px',
                 height: `${(params.trackWidthPx ?? 3) * hitboxScale}px`,
@@ -353,6 +355,12 @@ export default function VolumeControlStage({
               onMouseLeave={() => {
                 if (longPressTimer.current) clearTimeout(longPressTimer.current);
               }}
+              onTouchStart={() => {
+                longPressTimer.current = setTimeout(() => setIsRevealed(true), params.showDelayMs ?? 800);
+              }}
+              onTouchEnd={() => {
+                if (longPressTimer.current) clearTimeout(longPressTimer.current);
+              }}
               style={{
                 fontSize: '48px',
                 cursor: 'pointer',
@@ -366,6 +374,7 @@ export default function VolumeControlStage({
                 <div
                   ref={trackRef}
                   onMouseMove={(e) => handleTinyHitbox(e.clientX)}
+                  onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
                   style={{
                     position: 'absolute',
                     top: '60px',
@@ -395,6 +404,7 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleReverseMapping(e.clientX)}
+              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleReverseMapping(t.clientX); }}
               style={{
                 height: '40px',
                 background: '#E8EBED',
@@ -432,6 +442,7 @@ export default function VolumeControlStage({
             <div
               ref={trackRef}
               onMouseMove={(e) => handleRandomJump(e.clientX)}
+              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleRandomJump(t.clientX); }}
               style={{
                 height: '40px',
                 background: '#E8EBED',
@@ -469,7 +480,10 @@ export default function VolumeControlStage({
               onMouseDown={() => setIsDragging(true)}
               onMouseUp={() => setIsDragging(false)}
               onMouseLeave={() => setIsDragging(false)}
-              onMouseMove={handleCircularGesture}
+              onMouseMove={(e) => handleCircularGestureXY(e.clientX, e.clientY)}
+              onTouchStart={() => setIsDragging(true)}
+              onTouchEnd={() => setIsDragging(false)}
+              onTouchMove={(e) => { const t = e.touches[0]; if (t) handleCircularGestureXY(t.clientX, t.clientY); }}
               style={{
                 width: '150px',
                 height: '150px',
@@ -564,6 +578,7 @@ export default function VolumeControlStage({
               <div
                 ref={trackRef}
                 onMouseMove={(e) => handleTinyHitbox(e.clientX)}
+                onTouchMove={(e) => { const t = e.touches[0]; if (t) handleTinyHitbox(t.clientX); }}
                 style={{
                   height: '40px',
                   background: '#E8EBED',
