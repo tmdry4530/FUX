@@ -33,7 +33,7 @@ import("@apps-in-toss/web-framework")
   });
 
 function logToConsole(method: string, params: Record<string, unknown>) {
-  console.log(`[FUX:Analytics:${method}]`, params);
+  console.log(`[UXTrap:Analytics:${method}]`, params);
 }
 
 // --- Public API ---

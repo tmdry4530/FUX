@@ -21,7 +21,7 @@ interface Milestone {
 
 const MILESTONES: Milestone[] = [
   {
-    code: 'FUX_CHALLENGE_CLEAR',
+    code: 'UXT_CHALLENGE_CLEAR',
     reason: '일일 챌린지 전체 클리어',
     amount: 10,
     check: (s) => s.challengeProgress?.allCleared === true && !s.challengeProgress?.bonusClaimed,
@@ -29,25 +29,25 @@ const MILESTONES: Milestone[] = [
     getKey: (s) => `challenge_${s.challengeProgress?.date}`,
   },
   {
-    code: 'FUX_STREAK_7',
+    code: 'UXT_STREAK_7',
     reason: '7일 연속 출석',
     amount: 30,
     check: (s) => s.attendance.currentStreak >= 7,
   },
   {
-    code: 'FUX_STREAK_14',
+    code: 'UXT_STREAK_14',
     reason: '14일 연속 출석',
     amount: 50,
     check: (s) => s.attendance.currentStreak >= 14,
   },
   {
-    code: 'FUX_STREAK_30',
+    code: 'UXT_STREAK_30',
     reason: '30일 연속 출석',
     amount: 100,
     check: (s) => s.attendance.currentStreak >= 30,
   },
   {
-    code: 'FUX_FULL_COLLECTION',
+    code: 'UXT_FULL_COLLECTION',
     reason: '교육 카드 전체 수집',
     amount: 200,
     check: (s) => s.collection.clearedStageIds.length >= TOTAL_STAGES,

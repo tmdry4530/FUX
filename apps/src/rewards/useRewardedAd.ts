@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 // import { showRewardedAd } from '../toss-adapter/TossAdapter';
 // import { useGameState } from '../game-state/useGameState';
 
-// const AD_GROUP_ID = 'fux-rewarded-001';
+// const AD_GROUP_ID = 'uxtrap-rewarded-001';
 
 export function useRewardedAd() {
   const watchAd = useCallback(async (_stageId: string, _bonusAmount?: number): Promise<boolean> => {

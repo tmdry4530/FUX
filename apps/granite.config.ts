@@ -1,9 +1,9 @@
 import { defineConfig } from "@apps-in-toss/web-framework/config";
 
 export default defineConfig({
-  appName: "fuck-ux",
+  appName: "ux-trap",
   brand: {
-    displayName: "FUX - Bad UX Simulator",
+    displayName: "UX Trap - 속이는 설계 체험 게임",
     primaryColor: "#3182F6",
     icon: "",
   },

@@ -22,7 +22,7 @@ export function StageRenderer(props: StageRendererProps) {
 
   if (!Component) {
     if (typeof window !== 'undefined') {
-      console.error(`[FUX] Stage type not registered: "${props.spec.type}" (id: ${props.spec.id})`);
+      console.error(`[UXTrap] Stage type not registered: "${props.spec.type}" (id: ${props.spec.id})`);
       window.dispatchEvent(new CustomEvent('stage_missing', {
         detail: { type: props.spec.type, id: props.spec.id }
       }));

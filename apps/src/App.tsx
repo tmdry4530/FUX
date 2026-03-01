@@ -29,7 +29,7 @@ function QueryParamRedirect() {
   useEffect(() => {
     if (!initialized) return;
     if (stageId) {
-      console.log(`[FUX:Deeplink] query param redirect: stageId=${stageId}`);
+      console.log(`[UXTrap:Deeplink] query param redirect: stageId=${stageId}`);
       navigate(`/stage/${stageId}`, { replace: true });
       return;
     }
