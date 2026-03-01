@@ -57,11 +57,11 @@ export const Analytics = {
 
 // --- Storage mock ---
 export const Storage = {
-  setItem: async (key: string, value: string) => localStorage.setItem(`uxtrap:${key}`, value),
-  getItem: async (key: string) => localStorage.getItem(`uxtrap:${key}`),
-  removeItem: async (key: string) => localStorage.removeItem(`uxtrap:${key}`),
+  setItem: async (key: string, value: string) => localStorage.setItem(`ilbureo:${key}`, value),
+  getItem: async (key: string) => localStorage.getItem(`ilbureo:${key}`),
+  removeItem: async (key: string) => localStorage.removeItem(`ilbureo:${key}`),
   clearItems: async () => {
-    Object.keys(localStorage).filter(k => k.startsWith('uxtrap:')).forEach(k => localStorage.removeItem(k));
+    Object.keys(localStorage).filter(k => k.startsWith('ilbureo:')).forEach(k => localStorage.removeItem(k));
   },
 };
 

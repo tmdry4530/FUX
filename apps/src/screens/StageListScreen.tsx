@@ -80,7 +80,7 @@ export function StageListScreen() {
           letterSpacing: -0.5,
         }}
       >
-        UX Trap
+        일부러 불편한 앱
       </h1>
       <p
         style={{

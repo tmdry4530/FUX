@@ -1,9 +1,9 @@
 import { defineConfig } from "@apps-in-toss/web-framework/config";
 
 export default defineConfig({
-  appName: "ux-trap",
+  appName: "ilbureo",
   brand: {
-    displayName: "UX Trap - 속이는 설계 체험 게임",
+    displayName: "일부러 불편한 앱 - 하루 1분 나쁜 디자인 탈출",
     primaryColor: "#3182F6",
     icon: "",
   },

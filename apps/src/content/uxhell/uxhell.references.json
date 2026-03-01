@@ -1160,7 +1160,7 @@
   },
   {
     "id": "uxref_bonus_curling_stone_lock",
-    "title": "UX Trap Original: Curling Stone Lock — 스톤을 밀어서 중앙 원에 정착하면 성공",
+    "title": "Ilbureo Original: Curling Stone Lock — 스톤을 밀어서 중앙 원에 정착하면 성공",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "physics_target_hell",
@@ -1188,7 +1188,7 @@
   },
   {
     "id": "uxref_bonus_physics_ball_drop",
-    "title": "UX Trap Original: Ball Drop Lock — 공을 떨어뜨려 목표 홈에 착지하면 성공",
+    "title": "Ilbureo Original: Ball Drop Lock — 공을 떨어뜨려 목표 홈에 착지하면 성공",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "physics_target_hell",
@@ -1203,7 +1203,7 @@
   },
   {
     "id": "uxref_bonus_physics_pendulum_dial",
-    "title": "UX Trap Original: Pendulum Dial — 진자 운동으로 정확한 각도에 멈추면 성공",
+    "title": "Ilbureo Original: Pendulum Dial — 진자 운동으로 정확한 각도에 멈추면 성공",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "physics_target_hell",
@@ -1217,7 +1217,7 @@
   },
   {
     "id": "uxref_bonus_color_zero_contrast",
-    "title": "UX Trap Original: Zero Contrast Mode — 텍스트와 배경이 동일한 색으로 수렴",
+    "title": "Ilbureo Original: Zero Contrast Mode — 텍스트와 배경이 동일한 색으로 수렴",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "color_theme_hell",
@@ -1230,7 +1230,7 @@
   },
   {
     "id": "uxref_bonus_color_rainbow_chaos",
-    "title": "UX Trap Original: Rainbow Chaos — 매초 전체 UI 색상이 무작위 변환",
+    "title": "Ilbureo Original: Rainbow Chaos — 매초 전체 UI 색상이 무작위 변환",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "color_theme_hell",
@@ -1244,7 +1244,7 @@
   },
   {
     "id": "uxref_bonus_form_morse_input",
-    "title": "UX Trap Original: Morse Code Form — 모스 부호로 모든 입력을 타이핑해야 하는 폼",
+    "title": "Ilbureo Original: Morse Code Form — 모스 부호로 모든 입력을 타이핑해야 하는 폼",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "form_input_hell",
@@ -1257,7 +1257,7 @@
   },
   {
     "id": "uxref_bonus_form_captcha_every_field",
-    "title": "UX Trap Original: CAPTCHA Every Field — 매 필드마다 캡차 인증이 필요한 폼",
+    "title": "Ilbureo Original: CAPTCHA Every Field — 매 필드마다 캡차 인증이 필요한 폼",
     "url": null,
     "sourceTag": "internal/idea",
     "archetype": "form_input_hell",

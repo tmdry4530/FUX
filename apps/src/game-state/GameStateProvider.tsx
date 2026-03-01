@@ -3,7 +3,7 @@ import type { GameState, GameAction } from './types';
 import { gameReducer, initialGameState } from './reducer';
 import { save, load, getUserHash } from '../toss-adapter/TossAdapter';
 
-const STORAGE_KEY = 'uxtrap_game_state';
+const STORAGE_KEY = 'ilbureo_game_state';
 
 interface GameStateContextValue {
   state: GameState;

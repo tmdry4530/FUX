@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { getTossShareLink, share } from "@apps-in-toss/web-framework";
 
-const DEEP_LINK_PREFIX = "intoss://ux-trap/stage";
+const DEEP_LINK_PREFIX = "intoss://ilbureo/stage";
 
 interface UseShareReturn {
   shareStage: (
@@ -29,7 +29,7 @@ function buildOgImageUrl(): string | undefined {
 
 /**
  * 스테이지 공유 훅
- * - 딥링크: intoss://ux-trap/stage/{stageId}
+ * - 딥링크: intoss://ilbureo/stage/{stageId}
  * - getTossShareLink(url, ogImageUrl?)로 공유 링크 생성
  * - share({ message })로 네이티브 공유 시트 호출
  */
