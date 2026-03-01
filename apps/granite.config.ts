@@ -5,7 +5,7 @@ export default defineConfig({
   brand: {
     displayName: "일부러 불편한 앱 - 하루 1분 나쁜 디자인 탈출",
     primaryColor: "#3182F6",
-    icon: "",
+    icon: "/logo-light.png",
   },
   web: {
     host: "localhost",
