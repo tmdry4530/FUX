@@ -2,11 +2,11 @@ import type { StageSpec } from '../stages/stage-spec';
 import type { StageResult } from '../engine/types';
 
 const BASE_UXP: Record<number, number> = {
-  1: 20,   // Very Easy
-  2: 30,   // Easy
-  3: 50,   // Normal
-  4: 80,   // Hard
-  5: 120,  // Very Hard
+  1: 10,   // Very Easy
+  2: 10,   // Easy
+  3: 10,   // Normal
+  4: 10,   // Hard
+  5: 10,   // Very Hard
 };
 
 const TIME_BONUS_THRESHOLD = 0.5; // 50% 이내 클리어

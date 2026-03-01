@@ -37,8 +37,7 @@ export function DailyChallengeScreen() {
 
   useEffect(() => {
     initChallenge();
-    recordToday();
-  }, [initChallenge, recordToday]);
+  }, [initChallenge]);
 
   const steps = progress?.steps ?? [];
   const allCleared = progress?.allCleared ?? false;
@@ -53,6 +52,8 @@ export function DailyChallengeScreen() {
     };
     dispatch({ type: 'ADD_UXP', entry: bonusEntry });
     dispatch({ type: 'CLAIM_CHALLENGE_BONUS' });
+    // 6단계 모두 클리어 + 보너스 수령 시에만 출석 기록
+    recordToday();
     const updatedState = {
       ...state,
       uxp: {

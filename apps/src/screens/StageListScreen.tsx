@@ -9,6 +9,7 @@ import { useGameState } from "../game-state/useGameState";
 import { useDailyChallenge } from "../challenge/useDailyChallenge";
 import { useAttendance } from "../attendance/useAttendance";
 import { useRewardedAd } from "../rewards/useRewardedAd";
+import { getTodayKST } from "../challenge/generateDailyChallenge";
 
 const TDS = {
   grey900: "#191F28",
@@ -38,11 +39,26 @@ const allStages: StageSpec[] = [
 
 export function StageListScreen() {
   const navigate = useNavigate();
-  const { state } = useGameState();
+  const { state, dispatch } = useGameState();
   const { progress, clearedCount, totalSteps } = useDailyChallenge();
   const { attendance } = useAttendance();
   const { watchAd, loading: adLoading } = useRewardedAd();
   const [adToast, setAdToast] = useState<string | null>(null);
+
+  // 오늘 홈 광고 보상 이미 받았는지 체크
+  const today = getTodayKST();
+  const dailyAdClaimed = state.uxp.entries.some(
+    (e) => e.type === 'rewarded_ad' && e.stageId === 'daily-bonus' && e.timestamp.startsWith(today)
+  );
+
+  // 하드 챌린지 상태
+  const hc = state.hardChallenge;
+  const hcToday = hc && hc.date === today;
+  const hcPlayCount = hcToday ? hc.playCount : 0;
+  const hcAdWatchCount = hcToday ? hc.adWatchCount : 0;
+  const hcCanPlayFree = hcPlayCount < 1;
+  const hcCanWatchAd = hcPlayCount >= 1 && hcAdWatchCount < 2;
+  const hcExhausted = hcPlayCount >= 3;
 
   // 하드 챌린지: 난이도 4~5에서 랜덤 3개 (동일 type 중복 방지)
   const hardStages = useMemo(() => {
@@ -176,46 +192,59 @@ export function StageListScreen() {
       {/* 2. 광고 보고 보상 받기 */}
       <button
         onClick={async () => {
-          if (!adLoading) {
-            const ok = await watchAd('daily-bonus', 50);
-            if (!ok) {
+          if (!adLoading && !dailyAdClaimed) {
+            const ok = await watchAd('daily-bonus', 10);
+            if (ok) {
+              dispatch({
+                type: 'ADD_UXP',
+                entry: {
+                  id: `ad-daily-${Date.now()}`,
+                  timestamp: new Date().toISOString(),
+                  type: 'rewarded_ad',
+                  amount: 10,
+                  stageId: 'daily-bonus',
+                },
+              });
+              setAdToast('+10 UX력 획득!');
+              setTimeout(() => setAdToast(null), 2500);
+            } else {
               setAdToast('광고를 불러올 수 없습니다. 잠시 후 다시 시도해주세요.');
               setTimeout(() => setAdToast(null), 3000);
             }
           }
         }}
-        disabled={adLoading}
+        disabled={adLoading || dailyAdClaimed}
         style={{
           width: '100%',
           padding: '20px',
-          background: adLoading
+          background: adLoading || dailyAdClaimed
             ? TDS.grey100
             : 'linear-gradient(135deg, #F59F00 0%, #E08E00 100%)',
           border: 'none',
           borderRadius: TDS.radius12,
-          cursor: adLoading ? 'default' : 'pointer',
+          cursor: adLoading || dailyAdClaimed ? 'default' : 'pointer',
           textAlign: 'left',
           marginBottom: 12,
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
-            <div style={{ fontSize: 12, fontWeight: 600, color: adLoading ? TDS.grey500 : 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: adLoading || dailyAdClaimed ? TDS.grey500 : 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
               광고 시청 보상
             </div>
-            <div style={{ fontSize: 17, fontWeight: 700, color: adLoading ? TDS.grey500 : '#fff' }}>
-              {adLoading ? '광고 로딩중...' : '광고 보고 UX력 받기'}
+            <div style={{ fontSize: 17, fontWeight: 700, color: adLoading || dailyAdClaimed ? TDS.grey500 : '#fff' }}>
+              {dailyAdClaimed ? '오늘 보상 수령 완료' : adLoading ? '광고 로딩중...' : '광고 보고 UX력 받기'}
             </div>
           </div>
           <span style={{
             fontSize: 14,
             fontWeight: 700,
-            color: adLoading ? TDS.grey500 : '#fff',
-            background: adLoading ? TDS.grey200 : 'rgba(255,255,255,0.2)',
+            color: adLoading || dailyAdClaimed ? TDS.grey500 : '#fff',
+            background: adLoading || dailyAdClaimed ? TDS.grey200 : 'rgba(255,255,255,0.2)',
             padding: '6px 12px',
             borderRadius: TDS.radius8,
           }}>
-            +50 UX력
+            +10 UX력
           </span>
         </div>
       </button>
@@ -227,14 +256,19 @@ export function StageListScreen() {
           background: 'linear-gradient(135deg, #E53935 0%, #C62828 100%)',
           borderRadius: `${TDS.radius12}px ${TDS.radius12}px 0 0`,
         }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
-            고난이도 · 보상 2배
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
+              고난이도 · 보상 2배
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.9)' }}>
+              오늘 {hcPlayCount}/3회 도전
+            </div>
           </div>
           <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>
             하드 챌린지
           </div>
           <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', marginTop: 4 }}>
-            Hard ~ Very Hard 난이도 랜덤 추천
+            Hard ~ Very Hard 난이도 랜덤 추천 · 1회 무료, 광고 시청 시 최대 3회
           </div>
         </div>
 
@@ -275,22 +309,72 @@ export function StageListScreen() {
                     {stage.objective}
                   </div>
                 </div>
-                <button
-                  onClick={() => navigate(`/stage/${encodeURIComponent(stage.id)}`)}
-                  style={{
-                    padding: '8px 16px',
-                    fontSize: 13,
-                    fontWeight: 700,
-                    background: isCleared ? TDS.grey100 : TDS.red500,
-                    color: isCleared ? TDS.grey700 : TDS.white,
-                    border: 'none',
-                    borderRadius: TDS.radius8,
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {isCleared ? '재도전' : '도전'}
-                </button>
+                {hcExhausted ? (
+                  <button
+                    disabled
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: 13,
+                      fontWeight: 700,
+                      background: TDS.grey200,
+                      color: TDS.grey500,
+                      border: 'none',
+                      borderRadius: TDS.radius8,
+                      cursor: 'default',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    소진
+                  </button>
+                ) : hcCanPlayFree ? (
+                  <button
+                    onClick={() => {
+                      dispatch({ type: 'PLAY_HARD_CHALLENGE' });
+                      navigate(`/stage/${encodeURIComponent(stage.id)}`);
+                    }}
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: 13,
+                      fontWeight: 700,
+                      background: isCleared ? TDS.grey100 : TDS.red500,
+                      color: isCleared ? TDS.grey700 : TDS.white,
+                      border: 'none',
+                      borderRadius: TDS.radius8,
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {isCleared ? '재도전' : '도전'}
+                  </button>
+                ) : hcCanWatchAd ? (
+                  <button
+                    onClick={async () => {
+                      const ok = await watchAd(stage.id);
+                      if (ok) {
+                        dispatch({ type: 'WATCH_HARD_AD' });
+                        dispatch({ type: 'PLAY_HARD_CHALLENGE' });
+                        navigate(`/stage/${encodeURIComponent(stage.id)}`);
+                      } else {
+                        setAdToast('광고를 시청해야 도전할 수 있습니다.');
+                        setTimeout(() => setAdToast(null), 2500);
+                      }
+                    }}
+                    disabled={adLoading}
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: 12,
+                      fontWeight: 700,
+                      background: adLoading ? TDS.grey200 : TDS.orange500,
+                      color: adLoading ? TDS.grey500 : TDS.white,
+                      border: 'none',
+                      borderRadius: TDS.radius8,
+                      cursor: adLoading ? 'default' : 'pointer',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {adLoading ? '로딩...' : '광고 보고 도전'}
+                  </button>
+                ) : null}
               </div>
             );
           })}

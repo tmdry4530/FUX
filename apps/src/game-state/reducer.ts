@@ -1,4 +1,5 @@
 import type { GameState, GameAction, UXPEntry } from './types';
+import { getTodayKST } from '../challenge/generateDailyChallenge';
 
 export const initialGameState: GameState = {
   userHash: null,
@@ -8,6 +9,7 @@ export const initialGameState: GameState = {
   collection: { clearedStageIds: [], viewedCardIds: [] },
   challengeProgress: null,
   tossPointHistory: [],
+  hardChallenge: null,
 };
 
 export function gameReducer(state: GameState, action: GameAction): GameState {
@@ -62,7 +64,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         : true;
       const newStreak = isConsecutive ? att.currentStreak + 1 : 1;
 
-      return {
+      let newState: GameState = {
         ...state,
         attendance: {
           attendedDates: newDates,
@@ -71,6 +73,25 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
           lastDate: date,
         },
       };
+
+      // 7일 스트릭 보너스: 20 UXP
+      if (newStreak > 0 && newStreak % 7 === 0) {
+        const streakBonusEntry: UXPEntry = {
+          id: `streak-bonus-${Date.now()}`,
+          timestamp: new Date().toISOString(),
+          type: 'streak_bonus',
+          amount: 20,
+        };
+        newState = {
+          ...newState,
+          uxp: {
+            total: newState.uxp.total + streakBonusEntry.amount,
+            entries: [streakBonusEntry, ...newState.uxp.entries].slice(0, 200),
+          },
+        };
+      }
+
+      return newState;
     }
 
     case 'ADD_CLEARED_STAGE': {
@@ -135,6 +156,36 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
 
     case 'COMPLETE_ONBOARDING':
       return { ...state, hasSeenOnboarding: true };
+
+    case 'PLAY_HARD_CHALLENGE': {
+      const today = getTodayKST();
+      const hc = state.hardChallenge;
+      const isNewDay = !hc || hc.date !== today;
+      return {
+        ...state,
+        hardChallenge: {
+          date: today,
+          playCount: isNewDay ? 1 : hc.playCount + 1,
+          adWatchCount: isNewDay ? 0 : hc.adWatchCount,
+        },
+      };
+    }
+
+    case 'WATCH_HARD_AD': {
+      const today = getTodayKST();
+      const hc = state.hardChallenge;
+      const isNewDay = !hc || hc.date !== today;
+      const currentAdCount = isNewDay ? 0 : hc.adWatchCount;
+      if (currentAdCount >= 2) return state;
+      return {
+        ...state,
+        hardChallenge: {
+          date: today,
+          playCount: isNewDay ? 0 : hc.playCount,
+          adWatchCount: currentAdCount + 1,
+        },
+      };
+    }
 
     default:
       return state;

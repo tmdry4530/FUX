@@ -1,3 +1,9 @@
+export interface HardChallengeState {
+  date: string;         // YYYY-MM-DD (KST)
+  playCount: number;    // 오늘 플레이 횟수
+  adWatchCount: number; // 오늘 광고 시청 횟수 (최대 2)
+}
+
 export interface GameState {
   userHash: string | null;
   hasSeenOnboarding: boolean;
@@ -6,6 +12,7 @@ export interface GameState {
   collection: CollectionState;
   challengeProgress: ChallengeProgress | null;
   tossPointHistory: TossPointEntry[];
+  hardChallenge: HardChallengeState | null;
 }
 
 export interface UXPState {
@@ -64,4 +71,6 @@ export type GameAction =
   | { type: 'UPDATE_CHALLENGE_STEP'; stepIndex: number; status: ChallengeStep['status']; result?: ChallengeStep['result'] }
   | { type: 'CLAIM_CHALLENGE_BONUS' }
   | { type: 'ADD_TOSS_POINT'; entry: TossPointEntry }
-  | { type: 'COMPLETE_ONBOARDING' };
+  | { type: 'COMPLETE_ONBOARDING' }
+  | { type: 'PLAY_HARD_CHALLENGE' }
+  | { type: 'WATCH_HARD_AD' };
