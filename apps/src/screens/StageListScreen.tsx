@@ -45,10 +45,14 @@ export function StageListScreen() {
   const { watchAd, loading: adLoading } = useRewardedAd();
   const [adToast, setAdToast] = useState<string | null>(null);
 
-  // 오늘 홈 광고 보상 이미 받았는지 체크
+  // 오늘 홈 광고 보상 이미 받았는지 체크 (UTC→KST 변환 후 비교)
   const today = getTodayKST();
+  const toKSTDate = (iso: string) => {
+    const d = new Date(iso);
+    return new Date(d.getTime() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  };
   const dailyAdClaimed = state.uxp.entries.some(
-    (e) => e.type === 'rewarded_ad' && e.stageId === 'daily-bonus' && e.timestamp.startsWith(today)
+    (e) => e.type === 'rewarded_ad' && e.stageId === 'daily-bonus' && toKSTDate(e.timestamp) === today
   );
 
   // 하드 챌린지 상태
