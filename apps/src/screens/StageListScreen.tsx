@@ -64,12 +64,22 @@ export function StageListScreen() {
   const hcCanWatchAd = hcPlayCount >= 1 && hcAdWatchCount < 2;
   const hcExhausted = hcPlayCount >= 3;
 
-  // 하드 챌린지: 난이도 4~5에서 랜덤 3개 (동일 type 중복 방지)
+  // 하드 챌린지: 난이도 4~5에서 날짜 기반 시드로 3개 고정 (동일 type 중복 방지)
   const hardStages = useMemo(() => {
+    // 날짜 기반 시드 해시 (같은 날짜 → 같은 순서)
+    let seed = 0;
+    for (let i = 0; i < today.length; i++) {
+      seed = ((seed << 5) - seed + today.charCodeAt(i)) | 0;
+    }
+    const seededRandom = () => {
+      seed = (seed * 1664525 + 1013904223) | 0;
+      return ((seed >>> 0) / 0x100000000);
+    };
+
     const pool = allStages.filter((s) => s.difficulty >= 4);
     const shuffled = [...pool];
     for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(seededRandom() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!];
     }
     const seen = new Set<string>();
@@ -78,7 +88,7 @@ export function StageListScreen() {
       seen.add(s.type);
       return true;
     }).slice(0, 3);
-  }, []);
+  }, [today]);
 
   return (
     <div
