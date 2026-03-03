@@ -77,9 +77,12 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
     if (shouldNavigate && result) {
       const challengeParam = searchParams.get('challenge');
       const stepParam = searchParams.get('step');
+      const hardParam = searchParams.get('hard');
       const resultUrl = challengeParam
         ? `/result/${spec.id}?challenge=1&step=${stepParam ?? '0'}`
-        : `/result/${spec.id}`;
+        : hardParam
+          ? `/result/${spec.id}?hard=1`
+          : `/result/${spec.id}`;
       navigate(resultUrl, { state: result, replace: true });
     }
   }, [shouldNavigate, result, navigate, spec.id, searchParams]);

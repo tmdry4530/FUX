@@ -175,7 +175,12 @@ export default function WizardFlowStage({
 
   const handleDecoy = useCallback(() => {
     onFail();
-    setCurrentStep(1);
+    // 긴 위저드(>5단계): 2스텝만 되돌림 (전체 초기화 대신 부분 패널티)
+    if (totalSteps > 5) {
+      setCurrentStep((prev) => Math.max(1, prev - 2));
+    } else {
+      setCurrentStep(1);
+    }
     setFieldValues({});
     setHasScrolled(!params.forcedScroll);
     reshuffleButtons();
@@ -183,7 +188,7 @@ export default function WizardFlowStage({
     if (params.wrongCloseAddsLayer) {
       setTotalSteps((prev) => Math.min(prev + 1, maxTotalSteps));
     }
-  }, [params.forcedScroll, params.wrongCloseAddsLayer, maxTotalSteps, onFail, reshuffleButtons, reshuffleDecoyLabels]);
+  }, [params.forcedScroll, params.wrongCloseAddsLayer, maxTotalSteps, totalSteps, onFail, reshuffleButtons, reshuffleDecoyLabels]);
 
   const handleFieldChange = useCallback((field: string, value: string) => {
     setFieldValues((prev) => ({ ...prev, [field]: value }));

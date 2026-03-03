@@ -39,6 +39,7 @@ export default function VolumeControlStage({
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
+  const [revealGraceOver, setRevealGraceOver] = useState(false);
   const [puzzleSequence, setPuzzleSequence] = useState<number[]>([]);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [angle, setAngle] = useState(0);
@@ -65,14 +66,24 @@ export default function VolumeControlStage({
 
   const targetPuzzle = [1, 3, 2, 4]; // solution for puzzle_lock
 
+  // hidden_icon: 슬라이더 공개 후 500ms 유예기간 (커서 위치 즉시 클리어 방지)
+  useEffect(() => {
+    if (isRevealed && params.mode === 'hidden_icon') {
+      const timer = setTimeout(() => setRevealGraceOver(true), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isRevealed, params.mode]);
+
   // Check win condition (only after first user interaction)
   useEffect(() => {
     if (!hasInteracted) return;
+    // hidden_icon: 유예기간 동안 승리 조건 비활성화
+    if (params.mode === 'hidden_icon' && !revealGraceOver) return;
     const diff = Math.abs(volume - params.targetVolume);
     if (diff <= dynamicTolerance) {
       onComplete();
     }
-  }, [volume, params.targetVolume, dynamicTolerance, onComplete, hasInteracted]);
+  }, [volume, params.targetVolume, dynamicTolerance, onComplete, hasInteracted, params.mode, revealGraceOver]);
 
   // Track overshoots
   const checkOvershoot = useCallback((newVolume: number) => {

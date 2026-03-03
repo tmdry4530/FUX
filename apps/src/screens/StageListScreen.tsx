@@ -323,7 +323,19 @@ export function StageListScreen() {
                     {stage.objective}
                   </div>
                 </div>
-                {hcExhausted ? (
+                {isCleared ? (
+                  <span
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: '#00C471',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    클리어 완료
+                  </span>
+                ) : hcExhausted ? (
                   <button
                     disabled
                     style={{
@@ -344,21 +356,21 @@ export function StageListScreen() {
                   <button
                     onClick={() => {
                       dispatch({ type: 'PLAY_HARD_CHALLENGE' });
-                      navigate(`/stage/${encodeURIComponent(stage.id)}`);
+                      navigate(`/stage/${encodeURIComponent(stage.id)}?hard=1`);
                     }}
                     style={{
                       padding: '8px 16px',
                       fontSize: 13,
                       fontWeight: 700,
-                      background: isCleared ? TDS.grey100 : TDS.red500,
-                      color: isCleared ? TDS.grey700 : TDS.white,
+                      background: TDS.red500,
+                      color: TDS.white,
                       border: 'none',
                       borderRadius: TDS.radius8,
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
                     }}
                   >
-                    {isCleared ? '재도전' : '도전'}
+                    도전
                   </button>
                 ) : hcCanWatchAd ? (
                   <button
@@ -367,7 +379,7 @@ export function StageListScreen() {
                       if (ok) {
                         dispatch({ type: 'WATCH_HARD_AD' });
                         dispatch({ type: 'PLAY_HARD_CHALLENGE' });
-                        navigate(`/stage/${encodeURIComponent(stage.id)}`);
+                        navigate(`/stage/${encodeURIComponent(stage.id)}?hard=1`);
                       } else {
                         setAdToast('광고를 시청해야 도전할 수 있습니다.');
                         setTimeout(() => setAdToast(null), 2500);

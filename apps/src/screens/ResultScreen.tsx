@@ -48,6 +48,7 @@ export function ResultScreen() {
   const { watchAd, loading: adLoading } = useRewardedAd();
 
   const isChallengeMode = searchParams.get('challenge') === '1';
+  const isHardMode = searchParams.get('hard') === '1';
   const currentStep = Number(searchParams.get('step') ?? '0');
 
   // 챌린지 모드: 다음 단계 정보
@@ -325,121 +326,145 @@ export function ResultScreen() {
 
       {/* Actions */}
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
-        <button
-          onClick={async () => {
-            const retryUrl = isChallengeMode
-              ? `/stage/${encodeURIComponent(spec.id)}?challenge=1&step=${currentStep}`
-              : `/stage/${encodeURIComponent(spec.id)}`;
-            if (isChallengeMode && !cleared) {
-              setRetryAdLoading(true);
-              const ok = await watchAd(spec.id, 0);
-              setRetryAdLoading(false);
-              if (ok) {
-                navigate(retryUrl, { replace: true });
-              } else {
-                setAdErrorToast('광고를 시청해야 재도전할 수 있습니다.');
-                setTimeout(() => setAdErrorToast(null), 2500);
-              }
-            } else {
-              setPendingNavigation(retryUrl);
+        {isHardMode ? (
+          /* 하드 챌린지: 홈으로 돌아가기만 가능 (무한 시도 방지) */
+          <button
+            onClick={() => {
+              setPendingNavigation("/");
               setAdTrigger(true);
-            }
-          }}
-          disabled={retryAdLoading}
-          style={{
-            padding: "14px 24px",
-            fontSize: 14,
-            fontWeight: 600,
-            background: isChallengeMode && !cleared ? TDS.orange500 : TDS.white,
-            color: isChallengeMode && !cleared ? TDS.white : TDS.grey900,
-            border: isChallengeMode && !cleared ? 'none' : `1px solid ${TDS.grey200}`,
-            borderRadius: TDS.radius8,
-            cursor: retryAdLoading ? "default" : "pointer",
-          }}
-        >
-          {retryAdLoading ? '광고 로딩중...' : isChallengeMode && !cleared ? '광고 보고 재도전' : '다시 도전'}
-        </button>
-        <button
-          onClick={() => {
-            setPendingNavigation(isChallengeMode ? "/challenge" : "/");
-            setAdTrigger(true);
-          }}
-          style={{
-            padding: "14px 24px",
-            fontSize: 14,
-            fontWeight: 600,
-            background: TDS.white,
-            color: TDS.grey900,
-            border: `1px solid ${TDS.grey200}`,
-            borderRadius: TDS.radius8,
-            cursor: "pointer",
-          }}
-        >
-          {isChallengeMode ? "챌린지로" : "목록으로"}
-        </button>
-        {isChallengeMode ? (
-          nextChallengeStep ? (
-            <button
-              onClick={() => {
-                setPendingNavigation(
-                  `/stage/${encodeURIComponent(nextChallengeStep.stageId)}?challenge=1&step=${nextChallengeStep.index}`
-                );
-                setAdTrigger(true);
-              }}
-              style={{
-                padding: "14px 24px",
-                fontSize: 14,
-                fontWeight: 600,
-                background: TDS.blue500,
-                color: TDS.white,
-                border: "none",
-                borderRadius: TDS.radius8,
-                cursor: "pointer",
-              }}
-            >
-              다음 단계
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                setPendingNavigation("/challenge");
-                setAdTrigger(true);
-              }}
-              style={{
-                padding: "14px 24px",
-                fontSize: 14,
-                fontWeight: 600,
-                background: TDS.blue500,
-                color: TDS.white,
-                border: "none",
-                borderRadius: TDS.radius8,
-                cursor: "pointer",
-              }}
-            >
-              챌린지 완료
-            </button>
-          )
+            }}
+            style={{
+              padding: "14px 24px",
+              fontSize: 14,
+              fontWeight: 600,
+              background: TDS.blue500,
+              color: TDS.white,
+              border: "none",
+              borderRadius: TDS.radius8,
+              cursor: "pointer",
+            }}
+          >
+            홈으로
+          </button>
         ) : (
-          nextStageId && (
+          <>
+            <button
+              onClick={async () => {
+                const retryUrl = isChallengeMode
+                  ? `/stage/${encodeURIComponent(spec.id)}?challenge=1&step=${currentStep}`
+                  : `/stage/${encodeURIComponent(spec.id)}`;
+                if (isChallengeMode && !cleared) {
+                  setRetryAdLoading(true);
+                  const ok = await watchAd(spec.id, 0);
+                  setRetryAdLoading(false);
+                  if (ok) {
+                    navigate(retryUrl, { replace: true });
+                  } else {
+                    setAdErrorToast('광고를 시청해야 재도전할 수 있습니다.');
+                    setTimeout(() => setAdErrorToast(null), 2500);
+                  }
+                } else {
+                  setPendingNavigation(retryUrl);
+                  setAdTrigger(true);
+                }
+              }}
+              disabled={retryAdLoading}
+              style={{
+                padding: "14px 24px",
+                fontSize: 14,
+                fontWeight: 600,
+                background: isChallengeMode && !cleared ? TDS.orange500 : TDS.white,
+                color: isChallengeMode && !cleared ? TDS.white : TDS.grey900,
+                border: isChallengeMode && !cleared ? 'none' : `1px solid ${TDS.grey200}`,
+                borderRadius: TDS.radius8,
+                cursor: retryAdLoading ? "default" : "pointer",
+              }}
+            >
+              {retryAdLoading ? '광고 로딩중...' : isChallengeMode && !cleared ? '광고 보고 재도전' : '다시 도전'}
+            </button>
             <button
               onClick={() => {
-                setPendingNavigation(`/stage/${nextStageId}`);
+                setPendingNavigation(isChallengeMode ? "/challenge" : "/");
                 setAdTrigger(true);
               }}
               style={{
                 padding: "14px 24px",
                 fontSize: 14,
                 fontWeight: 600,
-                background: TDS.blue500,
-                color: TDS.white,
-                border: "none",
+                background: TDS.white,
+                color: TDS.grey900,
+                border: `1px solid ${TDS.grey200}`,
                 borderRadius: TDS.radius8,
                 cursor: "pointer",
               }}
             >
-              다음 스테이지
+              {isChallengeMode ? "챌린지로" : "목록으로"}
             </button>
-          )
+            {isChallengeMode ? (
+              nextChallengeStep ? (
+                <button
+                  onClick={() => {
+                    setPendingNavigation(
+                      `/stage/${encodeURIComponent(nextChallengeStep.stageId)}?challenge=1&step=${nextChallengeStep.index}`
+                    );
+                    setAdTrigger(true);
+                  }}
+                  style={{
+                    padding: "14px 24px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    background: TDS.blue500,
+                    color: TDS.white,
+                    border: "none",
+                    borderRadius: TDS.radius8,
+                    cursor: "pointer",
+                  }}
+                >
+                  다음 단계
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setPendingNavigation("/challenge");
+                    setAdTrigger(true);
+                  }}
+                  style={{
+                    padding: "14px 24px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    background: TDS.blue500,
+                    color: TDS.white,
+                    border: "none",
+                    borderRadius: TDS.radius8,
+                    cursor: "pointer",
+                  }}
+                >
+                  챌린지 완료
+                </button>
+              )
+            ) : (
+              nextStageId && (
+                <button
+                  onClick={() => {
+                    setPendingNavigation(`/stage/${nextStageId}`);
+                    setAdTrigger(true);
+                  }}
+                  style={{
+                    padding: "14px 24px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    background: TDS.blue500,
+                    color: TDS.white,
+                    border: "none",
+                    borderRadius: TDS.radius8,
+                    cursor: "pointer",
+                  }}
+                >
+                  다음 스테이지
+                </button>
+              )
+            )}
+          </>
         )}
       </div>
 
