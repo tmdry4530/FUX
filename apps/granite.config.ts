@@ -12,7 +12,7 @@ export default defineConfig({
     port: 5173,
     commands: {
       dev: "vite",
-      build: "vite build",
+      build: "tsc -b && vite build",
     },
   },
   webViewProps: {
