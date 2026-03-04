@@ -1,7 +1,7 @@
 import { defineConfig } from "@apps-in-toss/web-framework/config";
 
 export default defineConfig({
-  appName: "ilbureo",
+  appName: "chamdom-ux-trap",
   brand: {
     displayName: "일부러 불편한 앱 - 하루 1분 나쁜 디자인 탈출",
     primaryColor: "#3182F6",
