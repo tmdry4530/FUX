@@ -85,7 +85,7 @@ export function StageListScreen() {
       <div
         style={{
           background: TDS.white,
-          padding: '56px 20px 20px',
+          padding: '20px 20px 20px',
           borderRadius: `0 0 ${TDS.radius16}px ${TDS.radius16}px`,
           boxShadow: TDS.shadowCard,
           marginBottom: 8,

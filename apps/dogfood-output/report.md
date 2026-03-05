@@ -1,63 +1,113 @@
-# Dogfood Report: Fuck UX - 전체 컨텐츠 QA
+# UI Audit Report: 모바일(390x844) 환경 디자인 개선점
 
 | Field | Value |
 |-------|-------|
 | **Date** | 2026-02-28 |
-| **App URL** | http://localhost:3000 |
-| **Session** | fux-content-qa |
-| **Scope** | 26가지 스테이지 타입 전체 콘텐츠 QA (STAGE_CLEAR_GUIDE.md 기반) |
+| **Viewport** | 390x844 (iPhone 14) |
+| **Scope** | 25개 스테이지 타입 PLAYING 화면 UI 감사 |
 
-## Summary
+---
+
+## Critical (즉시 수정)
+
+### ISSUE-001: disguised_cta_grid — 3열 그리드가 모바일에서 읽기 불가능
+- **스크린샷**: `07-disguised-cta-playing.png`
+- **문제**: 390px 뷰포트에서 3열 그리드로 카드 9개가 나열됨. 카드당 폭 ~110px로 제목이 잘리고 설명은 한 줄도 안 보임. 카테고리 태그, Sponsored 뱃지 등 핵심 요소 식별 불가.
+- **개선**: 모바일에서 **1열 세로 피드** 레이아웃으로 변경. 카드를 SNS 피드처럼 전체 폭으로 늘리고, 썸네일 + 제목 + 설명 + 카테고리를 가독성 있게 배치. `gridTemplateColumns`를 뷰포트 폭 기준으로 반응형 처리.
+
+### ISSUE-002: enterprise_filter_overload — 5열 필터가 완전히 깨짐
+- **스크린샷**: `24-filter-overload-playing.png`
+- **문제**: 필터 드롭다운 12개가 5열로 배치됨. 390px에서 각 드롭다운이 ~70px로 라벨이 잘리고 조작 불가. "카테고리", "리뷰평점" 등 텍스트가 한 글자씩 잘림.
+- **개선**: 모바일에서 **2열** 또는 **아코디언** 방식으로 변경. 한 행에 필터 2개씩 배치하거나, 접히는 패널 형태로 전환.
+
+---
+
+## High (빠른 시일 내 수정)
+
+### ISSUE-003: tiny_button — 화면 90%가 빈 공간
+- **스크린샷**: `01-tiny-button.png`
+- **문제**: 버튼들이 우상단 구석에만 모여있고 나머지 화면이 완전히 비어있음. 모바일에서 유저는 "게임이 로딩 안 된 건가?" 혼동.
+- **개선**: 버튼들을 화면 전체에 분산 배치. 또는 배경에 가짜 콘텐츠(예: 광고 팝업 UI)를 깔아서 "이 UI에서 X 버튼을 찾으세요" 맥락 제공.
+
+### ISSUE-004: 볼륨 스테이지 10종 — 레이아웃 반복 + 하단 잘림
+- **스크린샷**: `11~20-volume-*.png`
+- **문제**:
+  1. 10개 볼륨 스테이지가 전부 동일한 3단 레이아웃 (목표 볼륨 박스 → 컨트롤 영역 → 현재 볼륨). 반복 플레이 시 시각적 피로.
+  2. physics_launcher와 voice_shout에서 "현재 볼륨" 하단 바가 뷰포트 밖으로 잘림 (스크롤 필요).
+- **개선**:
+  - 각 모드별 시각적 차별화: 배경색/아이콘/일러스트 추가
+  - "현재 볼륨" 바를 `position: sticky; bottom: 0`으로 고정하거나 전체 레이아웃을 `height: 100dvh; overflow: hidden`으로 뷰포트 내 수용
+
+### ISSUE-005: nav_ambiguity_map — 사이드바가 모바일에서 좁음
+- **스크린샷**: `22-nav-ambiguity-playing.png`
+- **문제**: 데스크탑 스타일 좌측 사이드바(~180px)가 모바일에서 그대로 렌더링. 메뉴 항목은 보이지만 콘텐츠 영역이 대부분 비어있어 밸런스가 안 맞음.
+- **개선**: 모바일에서는 **전체 폭 드롭다운/아코디언** 메뉴로 전환. 또는 사이드바를 상단 탭으로 변경.
+
+### ISSUE-006: clutter_find_cta — 목표 배지가 너무 작음
+- **스크린샷**: `23-clutter-find-cta-playing.png`
+- **문제**: 좌상단 "목표: '저장하기' 버튼 찾기" 배지가 작고 화려한 버튼들에 가려짐. 유저가 뭘 해야 하는지 파악이 어려움.
+- **개선**: 목표 배지를 **상단 풀폭 배너**로 확대. label_ambiguity의 미션 배너 스타일 참고.
+
+---
+
+## Medium (품질 향상)
+
+### ISSUE-007: moving_target — 플레이 영역 경계 불명확
+- **스크린샷**: `02-moving-target-playing.png`
+- **문제**: 격자선이 매우 옅어서 플레이 영역과 배경 구분이 어려움. "파란색 원을 탭하세요" 안내도 작음.
+- **개선**: 플레이 영역에 미세한 배경색(#F2F4F6) 또는 테두리 추가. 안내 텍스트를 더 눈에 띄게.
+
+### ISSUE-008: modal_stack — 팝업이 너무 작음
+- **스크린샷**: `03-modal-stack-playing.png`
+- **문제**: 팝업이 뷰포트 대비 작게 렌더링됨(~55% 폭). 모바일에서는 팝업이 거의 전체 화면을 차지하는 게 자연스러움.
+- **개선**: 팝업 `maxWidth`를 모바일에서 `calc(100vw - 32px)`로 확대.
+
+### ISSUE-009: endless_wizard — 하단 3버튼 밀집
+- **스크린샷**: `21-endless-wizard-playing.png`
+- **문제**: "계속 진행", "다음 단계", "초기화" 3개 버튼이 한 줄에 나열. "초기화"는 회색 + 작은 폰트로 거의 안 보임. 하지만 이건 의도된 다크 패턴이므로 게임 메커니즘 유지.
+- **상태**: 의도된 디자인이지만, 터치 영역이 너무 좁지 않은지 확인 필요 (최소 44px 높이).
+
+### ISSUE-010: label_ambiguity — 미션 배너가 오버레이에 가려짐
+- **스크린샷**: `10-label-ambiguity-playing.png`
+- **문제**: 상단 미션 배너가 다이얼로그 오버레이(반투명 회색)에 가려져서 보기 어려움.
+- **개선**: 미션 배너의 `zIndex`를 오버레이보다 높게 설정하거나, 오버레이 영역을 미션 배너 아래부터 시작.
+
+---
+
+## Low (개선 권장)
+
+### ISSUE-011: consent_toggle — 잘 만들어진 레이아웃
+- **스크린샷**: `05-consent-toggle-playing.png`
+- **상태**: 모바일에서 가장 잘 맞는 레이아웃. 토글 리스트 + 하단 버튼 2개. 참고 기준으로 삼을 만함.
+
+### ISSUE-012: roach_motel — 깔끔한 모바일 레이아웃
+- **스크린샷**: `04-roach-motel-playing.png`
+- **상태**: 중앙 카드 + 명확한 CTA. 모바일 최적화 불필요.
+
+### ISSUE-013: picker_no_search — 양호
+- **스크린샷**: `08-picker-no-search-playing.png`
+- **상태**: 세로 리스트 + 상단 탭 필터. 모바일에 자연스러움.
+
+---
+
+## 공통 패턴 개선 제안
+
+| 패턴 | 해당 스테이지 | 개선 방향 |
+|------|-------------|----------|
+| **그리드 → 세로 피드** | disguised_cta, filter_overload | 모바일에서 1~2열로 자동 전환 |
+| **빈 공간 과다** | tiny_button, moving_target | 배경 콘텐츠/시뮬레이션 UI 추가 |
+| **하단 잘림** | volume_physics, volume_voice | sticky 하단 바 또는 dvh 레이아웃 |
+| **사이드바 → 모바일 전환** | nav_ambiguity | 전체 폭 드롭다운/탭 메뉴 |
+| **목표/미션 가시성** | clutter_cta, label_ambiguity | 풀폭 상단 배너, 높은 z-index |
+| **팝업 크기** | modal_stack | 모바일에서 90%+ 폭 |
+| **볼륨 시각 차별화** | 10개 volume 타입 | 모드별 고유 컬러/아이콘/일러스트 |
+
+## 우선순위 요약
 
 | Severity | Count |
 |----------|-------|
-| Critical | 0 |
-| High | 0 |
-| Medium | 0 |
-| Low | 0 |
-| **Total** | **0** |
-
-## Issues
-
-(이슈 없음)
-
-## Test Results - 26개 스테이지 타입 전체 검증
-
-모든 타입의 READY → PLAYING 화면 전환이 정상 동작하며, 각 렌더러의 게임 메커니즘이 올바르게 표시됨.
-
-| # | Type | Stage ID | Title | Status |
-|---|------|----------|-------|--------|
-| 1 | tiny_button | mvp_001_tiny_x | 초소형 X 버튼 | PASS |
-| 2 | moving_target | mvp_002_moving_continue | 도망가는 계속 버튼 | PASS |
-| 3 | modal_stack | mvp_003_modal_stack_3 | 팝업 3단 | PASS |
-| 4 | roach_motel_flow | roach_motel_01 | 구독 해지의 미로 | PASS |
-| 5 | consent_toggle_labour | consent_toggle_01 | 쿠키 동의 노동 | PASS |
-| 6 | hidden_reject_link | hidden_reject_01 | 숨겨진 거절 버튼 | PASS |
-| 7 | disguised_cta_grid | disguised_cta_01 | 진짜 콘텐츠 찾기 | PASS |
-| 8 | picker_no_search | picker_no_search_01 | 검색 없는 국가 선택 | PASS |
-| 9 | state_feedback_broken | state_feedback_01 | 응답 없는 제출 버튼 | PASS |
-| 10 | label_ambiguity | label_ambiguity_01 | 헷갈리는 버튼 이름 | PASS |
-| 11 | volume_hover_slider | v3_hover_slider | 유령 슬라이더 | PASS |
-| 12 | volume_hyper_sensitive | v3_hyper_sensitive | 과민 슬라이더 | PASS |
-| 13 | volume_tiny_hitbox | v3_tiny_hitbox | 바늘구멍 슬라이더 | PASS |
-| 14 | volume_hidden_icon | v3_hidden_icon | 숨겨진 볼륨 | PASS |
-| 15 | volume_reverse_mapping | v3_reverse_mapping | 역방향 슬라이더 | PASS |
-| 16 | volume_random_jump | v3_random_jump | 점프하는 노브 | PASS |
-| 17 | volume_circular_gesture | v3_circular_gesture | 원형 다이얼 | PASS |
-| 18 | volume_puzzle_lock | v3_puzzle_lock | 퍼즐 잠금 볼륨 | PASS |
-| 19 | volume_physics_launcher | v3_physics_launcher | 볼륨 대포 | PASS |
-| 20 | volume_voice_shout | v3_voice_shout | 소리 질러 볼륨 | PASS |
-| 21 | endless_wizard_flow | v3_endless_wizard | 끝없는 가입 양식 | PASS |
-| 22 | nav_ambiguity_map | v3_nav_ambiguity | 미로 네비게이션 | PASS |
-| 23 | clutter_find_cta | v3_clutter_cta | 정보 과부하 속 버튼 찾기 | PASS |
-| 24 | enterprise_filter_overload | v3_filter_overload | 필터 지옥 | PASS |
-| 25 | government_portal_popups | v3_gov_portal | 관공서 포털 | PASS |
-| 26 | chaotic_layout_scavenger | v3_chaotic_layout | 혼돈의 레이아웃 | PASS |
-
-### 검증 항목
-- READY 화면: 타이틀, 설명 텍스트, "시작하기" 버튼 렌더링
-- PLAYING 화면: 게임 메커니즘 정상 작동 (타이머, 점수, 인터랙티브 요소)
-- 각 렌더러의 고유 UI 요소 정상 표시
-
-### 스크린샷
-- `dogfood-output/screenshots/` 디렉토리에 26개 타입별 PLAYING 스크린샷 저장
+| Critical | 2 |
+| High | 4 |
+| Medium | 4 |
+| Low | 3 |
+| **Total** | **13** |
