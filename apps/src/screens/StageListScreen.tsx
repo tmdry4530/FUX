@@ -104,10 +104,10 @@ export function StageListScreen() {
       <h1 style={{ fontSize: 20, fontWeight: 700, color: TDS.grey900, marginBottom: 2, letterSpacing: -0.5 }}>
         일부러 불편한 앱
       </h1>
-      <p style={{ fontSize: 12, color: TDS.grey500, marginBottom: 6, lineHeight: 1.4 }}>
+      <p style={{ fontSize: 12, color: TDS.grey500, marginBottom: 4, lineHeight: 1.4 }}>
         나쁜 UX를 직접 체험하고, 왜 나쁜지 배워보세요.
       </p>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
         <span style={{ fontSize: 13, color: TDS.grey700 }}>
           UX력 <strong style={{ color: TDS.blue500 }}>{state.uxp.total.toLocaleString()}</strong>
         </span>
@@ -129,13 +129,13 @@ export function StageListScreen() {
         onClick={() => navigate('/challenge')}
         style={{
           width: '100%',
-          padding: '16px 16px',
+          padding: '12px 16px',
           background: 'linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)',
           border: 'none',
           borderRadius: TDS.radius12,
           cursor: 'pointer',
           textAlign: 'left',
-          marginBottom: 10,
+          marginBottom: 8,
         }}
       >
         <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
@@ -198,7 +198,7 @@ export function StageListScreen() {
         disabled={adLoading || dailyAdClaimed}
         style={{
           width: '100%',
-          padding: '14px 16px',
+          padding: '12px 16px',
           background: adLoading || dailyAdClaimed
             ? TDS.grey100
             : 'linear-gradient(135deg, #F59F00 0%, #E08E00 100%)',
@@ -206,7 +206,7 @@ export function StageListScreen() {
           borderRadius: TDS.radius12,
           cursor: adLoading || dailyAdClaimed ? 'default' : 'pointer',
           textAlign: 'left',
-          marginBottom: 10,
+          marginBottom: 8,
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -232,9 +232,9 @@ export function StageListScreen() {
       </button>
 
       {/* 3. 더 어려운 도전 */}
-      <div style={{ marginBottom: 10 }}>
+      <div style={{ marginBottom: 8 }}>
         <div style={{
-          padding: '14px 16px',
+          padding: '12px 16px',
           background: 'linear-gradient(135deg, #E53935 0%, #C62828 100%)',
           borderRadius: `${TDS.radius12}px ${TDS.radius12}px 0 0`,
         }}>
@@ -270,7 +270,7 @@ export function StageListScreen() {
                   display: "flex",
                   alignItems: "center",
                   gap: 12,
-                  padding: "12px 16px",
+                  padding: "10px 16px",
                   borderBottom: index < hardStages.length - 1 ? `1px solid ${TDS.grey100}` : 'none',
                   background: isCleared ? '#F0FBF6' : TDS.white,
                 }}
