@@ -2,24 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGameState } from '../game-state/useGameState';
 import { useAttendance } from '../attendance/useAttendance';
 import { useCollection } from '../collection/useCollection';
-
-const TDS = {
-  grey900: '#191F28',
-  grey700: '#4E5968',
-  grey500: '#8B95A1',
-  grey200: '#E5E8EB',
-  grey100: '#F2F4F6',
-  grey50: '#F9FAFB',
-  blue500: '#3182F6',
-  blue100: '#E8F3FF',
-  red500: '#E53935',
-  green500: '#00C471',
-  orange500: '#F59F00',
-  white: '#FFFFFF',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-  radius12: 12,
-  radius8: 8,
-} as const;
+import { TDS, cardStyle } from '../styles/tds';
 
 const DAY_LABELS = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -36,7 +19,6 @@ export function ProfileScreen() {
 
   const totalTossPoints = state.tossPointHistory.reduce((sum, e) => sum + e.amount, 0);
 
-  // UX력 entries + 토스포인트 history 합쳐서 timestamp 순 정렬, 최근 20개
   type HistoryItem =
     | { kind: 'uxp'; timestamp: string; amount: number; label: string }
     | { kind: 'toss'; timestamp: string; amount: number; reason: string };
@@ -73,20 +55,20 @@ export function ProfileScreen() {
         margin: '0 auto',
         minHeight: '100dvh',
         paddingTop: 'env(safe-area-inset-top, 0px)',
-        background: TDS.white,
+        background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,
       }}
     >
-      {/* 헤더 */}
+      {/* 네비게이션 바 */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          padding: '16px 16px 12px',
-          borderBottom: `1px solid ${TDS.grey200}`,
+          height: 44,
+          padding: '0 16px',
+          background: TDS.white,
           position: 'sticky',
           top: 0,
-          background: TDS.white,
           zIndex: 10,
         }}
       >
@@ -97,12 +79,12 @@ export function ProfileScreen() {
             border: 'none',
             cursor: 'pointer',
             padding: '4px 8px 4px 0',
-            fontSize: 15,
-            color: TDS.grey700,
+            fontSize: 16,
+            color: TDS.grey900,
             fontFamily: TDS.fontFamily,
           }}
         >
-          ← 홈
+          ←
         </button>
         <h1
           style={{
@@ -116,28 +98,29 @@ export function ProfileScreen() {
         >
           내 프로필
         </h1>
-        <div style={{ width: 48 }} />
+        <div style={{ width: 32 }} />
       </div>
 
-      <div style={{ padding: '16px 16px 32px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+      <div style={{ padding: '8px 12px 32px', display: 'flex', flexDirection: 'column', gap: 8 }}>
         {/* UX력 & 토스 포인트 */}
         <div
           style={{
             background: 'linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)',
-            borderRadius: TDS.radius12,
-            padding: '20px 20px',
+            borderRadius: TDS.radius16,
+            padding: '24px',
             color: TDS.white,
+            boxShadow: '0 4px 12px rgba(49, 130, 246, 0.2)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>총 UX력</div>
+              <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 6 }}>총 UX력</div>
               <div style={{ fontSize: 36, fontWeight: 800, letterSpacing: -1, lineHeight: 1 }}>
                 {state.uxp.total.toLocaleString()}
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>받은 토스 포인트</div>
+              <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 6 }}>받은 토스 포인트</div>
               <div style={{ fontSize: 22, fontWeight: 700 }}>
                 {totalTossPoints.toLocaleString()}원
               </div>
@@ -146,18 +129,11 @@ export function ProfileScreen() {
         </div>
 
         {/* 출석 캘린더 */}
-        <div
-          style={{
-            border: `1px solid ${TDS.grey200}`,
-            borderRadius: TDS.radius12,
-            padding: '16px',
-          }}
-        >
-          <div style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900, marginBottom: 12 }}>
+        <div style={cardStyle}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: TDS.grey900, marginBottom: 16 }}>
             출석 캘린더
           </div>
 
-          {/* 요일 헤더 */}
           <div style={{ display: 'flex', gap: 4, marginBottom: 6 }}>
             {DAY_LABELS.map((d) => (
               <div
@@ -175,8 +151,7 @@ export function ProfileScreen() {
             ))}
           </div>
 
-          {/* 출석 동그라미 */}
-          <div style={{ display: 'flex', gap: 4, marginBottom: 14 }}>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 16 }}>
             {weekAttendance.map((attended, i) => (
               <div
                 key={i}
@@ -189,7 +164,8 @@ export function ProfileScreen() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: 13,
-                  color: attended ? TDS.white : TDS.grey500,
+                  color: attended ? TDS.white : TDS.grey400,
+                  fontWeight: attended ? 700 : 400,
                 }}
               >
                 {attended ? '✓' : '·'}
@@ -197,28 +173,26 @@ export function ProfileScreen() {
             ))}
           </div>
 
-          {/* 스트릭 */}
-          <div style={{ display: 'flex', gap: 16, marginBottom: nextMilestone ? 10 : 0 }}>
+          <div style={{ display: 'flex', gap: 20 }}>
             <div>
-              <span style={{ fontSize: 13, color: TDS.grey500 }}>현재: </span>
-              <span style={{ fontSize: 13, fontWeight: 700, color: TDS.blue500 }}>
+              <span style={{ fontSize: 13, color: TDS.grey500 }}>현재 </span>
+              <span style={{ fontSize: 14, fontWeight: 700, color: TDS.blue500 }}>
                 {attendance.currentStreak}일 연속
               </span>
             </div>
             <div>
-              <span style={{ fontSize: 13, color: TDS.grey500 }}>최장: </span>
-              <span style={{ fontSize: 13, fontWeight: 700, color: TDS.grey900 }}>
+              <span style={{ fontSize: 13, color: TDS.grey500 }}>최장 </span>
+              <span style={{ fontSize: 14, fontWeight: 700, color: TDS.grey900 }}>
                 {attendance.maxStreak}일
               </span>
             </div>
           </div>
 
-          {/* 다음 마일스톤 */}
           {nextMilestone && nextMilestone.daysLeft > 0 && (
             <div
               style={{
-                marginTop: 10,
-                padding: '8px 12px',
+                marginTop: 12,
+                padding: '10px 14px',
                 background: TDS.blue100,
                 borderRadius: TDS.radius8,
                 fontSize: 13,
@@ -235,16 +209,10 @@ export function ProfileScreen() {
         </div>
 
         {/* 교육 카드 */}
-        <div
-          style={{
-            border: `1px solid ${TDS.grey200}`,
-            borderRadius: TDS.radius12,
-            padding: '16px',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+        <div style={cardStyle}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900, marginBottom: 2 }}>
+              <div style={{ fontSize: 16, fontWeight: 700, color: TDS.grey900, marginBottom: 2 }}>
                 교육 카드
               </div>
               <div style={{ fontSize: 13, color: TDS.grey500 }}>
@@ -253,14 +221,13 @@ export function ProfileScreen() {
             </div>
           </div>
 
-          {/* 진행률 바 */}
           <div
             style={{
               height: 6,
-              background: TDS.grey200,
+              background: TDS.grey100,
               borderRadius: 3,
               overflow: 'hidden',
-              marginBottom: 12,
+              marginBottom: 14,
             }}
           >
             <div
@@ -278,19 +245,15 @@ export function ProfileScreen() {
             onClick={() => navigate('/collection')}
             style={{
               width: '100%',
-              padding: '10px',
+              height: 44,
               background: TDS.grey100,
               border: 'none',
-              borderRadius: TDS.radius8,
+              borderRadius: TDS.radius12,
               fontSize: 14,
               fontWeight: 600,
               color: TDS.grey900,
               cursor: 'pointer',
               fontFamily: TDS.fontFamily,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 4,
             }}
           >
             컬렉션 보기 →
@@ -299,17 +262,11 @@ export function ProfileScreen() {
 
         {/* UX력 내역 */}
         {allHistory.length > 0 && (
-          <div
-            style={{
-              border: `1px solid ${TDS.grey200}`,
-              borderRadius: TDS.radius12,
-              padding: '16px',
-            }}
-          >
-            <div style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900, marginBottom: 12 }}>
-              UX력 내역 (최근 20개)
+          <div style={cardStyle}>
+            <div style={{ fontSize: 16, fontWeight: 700, color: TDS.grey900, marginBottom: 14 }}>
+              UX력 내역
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {allHistory.map((item, idx) => (
                 <div
                   key={idx}
@@ -320,20 +277,20 @@ export function ProfileScreen() {
                   }}
                 >
                   <div>
-                    <span style={{ fontSize: 12, color: TDS.grey500, marginRight: 8 }}>
+                    <span style={{ fontSize: 12, color: TDS.grey400, marginRight: 8 }}>
                       {formatDate(item.timestamp)}
                     </span>
-                    <span style={{ fontSize: 13, color: TDS.grey700 }}>
+                    <span style={{ fontSize: 14, color: TDS.grey700 }}>
                       {item.kind === 'uxp' ? item.label : item.reason}
                     </span>
                   </div>
                   {item.kind === 'uxp' ? (
-                    <span style={{ fontSize: 13, fontWeight: 700, color: TDS.blue500 }}>
-                      +{item.amount} UX력
+                    <span style={{ fontSize: 14, fontWeight: 700, color: TDS.blue500 }}>
+                      +{item.amount}
                     </span>
                   ) : (
-                    <span style={{ fontSize: 13, fontWeight: 700, color: TDS.orange500 }}>
-                      토스 포인트 {item.amount}원
+                    <span style={{ fontSize: 14, fontWeight: 700, color: TDS.orange500 }}>
+                      {item.amount}원
                     </span>
                   )}
                 </div>

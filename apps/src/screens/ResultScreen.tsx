@@ -10,24 +10,7 @@ import { trackScreen, trackStageEnd, trackShareClick } from "../analytics/logger
 import { useGameState } from "../game-state/useGameState";
 import { useRewardedAd } from "../rewards/useRewardedAd";
 import { calculateUXP } from "../rewards/uxp-calculator";
-
-/** TDS 디자인 토큰 */
-const TDS = {
-  grey900: "#191F28",
-  grey700: "#4E5968",
-  grey500: "#8B95A1",
-  grey200: "#E5E8EB",
-  grey100: "#F2F4F6",
-  grey50: "#F9FAFB",
-  blue500: "#3182F6",
-  red500: "#E53935",
-  orange500: "#F59F00",
-  white: "#FFFFFF",
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-  radius12: 12,
-  radius8: 8,
-} as const;
+import { TDS, cardStyle } from "../styles/tds";
 
 function getRandomMemeCopy(stageId: string): string | undefined {
   const copies = memeCopies.filter((c) => c.stageId === stageId);
@@ -51,7 +34,6 @@ export function ResultScreen() {
   const isHardMode = searchParams.get('hard') === '1';
   const currentStep = Number(searchParams.get('step') ?? '0');
 
-  // 챌린지 모드: 다음 단계 정보
   const nextChallengeStep = (() => {
     if (!isChallengeMode || !state.challengeProgress) return null;
     const nextIdx = currentStep + 1;
@@ -69,7 +51,6 @@ export function ResultScreen() {
 
   const cleared = result?.cleared ?? false;
 
-  // UXP 계산
   const isFirstClear = spec && result?.cleared
     ? !state.collection.clearedStageIds.includes(spec.id)
     : false;
@@ -77,12 +58,10 @@ export function ResultScreen() {
     ? calculateUXP(spec, result, isFirstClear)
     : null;
 
-  // UXP 적립 + 컬렉션 기록 + 챌린지 스텝 업데이트 (1회만, ref로 StrictMode 이중 실행 방지)
   useEffect(() => {
     if (!spec || !result || uxpAwardedRef.current) return;
     uxpAwardedRef.current = true;
 
-    // UXP 적립 (클리어 시)
     if (uxpBreakdown && uxpBreakdown.total > 0) {
       dispatch({
         type: 'ADD_UXP',
@@ -97,7 +76,6 @@ export function ResultScreen() {
       dispatch({ type: 'ADD_CLEARED_STAGE', stageId: spec.id });
     }
 
-    // 챌린지 모드: 스텝 업데이트
     if (isChallengeMode) {
       const stepParam = searchParams.get('step');
       const stepIndex = stepParam !== null ? Number(stepParam) : -1;
@@ -116,14 +94,12 @@ export function ResultScreen() {
     }
   }, [uxpBreakdown, spec, result, dispatch, isChallengeMode, searchParams]);
 
-  // 1순위: spec.memeCaption, 2순위: merged JSON에서 랜덤 fallback
   const memeText = useMemo(() => {
     if (spec?.memeCaption) return spec.memeCaption;
     if (stageId) return getRandomMemeCopy(stageId);
     return undefined;
   }, [spec, stageId]);
 
-  // Analytics: screen view + stage result (ref로 StrictMode 이중 실행 방지)
   const analyticsTrackedRef = useRef(false);
   useEffect(() => {
     if (analyticsTrackedRef.current) return;
@@ -142,7 +118,7 @@ export function ResultScreen() {
 
   if (!spec) {
     return (
-      <div style={{ padding: 24, textAlign: "center", fontFamily: TDS.fontFamily }}>
+      <div style={{ padding: 24, textAlign: "center", fontFamily: TDS.fontFamily, minHeight: '100dvh', background: TDS.bgGrey }}>
         <p style={{ fontSize: 16, color: TDS.grey900, fontWeight: 600 }}>스테이지를 찾을 수 없습니다</p>
         {stageId && (
           <p style={{ fontSize: 13, color: TDS.grey500, marginTop: 8 }}>
@@ -156,13 +132,13 @@ export function ResultScreen() {
           onClick={() => navigate("/")}
           style={{
             marginTop: 20,
-            padding: "12px 24px",
-            fontSize: 14,
+            padding: "14px 28px",
+            fontSize: 15,
             fontWeight: 600,
             background: TDS.blue500,
             color: TDS.white,
             border: "none",
-            borderRadius: TDS.radius8,
+            borderRadius: TDS.radius12,
             cursor: "pointer",
           }}
         >
@@ -192,16 +168,16 @@ export function ResultScreen() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100dvh",
-        padding: "calc(env(safe-area-inset-top, 0px) + 24px) 24px 24px",
+        padding: "calc(env(safe-area-inset-top, 0px) + 24px) 20px 24px",
         textAlign: "center",
-        background: TDS.white,
+        background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,
       }}
     >
       {/* Result badge */}
       <div
         style={{
-          fontSize: 48,
+          fontSize: 52,
           fontWeight: 800,
           color: cleared ? TDS.blue500 : TDS.red500,
           marginBottom: 8,
@@ -228,46 +204,51 @@ export function ResultScreen() {
       <div
         style={{
           display: "flex",
-          gap: 32,
+          gap: 24,
           marginBottom: 24,
-          fontSize: 14,
-          color: TDS.grey700,
         }}
       >
-        <div>
-          <div style={{ fontWeight: 600, color: TDS.grey500, fontSize: 12, marginBottom: 4 }}>
+        <div style={{
+          ...cardStyle,
+          padding: '16px 24px',
+          textAlign: 'center',
+        }}>
+          <div style={{ fontWeight: 600, color: TDS.grey500, fontSize: 12, marginBottom: 6 }}>
             시간
           </div>
-          <div style={{ fontWeight: 700, fontSize: 18, color: TDS.grey900 }}>{elapsedSec}s</div>
+          <div style={{ fontWeight: 700, fontSize: 20, color: TDS.grey900 }}>{elapsedSec}s</div>
         </div>
-        <div>
-          <div style={{ fontWeight: 600, color: TDS.grey500, fontSize: 12, marginBottom: 4 }}>
+        <div style={{
+          ...cardStyle,
+          padding: '16px 24px',
+          textAlign: 'center',
+        }}>
+          <div style={{ fontWeight: 600, color: TDS.grey500, fontSize: 12, marginBottom: 6 }}>
             미스
           </div>
-          <div style={{ fontWeight: 700, fontSize: 18, color: TDS.grey900 }}>{missCount}회</div>
+          <div style={{ fontWeight: 700, fontSize: 20, color: TDS.grey900 }}>{missCount}회</div>
         </div>
       </div>
 
       {/* UXP 획득 표시 */}
       {uxpBreakdown && uxpBreakdown.total > 0 && (
         <div style={{
-          background: '#E8F3FF',
-          borderRadius: TDS.radius12,
-          padding: 16,
+          ...cardStyle,
+          padding: '20px',
           marginBottom: 16,
           maxWidth: 360,
           width: '100%',
+          background: TDS.blue100,
         }}>
-          <div style={{ fontSize: 18, fontWeight: 700, color: TDS.blue500, marginBottom: 4 }}>
+          <div style={{ fontSize: 20, fontWeight: 700, color: TDS.blue500, marginBottom: 6 }}>
             +{uxpBreakdown.total} UX력 획득!
           </div>
-          <div style={{ fontSize: 12, color: TDS.grey700 }}>
+          <div style={{ fontSize: 13, color: TDS.grey700 }}>
             {uxpBreakdown.timeBonus > 0 && <span>시간 보너스 +{uxpBreakdown.timeBonus} · </span>}
             {uxpBreakdown.noMissBonus > 0 && <span>노미스 보너스 +{uxpBreakdown.noMissBonus} · </span>}
             {uxpBreakdown.firstClearBonus > 0 && <span>최초 클리어 +{uxpBreakdown.firstClearBonus}</span>}
           </div>
 
-          {/* 보상형 광고 버튼 */}
           <button
             onClick={async () => {
               if (spec) {
@@ -280,15 +261,15 @@ export function ResultScreen() {
             }}
             disabled={adLoading}
             style={{
-              marginTop: 12,
+              marginTop: 14,
               width: '100%',
-              padding: '12px',
-              fontSize: 14,
+              height: 48,
+              fontSize: 15,
               fontWeight: 600,
               background: adLoading ? TDS.grey200 : TDS.orange500,
               color: TDS.white,
               border: 'none',
-              borderRadius: TDS.radius8,
+              borderRadius: TDS.radius12,
               cursor: adLoading ? 'default' : 'pointer',
             }}
           >
@@ -300,10 +281,8 @@ export function ResultScreen() {
       {/* Explain why bad */}
       <div
         style={{
-          background: TDS.white,
-          border: `1px solid ${TDS.grey200}`,
-          borderRadius: TDS.radius12,
-          padding: 16,
+          ...cardStyle,
+          padding: '20px',
           maxWidth: 360,
           marginBottom: 32,
           textAlign: "left",
@@ -311,10 +290,10 @@ export function ResultScreen() {
       >
         <div
           style={{
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: 700,
             color: TDS.blue500,
-            marginBottom: 8,
+            marginBottom: 10,
           }}
         >
           왜 나쁜 UX일까?
@@ -325,22 +304,21 @@ export function ResultScreen() {
       </div>
 
       {/* Actions */}
-      <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
+      <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
         {isHardMode ? (
-          /* 하드 챌린지: 홈으로 돌아가기만 가능 (무한 시도 방지) */
           <button
             onClick={() => {
               setPendingNavigation("/");
               setAdTrigger(true);
             }}
             style={{
-              padding: "14px 24px",
-              fontSize: 14,
+              padding: "14px 28px",
+              fontSize: 15,
               fontWeight: 600,
               background: TDS.blue500,
               color: TDS.white,
               border: "none",
-              borderRadius: TDS.radius8,
+              borderRadius: TDS.radius12,
               cursor: "pointer",
             }}
           >
@@ -371,13 +349,14 @@ export function ResultScreen() {
               disabled={retryAdLoading}
               style={{
                 padding: "14px 24px",
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: 600,
                 background: isChallengeMode && !cleared ? TDS.orange500 : TDS.white,
                 color: isChallengeMode && !cleared ? TDS.white : TDS.grey900,
                 border: isChallengeMode && !cleared ? 'none' : `1px solid ${TDS.grey200}`,
-                borderRadius: TDS.radius8,
+                borderRadius: TDS.radius12,
                 cursor: retryAdLoading ? "default" : "pointer",
+                boxShadow: isChallengeMode && !cleared ? 'none' : TDS.shadowCard,
               }}
             >
               {retryAdLoading ? '광고 로딩중...' : isChallengeMode && !cleared ? '광고 보고 재도전' : '다시 도전'}
@@ -389,13 +368,14 @@ export function ResultScreen() {
               }}
               style={{
                 padding: "14px 24px",
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: 600,
                 background: TDS.white,
                 color: TDS.grey900,
                 border: `1px solid ${TDS.grey200}`,
-                borderRadius: TDS.radius8,
+                borderRadius: TDS.radius12,
                 cursor: "pointer",
+                boxShadow: TDS.shadowCard,
               }}
             >
               {isChallengeMode ? "챌린지로" : "목록으로"}
@@ -411,12 +391,12 @@ export function ResultScreen() {
                   }}
                   style={{
                     padding: "14px 24px",
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: 600,
                     background: TDS.blue500,
                     color: TDS.white,
                     border: "none",
-                    borderRadius: TDS.radius8,
+                    borderRadius: TDS.radius12,
                     cursor: "pointer",
                   }}
                 >
@@ -430,12 +410,12 @@ export function ResultScreen() {
                   }}
                   style={{
                     padding: "14px 24px",
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: 600,
                     background: TDS.blue500,
                     color: TDS.white,
                     border: "none",
-                    borderRadius: TDS.radius8,
+                    borderRadius: TDS.radius12,
                     cursor: "pointer",
                   }}
                 >
@@ -451,12 +431,12 @@ export function ResultScreen() {
                   }}
                   style={{
                     padding: "14px 24px",
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: 600,
                     background: TDS.blue500,
                     color: TDS.white,
                     border: "none",
-                    borderRadius: TDS.radius8,
+                    borderRadius: TDS.radius12,
                     cursor: "pointer",
                   }}
                 >
@@ -472,13 +452,13 @@ export function ResultScreen() {
       <button
         onClick={handleShare}
         style={{
-          padding: "10px 20px",
-          fontSize: 13,
+          padding: "12px 24px",
+          fontSize: 14,
           fontWeight: 600,
           background: "transparent",
           color: TDS.blue500,
           border: `1px solid ${TDS.blue500}`,
-          borderRadius: TDS.radius8,
+          borderRadius: 24,
           cursor: "pointer",
         }}
       >
@@ -493,14 +473,14 @@ export function ResultScreen() {
             bottom: 40,
             left: "50%",
             transform: "translateX(-50%)",
-            padding: "10px 20px",
-            fontSize: 13,
+            padding: "12px 24px",
+            fontSize: 14,
             fontWeight: 600,
             color: TDS.white,
             background: TDS.grey900,
-            borderRadius: TDS.radius8,
+            borderRadius: 24,
             zIndex: 1000,
-            opacity: 0.95,
+            boxShadow: TDS.shadowElevated,
           }}
         >
           {shareToast}
@@ -515,21 +495,20 @@ export function ResultScreen() {
             bottom: 80,
             left: "50%",
             transform: "translateX(-50%)",
-            padding: "10px 20px",
-            fontSize: 13,
+            padding: "12px 24px",
+            fontSize: 14,
             fontWeight: 600,
             color: TDS.white,
             background: TDS.red500,
-            borderRadius: TDS.radius8,
+            borderRadius: 24,
             zIndex: 1000,
-            opacity: 0.95,
+            boxShadow: TDS.shadowElevated,
           }}
         >
           {adErrorToast}
         </div>
       )}
 
-      {/* AdGate: 결과 화면 전환 시에만 광고 표시 */}
       <AdGate
         trigger={adTrigger}
         rewarded={false}

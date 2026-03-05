@@ -1,25 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGameState } from '../game-state/useGameState';
-
-const TDS = {
-  grey900: '#191F28',
-  grey700: '#4E5968',
-  grey500: '#8B95A1',
-  grey300: '#D1D6DB',
-  grey200: '#E5E8EB',
-  grey100: '#F2F4F6',
-  grey50: '#F9FAFB',
-  blue500: '#3182F6',
-  blue600: '#1B64DA',
-  green500: '#00C471',
-  red500: '#E53935',
-  white: '#FFFFFF',
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-  radius12: 12,
-  radius8: 8,
-} as const;
+import { TDS } from '../styles/tds';
 
 type Step = 0 | 1 | 2 | 3;
 
@@ -82,11 +64,11 @@ export function OnboardingScreen() {
             <div
               key={i}
               style={{
-                width: 8,
+                width: i === step ? 24 : 8,
                 height: 8,
-                borderRadius: '50%',
+                borderRadius: 4,
                 background: i === step ? TDS.blue500 : TDS.grey200,
-                transition: 'background 0.2s',
+                transition: 'all 0.3s',
               }}
             />
           ))}
@@ -96,7 +78,7 @@ export function OnboardingScreen() {
   );
 }
 
-/* ── Step 0: 공감 ── */
+/* -- Step 0: 공감 -- */
 function StepEmpathy({ onNext }: { onNext: () => void }) {
   const cards = [
     {
@@ -117,24 +99,24 @@ function StepEmpathy({ onNext }: { onNext: () => void }) {
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <h1
         style={{
-          fontSize: 24,
+          fontSize: 26,
           fontWeight: 700,
           color: TDS.grey900,
           textAlign: 'center',
-          marginBottom: 32,
+          marginBottom: 36,
           lineHeight: 1.4,
         }}
       >
         이런 경험 있으세요?
       </h1>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 36 }}>
         {cards.map((card, i) => (
           <div
             key={i}
             style={{
               background: TDS.grey50,
-              borderRadius: TDS.radius12,
+              borderRadius: TDS.radius16,
               padding: '20px 24px',
               display: 'flex',
               alignItems: 'center',
@@ -173,7 +155,7 @@ function StepEmpathy({ onNext }: { onNext: () => void }) {
         onClick={onNext}
         style={{
           width: '100%',
-          padding: '16px 0',
+          height: 54,
           fontSize: 16,
           fontWeight: 600,
           color: TDS.white,
@@ -189,15 +171,15 @@ function StepEmpathy({ onNext }: { onNext: () => void }) {
   );
 }
 
-/* ── Step 1: 인터랙티브 데모 (함정) ── */
+/* -- Step 1: 인터랙티브 데모 (함정) -- */
 function StepDemo({ onChoice }: { onChoice: (c: 'accept' | 'reject') => void }) {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <div
         style={{
           background: TDS.grey50,
-          borderRadius: TDS.radius12,
-          padding: '40px 24px 32px',
+          borderRadius: TDS.radius16,
+          padding: '44px 24px 32px',
           textAlign: 'center',
         }}
       >
@@ -216,7 +198,7 @@ function StepDemo({ onChoice }: { onChoice: (c: 'accept' | 'reject') => void }) 
           style={{
             fontSize: 14,
             color: TDS.grey500,
-            marginBottom: 32,
+            marginBottom: 36,
             lineHeight: 1.5,
           }}
         >
@@ -225,12 +207,11 @@ function StepDemo({ onChoice }: { onChoice: (c: 'accept' | 'reject') => void }) 
           즉시 지급해드립니다.
         </p>
 
-        {/* 큰 파란 유도 버튼 */}
         <button
           onClick={() => onChoice('accept')}
           style={{
             width: '100%',
-            padding: '18px 0',
+            height: 54,
             fontSize: 17,
             fontWeight: 700,
             color: TDS.white,
@@ -245,7 +226,6 @@ function StepDemo({ onChoice }: { onChoice: (c: 'accept' | 'reject') => void }) 
           네, 받을게요!
         </button>
 
-        {/* 작은 회색 거절 텍스트 — confirmshaming */}
         <button
           onClick={() => onChoice('reject')}
           style={{
@@ -264,7 +244,7 @@ function StepDemo({ onChoice }: { onChoice: (c: 'accept' | 'reject') => void }) 
   );
 }
 
-/* ── Step 2: 공개 ── */
+/* -- Step 2: 공개 -- */
 function StepReveal({
   choice,
   onNext,
@@ -276,11 +256,11 @@ function StepReveal({
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', paddingTop: 32 }}>
-      <div style={{ textAlign: 'center', marginBottom: 24 }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <div style={{ fontSize: 40, marginBottom: 8 }}>{gotCaught ? '🎣' : '👏'}</div>
         <h2
           style={{
-            fontSize: 22,
+            fontSize: 24,
             fontWeight: 700,
             color: gotCaught ? TDS.red500 : TDS.green500,
             marginBottom: 8,
@@ -306,7 +286,7 @@ function StepReveal({
       <div
         style={{
           display: 'flex',
-          gap: 12,
+          gap: 10,
           marginBottom: 16,
         }}
       >
@@ -318,8 +298,8 @@ function StepReveal({
             key={i}
             style={{
               flex: 1,
-              background: i === 0 ? '#EBF4FF' : TDS.grey50,
-              borderRadius: TDS.radius8,
+              background: i === 0 ? TDS.blue100 : TDS.grey50,
+              borderRadius: TDS.radius12,
               padding: '16px 12px',
               textAlign: 'center',
             }}
@@ -346,7 +326,7 @@ function StepReveal({
       <div
         style={{
           background: TDS.grey50,
-          borderRadius: TDS.radius8,
+          borderRadius: TDS.radius12,
           padding: '14px 16px',
           marginBottom: 20,
           display: 'flex',
@@ -370,7 +350,7 @@ function StepReveal({
       </div>
 
       {/* Before / After 시각 비교 */}
-      <div style={{ marginBottom: 24 }}>
+      <div style={{ marginBottom: 28 }}>
         <h3
           style={{
             fontSize: 14,
@@ -382,8 +362,8 @@ function StepReveal({
         >
           같은 선택지, 다른 설계
         </h3>
-        <div style={{ display: 'flex', gap: 12 }}>
-          {/* 조작된 설계 (현재) */}
+        <div style={{ display: 'flex', gap: 10 }}>
+          {/* 조작된 설계 */}
           <div style={{ flex: 1 }}>
             <div
               style={{
@@ -399,7 +379,7 @@ function StepReveal({
             <div
               style={{
                 border: `2px solid ${TDS.red500}20`,
-                borderRadius: TDS.radius8,
+                borderRadius: TDS.radius12,
                 padding: '16px 10px 12px',
                 background: TDS.white,
                 display: 'flex',
@@ -443,7 +423,7 @@ function StepReveal({
             <div
               style={{
                 border: `2px solid ${TDS.green500}20`,
-                borderRadius: TDS.radius8,
+                borderRadius: TDS.radius12,
                 padding: '16px 10px 12px',
                 background: TDS.white,
                 display: 'flex',
@@ -490,7 +470,7 @@ function StepReveal({
         onClick={onNext}
         style={{
           width: '100%',
-          padding: '16px 0',
+          height: 54,
           fontSize: 16,
           fontWeight: 600,
           color: TDS.white,
@@ -506,7 +486,7 @@ function StepReveal({
   );
 }
 
-/* ── Step 3: 동기부여 + 시작 ── */
+/* -- Step 3: 동기부여 + 시작 -- */
 function StepMotivation({ onComplete }: { onComplete: () => void }) {
   const values = [
     { icon: '🎮', title: '체험', desc: '367개의 속이는 설계 스테이지를 직접 플레이' },
@@ -516,10 +496,10 @@ function StepMotivation({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+      <div style={{ textAlign: 'center', marginBottom: 44 }}>
         <h2
           style={{
-            fontSize: 22,
+            fontSize: 24,
             fontWeight: 700,
             color: TDS.grey900,
             marginBottom: 8,
@@ -531,11 +511,11 @@ function StepMotivation({ onComplete }: { onComplete: () => void }) {
           길러보세요
         </h2>
         <p style={{ fontSize: 14, color: TDS.grey500, margin: 0 }}>
-          367개 스테이지 &middot; 26가지 유형
+          367개 스테이지 · 26가지 유형
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 40 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 44 }}>
         {values.map((v, i) => (
           <div
             key={i}
@@ -544,7 +524,7 @@ function StepMotivation({ onComplete }: { onComplete: () => void }) {
               alignItems: 'center',
               gap: 16,
               background: TDS.grey50,
-              borderRadius: TDS.radius12,
+              borderRadius: TDS.radius16,
               padding: '20px 24px',
             }}
           >
@@ -570,7 +550,7 @@ function StepMotivation({ onComplete }: { onComplete: () => void }) {
         onClick={onComplete}
         style={{
           width: '100%',
-          padding: '18px 0',
+          height: 54,
           fontSize: 17,
           fontWeight: 700,
           color: TDS.white,

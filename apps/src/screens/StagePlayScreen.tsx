@@ -5,6 +5,7 @@ import { findStageById, getSuggestions } from "../stages/findStage";
 import { useStageRunner } from "../engine/useStageRunner";
 import { StageRenderer } from "../engine/StageRenderer";
 import { trackStageStart, trackScreen } from "../analytics/logger";
+import { TDS } from "../styles/tds";
 
 export function StagePlayScreen() {
   const { stageId } = useParams<{ stageId: string }>();
@@ -17,18 +18,18 @@ export function StagePlayScreen() {
   if (!result) {
     const suggestions = rawId ? getSuggestions(rawId) : [];
     return (
-      <div style={{ padding: 24, textAlign: "center", fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-        <p style={{ fontSize: 16, color: "#191F28", fontWeight: 600 }}>스테이지를 찾을 수 없습니다</p>
-        {rawId && <p style={{ fontSize: 13, color: "#8B95A1", marginTop: 8 }}>요청된 ID: <code>{rawId}</code></p>}
+      <div style={{ padding: 24, textAlign: "center", fontFamily: TDS.fontFamily, minHeight: '100dvh', background: TDS.bgGrey }}>
+        <p style={{ fontSize: 16, color: TDS.grey900, fontWeight: 600 }}>스테이지를 찾을 수 없습니다</p>
+        {rawId && <p style={{ fontSize: 13, color: TDS.grey500, marginTop: 8 }}>요청된 ID: <code>{rawId}</code></p>}
         {suggestions.length > 0 && (
           <div style={{ marginTop: 16 }}>
-            <p style={{ fontSize: 13, color: "#4E5968", marginBottom: 8 }}>혹시 이 스테이지를 찾으시나요?</p>
+            <p style={{ fontSize: 13, color: TDS.grey700, marginBottom: 8 }}>혹시 이 스테이지를 찾으시나요?</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "center" }}>
               {suggestions.map((s) => (
                 <button
                   key={s.id}
                   onClick={() => navigate(`/stage/${encodeURIComponent(s.id)}`)}
-                  style={{ padding: "8px 16px", fontSize: 13, color: "#3182F6", background: "#F0F4FF", border: "1px solid #3182F6", borderRadius: 8, cursor: "pointer" }}
+                  style={{ padding: "10px 20px", fontSize: 13, color: TDS.blue500, background: TDS.blue100, border: `1px solid ${TDS.blue500}`, borderRadius: TDS.radius12, cursor: "pointer" }}
                 >
                   {s.title}
                 </button>
@@ -38,7 +39,7 @@ export function StagePlayScreen() {
         )}
         <button
           onClick={() => navigate("/")}
-          style={{ marginTop: 20, padding: "10px 24px", fontSize: 14, fontWeight: 600, background: "#3182F6", color: "#fff", border: "none", borderRadius: 8, cursor: "pointer" }}
+          style={{ marginTop: 20, padding: "12px 28px", fontSize: 15, fontWeight: 600, background: TDS.blue500, color: TDS.white, border: "none", borderRadius: TDS.radius12, cursor: "pointer" }}
         >
           홈으로 이동
         </button>
@@ -55,12 +56,10 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
   const { phase, remainingMs, missCount, maxMisses, start, succeed, miss, result } =
     useStageRunner(spec);
 
-  // Analytics: screen view
   React.useEffect(() => {
     trackScreen("stage_play", { stage_id: spec.id, stage_type: spec.type });
   }, [spec.id, spec.type]);
 
-  // Analytics: stage start
   React.useEffect(() => {
     if (phase === "PLAYING") {
       const extra: Record<string, string | number | boolean> = {};
@@ -71,7 +70,6 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
     }
   }, [phase, spec.id, spec.type, spec.difficulty, spec.packTag, spec.patternTag, spec.sourceTag]);
 
-  // Navigate to result screen via useEffect to avoid calling navigate during render
   const shouldNavigate = !!result;
   React.useEffect(() => {
     if (shouldNavigate && result) {
@@ -100,7 +98,7 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
         flexDirection: "column",
         height: "100dvh",
         paddingTop: "env(safe-area-inset-top, 0px)",
-        background: "#fafafa",
+        background: TDS.white,
       }}
     >
       {/* Header */}
@@ -109,8 +107,9 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "12px 16px",
-          borderBottom: "1px solid #eee",
+          height: 44,
+          padding: "0 16px",
+          borderBottom: `1px solid ${TDS.grey100}`,
         }}
       >
         <button
@@ -118,21 +117,22 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
           style={{
             background: "none",
             border: "none",
-            fontSize: 14,
-            color: "#666",
+            fontSize: 16,
+            color: TDS.grey900,
             cursor: "pointer",
+            padding: '4px 8px 4px 0',
           }}
         >
-          {searchParams.get('challenge') === '1' ? '← 챌린지' : '← 목록'}
+          ←
         </button>
-        <span style={{ fontSize: 14, fontWeight: 600 }}>{spec.title}</span>
+        <span style={{ fontSize: 15, fontWeight: 600, color: TDS.grey900 }}>{spec.title}</span>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {phase === "PLAYING" && (
             <span
               style={{
                 fontSize: 12,
                 fontWeight: 600,
-                color: missCount >= maxMisses - 1 ? "#e53935" : "#8B95A1",
+                color: missCount >= maxMisses - 1 ? TDS.red500 : TDS.grey500,
                 fontVariantNumeric: "tabular-nums",
               }}
             >
@@ -141,9 +141,9 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
           )}
           <span
             style={{
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 700,
-              color: seconds <= 5 ? "#e53935" : "#333",
+              color: seconds <= 5 ? TDS.red500 : TDS.grey900,
               fontVariantNumeric: "tabular-nums",
               minWidth: 32,
               textAlign: "right",
@@ -164,22 +164,22 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
               alignItems: "center",
               justifyContent: "center",
               height: "100%",
-              gap: 16,
+              gap: 20,
               padding: 24,
               textAlign: "center",
             }}
           >
-            <p style={{ fontSize: 16, color: "#333" }}>{spec.objective}</p>
+            <p style={{ fontSize: 17, color: TDS.grey800, lineHeight: 1.5 }}>{spec.objective}</p>
             <button
               onClick={start}
               style={{
-                padding: "12px 32px",
+                padding: "14px 40px",
                 fontSize: 16,
                 fontWeight: 600,
-                background: "#3182f6",
-                color: "#fff",
+                background: TDS.blue500,
+                color: TDS.white,
                 border: "none",
-                borderRadius: 8,
+                borderRadius: TDS.radius12,
                 cursor: "pointer",
               }}
             >

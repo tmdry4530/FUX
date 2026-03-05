@@ -6,24 +6,7 @@ import { useGameState } from '../game-state/useGameState';
 import { useRewardedAd } from '../rewards/useRewardedAd';
 import { findStageById } from '../stages/findStage';
 import { checkAndGrantMilestones } from '../rewards/toss-point-milestones';
-
-const TDS = {
-  grey900: '#191F28',
-  grey700: '#4E5968',
-  grey500: '#8B95A1',
-  grey200: '#E5E8EB',
-  grey100: '#F2F4F6',
-  grey50: '#F9FAFB',
-  blue500: '#3182F6',
-  blue100: '#E8F3FF',
-  red500: '#E53935',
-  green500: '#00C471',
-  orange500: '#F59F00',
-  white: '#FFFFFF',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-  radius12: 12,
-  radius8: 8,
-} as const;
+import { TDS, cardStyle } from '../styles/tds';
 
 const difficultyLabel = ['', 'Very Easy', 'Easy', 'Normal', 'Hard', 'Very Hard'];
 
@@ -52,7 +35,6 @@ export function DailyChallengeScreen() {
     };
     dispatch({ type: 'ADD_UXP', entry: bonusEntry });
     dispatch({ type: 'CLAIM_CHALLENGE_BONUS' });
-    // 6단계 모두 클리어 + 보너스 수령 시에만 출석 기록
     recordToday();
     const updatedState = {
       ...state,
@@ -87,20 +69,20 @@ export function DailyChallengeScreen() {
         margin: '0 auto',
         minHeight: '100dvh',
         paddingTop: 'env(safe-area-inset-top, 0px)',
-        background: TDS.white,
+        background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,
       }}
     >
-      {/* 헤더 */}
+      {/* 네비게이션 바 */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          padding: '16px 16px 12px',
-          borderBottom: `1px solid ${TDS.grey200}`,
+          height: 44,
+          padding: '0 16px',
+          background: TDS.white,
           position: 'sticky',
           top: 0,
-          background: TDS.white,
           zIndex: 10,
         }}
       >
@@ -111,12 +93,12 @@ export function DailyChallengeScreen() {
             border: 'none',
             cursor: 'pointer',
             padding: '4px 8px 4px 0',
-            fontSize: 15,
-            color: TDS.grey700,
+            fontSize: 16,
+            color: TDS.grey900,
             fontFamily: TDS.fontFamily,
           }}
         >
-          ← 홈
+          ←
         </button>
         <h1
           style={{
@@ -130,7 +112,7 @@ export function DailyChallengeScreen() {
         >
           오늘의 챌린지
         </h1>
-        <div style={{ width: 48 }} />
+        <div style={{ width: 32 }} />
       </div>
 
       {/* 날짜 & 스트릭 */}
@@ -139,8 +121,9 @@ export function DailyChallengeScreen() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '14px 16px',
-          background: TDS.blue100,
+          padding: '14px 20px',
+          background: TDS.white,
+          marginBottom: 8,
         }}
       >
         <span style={{ fontSize: 14, fontWeight: 600, color: TDS.grey700 }}>{formattedDate}</span>
@@ -148,7 +131,7 @@ export function DailyChallengeScreen() {
       </div>
 
       {/* 스텝 목록 */}
-      <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <div style={{ padding: '0 12px', display: 'flex', flexDirection: 'column', gap: 8 }}>
         {Array.from({ length: totalSteps }, (_, i) => {
           const step = steps[i];
           const stageId = step?.stageId ?? stages[i]?.id;
@@ -165,20 +148,20 @@ export function DailyChallengeScreen() {
             <div
               key={i}
               style={{
-                borderRadius: TDS.radius12,
-                border: `1px solid ${isCleared ? TDS.green500 : isFailed ? TDS.red500 : isUnlocked ? TDS.blue500 : TDS.grey200}`,
-                background: isCleared ? '#F0FBF6' : isFailed ? '#FFF0F0' : isUnlocked ? TDS.blue100 : TDS.grey50,
-                padding: '14px 16px',
-                opacity: isLocked ? 0.6 : 1,
+                ...cardStyle,
+                padding: '16px 20px',
+                opacity: isLocked ? 0.55 : 1,
+                borderLeft: `4px solid ${isCleared ? TDS.green500 : isFailed ? TDS.red500 : isUnlocked ? TDS.blue500 : TDS.grey200}`,
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <span
                     style={{
-                      fontSize: 12,
+                      fontSize: 11,
                       fontWeight: 700,
                       color: isCleared ? TDS.green500 : isFailed ? TDS.red500 : isUnlocked ? TDS.blue500 : TDS.grey500,
+                      letterSpacing: 0.5,
                     }}
                   >
                     STEP {i + 1}
@@ -190,16 +173,16 @@ export function DailyChallengeScreen() {
                   )}
                   {isFailed && (
                     <span style={{ fontSize: 13, color: TDS.red500, fontWeight: 700 }}>
-                      ✗ 실패 · 재도전
+                      ✗ 실패
                     </span>
                   )}
                   {isUnlocked && !isFailed && (
                     <span style={{ fontSize: 13, color: TDS.blue500, fontWeight: 700 }}>
-                      ▶ 도전하기
+                      도전 가능
                     </span>
                   )}
                   {isLocked && (
-                    <span style={{ fontSize: 13, color: TDS.grey500 }}>🔒 잠김</span>
+                    <span style={{ fontSize: 13, color: TDS.grey500 }}>잠김</span>
                   )}
                 </div>
                 {isCleared && uxpEarned > 0 && (
@@ -210,7 +193,7 @@ export function DailyChallengeScreen() {
               </div>
 
               {stage && !isLocked && (
-                <div style={{ marginTop: 8 }}>
+                <div style={{ marginTop: 10 }}>
                   <div style={{ fontSize: 15, fontWeight: 600, color: TDS.grey900 }}>
                     {stage.title}
                   </div>
@@ -220,7 +203,7 @@ export function DailyChallengeScreen() {
                 </div>
               )}
               {isLocked && (
-                <div style={{ marginTop: 8, fontSize: 15, fontWeight: 600, color: TDS.grey500 }}>
+                <div style={{ marginTop: 10, fontSize: 15, fontWeight: 600, color: TDS.grey400 }}>
                   ???
                 </div>
               )}
@@ -231,14 +214,14 @@ export function DailyChallengeScreen() {
                     navigate(`/stage/${encodeURIComponent(stage.id)}?challenge=1&step=${i}`)
                   }
                   style={{
-                    marginTop: 12,
+                    marginTop: 14,
                     width: '100%',
-                    padding: '10px',
+                    height: 48,
                     background: TDS.blue500,
                     color: TDS.white,
                     border: 'none',
-                    borderRadius: TDS.radius8,
-                    fontSize: 14,
+                    borderRadius: TDS.radius12,
+                    fontSize: 15,
                     fontWeight: 700,
                     cursor: 'pointer',
                     fontFamily: TDS.fontFamily,
@@ -260,14 +243,14 @@ export function DailyChallengeScreen() {
                   }}
                   disabled={adLoading}
                   style={{
-                    marginTop: 12,
+                    marginTop: 14,
                     width: '100%',
-                    padding: '10px',
+                    height: 48,
                     background: adLoading ? TDS.grey200 : TDS.orange500,
                     color: TDS.white,
                     border: 'none',
-                    borderRadius: TDS.radius8,
-                    fontSize: 14,
+                    borderRadius: TDS.radius12,
+                    fontSize: 15,
                     fontWeight: 700,
                     cursor: adLoading ? 'default' : 'pointer',
                     fontFamily: TDS.fontFamily,
@@ -284,20 +267,19 @@ export function DailyChallengeScreen() {
       {/* 전체 클리어 보너스 */}
       <div
         style={{
-          margin: '4px 16px 32px',
-          padding: '16px',
-          borderRadius: TDS.radius12,
-          border: `1px solid ${allCleared && !bonusClaimed ? TDS.orange500 : TDS.grey200}`,
-          background: allCleared && !bonusClaimed ? '#FFF9E6' : TDS.grey50,
+          margin: '8px 12px 32px',
+          ...cardStyle,
+          padding: '20px',
+          borderLeft: `4px solid ${allCleared && !bonusClaimed ? TDS.orange500 : TDS.grey200}`,
         }}
       >
-        <div style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900, marginBottom: 4 }}>
+        <div style={{ fontSize: 16, fontWeight: 700, color: TDS.grey900, marginBottom: 4 }}>
           전체 클리어 보너스
         </div>
-        <div style={{ fontSize: 13, color: TDS.grey700, marginBottom: 8 }}>
+        <div style={{ fontSize: 14, color: TDS.grey700, marginBottom: 8 }}>
           +100 UX력 + 토스 포인트 10원!
         </div>
-        <div style={{ fontSize: 13, color: TDS.grey500, marginBottom: allCleared && !bonusClaimed ? 12 : 0 }}>
+        <div style={{ fontSize: 13, color: TDS.grey500, marginBottom: allCleared && !bonusClaimed ? 14 : 0 }}>
           {clearedCount}/{totalSteps} 스텝 클리어
         </div>
         {allCleared && !bonusClaimed && (
@@ -305,11 +287,11 @@ export function DailyChallengeScreen() {
             onClick={handleClaimBonus}
             style={{
               width: '100%',
-              padding: '12px',
+              height: 48,
               background: TDS.orange500,
               color: TDS.white,
               border: 'none',
-              borderRadius: TDS.radius8,
+              borderRadius: TDS.radius12,
               fontSize: 15,
               fontWeight: 700,
               cursor: 'pointer',
@@ -320,13 +302,13 @@ export function DailyChallengeScreen() {
           </button>
         )}
         {bonusClaimed && (
-          <div style={{ fontSize: 13, color: TDS.green500, fontWeight: 600 }}>
+          <div style={{ fontSize: 14, color: TDS.green500, fontWeight: 600 }}>
             ✓ 보너스 수령 완료
           </div>
         )}
       </div>
 
-      {/* 광고 필수 토스트 */}
+      {/* 토스트 */}
       {adToast && (
         <div
           style={{
@@ -334,14 +316,14 @@ export function DailyChallengeScreen() {
             bottom: 40,
             left: '50%',
             transform: 'translateX(-50%)',
-            padding: '10px 20px',
-            fontSize: 13,
+            padding: '12px 24px',
+            fontSize: 14,
             fontWeight: 600,
             color: TDS.white,
-            background: TDS.red500,
-            borderRadius: TDS.radius8,
+            background: TDS.grey900,
+            borderRadius: 24,
             zIndex: 1000,
-            opacity: 0.95,
+            boxShadow: TDS.shadowElevated,
           }}
         >
           {adToast}

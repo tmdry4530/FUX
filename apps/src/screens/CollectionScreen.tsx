@@ -1,24 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCollection } from '../collection/useCollection';
-
-const TDS = {
-  grey900: '#191F28',
-  grey700: '#4E5968',
-  grey500: '#8B95A1',
-  grey200: '#E5E8EB',
-  grey100: '#F2F4F6',
-  grey50: '#F9FAFB',
-  blue500: '#3182F6',
-  blue100: '#E8F3FF',
-  red500: '#E53935',
-  green500: '#00C471',
-  orange500: '#F59F00',
-  white: '#FFFFFF',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-  radius12: 12,
-  radius8: 8,
-} as const;
+import { TDS } from '../styles/tds';
 
 const difficultyLabel = ['', 'Very Easy', 'Easy', 'Normal', 'Hard', 'Very Hard'];
 const difficultyColor = ['', TDS.green500, TDS.green500, TDS.orange500, TDS.red500, TDS.red500];
@@ -41,20 +24,20 @@ export function CollectionScreen() {
         margin: '0 auto',
         minHeight: '100dvh',
         paddingTop: 'env(safe-area-inset-top, 0px)',
-        background: TDS.white,
+        background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,
       }}
     >
-      {/* 헤더 */}
+      {/* 네비게이션 바 */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          padding: '16px 16px 12px',
-          borderBottom: `1px solid ${TDS.grey200}`,
+          height: 44,
+          padding: '0 16px',
+          background: TDS.white,
           position: 'sticky',
           top: 0,
-          background: TDS.white,
           zIndex: 10,
         }}
       >
@@ -65,12 +48,12 @@ export function CollectionScreen() {
             border: 'none',
             cursor: 'pointer',
             padding: '4px 8px 4px 0',
-            fontSize: 15,
-            color: TDS.grey700,
+            fontSize: 16,
+            color: TDS.grey900,
             fontFamily: TDS.fontFamily,
           }}
         >
-          ← 프로필
+          ←
         </button>
         <h1
           style={{
@@ -84,26 +67,26 @@ export function CollectionScreen() {
         >
           교육 카드 컬렉션
         </h1>
-        <div style={{ width: 52 }} />
+        <div style={{ width: 32 }} />
       </div>
 
-      {/* 수집 현황 + 진행률 바 */}
-      <div style={{ padding: '14px 16px 0' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-          <span style={{ fontSize: 14, fontWeight: 700, color: TDS.grey900 }}>
+      {/* 수집 현황 */}
+      <div style={{ padding: '16px 16px 0', background: TDS.white, marginBottom: 8 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+          <span style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900 }}>
             {clearedCount}/{totalCount} 수집
           </span>
-          <span style={{ fontSize: 13, color: TDS.grey500 }}>
+          <span style={{ fontSize: 14, color: TDS.grey500 }}>
             {totalCount > 0 ? Math.round((clearedCount / totalCount) * 100) : 0}%
           </span>
         </div>
         <div
           style={{
             height: 6,
-            background: TDS.grey200,
+            background: TDS.grey100,
             borderRadius: 3,
             overflow: 'hidden',
-            marginBottom: 14,
+            marginBottom: 16,
           }}
         >
           <div
@@ -123,8 +106,8 @@ export function CollectionScreen() {
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: 10,
-          padding: '0 16px 32px',
+          gap: 8,
+          padding: '0 12px 32px',
         }}
       >
         {cards.map((card) => {
@@ -135,25 +118,25 @@ export function CollectionScreen() {
               key={card.stageId}
               onClick={() => handleCardClick(card.stageId, card.cleared)}
               style={{
-                borderRadius: TDS.radius12,
-                border: `2px solid ${card.cleared ? TDS.blue500 : TDS.grey200}`,
-                background: card.cleared ? TDS.blue100 : TDS.grey50,
-                padding: '14px 12px',
+                borderRadius: TDS.radius16,
+                background: card.cleared ? TDS.white : TDS.grey50,
+                padding: '16px 14px',
                 cursor: card.cleared ? 'pointer' : 'default',
                 gridColumn: isExpanded ? 'span 2' : 'span 1',
                 transition: 'all 0.2s',
+                boxShadow: card.cleared ? TDS.shadowCard : 'none',
+                border: card.cleared ? `2px solid ${TDS.blue500}` : `1px solid ${TDS.grey200}`,
               }}
             >
               {card.cleared ? (
                 <>
-                  {/* 클리어된 카드 */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                     <span
                       style={{
                         fontSize: 11,
                         fontWeight: 700,
                         color: difficultyColor[card.difficulty],
-                        background: TDS.white,
+                        background: TDS.grey50,
                         borderRadius: 4,
                         padding: '2px 6px',
                       }}
@@ -176,9 +159,9 @@ export function CollectionScreen() {
                   {isExpanded && (
                     <div
                       style={{
-                        marginTop: 10,
-                        padding: '10px 12px',
-                        background: TDS.white,
+                        marginTop: 12,
+                        padding: '12px 14px',
+                        background: TDS.grey50,
                         borderRadius: TDS.radius8,
                         fontSize: 13,
                         color: TDS.grey700,
@@ -193,14 +176,13 @@ export function CollectionScreen() {
                     </div>
                   )}
                   {!isExpanded && (
-                    <div style={{ fontSize: 12, color: TDS.grey500, marginTop: 4 }}>
+                    <div style={{ fontSize: 12, color: TDS.grey400, marginTop: 4 }}>
                       탭하여 설명 보기
                     </div>
                   )}
                 </>
               ) : (
                 <>
-                  {/* 미수집 카드 */}
                   <div style={{ marginBottom: 6 }}>
                     <span
                       style={{
@@ -219,14 +201,14 @@ export function CollectionScreen() {
                     style={{
                       fontSize: 22,
                       fontWeight: 800,
-                      color: TDS.grey500,
+                      color: TDS.grey300,
                       marginBottom: 4,
                       letterSpacing: 2,
                     }}
                   >
                     ???
                   </div>
-                  <div style={{ fontSize: 12, color: TDS.grey500 }}>미수집</div>
+                  <div style={{ fontSize: 12, color: TDS.grey400 }}>미수집</div>
                 </>
               )}
             </div>
