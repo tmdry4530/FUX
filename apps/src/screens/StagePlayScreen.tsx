@@ -99,6 +99,7 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
         display: "flex",
         flexDirection: "column",
         height: "100dvh",
+        paddingTop: "env(safe-area-inset-top, 0px)",
         background: "#fafafa",
       }}
     >

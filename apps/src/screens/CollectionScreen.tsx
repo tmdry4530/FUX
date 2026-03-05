@@ -40,6 +40,7 @@ export function CollectionScreen() {
         maxWidth: 480,
         margin: '0 auto',
         minHeight: '100dvh',
+        paddingTop: 'env(safe-area-inset-top, 0px)',
         background: TDS.white,
         fontFamily: TDS.fontFamily,
       }}

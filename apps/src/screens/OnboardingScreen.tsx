@@ -38,6 +38,7 @@ export function OnboardingScreen() {
     <div
       style={{
         minHeight: '100dvh',
+        paddingTop: 'env(safe-area-inset-top, 0px)',
         background: TDS.white,
         fontFamily: TDS.fontFamily,
         display: 'flex',
