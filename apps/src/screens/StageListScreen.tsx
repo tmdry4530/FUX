@@ -93,7 +93,7 @@ export function StageListScreen() {
   return (
     <div
       style={{
-        padding: "12px 16px",
+        padding: "40px 16px 16px",
         maxWidth: 480,
         margin: "0 auto",
         fontFamily: TDS.fontFamily,
