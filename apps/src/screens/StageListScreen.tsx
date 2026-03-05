@@ -101,38 +101,21 @@ export function StageListScreen() {
         background: TDS.white,
       }}
     >
-      <h1
-        style={{
-          fontSize: 22,
-          fontWeight: 700,
-          color: TDS.grey900,
-          marginBottom: 2,
-          letterSpacing: -0.5,
-        }}
-      >
-        일부러 불편한 앱
-      </h1>
-      <p
-        style={{
-          fontSize: 13,
-          color: TDS.grey500,
-          marginBottom: 8,
-          lineHeight: 1.4,
-        }}
-      >
-        나쁜 UX를 직접 체험하고, 왜 나쁜지 배워보세요.
-      </p>
-
-      {/* UX력 헤더 */}
+      {/* 헤더: 타이틀 + UX력 + 프로필 한 줄 */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 10,
       }}>
-        <span style={{ fontSize: 13, color: TDS.grey700 }}>
-          UX력 <strong style={{ color: TDS.blue500, fontSize: 15 }}>{state.uxp.total.toLocaleString()}</strong>
-        </span>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+          <span style={{ fontSize: 18, fontWeight: 700, color: TDS.grey900, letterSpacing: -0.5 }}>
+            일부러 불편한 앱
+          </span>
+          <span style={{ fontSize: 13, color: TDS.grey700 }}>
+            UX력 <strong style={{ color: TDS.blue500 }}>{state.uxp.total.toLocaleString()}</strong>
+          </span>
+        </div>
         <button
           type="button"
           onClick={(e) => {
@@ -140,16 +123,14 @@ export function StageListScreen() {
             navigate('/profile');
           }}
           style={{
-            padding: '6px 12px',
-            fontSize: 12,
+            padding: '5px 10px',
+            fontSize: 11,
             fontWeight: 600,
             background: TDS.grey100,
             color: TDS.grey700,
             border: 'none',
             borderRadius: TDS.radius8,
             cursor: 'pointer',
-            position: 'relative',
-            zIndex: 1,
           }}
         >
           내 프로필
@@ -161,19 +142,19 @@ export function StageListScreen() {
         onClick={() => navigate('/challenge')}
         style={{
           width: '100%',
-          padding: '24px 20px',
+          padding: '16px 16px',
           background: 'linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)',
           border: 'none',
           borderRadius: TDS.radius12,
           cursor: 'pointer',
           textAlign: 'left',
-          marginBottom: 12,
+          marginBottom: 10,
         }}
       >
-        <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 6 }}>
+        <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
           매일 새로운 6단계
         </div>
-        <div style={{ fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 8 }}>
+        <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 6 }}>
           오늘의 챌린지
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
