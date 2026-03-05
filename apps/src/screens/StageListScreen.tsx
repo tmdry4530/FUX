@@ -93,7 +93,7 @@ export function StageListScreen() {
   return (
     <div
       style={{
-        padding: "20px 16px",
+        padding: "12px 16px",
         maxWidth: 480,
         margin: "0 auto",
         fontFamily: TDS.fontFamily,
@@ -103,10 +103,10 @@ export function StageListScreen() {
     >
       <h1
         style={{
-          fontSize: 26,
+          fontSize: 22,
           fontWeight: 700,
           color: TDS.grey900,
-          marginBottom: 4,
+          marginBottom: 2,
           letterSpacing: -0.5,
         }}
       >
@@ -114,10 +114,10 @@ export function StageListScreen() {
       </h1>
       <p
         style={{
-          fontSize: 15,
+          fontSize: 13,
           color: TDS.grey500,
-          marginBottom: 12,
-          lineHeight: 1.5,
+          marginBottom: 8,
+          lineHeight: 1.4,
         }}
       >
         나쁜 UX를 직접 체험하고, 왜 나쁜지 배워보세요.
@@ -128,10 +128,10 @@ export function StageListScreen() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 16,
+        marginBottom: 10,
       }}>
-        <span style={{ fontSize: 14, color: TDS.grey700 }}>
-          UX력 <strong style={{ color: TDS.blue500, fontSize: 16 }}>{state.uxp.total.toLocaleString()}</strong>
+        <span style={{ fontSize: 13, color: TDS.grey700 }}>
+          UX력 <strong style={{ color: TDS.blue500, fontSize: 15 }}>{state.uxp.total.toLocaleString()}</strong>
         </span>
         <button
           type="button"
