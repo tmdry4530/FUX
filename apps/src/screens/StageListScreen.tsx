@@ -78,17 +78,13 @@ export function StageListScreen() {
         margin: '0 auto',
         fontFamily: TDS.fontFamily,
         minHeight: '100dvh',
-        background: TDS.bgGrey,
+        background: TDS.white,
       }}
     >
       {/* 상단 헤더 영역 (화이트) */}
       <div
         style={{
-          background: TDS.white,
-          padding: '20px 20px 20px',
-          borderRadius: `0 0 ${TDS.radius16}px ${TDS.radius16}px`,
-          boxShadow: TDS.shadowCard,
-          marginBottom: 8,
+          padding: '24px 20px 16px',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
@@ -132,7 +128,7 @@ export function StageListScreen() {
       </div>
 
       {/* 카드 영역 */}
-      <div style={{ padding: '0 12px 24px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ padding: '0 20px 40px', display: 'flex', flexDirection: 'column', gap: 10 }}>
         {/* 1. 오늘의 챌린지 */}
         <button
           onClick={() => navigate('/challenge')}
