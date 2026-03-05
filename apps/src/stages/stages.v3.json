@@ -15,7 +15,13 @@
     "sourceTag": "community",
     "patternTag": "volume:hover",
     "safety": "simulation_only",
-    "params": { "mode": "hover_slider", "targetVolume": 50, "tolerance": 5, "showDelayMs": 800, "hideOnOutMs": 500 }
+    "params": {
+      "mode": "hover_slider",
+      "targetVolume": 50,
+      "tolerance": 5,
+      "showDelayMs": 800,
+      "hideOnOutMs": 500
+    }
   },
   {
     "id": "v3_hyper_sensitive",
@@ -33,7 +39,12 @@
     "sourceTag": "community",
     "patternTag": "volume:hyper-sensitive",
     "safety": "simulation_only",
-    "params": { "mode": "hyper_sensitive", "targetVolume": 50, "tolerance": 3, "sensitivity": 5.0 }
+    "params": {
+      "mode": "hyper_sensitive",
+      "targetVolume": 50,
+      "tolerance": 3,
+      "sensitivity": 5
+    }
   },
   {
     "id": "v3_tiny_hitbox",
@@ -51,7 +62,12 @@
     "sourceTag": "community",
     "patternTag": "volume:tiny-hitbox",
     "safety": "simulation_only",
-    "params": { "mode": "tiny_hitbox", "targetVolume": 50, "tolerance": 5, "trackWidthPx": 3 }
+    "params": {
+      "mode": "tiny_hitbox",
+      "targetVolume": 50,
+      "tolerance": 5,
+      "trackWidthPx": 3
+    }
   },
   {
     "id": "v3_hidden_icon",
@@ -69,7 +85,12 @@
     "sourceTag": "community",
     "patternTag": "volume:hidden-icon",
     "safety": "simulation_only",
-    "params": { "mode": "hidden_icon", "targetVolume": 50, "tolerance": 5, "showDelayMs": 800 }
+    "params": {
+      "mode": "hidden_icon",
+      "targetVolume": 50,
+      "tolerance": 5,
+      "showDelayMs": 800
+    }
   },
   {
     "id": "v3_reverse_mapping",
@@ -87,7 +108,11 @@
     "sourceTag": "community",
     "patternTag": "volume:reverse-mapping",
     "safety": "simulation_only",
-    "params": { "mode": "reverse_mapping", "targetVolume": 50, "tolerance": 5 }
+    "params": {
+      "mode": "reverse_mapping",
+      "targetVolume": 50,
+      "tolerance": 5
+    }
   },
   {
     "id": "v3_random_jump",
@@ -105,7 +130,12 @@
     "sourceTag": "community",
     "patternTag": "volume:random-jump",
     "safety": "simulation_only",
-    "params": { "mode": "random_jump", "targetVolume": 50, "tolerance": 5, "jitterPx": 30 }
+    "params": {
+      "mode": "random_jump",
+      "targetVolume": 50,
+      "tolerance": 5,
+      "jitterPx": 30
+    }
   },
   {
     "id": "v3_circular_gesture",
@@ -123,7 +153,11 @@
     "sourceTag": "community",
     "patternTag": "volume:circular-gesture",
     "safety": "simulation_only",
-    "params": { "mode": "circular_gesture", "targetVolume": 50, "tolerance": 5 }
+    "params": {
+      "mode": "circular_gesture",
+      "targetVolume": 50,
+      "tolerance": 5
+    }
   },
   {
     "id": "v3_puzzle_lock",
@@ -141,7 +175,11 @@
     "sourceTag": "community",
     "patternTag": "volume:puzzle-lock",
     "safety": "simulation_only",
-    "params": { "mode": "puzzle_lock", "targetVolume": 50, "tolerance": 5 }
+    "params": {
+      "mode": "puzzle_lock",
+      "targetVolume": 50,
+      "tolerance": 5
+    }
   },
   {
     "id": "v3_physics_launcher",
@@ -159,7 +197,11 @@
     "sourceTag": "community",
     "patternTag": "volume:physics-launcher",
     "safety": "simulation_only",
-    "params": { "mode": "physics_launcher", "targetVolume": 50, "tolerance": 8 }
+    "params": {
+      "mode": "physics_launcher",
+      "targetVolume": 50,
+      "tolerance": 8
+    }
   },
   {
     "id": "v3_voice_shout",
@@ -177,25 +219,11 @@
     "sourceTag": "community",
     "patternTag": "volume:voice-shout",
     "safety": "simulation_only",
-    "params": { "mode": "voice_shout", "targetVolume": 50, "tolerance": 5 }
-  },
-  {
-    "id": "v3_endless_wizard",
-    "type": "endless_wizard_flow",
-    "title": "끝없는 가입 양식",
-    "objective": "끝이 보이지 않는 단계별 양식을 끝까지 완료하세요.",
-    "memeCaption": "가입만 하는데 30분 걸리는 서비스",
-    "explainWhyBad": "불필요하게 긴 온보딩 플로우는 사용자 이탈의 주원인입니다. 최소 정보만 요구하고 점진적으로 수집해야 합니다.",
-    "difficulty": 3,
-    "timeLimitMs": 60000,
-    "allowHint": true,
-    "allowSkip": true,
-    "hintText": "버튼 텍스트를 주의 깊게 읽으세요. 함정이 있습니다.",
-    "packTag": "web-hell",
-    "sourceTag": "community",
-    "patternTag": "web:wizard",
-    "safety": "simulation_only",
-    "params": { "mode": "endless_wizard", "stepCount": 8, "backResets": true, "misleadingLabels": true, "decoyCtas": 2, "forcedScroll": true, "requiredFields": 3 }
+    "params": {
+      "mode": "voice_shout",
+      "targetVolume": 50,
+      "tolerance": 5
+    }
   },
   {
     "id": "v3_nav_ambiguity",
@@ -213,7 +241,12 @@
     "sourceTag": "community",
     "patternTag": "web:nav-ambiguity",
     "safety": "simulation_only",
-    "params": { "mode": "nav_maze", "targetAction": "메시지 보내기", "menuDepth": 4, "misleadingMenus": 3 }
+    "params": {
+      "mode": "nav_maze",
+      "targetAction": "메시지 보내기",
+      "menuDepth": 4,
+      "misleadingMenus": 3
+    }
   },
   {
     "id": "v3_clutter_cta",
@@ -231,7 +264,13 @@
     "sourceTag": "community",
     "patternTag": "web:clutter",
     "safety": "simulation_only",
-    "params": { "mode": "clutter_page", "targetLabel": "저장하기", "clutterItems": 20, "scrollHeight": 1200, "hasSimBadge": true }
+    "params": {
+      "mode": "clutter_page",
+      "targetLabel": "저장하기",
+      "clutterItems": 20,
+      "scrollHeight": 1200,
+      "hasSimBadge": true
+    }
   },
   {
     "id": "v3_filter_overload",
@@ -249,7 +288,12 @@
     "sourceTag": "community",
     "patternTag": "web:filter-overload",
     "safety": "simulation_only",
-    "params": { "mode": "filter_overload", "targetAction": "필터 적용", "filterCount": 12, "hiddenApplyButton": true }
+    "params": {
+      "mode": "filter_overload",
+      "targetAction": "필터 적용",
+      "filterCount": 12,
+      "hiddenApplyButton": true
+    }
   },
   {
     "id": "v3_gov_portal",
@@ -267,7 +311,15 @@
     "sourceTag": "community",
     "patternTag": "web:gov-portal",
     "safety": "simulation_only",
-    "params": { "mode": "government_portal", "stepCount": 6, "backResets": false, "misleadingLabels": false, "decoyCtas": 1, "forcedScroll": true, "requiredFields": 4 }
+    "params": {
+      "mode": "government_portal",
+      "stepCount": 6,
+      "backResets": false,
+      "misleadingLabels": false,
+      "decoyCtas": 1,
+      "forcedScroll": true,
+      "requiredFields": 4
+    }
   },
   {
     "id": "v3_chaotic_layout",
@@ -285,6 +337,12 @@
     "sourceTag": "community",
     "patternTag": "web:chaotic-layout",
     "safety": "simulation_only",
-    "params": { "mode": "chaotic_layout", "targetLabel": "신청하기", "clutterItems": 25, "scrollHeight": 1500, "hasSimBadge": true }
+    "params": {
+      "mode": "chaotic_layout",
+      "targetLabel": "신청하기",
+      "clutterItems": 25,
+      "scrollHeight": 1500,
+      "hasSimBadge": true
+    }
   }
 ]

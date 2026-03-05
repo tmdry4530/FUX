@@ -3076,41 +3076,6 @@
     }
   },
   {
-    "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_easy",
-    "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Very Easy)",
-    "objective": "모든 단계를 빠짐없이 넘기세요",
-    "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
-    "explainWhyBad": "진행률 표시 없는 긴 절차는 사용자에게 \"끝이 있긴 한 건가?\"라는 불안을 줍니다.",
-    "difficulty": 1,
-    "timeLimitMs": 45000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 3,
-      "backResets": true,
-      "misleadingLabels": false,
-      "decoyCtas": 3,
-      "forcedScroll": true,
-      "requiredFields": 4,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1kc4bcr/date_picker_that_i_found_a_while_before_i_found/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
     "id": "uxref_031_date-picker-that-i-found-a-while-before-i-found-the-subreddi_normal",
     "type": "consent_toggle_labour",
     "title": "\"모두 거부\" 없는 쿠키 설정 #2",
@@ -3440,41 +3405,6 @@
       "category": "시간대",
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_035_4-click-max-birthday-date-picker",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/13ivnqy/4clickmax_birthday_date_picker/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
-    "id": "uxref_035_4-click-max-birthday-date-picker_hard",
-    "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Normal)",
-    "objective": "모든 단계를 빠짐없이 넘기세요",
-    "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 3,
-    "timeLimitMs": 20000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 10,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 2,
-      "forcedScroll": true,
-      "requiredFields": 4,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_035_4-click-max-birthday-date-picker",
@@ -5347,41 +5277,6 @@
     }
   },
   {
-    "id": "uxref_053_request-password-cannot-contain-anything_hard",
-    "type": "endless_wizard_flow",
-    "title": "다음 버튼의 저주 (Very Hard)",
-    "objective": "끝이 안 보이는 절차를 완료하세요",
-    "memeCaption": "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 5,
-    "timeLimitMs": 10000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "auth_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 7,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 5,
-      "forcedScroll": true,
-      "requiredFields": 2,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_053_request-password-cannot-contain-anything",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/n4rmdx/request_password_cannot_contain_anything/",
-      "archetype": "auth_hell",
-      "kind": "community",
-      "patternTags": [
-        "auth"
-      ]
-    }
-  },
-  {
     "id": "uxref_053_request-password-cannot-contain-anything_normal",
     "type": "modal_stack",
     "title": "8층 팝업 탑 해체",
@@ -5841,41 +5736,6 @@
     "meta": {
       "referenceId": "uxref_056_a-text-input-that-takes-the-day-s-date-to-enter-a-password",
       "url": "https://www.reddit.com/r/badUIbattles/comments/g9fpio/a_text_input_that_takes_the_days_date_to_enter_a/",
-      "archetype": "auth_hell",
-      "kind": "community",
-      "patternTags": [
-        "auth"
-      ]
-    }
-  },
-  {
-    "id": "uxref_057_req-basket-catcher-password-thingy_easy",
-    "type": "endless_wizard_flow",
-    "title": "6단계 끝없는 마법사 흐름 (Normal)",
-    "objective": "끝없는 단계를 통과하세요",
-    "memeCaption": "마법사 플로우가 끝나지 않습니다. 영원히요.",
-    "explainWhyBad": "진행률 표시 없는 긴 절차는 사용자에게 \"끝이 있긴 한 건가?\"라는 불안을 줍니다.",
-    "difficulty": 3,
-    "timeLimitMs": 35000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "auth_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 6,
-      "backResets": true,
-      "misleadingLabels": false,
-      "decoyCtas": 1,
-      "forcedScroll": true,
-      "requiredFields": 5,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_057_req-basket-catcher-password-thingy",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/nrd7et/req_basketcatcherpasswordthingy/",
       "archetype": "auth_hell",
       "kind": "community",
       "patternTags": [
@@ -6773,42 +6633,6 @@
     }
   },
   {
-    "id": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor_normal",
-    "type": "endless_wizard_flow",
-    "title": "단계가 끝나지 않는 절차",
-    "objective": "마법사 흐름을 완주하세요",
-    "memeCaption": "7단계 중 5단계입니다. 그런데 7단계 뒤에 8단계가 있어요.",
-    "explainWhyBad": "끝이 안 보이는 절차는 사용자의 진행 감각을 빼앗아 이탈률을 급증시킵니다.",
-    "difficulty": 3,
-    "timeLimitMs": 25000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 5,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 2,
-      "forcedScroll": true,
-      "requiredFields": 6,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_064_a-keyboard-but-the-letters-are-scared-by-the-cursor",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1hl9use/a_keyboard_but_the_letters_are_scared_by_the/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard",
-        "fleeing"
-      ]
-    }
-  },
-  {
     "id": "uxref_065_binary-search-keyboard_easy",
     "type": "label_ambiguity",
     "title": "OK/Cancel이 뒤바뀐 다이얼로그 (Easy)",
@@ -6890,41 +6714,6 @@
       "ctaText": "건너뛰기",
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/imzl5b/a_keyboard_but_each_key_has_a_picture_on_it_where/",
-      "archetype": "keyboard_hell",
-      "kind": "community",
-      "patternTags": [
-        "keyboard"
-      ]
-    }
-  },
-  {
-    "id": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-_hard",
-    "type": "endless_wizard_flow",
-    "title": "9단계 끝없는 마법사 흐름 (Hard)",
-    "objective": "끝없는 단계를 통과하세요",
-    "memeCaption": "마법사 플로우가 끝나지 않습니다. 영원히요.",
-    "explainWhyBad": "끝이 안 보이는 절차는 사용자의 진행 감각을 빼앗아 이탈률을 급증시킵니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "keyboard_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 9,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 2,
-      "forcedScroll": false,
-      "requiredFields": 5,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_066_a-keyboard-but-each-key-has-a-picture-on-it-where-the-first-",
@@ -9360,41 +9149,6 @@
     }
   },
   {
-    "id": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-_normal",
-    "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 #1",
-    "objective": "모든 단계를 빠짐없이 넘기세요",
-    "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
-    "explainWhyBad": "끝이 안 보이는 절차는 사용자의 진행 감각을 빼앗아 이탈률을 급증시킵니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "scroll_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 6,
-      "backResets": true,
-      "misleadingLabels": false,
-      "decoyCtas": 2,
-      "forcedScroll": false,
-      "requiredFields": 4,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_081_vertical-scroll-bars-are-notorious-for-not-obeying-the-laws-",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/s5lfsy/vertical_scroll_bars_are_notorious_for_not/",
-      "archetype": "scroll_hell",
-      "kind": "community",
-      "patternTags": [
-        "scroll"
-      ]
-    }
-  },
-  {
     "id": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima_easy",
     "type": "clutter_find_cta",
     "title": "\"로그아웃\" 버튼 찾기 (Very Easy)",
@@ -9464,42 +9218,6 @@
     }
   },
   {
-    "id": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima_normal",
-    "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 #2",
-    "objective": "모든 단계를 빠짐없이 넘기세요",
-    "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 2,
-    "timeLimitMs": 30000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "scroll_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 6,
-      "backResets": false,
-      "misleadingLabels": false,
-      "decoyCtas": 4,
-      "forcedScroll": false,
-      "requiredFields": 4,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_082_i-modified-my-code-to-make-a-vertically-scrolling-hexadecima",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/lidp0n/i_modified_my_code_a_to_make_a/",
-      "archetype": "scroll_hell",
-      "kind": "community",
-      "patternTags": [
-        "scroll",
-        "hex"
-      ]
-    }
-  },
-  {
     "id": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-_easy",
     "type": "government_portal_popups",
     "title": "6개 팝업 닫고 목표 달성 (Very Easy)",
@@ -9523,41 +9241,6 @@
       "requiredFields": 3,
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/y5nwr7/i_had_to_sign_a_form_on_my_phone_writing_in_the/",
-      "archetype": "scroll_hell",
-      "kind": "community",
-      "patternTags": [
-        "scroll"
-      ]
-    }
-  },
-  {
-    "id": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-_hard",
-    "type": "endless_wizard_flow",
-    "title": "다음 버튼의 저주 (Normal)",
-    "objective": "끝이 안 보이는 절차를 완료하세요",
-    "memeCaption": "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 3,
-    "timeLimitMs": 20000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "scroll_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 10,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 1,
-      "forcedScroll": true,
-      "requiredFields": 2,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_083_i-had-to-sign-a-form-on-my-phone-writing-in-the-box-scrolls-",
@@ -10355,41 +10038,6 @@
     }
   },
   {
-    "id": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm_easy",
-    "type": "endless_wizard_flow",
-    "title": "언제 끝나는지 모를 가입 절차 (Easy)",
-    "objective": "모든 단계를 빠짐없이 넘기세요",
-    "memeCaption": "끝없는 위저드 플로우, 인내심의 한계를 시험합니다.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "misc_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 8,
-      "backResets": false,
-      "misleadingLabels": false,
-      "decoyCtas": 4,
-      "forcedScroll": false,
-      "requiredFields": 4,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1m7741j/took_me_10_minutes_and_several_search_promts_to/",
-      "archetype": "misc_hell",
-      "kind": "community",
-      "patternTags": [
-        "misc"
-      ]
-    }
-  },
-  {
     "id": "uxref_092_took-me-10-minutes-and-several-search-promts-to-find-confirm_hard",
     "type": "roach_motel_flow",
     "title": "구독 취소 미로 탈출 (Hard) #1",
@@ -10718,41 +10366,6 @@
     }
   },
   {
-    "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y_hard",
-    "type": "endless_wizard_flow",
-    "title": "10개 단계 완주 도전 (Normal)",
-    "objective": "숨겨진 마지막 단계에 도달하세요",
-    "memeCaption": "이 폼을 완성하면 석사 학위를 줘야 합니다.",
-    "explainWhyBad": "불필요한 단계를 추가해 과정을 늘리는 것은 사용자의 시간을 존중하지 않는 설계입니다.",
-    "difficulty": 3,
-    "timeLimitMs": 20000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "date_time_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 10,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 5,
-      "forcedScroll": true,
-      "requiredFields": 3,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
-    },
-    "meta": {
-      "referenceId": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/1jrlfen/since_too_many_people_liked_my_previous_clock_i/",
-      "archetype": "date_time_hell",
-      "kind": "community",
-      "patternTags": [
-        "date_time"
-      ]
-    }
-  },
-  {
     "id": "uxref_094_since-too-many-people-liked-my-previous-clock-i-present-to-y_normal",
     "type": "label_ambiguity",
     "title": "OK/Cancel이 뒤바뀐 다이얼로그 #1",
@@ -10779,42 +10392,6 @@
       "kind": "community",
       "patternTags": [
         "date_time"
-      ]
-    }
-  },
-  {
-    "id": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches_easy",
-    "type": "endless_wizard_flow",
-    "title": "다음 버튼의 저주 (Easy)",
-    "objective": "끝이 안 보이는 절차를 완료하세요",
-    "memeCaption": "뒤로 가면 처음부터 다시, 앞으로 가면 끝이 없는.",
-    "explainWhyBad": "끝이 안 보이는 절차는 사용자의 진행 감각을 빼앗아 이탈률을 급증시킵니다.",
-    "difficulty": 2,
-    "timeLimitMs": 40000,
-    "allowHint": true,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "misc_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 8,
-      "backResets": true,
-      "misleadingLabels": false,
-      "decoyCtas": 3,
-      "forcedScroll": false,
-      "requiredFields": 2,
-      "wrongCloseAddsLayer": false,
-      "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_095_i-made-an-app-that-controls-the-brightness-with-switches",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/s3uoa4/i_made_an_app_that_controls_the_brightness_with/",
-      "archetype": "misc_hell",
-      "kind": "community",
-      "patternTags": [
-        "misc",
-        "switches"
       ]
     }
   },
@@ -11092,43 +10669,6 @@
       "hiddenApplyButton": false,
       "wrongCloseAddsLayer": false,
       "shuffleOnMiss": false
-    },
-    "meta": {
-      "referenceId": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman",
-      "url": "https://www.reddit.com/r/badUIbattles/comments/vwsyas/what_could_go_wrong_joining_a_calculator_and/",
-      "archetype": "misc_hell",
-      "kind": "community",
-      "patternTags": [
-        "misc",
-        "hangman",
-        "calculator"
-      ]
-    }
-  },
-  {
-    "id": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman_hard",
-    "type": "endless_wizard_flow",
-    "title": "12단계 끝없는 마법사 흐름 (Hard)",
-    "objective": "끝없는 단계를 통과하세요",
-    "memeCaption": "마법사 플로우가 끝나지 않습니다. 영원히요.",
-    "explainWhyBad": "끝이 안 보이는 절차는 사용자의 진행 감각을 빼앗아 이탈률을 급증시킵니다.",
-    "difficulty": 4,
-    "timeLimitMs": 15000,
-    "allowHint": false,
-    "allowSkip": true,
-    "packTag": "uxhell",
-    "sourceTag": "reddit/r/badUIbattles",
-    "patternTag": "misc_hell",
-    "params": {
-      "mode": "endless_wizard",
-      "stepCount": 12,
-      "backResets": true,
-      "misleadingLabels": true,
-      "decoyCtas": 2,
-      "forcedScroll": true,
-      "requiredFields": 5,
-      "wrongCloseAddsLayer": true,
-      "shuffleOnMiss": true
     },
     "meta": {
       "referenceId": "uxref_099_what-could-go-wrong-joining-a-calculator-and-hangman",
