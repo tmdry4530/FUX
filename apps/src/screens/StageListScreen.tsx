@@ -198,7 +198,7 @@ export function StageListScreen() {
         disabled={adLoading || dailyAdClaimed}
         style={{
           width: '100%',
-          padding: '20px',
+          padding: '14px 16px',
           background: adLoading || dailyAdClaimed
             ? TDS.grey100
             : 'linear-gradient(135deg, #F59F00 0%, #E08E00 100%)',
@@ -206,7 +206,7 @@ export function StageListScreen() {
           borderRadius: TDS.radius12,
           cursor: adLoading || dailyAdClaimed ? 'default' : 'pointer',
           textAlign: 'left',
-          marginBottom: 12,
+          marginBottom: 10,
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -232,9 +232,9 @@ export function StageListScreen() {
       </button>
 
       {/* 3. 더 어려운 도전 */}
-      <div style={{ marginBottom: 12 }}>
+      <div style={{ marginBottom: 10 }}>
         <div style={{
-          padding: '20px',
+          padding: '14px 16px',
           background: 'linear-gradient(135deg, #E53935 0%, #C62828 100%)',
           borderRadius: `${TDS.radius12}px ${TDS.radius12}px 0 0`,
         }}>
@@ -246,10 +246,10 @@ export function StageListScreen() {
               오늘 {hcPlayCount}/3회 도전
             </div>
           </div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>
+          <div style={{ fontSize: 17, fontWeight: 700, color: '#fff' }}>
             하드 챌린지
           </div>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', marginTop: 4 }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>
             Hard ~ Very Hard 난이도 랜덤 추천 · 1회 무료, 광고 시청 시 최대 3회
           </div>
         </div>
@@ -270,7 +270,7 @@ export function StageListScreen() {
                   display: "flex",
                   alignItems: "center",
                   gap: 12,
-                  padding: "14px 16px",
+                  padding: "12px 16px",
                   borderBottom: index < hardStages.length - 1 ? `1px solid ${TDS.grey100}` : 'none',
                   background: isCleared ? '#F0FBF6' : TDS.white,
                 }}
