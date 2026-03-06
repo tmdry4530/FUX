@@ -168,7 +168,7 @@ export function ResultScreen() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100dvh",
-        padding: "calc(env(safe-area-inset-top, 0px) + 24px) 20px 24px",
+        padding: "calc(env(safe-area-inset-top, 0px) + 16px) 20px 16px",
         textAlign: "center",
         background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,

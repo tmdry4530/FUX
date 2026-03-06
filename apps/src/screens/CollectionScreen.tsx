@@ -23,7 +23,8 @@ export function CollectionScreen() {
         maxWidth: 480,
         margin: '0 auto',
         minHeight: '100dvh',
-        paddingTop: 'env(safe-area-inset-top, 0px)',
+        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
+        paddingBottom: 16,
         background: TDS.bgGrey,
         fontFamily: TDS.fontFamily,
       }}

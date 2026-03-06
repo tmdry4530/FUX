@@ -73,7 +73,8 @@ export function StageListScreen() {
   return (
     <div
       style={{
-        paddingTop: 'env(safe-area-inset-top, 0px)',
+        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
+        paddingBottom: 16,
         maxWidth: 480,
         margin: '0 auto',
         fontFamily: TDS.fontFamily,
@@ -81,18 +82,14 @@ export function StageListScreen() {
         background: TDS.white,
       }}
     >
-      {/* 상단 헤더 영역 (화이트) */}
-      <div
-        style={{
-          padding: '24px 20px 16px',
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+      {/* 상단 헤더 영역 */}
+      <div style={{ padding: '12px 20px 10px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
           <div>
-            <h1 style={{ fontSize: 22, fontWeight: 700, color: TDS.grey900, marginBottom: 4, letterSpacing: -0.5 }}>
+            <h1 style={{ fontSize: 19, fontWeight: 700, color: TDS.grey900, letterSpacing: -0.5 }}>
               일부러 불편한 앱
             </h1>
-            <p style={{ fontSize: 13, color: TDS.grey500, lineHeight: 1.4 }}>
+            <p style={{ fontSize: 12, color: TDS.grey500, lineHeight: 1.3 }}>
               나쁜 UX를 직접 체험하고, 왜 나쁜지 배워보세요.
             </p>
           </div>
@@ -100,7 +97,7 @@ export function StageListScreen() {
             type="button"
             onClick={(e) => { e.stopPropagation(); navigate('/profile'); }}
             style={{
-              padding: '8px 14px', fontSize: 13, fontWeight: 600,
+              padding: '6px 12px', fontSize: 12, fontWeight: 600,
               background: TDS.grey100, color: TDS.grey700,
               border: 'none', borderRadius: 20, cursor: 'pointer',
             }}
@@ -113,53 +110,53 @@ export function StageListScreen() {
         <div
           style={{
             background: TDS.blue100,
-            borderRadius: TDS.radius12,
-            padding: '14px 16px',
+            borderRadius: TDS.radius8,
+            padding: '10px 14px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
         >
-          <span style={{ fontSize: 14, color: TDS.grey700 }}>총 UX력</span>
-          <span style={{ fontSize: 20, fontWeight: 700, color: TDS.blue500 }}>
+          <span style={{ fontSize: 13, color: TDS.grey700 }}>총 UX력</span>
+          <span style={{ fontSize: 17, fontWeight: 700, color: TDS.blue500 }}>
             {state.uxp.total.toLocaleString()}
           </span>
         </div>
       </div>
 
       {/* 카드 영역 */}
-      <div style={{ padding: '0 20px 40px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <div style={{ padding: '0 20px 16px', display: 'flex', flexDirection: 'column', gap: 6 }}>
         {/* 1. 오늘의 챌린지 */}
         <button
           onClick={() => navigate('/challenge')}
           style={{
             width: '100%',
-            padding: '20px',
+            padding: '14px 16px',
             background: 'linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)',
             border: 'none',
-            borderRadius: TDS.radius16,
+            borderRadius: TDS.radius12,
             cursor: 'pointer',
             textAlign: 'left',
-            boxShadow: '0 4px 12px rgba(49, 130, 246, 0.2)',
+            boxShadow: '0 2px 8px rgba(49, 130, 246, 0.2)',
           }}
         >
-          <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 3 }}>
             매일 새로운 6단계
           </div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 8 }}>
+          <div style={{ fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 4 }}>
             오늘의 챌린지
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
+            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)' }}>
               {progress ? `${clearedCount}/${totalSteps} 완료` : '도전하기'}
               {attendance.currentStreak > 0 && ` · 연속 ${attendance.currentStreak}일째!`}
             </div>
-            <span style={{ fontSize: 22, color: '#fff' }}>→</span>
+            <span style={{ fontSize: 18, color: '#fff' }}>→</span>
           </div>
           {progress && (
             <div style={{
-              marginTop: 14,
-              height: 4,
+              marginTop: 8,
+              height: 3,
               borderRadius: 2,
               background: 'rgba(255,255,255,0.25)',
               overflow: 'hidden',
@@ -202,23 +199,23 @@ export function StageListScreen() {
           disabled={adLoading || dailyAdClaimed}
           style={{
             width: '100%',
-            padding: '20px',
+            padding: '12px 16px',
             background: adLoading || dailyAdClaimed
               ? TDS.white
               : 'linear-gradient(135deg, #F59F00 0%, #E08E00 100%)',
             border: 'none',
-            borderRadius: TDS.radius16,
+            borderRadius: TDS.radius12,
             cursor: adLoading || dailyAdClaimed ? 'default' : 'pointer',
             textAlign: 'left',
-            boxShadow: adLoading || dailyAdClaimed ? TDS.shadowCard : '0 4px 12px rgba(245, 159, 0, 0.2)',
+            boxShadow: adLoading || dailyAdClaimed ? TDS.shadowCard : '0 2px 8px rgba(245, 159, 0, 0.2)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: adLoading || dailyAdClaimed ? TDS.grey500 : 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: adLoading || dailyAdClaimed ? TDS.grey500 : 'rgba(255,255,255,0.7)', marginBottom: 2 }}>
                 광고 시청 보상
               </div>
-              <div style={{ fontSize: 17, fontWeight: 700, color: adLoading || dailyAdClaimed ? TDS.grey500 : '#fff' }}>
+              <div style={{ fontSize: 15, fontWeight: 700, color: adLoading || dailyAdClaimed ? TDS.grey500 : '#fff' }}>
                 {dailyAdClaimed ? '오늘 보상 수령 완료' : adLoading ? '광고 로딩중...' : '광고 보고 UX력 받기'}
               </div>
             </div>
@@ -244,22 +241,22 @@ export function StageListScreen() {
           }}
         >
           <div style={{
-            padding: '16px 20px',
+            padding: '12px 16px',
             background: 'linear-gradient(135deg, #E53935 0%, #C62828 100%)',
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
                 고난이도 · 보상 2배
               </div>
-              <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.9)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.9)' }}>
                 오늘 {hcPlayCount}/3회 도전
               </div>
             </div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: '#fff' }}>
+            <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>
               하드 챌린지
             </div>
-            <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)', marginTop: 4 }}>
-              Hard ~ Very Hard 난이도 · 1회 무료, 광고 시청 시 최대 3회
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>
+              Hard ~ Very Hard · 1회 무료, 광고 시 최대 3회
             </div>
           </div>
 
@@ -272,7 +269,7 @@ export function StageListScreen() {
                   display: "flex",
                   alignItems: "center",
                   gap: 12,
-                  padding: "14px 20px",
+                  padding: "10px 16px",
                   borderBottom: index < hardStages.length - 1 ? `1px solid ${TDS.grey100}` : 'none',
                   background: isCleared ? '#F0FBF6' : TDS.white,
                 }}
