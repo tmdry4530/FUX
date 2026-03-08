@@ -31,7 +31,7 @@ export function DailyChallengeScreen() {
       id: `challenge-bonus-${Date.now()}`,
       timestamp: new Date().toISOString(),
       type: 'challenge_bonus' as const,
-      amount: 100,
+      amount: 50,
     };
     dispatch({ type: 'ADD_UXP', entry: bonusEntry });
     dispatch({ type: 'CLAIM_CHALLENGE_BONUS' });
@@ -39,7 +39,7 @@ export function DailyChallengeScreen() {
     const updatedState = {
       ...state,
       uxp: {
-        total: state.uxp.total + 100,
+        total: state.uxp.total + 50,
         entries: [bonusEntry, ...state.uxp.entries],
       },
       challengeProgress: state.challengeProgress
@@ -253,7 +253,7 @@ export function DailyChallengeScreen() {
               전체 클리어 보너스
             </div>
             <div style={{ fontSize: 12, color: TDS.grey500, marginTop: 2 }}>
-              {clearedCount}/{totalSteps} 클리어 · +100 UX력 + 10원
+              {clearedCount}/{totalSteps} 클리어 · +50 UX력 + 10원
             </div>
           </div>
           {allCleared && !bonusClaimed && (

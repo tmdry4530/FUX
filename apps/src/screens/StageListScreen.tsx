@@ -176,7 +176,7 @@ export function StageListScreen() {
         <button
           onClick={async () => {
             if (!adLoading && !dailyAdClaimed) {
-              const ok = await watchAd('daily-bonus', 10);
+              const ok = await watchAd('daily-bonus', 20);
               if (ok) {
                 dispatch({
                   type: 'ADD_UXP',
@@ -184,11 +184,11 @@ export function StageListScreen() {
                     id: `ad-daily-${Date.now()}`,
                     timestamp: new Date().toISOString(),
                     type: 'rewarded_ad',
-                    amount: 10,
+                    amount: 20,
                     stageId: 'daily-bonus',
                   },
                 });
-                setAdToast('+10 UX력 획득!');
+                setAdToast('+20 UX력 획득!');
                 setTimeout(() => setAdToast(null), 2500);
               } else {
                 setAdToast('광고를 불러올 수 없습니다. 잠시 후 다시 시도해주세요.');
@@ -227,7 +227,7 @@ export function StageListScreen() {
               padding: '8px 14px',
               borderRadius: 20,
             }}>
-              +10 UX력
+              +20 UX력
             </span>
           </div>
         </button>
