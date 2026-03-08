@@ -9,4 +9,4 @@
 export const AD_GROUP_INTERSTITIAL = "ait-ad-test-interstitial-id";
 
 /** 보상형 광고 (힌트 사용 등) */
-export const AD_GROUP_REWARDED = "ait-ad-test-rewarded-id";
+export const AD_GROUP_REWARDED = "ait.v2.live.6c84feaec4334ddf";
