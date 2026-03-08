@@ -274,7 +274,7 @@ export default function ClutterFinderStage({
           <div
             style={{
               position: "fixed",
-              top: "16px",
+              top: "calc(env(safe-area-inset-top, 0px) + 92px)",
               right: "16px",
               padding: "6px 12px",
               backgroundColor: "#FFD700",
