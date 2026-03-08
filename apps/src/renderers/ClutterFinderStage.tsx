@@ -186,10 +186,10 @@ export default function ClutterFinderStage({
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: "calc(env(safe-area-inset-top, 0px) + 88px)",
         left: 0,
         right: 0,
-        padding: "12px 16px",
+        padding: "10px 16px",
         background: "linear-gradient(135deg, #3182F6 0%, #1B64DA 100%)",
         display: "flex",
         alignItems: "center",
