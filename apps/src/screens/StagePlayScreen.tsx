@@ -97,7 +97,7 @@ function StagePlayInner({ spec }: { spec: StageSpec }) {
         display: "flex",
         flexDirection: "column",
         height: "100dvh",
-        paddingTop: "calc(env(safe-area-inset-top, 0px) + 16px)",
+        paddingTop: "calc(env(safe-area-inset-top, 0px) + 44px)",
         background: TDS.white,
       }}
     >

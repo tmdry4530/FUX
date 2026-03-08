@@ -68,7 +68,7 @@ export function DailyChallengeScreen() {
         maxWidth: 480,
         margin: '0 auto',
         minHeight: '100dvh',
-        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
+        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 36px)',
         paddingBottom: 8,
         background: TDS.white,
         fontFamily: TDS.fontFamily,
