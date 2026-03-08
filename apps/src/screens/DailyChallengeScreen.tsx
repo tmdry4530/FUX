@@ -74,16 +74,30 @@ export function DailyChallengeScreen() {
         fontFamily: TDS.fontFamily,
       }}
     >
-      {/* 헤더: 날짜 & 스트릭 */}
+      {/* 헤더: 뒤로가기 + 날짜 & 스트릭 */}
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
           padding: '8px 20px 6px',
+          gap: 10,
         }}
       >
-        <div>
+        <button
+          onClick={() => navigate('/')}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '4px 8px 4px 0',
+            fontSize: 16,
+            color: TDS.grey900,
+            fontFamily: TDS.fontFamily,
+          }}
+        >
+          ←
+        </button>
+        <div style={{ flex: 1 }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: TDS.grey900 }}>오늘의 챌린지</div>
           <div style={{ fontSize: 12, color: TDS.grey500, marginTop: 2 }}>{formattedDate}</div>
         </div>
