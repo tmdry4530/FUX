@@ -83,7 +83,7 @@ export function StageListScreen() {
       }}
     >
       {/* 상단 헤더 영역 */}
-      <div style={{ padding: '12px 20px 10px' }}>
+      <div style={{ padding: '20px 20px 10px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
           <div>
             <h1 style={{ fontSize: 19, fontWeight: 700, color: TDS.grey900, letterSpacing: -0.5 }}>
