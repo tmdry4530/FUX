@@ -269,6 +269,12 @@ export default function ClutterFinderStage({
           paddingTop: "44px",
         }}
       >
+        <style>{`
+          @keyframes clutterPulse {
+            0%, 100% { transform: var(--rot) scale(1); }
+            50% { transform: var(--rot) scale(0.6); }
+          }
+        `}</style>
         {targetHeader}
         {params.hasSimBadge && (
           <div
@@ -293,6 +299,8 @@ export default function ClutterFinderStage({
           {clutterElements.map((element, idx) => {
             const rotation = element.rotation ?? "rotate(0deg)";
             const textColor = "#FFFFFF";
+            const duration = 2 + Math.random() * 3;
+            const delay = Math.random() * 3;
 
             return (
               <div
@@ -309,11 +317,13 @@ export default function ClutterFinderStage({
                   fontWeight: "500",
                   borderRadius: "4px",
                   cursor: "pointer",
-                  transform: rotation,
                   boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
                   whiteSpace: "nowrap",
                   zIndex: element.zIndex,
-                }}
+                  // @ts-ignore CSS custom property
+                  "--rot": rotation,
+                  animation: `clutterPulse ${duration}s ease-in-out ${delay}s infinite`,
+                } as React.CSSProperties}
               >
                 {element.label}
               </div>
