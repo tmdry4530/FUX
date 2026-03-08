@@ -70,7 +70,7 @@ export function DailyChallengeScreen() {
         minHeight: '100dvh',
         paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
         paddingBottom: 16,
-        background: TDS.bgGrey,
+        background: TDS.white,
         fontFamily: TDS.fontFamily,
       }}
     >
@@ -81,7 +81,6 @@ export function DailyChallengeScreen() {
           alignItems: 'center',
           height: 44,
           padding: '0 16px',
-          background: TDS.white,
           position: 'sticky',
           top: 0,
           zIndex: 10,

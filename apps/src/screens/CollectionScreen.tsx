@@ -25,7 +25,7 @@ export function CollectionScreen() {
         minHeight: '100dvh',
         paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
         paddingBottom: 16,
-        background: TDS.bgGrey,
+        background: TDS.white,
         fontFamily: TDS.fontFamily,
       }}
     >
